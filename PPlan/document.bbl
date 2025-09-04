@@ -72,6 +72,43 @@
       \field{title}{Photoluminescence --- {Wikipedia}{,} The Free Encyclopedia}
       \field{year}{2025}
     \endentry
+    \entry{harvie2023olia}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=f2f07794b230a9efdee7f7bd1755b187}{%
+           family={Harvie},
+           familyi={H\bibinitperiod},
+           given={Andrew\bibnamedelima J},
+           giveni={A\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+        {{hash=7d5d59803420a48404b282fe94913eb9}{%
+           family={Mello},
+           familyi={M\bibinitperiod},
+           given={John\bibnamedelima C},
+           giveni={J\bibinitperiod\bibinitdelim C\bibinitperiod},
+           prefix={de},
+           prefixi={d\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Frontiers Media SA}%
+      }
+      \strng{namehash}{0150730a59a3815a8d0ae74e76fa1658}
+      \strng{fullhash}{0150730a59a3815a8d0ae74e76fa1658}
+      \strng{fullhashraw}{0150730a59a3815a8d0ae74e76fa1658}
+      \strng{bibnamehash}{0150730a59a3815a8d0ae74e76fa1658}
+      \strng{authorbibnamehash}{0150730a59a3815a8d0ae74e76fa1658}
+      \strng{authornamehash}{0150730a59a3815a8d0ae74e76fa1658}
+      \strng{authorfullhash}{0150730a59a3815a8d0ae74e76fa1658}
+      \strng{authorfullhashraw}{0150730a59a3815a8d0ae74e76fa1658}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Frontiers in Sensors}
+      \field{title}{OLIA: An open-source digital lock-in amplifier}
+      \field{volume}{4}
+      \field{year}{2023}
+      \field{pages}{1102176}
+      \range{pages}{1}
+    \endentry
   \enddatalist
 \endrefsection
 \endinput

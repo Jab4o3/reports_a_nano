@@ -62,13 +62,9 @@ style=ieee,
 	
 	Before doing anything else, the raw sensor data needs to be extracted and then fed to a lock-in amplifier. This should be done in a standardized manner, in order to facilitate testing with different devices. After establishing connection, a control interface needs to be implemented. It needs to be programmed so that it can control all necessary features of the lock-in amplifier. Following the development of the program, a custom photodetection circuit needs to be designed. The circuit should accommodate the sensors and lock-in amplifier. Lastly, an OLIA\footnote{Open Lock-In Amplifier (OLIA) is an open-source microcontroller-based lock-in amplifier. It uses common components, which makes it easy to build \cite{harvie2023olia}} circuit needs to be tested and compared to conventional lock-in systems. 
 	
-	%The assignment is designed with the intention of expanding on what AmI has already been researching. Its main purpose is to develop scalable IoT systems using OpenRemote and to do so with clear visualization.
-	
-	%There are three main parts that make up the assignment. The first one is deploying an OpenRemote instance and simulating IoT devices that communicate with it. An MQTT \footnote{MQTT stands for Message Queuing Telemetry Transport \cite{mqtt_wiki}. It is a communication protocol, mainly used for purposes relating to IoT.} setup needs to be realized, over which the data needs to be transferred from the mock devices to OpenRemote. The second part of the assignment is edge computing optimizations. They are another crucial part of the assignment, as the processing that is not done on the cloud needs to be as fast and resource-efficient as possible. Lastly, in order to test and verify the proper working of the devices, the sensor data needs to be extracted and validated by generating graphical representations of it. The data gathered throughout the project will also need to be analyzed using statistical models. These two tasks will be a part of the testing activity (see Chapter\ref{end_phase}).
-	
-	%If there is time left after finalizing the core of the project, data prediction using machine learning can also be implemented. Firmware for IoT devices is another feature that can also be developed, if there is enough time.
 	
 	\section{Assignment specifications}\label{specifications}
+	
 	%Figure \ref{openremote_diagram} shows a diagram of all the functionalities offered by OpenRemote. In brief, OpenRemote is a platform for managing IoT devices. The most important features for this project are the MQTT agents (functioning as brokers/clients) and the built-in data visualization options. 
 	
 	
@@ -85,14 +81,16 @@ style=ieee,
 	
 	
 	\chapter{Products and project objectives}
-	%This chapter describes all the required products and based on them sets up the objectives for the project.
+	This chapter describes all the required products and based on them sets up the objectives for the project.
 	
 	\section{Products}
-	%There are two types of products that need to be delivered: professional products and learning products.
+	There are several technical products that need to be delivered, all of which fall into the categories of hardware, software and test data.
 	
-	%The professional products consist of several deliverables, which need to be provided to AmI after completion of the project. The main deliverable of the project is the firmware code. Just as important are the data extraction and visualization scripts. The edge computing optimizations should also be documented and reported as a part of the final product. The final report is also an important product, as future work will require some foundation to base further research on.
+	Developing a hardware platform for measurements is the most important part of the project. An OLIA needs to be built using the available schematics. Afterwards, a printed circuit board (PCB) combining the OLIA with a photodiode subsystem.
 	
-	%The learning products are there to ensure the student (see Table \ref{involved}) has completed the learning goals for the project. The final report is also an important part of the learning products, as it demonstrates knowledge and the ability to communicate that knowledge. Another important deliverable is the learning report, which is an introspection about the project and its highlights. The last deliverable is the final presentation PowerPoint file, which is not as important as the oral presentation. However, it is still a demonstration of the acquired knowledge and skills during the project.
+	In terms of software, an application needs to be developed to process and visualize the signal readouts from a lock-in amplifier. It should be able to retrieve data from different lock-in amplifiers. Preferably. it should be written in Python, MATLAB or HTML. If necessary, modifications to the OLIA firmware will also be made. 
+	
+	Lastly, test data also needs to be delivered to the client in a digestible manner. This data should compare the OLIA solution to different lock-in systems available on the market. The most important metrics are signal-to-noise ration (SNR), bandwidth and stability. If there is enough time at the end of the project, tests with different diamond samples and alternative quantum protocols can be done.
 	
 	\section{Objectives}
 	%As the chief goal of the project is to expand AmI's pool of knowledge, the project objectives need to align with that goal. It is also important to note that the project is done as a graduation assignment, which means there are learning objectives to be completed in parallel with the professional objectives. 

@@ -8,7 +8,7 @@
 \contentsline {section}{\numberline {2.1}Products}{3}{section.2.1}%
 \contentsline {section}{\numberline {2.2}Objectives}{3}{section.2.2}%
 \contentsline {subsection}{\numberline {2.2.1}Learning objectives}{3}{subsection.2.2.1}%
-\contentsline {subsection}{\numberline {2.2.2}Professional objectives}{3}{subsection.2.2.2}%
+\contentsline {subsection}{\numberline {2.2.2}Professional objectives}{4}{subsection.2.2.2}%
 \contentsline {chapter}{\numberline {3}Project activities}{5}{chapter.3}%
 \contentsline {section}{\numberline {3.1}Start phase}{5}{section.3.1}%
 \contentsline {section}{\numberline {3.2}Realization phase}{5}{section.3.2}%

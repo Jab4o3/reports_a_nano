@@ -117,48 +117,48 @@ style=ieee,
 	
 	Lastly, test data also needs to be delivered to the client in a digestible manner. This data should compare the OLIA solution to different lock-in systems available on the market. The most important metrics are signal-to-noise ration (SNR), bandwidth and stability. If there is enough time at the end of the project, tests with different diamond samples and alternative quantum protocols can be done.
 	
-	\section{Objectives}
-	%As the chief goal of the project is to expand AmI's pool of knowledge, the project objectives need to align with that goal. It is also important to note that the project is done as a graduation assignment, which means there are learning objectives to be completed in parallel with the professional objectives. 
-	
-	%The SMART\footnote{SMART in this case stands for Specific, Measurable, Achievable, Relevant, Time-bound} method for setting goals cab be applied to this project. The goals can be made even more specific by using the mandatory deliverables for the project. SMART will simplify the bookkeeping of the whole project.
+	\subsection{Goals} \label{chap:goals}
+	% goals are tasks now, change to goals
+	Based on the MoSCoW priorities from Chapter \ref{project_boundaries}, a set of goals was created to further specify all items from each prioritization category. Every goal was designed so that its outcome results in a tangible project milestone (e.g. a deliverable).
 	
 	\begin{itemize}
-		\item Goal \#1: Complete the learning objectives of the project.
-		\item Goal \#2: Complete the professional objectives of the project.
+		\item \textbf{Goal 1}: Create a hardware setup, which measures and amplifies photodiode signals
+		\item \textbf{Goal 2}: Develop software to process and visualize lock-in amplifier signals
+		\item \textbf{Goal 3}: Compare the performance of different lock-in amplifiers
 	\end{itemize}
 	
-	\subsection{Learning objectives}
+	While these goals are practical, they are still not specific enough. To eliminate the possibility of confusion, a set of tasks were created. All tasks contribute to one of the three goals.
+	
+	\begin{itemize}
+		\item \textbf{Task 1.1}: Build an operable OLIA
+		\item \textbf{Task 1.2}: Design a photodiode PCB, which can accommodate different lock-in amplifiers
+		\item \textbf{Task 2.1}: Develop software that acquires signals and is then able to visualize them
+		%\item \textbf{Task 2.2}: Apply digital signal processing techniques to signals acquired by the software
+		\item \textbf{Task 3.1}: Use key performance metrics to compare the OLIA implementation to market solutions
+		\item \textbf{Task 3.2}: Measure OLIA performance using different diamond samples and quantum protocols
+	\end{itemize}
+	
+	\textbf{Task 1.1} is to build an OLIA amplifier, which can be used at Applied Nanotechnology's laboratory. This will be done with the technical specifications and firmware provided by Harvie and de Mello \cite{harvie2023olia}. % TODO: add more specificity after discussion
+	
+	\textbf{Task 1.2} is the follow-up to \textbf{task 1.1}. It involves the design and production of a photodiode PCB. The PCB has to output signals that are not only compatible with the OLIA, but also with lock-in amplifiers that are available on the market. % TODO: add more specificity after discussion
+	
+	\textbf{Task 2.1} is to write a application in Python, MATLAB or alternatively create an HTML-based web application. This can be done on a different setup, but ideally it will use the hardware setup from \textbf{goal 1}. % TODO: add more specificity after discussion
+	
+	%\textbf{Task 2.2} 
+	
+	\textbf{Task 3.1} follows after all previous tasks. The completed setup needs to be used to measure the performance of OLIA and compare it to other lock-in amplifiers available on the market. SNR, bandwidth and stability are the main metrics that need to be compared. % TODO: add more specificity after discussion
+	
+	\textbf{Task 3.2} is similar to \textbf{task 3.1}, but it is a much broader exploration of the OLIA implementation's performance. Using different diamond samples and quantum protocols will show how the amplifier performs and how different conditions affect it. Because the task can be used to verify the setup from \textbf{goal 1}, it can also be done before \textbf{task 3.1}.
+	
+	
+	\subsection{Deliverables}
 	\begin{enumerate}
-		\item Project plan: outline of the project
-		\item Technical report: technical documentation of the project
-		\item Learning report: reflection on the project as a learning activity
-		\item Final presentation (incl. presenting): communication of the highlights of the project 
+		\item 
 	\end{enumerate}
 	
-	\textbf{SMART}
-	\begin{itemize}
-		\item Specific: The deliverables associated with the learning objectives all have to be completed by the student and submitted for review to Saxion. The only exception is the final presentation, which includes both the digital presentation and the in-person presenting done by the student. The learning objectives are set in place so that the student can demonstrate sufficient knowledge and skills in order to obtain a diploma.
-		\item Measurable: Every deliverable has a corresponding grading rubric, which quantifies the proficiency of the student.
-		\item Achievable: The learning objectives build on top of the knowledge that the student has acquired during their study at Saxion. In order to navigate any setbacks that concern the learning objectives, the student can request feedback from the Saxion coach. All other work can be completed by the student with the use of the internet and all publicly available tools and resources.   
-		\item Relevant: Goal \#1 is aligned with the degree of the student. Learning objectives are set in place to showcase to what level the student has mastered the knowledge and competences acquired during the study.
-		\item Time-bound: Every submission has its own due date, consult Chapter \ref{plan} for more information.
-	\end{itemize}
-	\subsection{Professional objectives}
-	\begin{enumerate}
-		\item Code: main deliverable; includes everything from firmware to scripts
-		\item Visualizations: graphs corroborating the findings of the project
-		\item Documentation: a document covering the findings of the project and how to work with the code  
-	\end{enumerate}
+	%These deliverables are important for AmI, as they provide all the necessary information about the project itself and how to continue it in the future. 
 	
-	\textbf{SMART}
-	\begin{itemize}
-		\item Specific: The professional objectives were discussed with the company coach before the technical work on the project was started. The main goal of the project is to test the scalability of OpenRemote in order to prove whether or not it can be used in future (industrial) IoT projects carried out by AmI. The auxiliary goals, set in place to ensure the findings of the project are as truthful and useful as possible, are discussed in Chapters \ref{specifications} and \ref{project_boundaries}
-		\item Measurable: The project should result in clear visualizations and numbers. These outcomes should show how the speed and stability of OpenRemote scale with the number of devices. The analysis that can be performed on this data should result in an answer to the question "Is OpenRemote scalable enough?".  
-		\item Achievable: The student has the skillset to conduct the technical part of the project successfully. The physical tools that the project requires will all be provided by AmI. AmI also provides technical support in the form of the company coach.
-		\item Relevant: The project is a part of a bigger project within AmI called NOWATT. The results of the professional objectives will directly utilized by the NOWATT team. 
-		\item Time-bound: The timeline for the professional objectives needs to align with that for the learning objectives. This is so, because the project is done as a graduation assignment and the graduation deadlines are mandated by Saxion.
-	\end{itemize}
-	
+	%Additionally, the last 2 products are also there to ensure the student has completed the learning goals for the project. The final report is important too, as it demonstrates knowledge and the ability to communicate that knowledge. Another important deliverable is the learning report, which is an introspection about the project and its highlights.
 	
 	
 	

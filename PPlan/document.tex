@@ -83,20 +83,20 @@ style=ieee,
 	
 	\textbf{Must have}
 	\begin{itemize}
-		\item OLIA implementation
+		\item Hardware platform for photodetection
 		\item Software for signal processing and visualization
 	\end{itemize}
 	
 	\textbf{Should have}
 	\begin{itemize}
-		\item Tests comparing OLIA to market solutions
-		\item Hardware platform for photodetection
+		\item Tests with different diamond samples
 	\end{itemize}
 	
 	\textbf{Could have}
 	\begin{itemize}
-		\item Tests with different diamond samples
 		\item Tests with different quantum protocols
+		\item OLIA implementation
+		\item Tests comparing OLIA to market solutions
 	\end{itemize}
 	
 	\textbf{Will not have}
@@ -162,7 +162,7 @@ style=ieee,
 		\item Technical documentation
 	\end{enumerate}
 	
-	The only deliverable, which was not mentioned in Chapter \ref{chap:goals} is the technical documentation. This is because it should contain information about each of the task.
+	The only deliverable, which was not mentioned in Chapter \ref{chap:goals} is the technical documentation. This is because it should contain information about every task.
 		
 	
 	\chapter{Project activities}
@@ -227,10 +227,10 @@ style=ieee,
 	%\chapter{Costs and benefits}
 	
 	\chapter{Risk analysis}
-	%This chapter discuses the most common risks that might occur during a project like this and ways to address them. For a more detailed risk analysis, see \href{run: ./risk_analysis.xlsm}{the attached MS Excel file}. 
+	Risk analysis and management is closely related to quality assurance and is equally important. The complete risk breakdown can be found in \href{run: ./risk_analysis.xlsm}{the attached spreadsheet}. 
 	
+	In terms of technical risks, there are several, but most of them are unlikely to happen. The most impactful risk is malfunction of devices such as the 
 	
-	%The most critical issues that need to be prevented are those relating to hardware. This is because they have the biggest impact on the project, as seen in Table \ref{risk_analysis}. In order to lessen the impact of a hardware issues and supply shortages, it was decided that the software should work on a simulation before being tested on a real piece of hardware. Simulating on different levels of abstraction can help simplify the implementation of the MQTT connection and later when a working connection has been established, a more realistic and intricate hardware simulation can be done. This way, if there is a supply shortage and there are no alternative distributors, the code can still be verified more accurately. In case of hardware issues, having simulations and an expected result will mean these issues can be diagnosed early on. This has the potential of saving a lot of time later in the project.   
 	
 	\printbibliography
 	

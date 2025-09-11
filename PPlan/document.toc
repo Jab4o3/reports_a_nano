@@ -10,12 +10,14 @@
 \contentsline {subsection}{\numberline {3.1.1}Goals}{5}{subsection.3.1.1}%
 \contentsline {subsection}{\numberline {3.1.2}Deliverables}{6}{subsection.3.1.2}%
 \contentsline {chapter}{\numberline {4}Project activities}{7}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Start phase}{7}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Realization phase}{7}{section.4.2}%
-\contentsline {section}{\numberline {4.3}End phase}{7}{section.4.3}%
-\contentsline {chapter}{\numberline {5}Quality assurance}{8}{chapter.5}%
-\contentsline {chapter}{\numberline {6}Project organization}{9}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Organization}{9}{section.6.1}%
-\contentsline {section}{\numberline {6.2}Communication}{9}{section.6.2}%
-\contentsline {chapter}{\numberline {7}Planning}{10}{chapter.7}%
-\contentsline {chapter}{\numberline {8}Risk analysis}{11}{chapter.8}%
+\contentsline {section}{\numberline {4.1}Requirements}{7}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Design}{7}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Implementation}{7}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Testing}{7}{section.4.4}%
+\contentsline {section}{\numberline {4.5}Documentation}{8}{section.4.5}%
+\contentsline {chapter}{\numberline {5}Quality assurance}{9}{chapter.5}%
+\contentsline {chapter}{\numberline {6}Project organization}{10}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Organization}{10}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Communication}{10}{section.6.2}%
+\contentsline {chapter}{\numberline {7}Planning}{11}{chapter.7}%
+\contentsline {chapter}{\numberline {8}Risk analysis}{12}{chapter.8}%

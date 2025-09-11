@@ -81,10 +81,17 @@ style=ieee,
 	
 	
 	\section{Methodological approach}\label{methodological_approach}
-	%The waterfall model (see Figure \ref{phases}) was selected for this project. It is a straightforward model that is suited for assignments where the requirements do not undergo any significant changes. This is the case in this project, because the output needs to align with the goals of the overarching project AmI is working on. Another relevant strength of this model is that adhering to the methodology does not require much effort to implement once the groundwork is laid. Other models, like Scrum, require a lot of time and energy to be implemented properly, but in the waterfall model every stage follows up on what the previous set up. What is more, the chosen model is excellent for documentation. The straightforward approach to the project means there will be no retroactive editing of existing documentation. This leads to a situation where the documentation product of each phase will lead into the next. 
+	The V-Model methodology was selected, as it is well-suited for low-level projects. Figure \ref{fig:vmodel} shows a diagram of the phases of the V-Model. Unlike some software-oriented models, the V-Model is very sequential. This can sometimes be seen as detrimental, but in this case it helps with structuring the project. Another benefit of this model is that there are multiple testing activities, which underpin the quality assurance. A contentious feature of the V-Model is the heavy reliance on the initial requirements. This need for deliberate project requirements can be hard to meet, especially if the client representative is not technically proficient. However, this is not the case in this project. The requirements were extensively discussed with the client representative, based on which the project boundaries in Chapter \ref{project_boundaries} were set up.
 	
+	\begin{figure}[ht]
+		\centering
+		\includegraphics[width=0.7\linewidth]{img/vmodel}
+		\caption{V-Model diagram}
+		\label{fig:vmodel}
+	\end{figure}
+
 	\chapter{Project boundaries} \label{project_boundaries}
-	The project boundaries were initially based on the assignment form, but were later discussed with the client and refined further. %TODO: discuss
+	The project boundaries were initially based on the assignment form, but were later discussed with the client and refined further. 
 	
 	\textbf{Must have}
 	\begin{itemize}
@@ -172,19 +179,33 @@ style=ieee,
 		
 	
 	\chapter{Project activities}
+	Based on the V-Model from Chapter \ref{methodological_approach}, four types of activities can be established: requirements, design, implementation and testing. Additionally, documentation is also an activity that is integral to the project.
+	
+	\section{Requirements}
+	As already discussed, establishing requirements should be done deliberately, so that no changes need to be made during the project. Several different activities are needed for this stage of the project. One of the most productive ways of creating requirements is by collaborating with the client. Brainstorming sessions are the first step, followed by the creation of a project plan (this document). A careful review by the client is then in order, which should guarantee mutual understanding and agreement on the requirements. During the initial learning and familiarization phase of the project there is still room to modify the requirements, but after that there should be no more changes.
+	
+	\section{Design}
+	Both the high-level and low-level design phases fall into this category. The level of detail is what separates the two. In the high-level design phase, the hardware and software designs are done on a more conceptual level. This includes working out what technologies and features the products require, how they should interact and what limitations there might be. Conversely, the low-level design phase is about the details and not the big picture. Some of the central activities during this phase are drawing detailed schematics, compiling component lists and working out the specifics of the different software submodules. 
+
+	\section{Implementation}
+	Implementation activities are numerous and range in type and importance. Their goals are discussed in Chapter \ref{chap:goals}. Some of the main activities include designing the PCB using software, soldering it together with the components and writing code.
+	
+	\section{Testing}
+	Extensive testing is one of the main features of the V-Model. Because of this, there are three separate testing stages. Unit testing is a low-level procedure for verifying all submodules and subsystems work as expected. During this phase both the hardware and software submodules need to be evaluated separately. After ensuring that the proper working of all components, the integration testing phase can begin. It involves combining the different elements of the hardware and software implementations and testing how they work together. Aside from activities about validating the hardware and software integration, there should be activities for testing how the two work together, when applicable. Lastly, acceptance testing needs to be conducted. This involves verifying whether the products meet the requirements. What is even more important than the requirements is ensuring the client is satisfied with the final results.
+	
+	\section{Documentation}
+	Documenting different parts of the project is important for future work. There are many different documents which need to be delivered. The most important is the technical report, which should contain technical specifications, operation instructions, possibilities for future development and other information that might be useful to the client. Another important document is the final presentation. The document is useful as an introduction to the assignment, but what is more important is how it is presented. 
+	
 	%For the sake of simplicity the project can be broken down into 3 phases as seen in Figure \ref{phases}. Those phases are the start phase, realization phase and finalization/end phase. This simplification helps with the scheduling of the tasks. There is a task, which needs to be done throughout all phases and that task is documentation. Due to the use of the waterfall model (see Chapter \ref{methodological_approach}), every phase of the documentation activity seamlessly flows into the next. Because of this, it is indicated as separate in Figure \ref{phases}.
 	
-	
-	\section{Start phase}
 	%The start phase includes the first 2 blocks of the waterfall model (see Figure \ref{methodological_approach}). The familiarization involves getting acquainted with AmI's technical requirements and what technology they expect to be involved in the project. What is even more crucial in this period is getting familiar with the assignment and making sure the plan meets AmI's expectations. After concluding the process of familiarization, the research phase can start. It involves exploration of material that can help with building the solution and possibly looking into similar problems and their solutions. 
 	
 	%There are also several documentation activities during this phase. These activities include scheduling, risk analysis and the project plan. 
-	\section{Realization phase}
+
 	%This phase is the longest and most important of the three. The assignment should be mostly completed during this phase. The first part of realization involves implementing the different parts of the final product (firmware, visualizations of mock data, etc.). The second part is about combining the separate implementations into a single, mostly-finished, product.
 	
 	%Alongside the formerly mentioned tasks, the technical report needs to be worked on as well. The learning report should also be started before the end of the realization phase. The technical report will be prioritized over the learning report, as it requires more time and effort. The code will also require some documentation, in order to aid future work that extends the functionality of the products of this project. 
 	
-	\section{End phase}\label{end_phase}
 	%While some amount of testing will be done during realization, holistic tests can only be performed once the integration activity has concluded. After testing and fixing the product, the finalization activity can begin. During this activity, all the minor details that need attention will be addressed (e.g. code formatting).
 	
 	%During the end phase, and especially during the finalization, a lot of documentation will need to be done. Two separate presentations, one for AmI and one for Saxion, will need to be made and presented. The technical and learning report, as well as all the code documentation, will need to be finalized. 
@@ -235,7 +256,7 @@ style=ieee,
 	\chapter{Risk analysis}
 	Risk analysis and management is closely related to quality assurance and is equally important. The complete risk breakdown can be found in \href{run: ./risk_analysis.xlsm}{the attached spreadsheet}. 
 	
-	In terms of technical risks, there are several, but most of them are unlikely to happen. The most impactful risk is malfunction of devices such as the 
+	%In terms of technical risks, there are several, but most of them are unlikely to happen. The most impactful risk is malfunction of devices such as the lock-in amplifier or the .
 	
 	
 	\printbibliography

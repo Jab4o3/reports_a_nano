@@ -22,6 +22,7 @@ colorlinks=true,urlcolor=blue,linkcolor=purple,citecolor=red
 ]{hyperref}
 \usepackage[toc]{appendix}
 \usepackage{markdown}
+\usepackage{pdflscape} % for changing page orientation
 
 \usepackage[table,xcdraw]{xcolor}
 \usepackage{adjustbox}
@@ -68,7 +69,7 @@ style=ieee,
 	
 	Most of the hardware tools are already available at the Applied Nanotechnology lab. The lock-in amplifiers which will be used for the tests are the most important pieces of hardware. Zurich Instruments HF2LI is the benchmark lock-in amplifier. There are several different photodetectors available and the one which fits the project best will be picked at a later date. 
 	
-	In terms of software, there is more freedom of choice. Interfacing with the ZI HF2LI is done through proprietary software, but this is the only required program. There are various electronic computer-aided design (ECAD) software suites that offer the same base functionality. KiCad was selected because the client prefers open-source software. The program for retrieving data from the lock-in amplifiers can be written in both Python and MATLAB. Both languages have good integration with the main lock-in amplifier. They also offer graphic user interface (GUI) programming capabilities and are good for scientific computing overall.
+	In terms of software, there is more freedom of choice. Interfacing with the HF2LI is done through proprietary software, but this is the only required program. There are various electronic computer-aided design (ECAD) software suites that offer the same base functionality. KiCad was selected because the client prefers open-source software. The program for retrieving data from the lock-in amplifiers can be written in both Python and MATLAB. Both languages have good integration with the main lock-in amplifier. They also offer graphic user interface (GUI) programming capabilities and are good for scientific computing overall.
 	
 	%Figure \ref{openremote_diagram} shows a diagram of all the functionalities offered by OpenRemote. In brief, OpenRemote is a platform for managing IoT devices. The most important features for this project are the MQTT agents (functioning as brokers/clients) and the built-in data visualization options. 
 	
@@ -113,7 +114,8 @@ style=ieee,
 	
 	\textbf{Will not have}
 	\begin{itemize}
-		\item 
+		\item Laser as a part of the hardware platform
+		\item Driver upgrade
 	\end{itemize}
 	
 	
@@ -244,7 +246,51 @@ style=ieee,
 	\section{Communication} \label{communication}
 	Online communication is convenient, because it offers instantaneous file sharing and storage. Furthermore, the Microsoft Teams environment is good for settling simple questions and issues quickly. Because of this, communication in this project will mainly be done online. However, in-person communication is also extremely important. As mentioned in \ref{quality_assurance}, discussion meetings are vital. Meeting online is possible, but presenting progress is much easier and effective when done in-person.
 	
-	\chapter{Planning}\label{plan}
+	\begin{landscape}
+		\chapter{Planning}\label{plan}
+			The general schedule, based on the phases from the V-Model, can be seen in Figure \ref{fig:gantt} in the form of a Gantt chart.
+		\begin{figure}[ht]
+			\centering
+			\includegraphics[width=1\linewidth]{img/gantt}
+			\caption{Gantt chart}
+			\label{fig:gantt}
+		\end{figure}
+		
+		Additionally, there are several important dates, which can be seen in Table \ref{tab:dates}. Most significant of all is the deadline for the Learning and the Technical Report (LR and TR). Some dates are not determined yet, so they have been left as "to be discussed" (TBD). 
+	
+	\end{landscape}
+		\begin{table}[ht]
+			\centering
+		\begin{tabular}{|c|c|c|c|}
+			\hline
+			Name & Type & Week & Date \\
+			\hline
+			Project plan & Deliverable due date & W1.3 & 19.09.2025 \\
+			\hline
+			Company visit 1 & Visit & W1.5 & TBD \\
+			\hline
+			Draft LR/TR & Deliverable due date & W1.9 & 07.11.2025 \\
+			\hline
+			Concept LR/TR & Deliverable due date & W2.4 & 12.12.2025 \\
+			\hline
+			Go/no go visit & Visit & W2.6 & TBD \\
+			\hline
+			Concept LR/TR & Deliverable due date & W2.8 & 22.01.2026 \\
+			\hline
+			Company grade & Grade deadline & W2.9 & 29.01.2026 \\
+			\hline
+			Company presentation & Presentation & TBD & TBD \\
+			\hline
+			Final presentation & Presentation & W2.10 & TBD \\
+			\hline
+		\end{tabular}
+		\caption{Important dates}
+		\label{tab:dates}
+	\end{table}
+		
+		
+		
+	
 	%This chapter discusses the scheduling of the project. The schedule was created using a Gantt chart (see Figure \ref{fig:gantt}), which contributes to the established structure of the project.
 	
 	%The deliverables are also a part of the planning. The project plan should be done a week before the end of the start phase. Using in, the functional and technical design chapters of the technical report can be completed. The report can then be submitted before the start of the finalization activity, aong with the code, visualizations and all other technical deliverables. The final presentation needs to be delivered within the first week of the the finalization activity. To ensure delays do not cause problems with meeting deadlines, all the dates have a buffer time of about a week.

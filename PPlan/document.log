@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.6.12)  11 SEP 2025 14:26
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.6.12)  15 SEP 2025 14:43
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -542,7 +542,21 @@ Package: fancyvrb 2024/01/20 4.5c verbatim text (tvz,hv)
 \markdownLaTeXTable=\toks32
 \markdownLaTeXTableAlignment=\toks33
 \markdownLaTeXTableEnd=\toks34
-) (C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/latex/colortbl\colortbl.sty
+)
+(C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/latex/pdflscape\pdflscape.sty
+Package: pdflscape 2022-10-27 v0.13 Display of landscape pages in PDF
+
+(C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/latex/pdflscape\pdflscape-nom
+etadata.sty
+Package: pdflscape-nometadata 2022-10-28 v0.13 Display of landscape pages in PD
+F (HO)
+
+(C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/latex/graphics\lscape.sty
+Package: lscape 2020/05/28 v3.02 Landscape Pages (DPC)
+)
+Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
+))
+(C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/latex/colortbl\colortbl.sty
 Package: colortbl 2024/10/29 v1.0k Color table columns (DPC)
 
 (C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/latex/tools\array.sty
@@ -900,24 +914,24 @@ Package csquotes Info: Redefining alias 'default' -> 'english'.
  (document.aux)
 \openout1 = `document.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 47.
-LaTeX Font Info:    ... okay on input line 47.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 47.
-LaTeX Font Info:    ... okay on input line 47.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 47.
-LaTeX Font Info:    ... okay on input line 47.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 47.
-LaTeX Font Info:    ... okay on input line 47.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 47.
-LaTeX Font Info:    ... okay on input line 47.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 47.
-LaTeX Font Info:    ... okay on input line 47.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 47.
-LaTeX Font Info:    ... okay on input line 47.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 47.
-LaTeX Font Info:    ... okay on input line 47.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 47.
-LaTeX Font Info:    ... okay on input line 47.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 48.
+LaTeX Font Info:    ... okay on input line 48.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 48.
+LaTeX Font Info:    ... okay on input line 48.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 48.
+LaTeX Font Info:    ... okay on input line 48.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 48.
+LaTeX Font Info:    ... okay on input line 48.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 48.
+LaTeX Font Info:    ... okay on input line 48.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 48.
+LaTeX Font Info:    ... okay on input line 48.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 48.
+LaTeX Font Info:    ... okay on input line 48.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 48.
+LaTeX Font Info:    ... okay on input line 48.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 48.
+LaTeX Font Info:    ... okay on input line 48.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -982,7 +996,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 fg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
-Package hyperref Info: Link coloring ON on input line 47.
+Package hyperref Info: Link coloring ON on input line 48.
  (document.out) (document.out)
 \@outlinefile=\write7
 \openout7 = `document.out'.
@@ -1002,15 +1016,15 @@ Package biblatex Info: Automatic encoding selection.
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'document.bbl' found.
  (document.bbl)
-Package biblatex Info: Reference section=0 on input line 47.
-Package biblatex Info: Reference segment=0 on input line 47.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 49.
+Package biblatex Info: Reference section=0 on input line 48.
+Package biblatex Info: Reference segment=0 on input line 48.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 50.
 
 
 (C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 49.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 50.
 
 
 (C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
@@ -1031,7 +1045,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.52 	\chapter
+l.53 	\chapter
               {Introduction} [1
 
 ]
@@ -1044,7 +1058,7 @@ Chapter 1.
 <img/vmodel.png, id=146, 330.7557pt x 246.6816pt>
 File: img/vmodel.png Graphic file (type png)
 <use img/vmodel.png>
-Package pdftex.def Info: img/vmodel.png  used on input line 88.
+Package pdftex.def Info: img/vmodel.png  used on input line 89.
 (pdftex.def)             Requested size: 298.75264pt x 222.81311pt.
 
 
@@ -1084,19 +1098,29 @@ Chapter 6.
 
 ]
 Chapter 7.
+<img/gantt.png, id=199, 1337.74782pt x 298.11375pt>
+File: img/gantt.png Graphic file (type png)
+<use img/gantt.png>
+Package pdftex.def Info: img/gantt.png  used on input line 254.
+(pdftex.def)             Requested size: 731.23584pt x 162.95776pt.
 
 
 [11
+
+
+ <./img/gantt.png>]
+
+[12
 
 ]
 Chapter 8.
 
 
-[12
+[13
 
 ]
 
-[13
+[14
 
 ] (document.aux)
  ***********
@@ -1110,10 +1134,10 @@ Package logreq Info: Writing requests to 'document.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 26269 strings out of 468224
- 500835 string characters out of 5432952
- 1357082 words of memory out of 5000000
- 54398 multiletter control sequences out of 15000+600000
+ 26358 strings out of 468224
+ 503271 string characters out of 5432952
+ 1357994 words of memory out of 5000000
+ 54474 multiletter control sequences out of 15000+600000
  637102 words of font info for 79 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  99i,9n,123p,963b,1872s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1131,9 +1155,9 @@ s/vladi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsl10.pfb
 ><C:/Users/vladi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/c
 mti10.pfb><C:/Users/vladi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsf
 onts/cm/cmtt10.pfb>
-Output written on document.pdf (14 pages, 275979 bytes).
+Output written on document.pdf (15 pages, 312574 bytes).
 PDF statistics:
- 283 PDF objects out of 1000 (max. 8388607)
- 50 named destinations out of 1000 (max. 500000)
- 182 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 293 PDF objects out of 1000 (max. 8388607)
+ 53 named destinations out of 1000 (max. 500000)
+ 187 words of extra memory for PDF output out of 10000 (max. 10000000)
 

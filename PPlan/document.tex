@@ -54,9 +54,17 @@ style=ieee,
 	This chapter introduces the assignment and some foundational concepts of quantum sensing.
 	
 	\section{Background}
-	Nitrogen-vacancy (NV) centers \cite{enwiki:1301369588} are imperfections in the atomic structure of diamonds, which have the useful property of spin-dependent luminescence. This means that the spin of the NV center affects the frequency of the light emitted by the structure\footnote{The NV center only emits light after absorbing photons, a phenomenon called photoluminescence \cite{enwiki:1309081879}}. Using this quality of the NV structure, different environmental metrics (e.g magnetic fields) can be measured. 
+	Nitrogen-vacancy (NV) centers \cite{enwiki:1301369588} are imperfections in the atomic structure of diamonds. The two types of NV centers are NV0 and NV-, as seen in Figure \ref{fig:nvcenter}, but the NV- structure is much more commonly used in quantum applications. These imperfections have the useful property of spin-dependent luminescence. This means that the spin of the NV center affects the frequency of the light emitted by the structure\footnote{The NV center only emits light after absorbing photons, a phenomenon called photoluminescence \cite{enwiki:1309081879}}. Using this quality of the NV structure, different environmental metrics (e.g magnetic fields) can be measured. 
 	
 	The Applied Nanotechnology research group is working on a NV-center-based sensor setup. Processing data from the setup requires working with weak signals that are hard to distinguish from the environmental noise. While this is a significant problem, it is also a very common one. Because of this, there is already widely-used system used to isolate signals in such cases: the lock-in amplifier.
+	
+	\begin{figure}[ht]
+		\centering
+		\includegraphics[width=0.7\linewidth]{img/nv_center}
+		\caption{NV0 (a) and NV- (b) structures in diamonds (image credit to Haque et al \cite{haque2017overview})}
+		\label{fig:nvcenter}
+	\end{figure}
+	
 	
 	\section{Purpose of the assignment}\label{purpose}
 	Implementing a lock-in amplifier is the main purpose of the assignment. To create a complete solution, there are several different functionalities and systems that need to be developed. 
@@ -70,16 +78,6 @@ style=ieee,
 	Most of the hardware tools are already available at the Applied Nanotechnology lab. The lock-in amplifiers which will be used for the tests are the most important pieces of hardware. Zurich Instruments HF2LI is the benchmark lock-in amplifier. There are several different photodetectors available and the one which fits the project best will be picked at a later date. 
 	
 	In terms of software, there is more freedom of choice. Interfacing with the HF2LI is done through proprietary software, but this is the only required program. There are various electronic computer-aided design (ECAD) software suites that offer the same base functionality. KiCad was selected because the client prefers open-source software. The program for retrieving data from the lock-in amplifiers can be written in both Python and MATLAB. Both languages have good integration with the main lock-in amplifier. They also offer graphic user interface (GUI) programming capabilities and are good for scientific computing overall.
-	
-	%Figure \ref{openremote_diagram} shows a diagram of all the functionalities offered by OpenRemote. In brief, OpenRemote is a platform for managing IoT devices. The most important features for this project are the MQTT agents (functioning as brokers/clients) and the built-in data visualization options. 
-	
-	
-	%The languages used for this project will be Python and C/C++. The extensive and varied catalog of Python packages makes the language better for tasks where simplicity is valued over speed. Because of this, during the project, Pyhton will be used for modeling and visualization of the data. The MQTT communication can be done using both, which means they need to be evaluated during the project to see which one suits it better.
-	
-	%Data visualization and modeling will both be done, at least partially, in Python. `matplotlib` is one of the most widely-used packages for data visualization and because of this it was chosen for this project as well. Because OpenRemote has built in features for data plotting, it will also be used for some visuals. Data modeling, using statistical models, will be done in order to make sure the final product is configured in the optimal way. The optimal configuration will balance performance and service availability. Python's relevant features are the reason it was chosen for this task as well. 
-	
-	%The extra features will use the same languages. C/C++ is more suited to low-level applications, so it will be used for the firmware. Python has a plethora of features and packages that make it good specifically for machine learning, so data prediction will be done in Python.
-	
 	
 	\section{Methodological approach}\label{methodological_approach}
 	The V-Model methodology was selected, as it is well-suited for low-level projects. Figure \ref{fig:vmodel} shows a diagram of the phases of the V-Model. Unlike some software-oriented models, the V-Model is very sequential. This can sometimes be seen as detrimental, but in this case it helps with structuring the project. Another benefit of this model is that there are multiple testing activities, which underpin the quality assurance. A contentious feature of the V-Model is the heavy reliance on the initial requirements. This need for deliberate project requirements can be hard to meet, especially if the client representative is not technically proficient. However, this is not the case in this project. The requirements were extensively discussed with the client representative, based on which the project boundaries in Chapter \ref{project_boundaries} were set up.
@@ -171,7 +169,7 @@ style=ieee,
 	
 	\begin{enumerate}
 		\item Photodetection PCB 
-		\item OLIA
+		\item OLIA implementation
 		\item Software application
 		\item Comparison visualization
 		\item Technical documentation
@@ -197,22 +195,6 @@ style=ieee,
 	
 	\section{Documentation}
 	Documenting different parts of the project is important for future work. There are many different documents which need to be delivered. The most important is the technical report, which should contain technical specifications, operation instructions, possibilities for future development and other information that might be useful to the client. Another important document is the final presentation. The document is useful as an introduction to the assignment, but what is more important is how it is presented. 
-	
-	%For the sake of simplicity the project can be broken down into 3 phases as seen in Figure \ref{phases}. Those phases are the start phase, realization phase and finalization/end phase. This simplification helps with the scheduling of the tasks. There is a task, which needs to be done throughout all phases and that task is documentation. Due to the use of the waterfall model (see Chapter \ref{methodological_approach}), every phase of the documentation activity seamlessly flows into the next. Because of this, it is indicated as separate in Figure \ref{phases}.
-	
-	%The start phase includes the first 2 blocks of the waterfall model (see Figure \ref{methodological_approach}). The familiarization involves getting acquainted with AmI's technical requirements and what technology they expect to be involved in the project. What is even more crucial in this period is getting familiar with the assignment and making sure the plan meets AmI's expectations. After concluding the process of familiarization, the research phase can start. It involves exploration of material that can help with building the solution and possibly looking into similar problems and their solutions. 
-	
-	%There are also several documentation activities during this phase. These activities include scheduling, risk analysis and the project plan. 
-
-	%This phase is the longest and most important of the three. The assignment should be mostly completed during this phase. The first part of realization involves implementing the different parts of the final product (firmware, visualizations of mock data, etc.). The second part is about combining the separate implementations into a single, mostly-finished, product.
-	
-	%Alongside the formerly mentioned tasks, the technical report needs to be worked on as well. The learning report should also be started before the end of the realization phase. The technical report will be prioritized over the learning report, as it requires more time and effort. The code will also require some documentation, in order to aid future work that extends the functionality of the products of this project. 
-	
-	%While some amount of testing will be done during realization, holistic tests can only be performed once the integration activity has concluded. After testing and fixing the product, the finalization activity can begin. During this activity, all the minor details that need attention will be addressed (e.g. code formatting).
-	
-	%During the end phase, and especially during the finalization, a lot of documentation will need to be done. Two separate presentations, one for AmI and one for Saxion, will need to be made and presented. The technical and learning report, as well as all the code documentation, will need to be finalized. 
-	
-	
 	
 	
 	\chapter{Quality assurance}\label{quality_assurance}
@@ -297,7 +279,10 @@ style=ieee,
 	
 	
 	
-	%\chapter{Costs and benefits}
+	\chapter{Costs and benefits}
+	The direct costs associated with the project are minimal. Largest of all is the monetary compensation of the student. Manufacturing is not a major expense, because there needs to be only one setup. However, the exact cost cannot be easily pinpointed due to the fact that there might be several iterations of the PCBs before settling on one. That being said, the manufacturing cost, combined with the component costs, should still be in the hundreds of euros. There might also be some indirect costs, but they cannot be calculated due to the fact that all lab facilities are shared. It is important to mention that, even though they are not quantifiable, there are some opportunity costs. They arise from the sharing of lock-in amplifiers with researchers, which slows down their progress. Intangible costs were not deemed impactful enough to be included in the cost-benefit analysis (CBA) for this specific project. 
+	
+	Direct benefits are not expected from this project. Research and education are the main purposes of the setup, so it will not be directly profitable. However, there are a number of indirect and intangible benefits to the project. Using the setup as a tool for future research is important to the research group and will probably lead to direct benefits at some point in the future. Educating quantum computing experts is also a significant undertaking. It requires a significant amount of educators, but it also promises direct benefits in the future.
 	
 	\chapter{Risk analysis}
 	Risk analysis and management is closely related to quality assurance and is equally important. The complete risk breakdown can be found in \href{run: ./risk_analysis.xlsm}{the attached spreadsheet}. 

@@ -2,7 +2,7 @@
 \contentsline {chapter}{\numberline {1}Introduction}{2}{chapter.1}%
 \contentsline {section}{\numberline {1.1}Background}{2}{section.1.1}%
 \contentsline {section}{\numberline {1.2}Purpose of the assignment}{2}{section.1.2}%
-\contentsline {section}{\numberline {1.3}Assignment specifications}{2}{section.1.3}%
+\contentsline {section}{\numberline {1.3}Assignment specifications}{3}{section.1.3}%
 \contentsline {section}{\numberline {1.4}Methodological approach}{3}{section.1.4}%
 \contentsline {chapter}{\numberline {2}Project boundaries}{4}{chapter.2}%
 \contentsline {chapter}{\numberline {3}Products and project objectives}{5}{chapter.3}%
@@ -20,4 +20,5 @@
 \contentsline {section}{\numberline {6.1}Organization}{10}{section.6.1}%
 \contentsline {section}{\numberline {6.2}Communication}{10}{section.6.2}%
 \contentsline {chapter}{\numberline {7}Planning}{11}{chapter.7}%
-\contentsline {chapter}{\numberline {8}Risk analysis}{13}{chapter.8}%
+\contentsline {chapter}{\numberline {8}Costs and benefits}{13}{chapter.8}%
+\contentsline {chapter}{\numberline {9}Risk analysis}{14}{chapter.9}%

@@ -1,0 +1,330 @@
+\chapter{Technical design} \label{chap:tech_design}
+% describe specific implementation details
+
+
+\section{OpenRemote deployment}
+There are two types of OpenRemote instances: local and remote. Depending on the type, some of changes might need to be made to the code. The main reason for this is that the code was developed on a local instance, using a unsecured (port 1883) MQTT connection. Remote deployments need to use a TLS/SSL\footnote{The Transport Layer Security (TLS) protocol is commonly used to establish secure connections over the internet \cite{wiki-tls} . The name is also used interchangeably with Secure Sockets Layer (SSL), which is an older protocol that was used for the same purpose in the past.} (port 8883) MQTT connection. 
+
+\subsection{Local instance modifications}
+Because the code was written on a local instance, little needs to be changed. 
+
+Firstly, the Python library used for MQTT does not work with self-signed certificates\footnote{TLS/SSl certificates \cite{wiki-tls} for websites are most commonly signed by a third party, known as a certificate authority, to ensure their legitimacy. Self-signed certificates are not signed by an authority, which leads to safety concerns and using them is discouraged.}, which means the port for unsecured MQTT (port 1883) needs to be exposed. This is not done by the standard OpenRemote deployments, so the port needs to be mapped in Docker. Exposing the port can be done in the \lstinline|docker-compose.yml| file , as seen in Figure \ref{fig:port1883} on line 66.
+
+Secondly, the code that makes HTTP\footnote{Hypertext Transfer Protocol (HTTP) is a widespread protocol used for communication over the internet \cite{wiki-http}.} calls to the API need to have their certificate verification disabled. This can be done by adding the flag verify=False in all the HTTP requests.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=.75\linewidth]{images/port1883.png}
+    \caption{Port mapping in Docker}
+    \label{fig:port1883}
+\end{figure}
+
+\subsection{Remote instance modifications}
+Testing on a remote OpenRemote instance was not done during the project, but most of the code is the same as the local instance code.
+
+The main change is that MQTT communication should be implemented on port 8883. While not mandatory, TLS/SSL MQTT is used to ensure safe data transfer. The certificate validation can be done with the Python package \lstinline{certifi} \cite{certifi-pypi}.
+
+Using HTTPS is very similar to using HTTP. Because safety and privacy were outside the scope of the project, more attention might be needed when handling user information.  
+
+
+\section{Scalability testing}
+This chapter discusses the implementation of the scalability test, which is demonstrated later in Chapter \ref{chap:func_test}. Three main components make up this test and those components are hardware emulation, HTTP API calls and MQTT client-broker communication. The whole scalability test was implemented in Python and the communication part was also used when developing the hardware platform. Figure \ref{fig:scalability_test} shows a high-level flowchart of the program. The MQTT subscribe and publish part of the script is executed in parallel for every device, which is why the block is divided into N parts.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.75\linewidth]{images/scalability_test.png}
+    \caption{Scalability test flowchart}
+    \label{fig:scalability_test}
+\end{figure}
+
+\subsection{Hardware emulation} \label{chap:hardware-emulation}
+% create software models of edge devices (e.g. Raspberry Pis) which gather data from a number of sensors and send it to OpenRemote as JSON files
+Device emulation is meant to simulate the data output of real smart households without needing to configure tens or hundreds of physical devices. As a result, the emulations only need to keep track of the different attributes and to use MQTT for data transfer. A class called \lstinline|SensorHub| was created to keep track of devices, which virtually function like an Arduino, or a similar microcontroller, connected to a set of sensors and smart devices that can be interacted with through OpenRemote.
+
+Three main parameters need to be communicated to OpenRemote and those are the total power consumption, the PV energy production and the grid power usage. The calculation method for the total energy consumption of a household uses annual data from Wahlstrom et al. \cite{wahlstrom2015residential}, which has a normal distribution. This method of calculation has known limitations, because it does not consider the time of day and weather changes, both of which impact the energy needs and consequently consumption of the residents of real houses. Equation \ref{eq:consumption} shows how the power is calculated. The coefficient $\xi$ is introduced to get closer values to the expected ones. 
+
+\begin{equation}\label{eq:consumption}
+    \Delta P_c = \xi\frac{X}{t_{year}} \space for \space X \sim \mathcal{N}(23709,9707^2)
+\end{equation}
+
+%Possible time of day adjustments: \cite{bindu2023energy}
+
+PV power production is emulated based on the observations of Hemmati et al. \cite{hemmati2017stochastic}. The calculations of the PV power are based on the time of day, which is the main factor that impacts their power output. Other factors like weather, cell health and dirtiness were not taken into account. The formula used to calculate the solar energy can be seen in Equation \ref{eq:solar}, using the set of 24 values from the study for $X$. Because the two different studies explore different parts of the world, the data was adjusted by a constant factor $\xi$ in order for it to mimic expected values.
+\begin{equation}\label{eq:solar}
+    \Delta P_{pv} = \xi\frac{X + \varphi}{t_{hour}} \space for \space X \in [X_0, X_1,\dotsc,X_{23}]
+\end{equation}
+
+In order to calculate the smoothing coefficient $\varphi$, the formula from Equation \ref{eq:solar_smoothing} is used. Smoothing is done by applying a fraction of the difference between the current and the next data sample. The percentage of the difference is determined by the minutes of the current time ($t_{curr}$ in Equation \ref{eq:solar_smoothing}).
+
+\begin{equation}\label{eq:solar_smoothing}
+    \varphi = \frac{t_{curr}}{60}(X_{i+1} - X_{i})
+\end{equation}
+
+Grid energy usage can be calculated by taking the total energy usage and subtracting the PV energy. If the value is negative, then PV system has produced more power than the household needs and that power can be put into the grid.
+
+%Figure \ref{fig:test_1} shows an example plot using a $\Delta t$ with a uniform distribution between 3 and 7 seconds. A uniform distribution with such wide margins is good for triggering rules, but for a more realistic result, $\Delta t$ should be generated using a normal distribution with a small standard deviation. The data in Figure \ref{fig:test_2} was calculated using $\Delta t\sim \mathcal{N}(6.5, 0.5)$.
+
+In addition to these three parameters, OpenRemote keeps track of 3 devices per \lstinline|SensorHub|: a washing machine, a fridge and a boiler. Each "device" sends power, current and voltage readings to OpenRemote. A limiting factor when designing the data output simulation of the devices was the lack of any substantial research on the electrical specifications of generic versions of these devices. Because of this, each device is based on specifications of a specific model of an appliance, as given in their respective datasheet. 
+\begin{itemize}
+    \item Washing machine: Bosch WGB244ACNL
+    \item Fridge: Siemens KG39E8XBA
+    \item Boiler: Bosch Tronic 7501T
+\end{itemize}
+
+\subsection{HTTP communication} \label{http_com}
+In order to test the scalability of OpenRemote, a process that simulates communication with smart homes was designed. Every API endpoint mentioned in this chapter starts with \lstinline|{base_address}/api|\footnote{\lstinline|base_address| is the manager URL, e.g. \lstinline|https://localhost| for local instances}, except for the authentication endpoint, which starts with \lstinline|{base_address}|.
+
+
+
+\subsubsection{Authentication}\label{auth_chap}
+In order to work with most of the API endpoints, the API interface program must function as an authenticated service user. This can be done with an OAuth authentication using a service user's credentials (as described in \cite{auth-setup}). 
+
+After submitting a POST request to \lstinline|/auth/realms/master/protocol/openid-connect/token| with the username and secret of the user, OpenRemote should return something similar to Figure \ref{fig:token-request} 
+\begin{figure}[h]
+    \centering
+    \begin{lstlisting}[language=json,firstnumber=1]
+{'access_token': 'some_token', 
+ 'expires_in': 60, 
+ 'refresh_expires_in': 0, 
+ 'token_type': 'Bearer', 
+ 'not-before-policy': 0, 
+ 'scope': 'profile email'}
+\end{lstlisting}
+    \caption{Response to token request}
+    \label{fig:token-request}
+\end{figure}
+
+The token needs to be attached to the header of the following requests so the identity of the user can be verified.
+
+\subsubsection{Device creation}
+To create a device, the script needs to send a POST request to \lstinline|/master/realms/master/asset|. The headers need to specify the type of the content the script wants to send. In this case the content type is "application" with JSON formatting. As mentioned in Chapter \ref{auth_chap}, the header also needs to contain the authentication token. The data must adhere to the schema seen in Figure \ref{fig:asset} in order for the request to be successful. It is very important that the \lstinline|createdOn| time string adheres to the format \lstinline{"%Y-%m-%dT%H:%M:%SZ"}. A complete request looks like what can be seen in Figure \ref{fig:asset-create-request}. 
+
+To keep separate tests more organized, an MQTT agent is created at the start of every test run and all other assets are assigned it as a parent. This way, assets with the same name, but from different tests can be differentiated.
+
+\begin{figure}[ht]
+    \centering
+    \begin{lstlisting}[language=curl,firstnumber=1]
+curl -L 'https://localhost/api/master/asset' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer {some_token}' \
+-d '{
+  "id": "string",
+  "version": 0,
+  "createdOn": "time_string",
+  "name": "string",
+  "accessPublicRead": false,
+  "parentId": "string",
+  "realm": "master",
+  "type": "ThingAsset",
+  "path": [
+    "string"
+  ],
+  "attributes": dict()
+}'
+\end{lstlisting}
+    \caption{Asset creation request}
+    \label{fig:asset-create-request}
+\end{figure}
+
+
+\subsubsection{Rule creation}
+Rules are created as global objects, so that they can be accessed by both the script and the admin GUI. Sending a POST request to \lstinline|/master/realms| with the correct data formatting results in a rule being created. Figure \ref{fig:rule-create-request} shows the request along with the data. As before, the time string needs to be in the format \lstinline{"%Y-%m-%dT%H:%M:%SZ"}. \lstinline{"rules"} stores the ruleset, which is always in a when-then JSON format (see Chapter \ref{rules}).
+\begin{figure}[ht]
+    \centering
+    \begin{lstlisting}[language=curl,firstnumber=1]
+curl -L 'https://localhost/api/master/rules' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer {some_token}' \
+-d '{
+  "type": "global",
+  "id": 0,
+  "version": 0,
+  "createdOn": "time_string",
+  "lastModified": "time_string",
+  "name": "string",
+  "enabled": true,
+  "rules": "string",
+  "lang": "JSON"
+}'
+\end{lstlisting}
+    \caption{Rule creation request}
+    \label{fig:rule-create-request}
+\end{figure}
+
+\subsubsection{Dashboard creation}
+The process of creating a dashboard is similar to the rule creation process. The POST request needs to be sent to \lstinline|/master/dashboard| this time. The \lstinline|createdOn| time string needs to be in the format \lstinline{"%Y-%m-%dT%H:%M:%SZ"}. Figure \ref{fig:dashboard-create-request} shows the request.
+
+Dashboards are the framework used to organize the different plots, but the real plots are stored in widgets. Widgets do not only contain the type of plot and its attributes, they also store their own coordinates on a dashboard. 
+
+\begin{figure}[ht]
+    \centering
+    \begin{lstlisting}[language=curl,firstnumber=1]
+curl -L 'https://localhost/api/master/dashboard' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer {some_token}' \
+-d '{
+  "id": "string",
+  "createdOn": "time_string",
+  "realm": "master",
+  "version": 0,
+  "ownerId": "string",
+  "viewAccess": "SHARED",
+  "editAccess": "SHARED",
+  "displayName": "string",
+  "template": {
+    "id": "string",
+    "columns": int,
+    "maxScreenWidth": int,
+    "refreshInterval": "OFF",
+    "screenPresets": list of dict(),
+    "widgets": dict()
+  }
+}'
+\end{lstlisting}
+    \caption{Dashboard creation request}
+    \label{fig:dashboard-create-request}
+\end{figure}
+
+\subsection{MQTT communication}
+While MQTT is a simpler protocol than HTTP, the MQTT part of this project is more complicated. This is partially due to the need to involve multi-threading in order to simulate different devices communicating with OpenRemote. Figure \ref{fig:scalability_test} shows a simplified process, but Figure \ref{fig:mqtt_communication} is more realistic. In it, every block is made up of parallel operations, which are applied to all MQTT clients. At the start of the MQTT part of the code, all clients are initialized in parallel, which is not mandatory but saves around 1 second per client. Then, the program creates 2 threads for each client, one of which publishes the generated data and the other subscribing and waiting for a message.  
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.40\linewidth]{images/mqtt_communication.png}
+    \caption{MQTT communication}
+    \label{fig:mqtt_communication}
+\end{figure}
+
+Data transmission happens via JSON objects, which contain the data for all attributes and are parsed by OpenRemote on reception.
+
+Waiting for transmission is less involved, as the subscription threads are blocked until the \lstinline|on_message| callback is called or the exit flag is enabled. 
+
+\section{ESP32 setup}
+There is a lot of overlap between the ESP32 setup and the hardware emulation, especially when it comes to the gateway. This chapter does not cover the similarities and instead focuses on the differences. WLAN setup was also omitted for the sake of brevity.
+
+The coded for the ESP32 is written in the Arduino language. The only external libraries that are needed are \lstinline|ArduinoJson| \cite{arduino_json} and \lstinline|PicoMQTT|\cite{pico_mqtt}. \lstinline|PicoMQTT| is used to set up the ESP32 as the broker and establish a connection to the smart plug and the computer. It uses the \lstinline|ArduinoJson| library to serialize/deserialize JSON objects. 
+
+\subsection{Smart plug}
+The smart plug used in this project is the Delock 11827. Using a different smart plug in the future may require different setup and changes to the Arduino code, but it should not affect any of the Python scripts. 
+
+\subsubsection{Setup}
+To ensure proper communication, the smart plug needs to be reset to factory settings. This can be done by holding the power button for 20 seconds or more. If a network called \lstinline|delock-XXXX|\footnote{The \lstinline|XXXX| in the WLAN name is a string of four digits} appears, then the smart plug is using the default settings.
+
+Next, the MQTT communication needs to be set up. This requires connecting to the \lstinline|delock-XXXX| WLAN. After successfully connecting, a prompt shows up, asking for an SSID and a password. Entering the details of the network, which the ESP32 is connected to, leads to the smart plug commencing communication. It is recommended that a static IP address is assigned to the plug.
+
+The complete setup requires several other steps as well. Most of the default settings can be kept, but some need to be changed. The smart plug has an interface that can be used through a browser by entering the IP of the plug. Using the interface, the MQTT settings can be changed by going to \lstinline|"MQTT setup"|. There, the publish endpoint needs to be changed to match the subscription endpoint of the broker (e.g. \lstinline{"esp32/smart_plug"}). After that, the MQTT publish time needs to be lowered from the console. This can be done by entering the command \lstinline|TelePeriod <secs>|\footnote{\lstinline|<secs>| is the number of seconds between transmissions and should be an integer value between 10 and 3600. By default, the value is set to 300}.
+
+\subsubsection{Data formatting}
+As shown in Figure \ref{fig:smart_plug_endpoints}, the smart plug transmits data to multiple endpoints. Sensor data can be retrieved from the \lstinline{SENSOR} endpoint. 
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.75\linewidth]{images/smart_plug.png}
+    \caption{Data generated by the smart plug}
+    \label{fig:smart_plug_endpoints}
+\end{figure}
+
+Figure \ref{fig:smart_plug_processing} shows how the ESP32 processes the smart plug data. \lstinline|curr_msg| is the \lstinline|char*| buffer, containing the most recent message on the \lstinline|SENSOR| endpoint. The full MQTT broker code can be seen in Figure \ref{fig:mqtt_broker_full}
+
+\begin{figure}[ht]
+    \centering
+    \begin{lstlisting}[language=ino, firstnumber=1]
+JsonDocument sp_data_receive;
+deserializeJson(sp_data_receive, curr_msg);
+float power = sp_data_receive["ENERGY"]["Power"];
+float current = sp_data_receive["ENERGY"]["Current"];
+float voltage = sp_data_receive["ENERGY"]["Voltage"];
+
+// JSON formatting
+JsonDocument sp_data_send;
+sp_data_send["Power"] = power;
+sp_data_send["Current"] = current;
+sp_data_send["Voltage"] = voltage;
+    \end{lstlisting}
+    \caption{Smart plug data processing}
+    \label{fig:smart_plug_processing}
+\end{figure}
+
+\subsection{ESP32 as an MQTT broker}
+Setting up the ESP32 as a broker using the \lstinline|PicoMQTT| library is done as is shown in Figure \ref{fig:mqtt_broker}.
+
+\begin{figure}[ht]
+    \centering
+    \begin{lstlisting}[language=ino, firstnumber=1]
+// variables
+const char *server = "192.168.0.XXX"; // IP of the ESP32
+PicoMQTT::Server mqtt_broker;
+char *sp_topic_sub = "sub_topic"; // topic to subscribe to 
+
+void setup() {
+  wifi_setup();
+
+  mqtt_broker.subscribe(sp_topic_sub, [](const char *payload) {
+    Serial.printf("Message on topic \"sub_topic\": %s\n", payload);
+  });
+
+  mqtt_broker.begin();
+}
+    \end{lstlisting}
+    \caption{MQTT broker code}
+    \label{fig:mqtt_broker}
+\end{figure}
+
+The most important part of the code is the \lstinline|mqtt_broker.subscribe| call. This function subscribes to the endpoint of a client connected to the broker. Lines 11 and 12 also set the callback function, which is called every time when a message is received. The \lstinline|payload| argument contains the received message, which can then be processed. The full code, including the \lstinline|wifi_setup()| function, is shown in Figure \ref{fig:mqtt_broker_full}   
+
+
+\section{Functionality showcase}\label{chap:func_test}
+This showcase demonstrates how the different subsystems of the final product work coherently to meet the different requirements from Chapter \ref{app_met}.
+
+After the network, smart plug and ESP32 are set up, the \lstinline|main.py| file can be ran. Based on the adjustable number of devices and number of messages to send, and also the ESP32 enable flag, the program behaves slightly differently. Adjusting the number of assets and messages makes it possible to simulate different circumstances. Additionally, when the ESP32 flag is enabled, an asset is created alongside the others and the ESP32 starts communicating with OpenRemote. One dashboard is created per test, in addition to the two rules per device. After creation, each device sends data approximately every 10 seconds, until reaching the iteration limit, which causes the test to finish. If deletion is enabled, all the test data will be deleted from OpenRemote. 
+
+\subsection{Assets}
+Figure \ref{fig:assets} shows the devices that are created when running a 3 emulated devices + ESP32 test. Just as discussed in Chapter \ref{agents}, the MQTT agent asset is not used for communication purposes, but rather to organize the other assets for every test.
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.25\linewidth]{images/assets.png}
+	\caption{Assets created during the test}
+	\label{fig:assets}
+\end{figure}
+
+Part of a simulated device is shown Figure \ref{fig:sh_asset}. All the attributes are defined with the HTTP API calls during the initialization. The MQTT data is then sent to the \lstinline|metrics| attribute, which is configured to parse it and send every data point to the correct attribute.
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.4\linewidth]{images/sh_asset.png}
+	\caption{Simulated device asset}
+	\label{fig:sh_asset}
+\end{figure}
+
+ESP32 assets, like the one in Figure \ref{fig:esp_asset}, are similar, but they only contain data about the smart plug connected to them. The rest, including the \lstinline|metrics| attribute, is the same.
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.4\linewidth]{images/esp_asset.png}
+	\caption{ESP32 asset}
+	\label{fig:esp_asset}
+\end{figure}
+
+\subsection{Rules and dashboards}
+As mentioned at the start of the chapter, the test creates one dashboard per run and two rules per device.
+
+The dashboard, shown in Figure \ref{fig:dash_example_alt}, has 3 widgets, containing data about the appliances in all simulated homes. The dashboard in the figure is generated by a test with 3 simulated devices and 10 messages per device. All the data points are generated according to what was discussed in Chapter \ref{chap:hardware-emulation}.
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.75\linewidth]{images/dash_example_alt.png}
+	\caption{Dashboard created by a test run with 3 devices and 10 messages per device}
+	\label{fig:dash_example_alt}
+\end{figure}
+
+Rules are created to simulate MQTT transmissions from OpenRemote to the smart homes. The rule in Figure \ref{fig:rules_example} is a low consumption rule, send an on signal to a TV, if the energy consumption is under a certain threshold value. There is also a high consumption rule for every device, which does the opposite.
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.65\linewidth]{images/rules.png}
+	\caption{A rule generated by a test run with 3 devices and 10 messages per device}
+	\label{fig:rules_example}
+\end{figure}
+
+Rules are created together with the assets, which is important to remember when reading the results presented in Chapter \ref{chap:com_stab}. This is also the case for the dashboard, but its creation is not as computationally expensive and consequently not as interesting for the analysis.

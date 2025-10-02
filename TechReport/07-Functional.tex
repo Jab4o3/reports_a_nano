@@ -1,0 +1,107 @@
+\chapter{Functional design}
+\section{Introduction to OpenRemote}
+This chapter introduces some foundational concepts about OpenRemote, which are required in order to understand the rest of this report. Figure \ref{fig:overview} shows an overview of what OpenRemote offers. For a more detailed explanation, refer to the OpenRemote user documentation \cite{openremote-user}.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=1\linewidth]{images/overview.png}
+    \caption{Overview of OpenRemote}
+    \label{fig:overview}
+\end{figure}
+
+
+\subsection{Users}
+Users interact with OpenRemote via several possible communication protocols. In this report only 2 types of users are mention: restricted users and admin. The restricted user role is assigned to programs that interact with OpenRemote, because they do not need full privileges. In contrast, the admin role has full access and is only assigned to the GUI manager, because the manager is used to monitor everything.
+
+\subsection{Realms}
+Realms limit the access of users to ensure every user only has access to what they need to do their tasks, as dictated by the Principle of Least Authority (PoLA) \cite{wiki-pola}. The default realm, which is often referenced throughout this report, is called "master".
+
+\subsection{Assets}
+OpenRemote uses the concept of assets to represent IoT devices, API consumers and other data sources. Because of this, in this report "asset" and "device" are often used interchangeably. Every asset has several important features, which are shown in Figure \ref{fig:asset}. From all of those, the ID, parent ID, realm and attributes are the most important ones. The ID is a unique identifier that is assigned to the asset on creation. Each asset has an ID, which is why it is possible to have parent-children relationships. Using these relationships, the assets in a realm can be organized in a hierarchy where an asset has several other related assets as children. Attributes are perhaps the most important feature of assets, because they store the data of an asset. That data can then be used by rules (Chapter \ref{rules}) to execute some conditional logic given certain data or it can be plotted on a dashboard (Chapter \ref{dashboard}) using various visualization methods. 
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=.75\linewidth]{images/asset.png}
+    \caption{Asset schema}
+    \label{fig:asset}
+\end{figure}
+
+\subsection{Agents}\label{agents}
+While agents are a type of asset, their function is fundamentally different from other assets. Instead of storing data, they facilitate data transfer. Every agent establishes a connection between other assets and their respective data sources using a communication protocol defined by the type of the agent. The most common agent type in this report is MQTT. MQTT agents are not used for communication purposes, instead they serve as parents for the assets that contain data. This is because OpenRemote comes with an MQTT API, which functions as an MQTT broker. MQTT agents are only needed when OpenRemote has to be configured as a client, but this project does not use that functionality.
+
+\subsection{Rules}\label{rules}
+The purpose of rules is to automatically manage actions when certain data is received. There are 3 types of rules: when-then, flow and groovy. Flow and groovy rules have not been used in this project, so they will not be discussed further. When-then rules execute an action when a condition is met. Common uses for when-then rules are sending notification and emails to users, turning devices on and off, and creating alarms. Conditions for triggering a rule include exceeding a threshold value, flipping a switch or a timer going off.
+
+For the people interested in working with the OpenRemote API, Figure \ref{fig:ruleset} shows an example of a rule that turns a TV off if the energy consumption is too high. 
+
+\subsection{Dashboards}\label{dashboard}
+Dashboards take data from the attributes of devices and visualize it. There are various widgets that can be used to show data, but the most commonly used one is the line chart. Dashboards manage and organize a set of widgets and the widgets keep track of the specifics of their respective attributes. 
+
+\begin{figure}[th]
+	\centering
+	\includegraphics[width=0.7\linewidth]{images/dash_widg_line_chart}
+	\caption{Example of a line chart}
+	\label{fig:dashwidglinechart}
+\end{figure}
+
+Figure \ref{fig:dashwidglinechart} shows an what a line chart that plots multiple parameters looks like\footnote{The data in this plot is for example purposes only}.
+
+\section{Hardware}
+This project involves four different devices. The main device is a computer running Windows. An ESP32 is also used, as a part of Task 2.2 in Chapter \ref{chap:goals}. Connected to the ESP32 is a smart plug, which measures the properties of an electrical load. The smart plug used in this project is called Delock 11827 and it can transmit data about the power, current, voltage and other metrics of the connected device, as well as data about the power plug itself. Additionally, a generic TP-Link router facilitates the communication between the other devices.
+
+
+\section{Communication protocols}
+Communication between with OpenRemote is the one aspect this whole project is based around. Two types of communication protocols make up this project, both which have their separate uses. HTTP facilitates the OpenRemote setup and MQTT is used for data sharing.
+\subsection{HTTP}
+HTTP \cite{rfc9113} is a popular communication protocol that is the foundation of the modern internet. One of the many uses of HTTP is RESTful APIs, the basic functionality of which can be seen in Figure \ref{fig:rest_api}. The process of communicating via an HTTP API follows a simple structure. The user sends an HTTP request using a GET, POST or DELETE method\footnote{HTTP has many more methods, out of which the OpenRemote API implements GET, POST, DELETE and PUT. PUT has a similar functionality to the MQTT API, so no PUT requests were made during the project.} and the API returns a response in a JSON format, assuming there are no errors.
+
+\begin{figure} [ht]
+    \centering
+    \includegraphics[width=0.6\linewidth]{images/REST_API.png}
+    \caption{REST API structure}
+    \label{fig:rest_api}
+\end{figure}
+
+\subsubsection{HTTP request attributes}\label{http_req_attrs}
+An HTTP request has several important attributes. The most important one is the endpoint, which tells the API what data you want to interact with. Endpoints resemble standard URLs, like for example \lstinline|https://api.openweathermap.org/data|, which is a weather API endpoint. 
+
+Requests also need headers, which provide more context to the server about the request that is being made. Two types of request headers are commonly required by the OpenRemote API. The first one is the \lstinline{"Authorization"} header, which provides the server with an auth token so that the identity of the user can be verified. The second header type is the \lstinline{"Content-Type"} header. It specifies what type of file, if any, is being sent to the server.
+
+The last important attribute of an HTTP request is the payload. It contains the data the user wants to send to the server, which can then be processed on the server side.
+
+\subsubsection{HTTP methods}
+The GET method is the most common method. It is used to retrieve data from the server. The data could, for example, be an asset or a dashboard, represented using a JSON object.
+
+POST requests are more complex than GET requests, because they add data to the server. In order to successfully execute one, the user needs to attach a payload to the request and specify the correct payload type in the headers. The OpenRemote API operates using JSON objects, so the \lstinline{"Content-Type"} header needs to be set to \lstinline{"application/json"}.
+
+DELETE should be used with caution, as it deletes data from the server. It needs to specify the data that needs to be deleted using some sort of identifier. For OpenRemote, the ID needs to be specified in the payload. 
+
+\subsection{MQTT}
+MQTT communication is a vital component of the project. OpenRemote uses the protocol in order to communicate with the IoT devices. Figure \ref{fig:mqtt_api} shows how the protocol operates. MQTT communication consists of one broker sending data to and receiving data from any number of devices, called clients. The broker is responsible for managing all the data transfers, which it does by utilizing the concept of topics. MQTT topics are similar to HTTP endpoints (see \ref{http_req_attrs}) in the sense that they provide information to the broker about what data a client needs. However, MQTT interactions are different from HTTP requests. Instead of having several different methods to tell the server what to do with a request, an MQTT client can either subscribe or publish to a topic. A subscription will notify all the subscribed clients whenever a new message is posted to a topic. If in Figure \ref{fig:mqtt_api} the broker forwards a new message to the "Sensor A" topic, both the computer and the smart home will receive it. Conversely, publishing sends a message to the broker for it to process.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.6\linewidth]{images/MQTT_API.png}
+    \caption{MQTT communication protocol}
+    \label{fig:mqtt_api}
+\end{figure}
+
+The MQTT protocol is much simpler and lightweight than HTTP, which is why it is exceedingly common in IoT applications.
+
+Library implementations of MQTT for various languages use callback functions to facilitate customizable communication. These functions are passed as arguments to an instance of a class (in the case of MQTT libraries) and are called when automatically when an event occurs. The most important callbacks are:
+\begin{itemize}
+    \item \lstinline|on_connect|: executes when a client connects to the broker
+    \item \lstinline|on_disconnect|: executes when a client disconnects from the broker
+    \item \lstinline|on_publish|: executes whenever a client publishes a message
+    \item \lstinline|on_subscribe|: executes when a client subscribes to a topic
+    \item \lstinline|on_message|: executes when the broker sends a message to a topic, which a client has subscribed to
+\end{itemize}
+
+\subsection{ESP32 communication}
+In order to achieve sub-goal 3 (see Chapter \ref{chap:goals}), an ESP32 needs to communicate with OpenRemote. Unlike the local program, acting as a gateway for OpenRemote instance, the microcontroller needs a WiFi or Ethernet connection. Certain MQTT details need to be configured, as well. This chapter discusses the networking and MQTT setup used to establish a connection to OpenRemote.
+
+\subsubsection{Network setup}
+The network consists of a smart plug, an ESP32 and the main computer. The computer functions as a gateway, but also runs the OpenRemote instance. To ensure every device always has the same IP address, the router always provisions the same IPs to all of the devices using static DHCP.
+
+\subsubsection{MQTT setup}
+MQTT is the only data exchange protocol used for communication between devices. The ESP32 and OpenRemote both function as brokers, but they are isolated from each other using clients. The smart plug sends data to the ESP32, which forwards it to the gateway running on the main computer. After processing the data, the gateway sends it to OpenRemote, where it is stored and managed. 

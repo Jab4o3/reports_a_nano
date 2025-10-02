@@ -1,0 +1,197 @@
+\documentclass{report}
+
+% Language setting
+% Replace `english' with e.g. `spanish' to change the document language
+\usepackage[english]{babel}
+\usepackage{blindtext}
+\usepackage{titlesec}
+
+% Useful packages
+\usepackage{amsmath}
+\usepackage{float}
+\usepackage{caption}
+\usepackage[skip=0.5ex]{subcaption}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage[
+colorlinks=true,urlcolor=blue,linkcolor=purple,citecolor=red
+]{hyperref}
+\usepackage[toc]{appendix}
+\usepackage{markdown}
+
+\usepackage[table,xcdraw]{xcolor}
+\usepackage{adjustbox}
+
+% Set page size and margins
+% Replace `letterpaper' with `a4paper' for UK/EU standard size
+\usepackage[a4paper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+
+% Code listings
+\usepackage{listings}
+\colorlet{punct}{red!60!black}
+\definecolor{background}{HTML}{EEEEEE}
+\definecolor{delim}{RGB}{20,105,176}
+\colorlet{numb}{magenta!60!black}
+
+\usepackage{listings}
+\lstset{basicstyle=\ttfamily}
+\lstset{breaklines=true}
+
+\lstdefinelanguage{json}{
+	basicstyle=\normalfont\ttfamily,
+	numbers=left,
+	numberstyle=\scriptsize,
+	stepnumber=1,
+	numbersep=8pt,
+	showstringspaces=false,
+	breaklines=true,
+	frame=lines,
+	backgroundcolor=\color{background},
+	literate=
+	*{0}{{{\color{numb}0}}}{1}
+	{1}{{{\color{numb}1}}}{1}
+	{2}{{{\color{numb}2}}}{1}
+	{3}{{{\color{numb}3}}}{1}
+	{4}{{{\color{numb}4}}}{1}
+	{5}{{{\color{numb}5}}}{1}
+	{6}{{{\color{numb}6}}}{1}
+	{7}{{{\color{numb}7}}}{1}
+	{8}{{{\color{numb}8}}}{1}
+	{9}{{{\color{numb}9}}}{1}
+	{:}{{{\color{punct}{:}}}}{1}
+	{,}{{{\color{punct}{,}}}}{1}
+	{\{}{{{\color{delim}{\{}}}}{1}
+	{\}}{{{\color{delim}{\}}}}}{1}
+	{[}{{{\color{delim}{[}}}}{1}
+	{]}{{{\color{delim}{]}}}}{1},
+	morestring=[b]",
+}
+
+\lstdefinelanguage{curl}{
+	basicstyle=\normalfont\ttfamily,
+	numbers=left,
+	numberstyle=\scriptsize,
+	stepnumber=1,
+	numbersep=8pt,
+	showstringspaces=false,
+	breaklines=true,
+	frame=lines,
+	backgroundcolor=\color{background},
+	literate=
+	*{0}{{{\color{numb}0}}}{1}
+	{1}{{{\color{numb}1}}}{1}
+	{2}{{{\color{numb}2}}}{1}
+	{3}{{{\color{numb}3}}}{1}
+	{4}{{{\color{numb}4}}}{1}
+	{5}{{{\color{numb}5}}}{1}
+	{6}{{{\color{numb}6}}}{1}
+	{7}{{{\color{numb}7}}}{1}
+	{8}{{{\color{numb}8}}}{1}
+	{9}{{{\color{numb}9}}}{1}
+	{:}{{{\color{punct}{:}}}}{1}
+	{,}{{{\color{punct}{,}}}}{1}
+	{\{}{{{\color{delim}{\{}}}}{1}
+	{\}}{{{\color{delim}{\}}}}}{1}
+	{[}{{{\color{delim}{[}}}}{1}
+	{]}{{{\color{delim}{]}}}}{1},
+	morestring=[b]",
+}
+
+
+\lstdefinelanguage{ino}{
+	basicstyle=\normalfont\ttfamily,
+	numbers=left,
+	numberstyle=\scriptsize,
+	stepnumber=1,
+	numbersep=8pt,
+	showstringspaces=false,
+	breaklines=true,
+	frame=lines,
+	backgroundcolor=\color{background},
+	literate=
+	*{0}{{{\color{numb}0}}}{1}
+	{1}{{{\color{numb}1}}}{1}
+	{2}{{{\color{numb}2}}}{1}
+	{3}{{{\color{numb}3}}}{1}
+	{4}{{{\color{numb}4}}}{1}
+	{5}{{{\color{numb}5}}}{1}
+	{6}{{{\color{numb}6}}}{1}
+	{7}{{{\color{numb}7}}}{1}
+	{8}{{{\color{numb}8}}}{1}
+	{9}{{{\color{numb}9}}}{1}
+	{:}{{{\color{punct}{:}}}}{1}
+	{,}{{{\color{punct}{,}}}}{1}
+	{\{}{{{\color{delim}{\{}}}}{1}
+	{\}}{{{\color{delim}{\}}}}}{1}
+	{[}{{{\color{delim}{[}}}}{1}
+	{]}{{{\color{delim}{]}}}}{1},
+	morecomment=[l][\color{gray}]{//},
+	morestring=[b][\color{violet}]",
+	morekeywords={const, void, char, int, float}, keywordstyle=\color{red},
+}
+
+\usepackage{csquotes}
+\usepackage[
+backend=bibtex,
+style=ieee,
+]{biblatex}
+\addbibresource{sources.bib}
+
+\pagestyle{headings}
+
+\title{Scalable IoT Systems based on OpenRemote}
+\author{Vladislav Serafimov}
+
+\begin{document}
+	\maketitle
+	
+	
+	
+	\tableofcontents
+	\chapter{Foreword}
+	This project was done as a graduation thesis for the Ambient Intelligence (AmI) research group at Saxion. I had a pleasant time working on this assignment and collaborating with the members of AmI. The professional environment was very productive and the facilities provided by AmI helped greatly with the project work.
+	
+	I would like to thank the people who supported me throughout this project: my internship coach, Eyuel Ayele, and my Saxion coach, Yanin Kasemsinsup. The completion of the assignment is due in no small part to their constant guidance and advice. 
+	
+	\chapter{Summary}
+	% be more specific
+	% change question
+	% specify stages of the question answering process
+	% address 
+	NOWATT is a project that seeks to push the energy transition agenda further, by monitoring smart homes and making them more efficient. The team associated with the project is interested in using OpenRemote as the default device management platform. The purpose of this assignment is to answer the question \textbf{"Can OpenRemote reliably handle the data throughput if configured as a smart home monitoring system for a large number of households?"}. Answering this question was a multi-stage process based on the waterfall methodology. The start phase of the project involved researching smart home behavior and deploying the OpenRemote platform. This was followed by the realization phase, during which the smart home management simulation and the hardware setup were both created. After that, testing was done by recreating extreme scenarios, in order to ensure the stability and speed of the OpenRemote platform even under improbably intense loads. The results suggest that an instance of the platform can manage a big number of smart households. However, the performance of OpenRemote depends on the behavior of the smart homes it manages and the system specifications of the server that is hosting OpenRemote. It is recommended that all the tests from this report are carried out on a remote OpenRemote instance deployed on a production server, as this will provide more concrete results. 
+	
+	%An important part of the report is a summary. A summary is used to make clear to other possible interested parties, e.g., 
+	%the management, the major purpose / problem / question to be solved / answered, how this has been tackled and the 
+	%result of the assignment. 
+	%Requirements on a summary:
+	%• It must be readable independent from the report, it is not allowed to refer to chapters, figures.
+	%• It does not contain figures or tables.
+	%• It must summarise:
+	%Why the project has been carried out (problem and goal)
+	%The used methodology
+	%The result (verification with the goal)
+	%Major conclusions
+	%Major recommendations
+	%• It must be written in English, maximum 1 A4
+	
+	
+	\chapter{Abbreviations and terminology}
+	
+	\include{05-Introduction}
+	%\include{06-Analysis_of_specifications}
+	%\include{07-Functional}
+	%\include{08-Technical}
+	
+	%\chapter{Testing} \label{testing}
+	%\section{Data modeling and visualization}
+	
+	%\include{09-Conclusion}
+	
+	
+	%\include{A-Appendices}
+	
+	
+	
+	\printbibliography
+	
+\end{document}

@@ -8,12 +8,19 @@
 \contentsline {section}{\numberline {4.3}Assignment specifications}{6}{section.4.3}%
 \contentsline {section}{\numberline {4.4}Scope of work}{6}{section.4.4}%
 \contentsline {subsection}{\numberline {4.4.1}Project boundaries}{6}{subsection.4.4.1}%
-\contentsline {subsection}{\numberline {4.4.2}Goals}{6}{subsection.4.4.2}%
+\contentsline {subsection}{\numberline {4.4.2}Goals}{7}{subsection.4.4.2}%
 \contentsline {subsection}{\numberline {4.4.3}Deliverables}{7}{subsection.4.4.3}%
-\contentsline {section}{\numberline {4.5}Methodology}{7}{section.4.5}%
-\contentsline {section}{\numberline {4.6}Report outline}{7}{section.4.6}%
+\contentsline {section}{\numberline {4.5}Methodology}{8}{section.4.5}%
+\contentsline {section}{\numberline {4.6}Report outline}{8}{section.4.6}%
 \contentsline {chapter}{\numberline {5}Functional design}{9}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Quantum protocols}{9}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Quantum sensing setup}{9}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Photodetection PCB}{9}{section.5.3}%
+\contentsline {section}{\numberline {5.4}OLIA implementation}{9}{section.5.4}%
 \contentsline {chapter}{\numberline {6}Technical design}{10}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Quantum sensing setup}{10}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Photodetection PCB}{10}{section.6.2}%
+\contentsline {section}{\numberline {6.3}OLIA implementation}{10}{section.6.3}%
 \contentsline {chapter}{\numberline {7}Testing results}{11}{chapter.7}%
 \contentsline {section}{\numberline {7.1}Test goals and performance metrics}{11}{section.7.1}%
 \contentsline {section}{\numberline {7.2}Test setup}{12}{section.7.2}%

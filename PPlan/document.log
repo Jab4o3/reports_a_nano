@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.6.12)  6 OCT 2025 10:54
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.6.12)  6 OCT 2025 11:18
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1140,15 +1140,8 @@ Chapter 9.
 LaTeX2e <2025-06-01>
 L3 programming layer <2025-05-26>
  ***********
-
-
-LaTeX Warning: There were undefined references.
-
 Package rerunfilecheck Info: File `document.out' has not changed.
 (rerunfilecheck)             Checksum: EE85E08855DBC72B25F99488F11742BE;2916.
-
-Package biblatex Warning: Please rerun LaTeX.
-
 Package logreq Info: Writing requests to 'document.run.xml'.
 \openout1 = `document.run.xml'.
 
@@ -1156,7 +1149,7 @@ Package logreq Info: Writing requests to 'document.run.xml'.
 Here is how much of TeX's memory you used:
  26388 strings out of 468224
  504147 string characters out of 5432952
- 1357337 words of memory out of 5000000
+ 1357372 words of memory out of 5000000
  54497 multiletter control sequences out of 15000+600000
  637102 words of font info for 79 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1175,7 +1168,7 @@ s/vladi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsl10.pfb
 ><C:/Users/vladi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/c
 mti10.pfb><C:/Users/vladi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsf
 onts/cm/cmtt10.pfb>
-Output written on document.pdf (17 pages, 1325840 bytes).
+Output written on document.pdf (17 pages, 1325844 bytes).
 PDF statistics:
  321 PDF objects out of 1000 (max. 8388607)
  60 named destinations out of 1000 (max. 500000)

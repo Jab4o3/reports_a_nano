@@ -72,6 +72,96 @@
       \field{title}{Photoluminescence --- {Wikipedia}{,} The Free Encyclopedia}
       \field{year}{2025}
     \endentry
+    \entry{enwiki:1301371272}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=b6aea1a416c89509a7df1cbb69249cb6}{%
+           family={{Wikipedia contributors}},
+           familyi={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{b6aea1a416c89509a7df1cbb69249cb6}
+      \strng{fullhash}{b6aea1a416c89509a7df1cbb69249cb6}
+      \strng{fullhashraw}{b6aea1a416c89509a7df1cbb69249cb6}
+      \strng{bibnamehash}{b6aea1a416c89509a7df1cbb69249cb6}
+      \strng{authorbibnamehash}{b6aea1a416c89509a7df1cbb69249cb6}
+      \strng{authornamehash}{b6aea1a416c89509a7df1cbb69249cb6}
+      \strng{authorfullhash}{b6aea1a416c89509a7df1cbb69249cb6}
+      \strng{authorfullhashraw}{b6aea1a416c89509a7df1cbb69249cb6}
+      \field{extraname}{3}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://en.wikipedia.org/w/index.php?title=Optically_detected_magnetic_resonance&oldid=1301371272}}
+      \field{note}{[Online; accessed 6-October-2025]}
+      \field{title}{Optically detected magnetic resonance --- {Wikipedia}{,} The Free Encyclopedia}
+      \field{year}{2025}
+    \endentry
+    \entry{sewani2020coherent}{article}{}{}
+      \name{author}{8}{}{%
+        {{hash=faa7020c1e3f2d74150f20c5b01883bf}{%
+           family={Sewani},
+           familyi={S\bibinitperiod},
+           given={Vikas\bibnamedelima K},
+           giveni={V\bibinitperiod\bibinitdelim K\bibinitperiod}}}%
+        {{hash=d468b79d6155a3653337094f299a58f2}{%
+           family={Vallabhapurapu},
+           familyi={V\bibinitperiod},
+           given={Hyma\bibnamedelima H},
+           giveni={H\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+        {{hash=d9da4a23ca804cbf6aff5760349ec643}{%
+           family={Yang},
+           familyi={Y\bibinitperiod},
+           given={Yang},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=e5e27af328ec46a5958c5993bb3b9ea5}{%
+           family={Firgau},
+           familyi={F\bibinitperiod},
+           given={Hannes\bibnamedelima R},
+           giveni={H\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+        {{hash=60f92abb4e8e2fea528fc199fb7a0ce9}{%
+           family={Adambukulam},
+           familyi={A\bibinitperiod},
+           given={Chris},
+           giveni={C\bibinitperiod}}}%
+        {{hash=051d43afb7c84710de65ca8f7f675b5d}{%
+           family={Johnson},
+           familyi={J\bibinitperiod},
+           given={Brett\bibnamedelima C},
+           giveni={B\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+        {{hash=dcb0e3565a4dd656eef6ac63b343a35e}{%
+           family={Pla},
+           familyi={P\bibinitperiod},
+           given={Jarryd\bibnamedelima J},
+           giveni={J\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+        {{hash=d3bdc1767a73f2f4c50cee9b4672170e}{%
+           family={Laucht},
+           familyi={L\bibinitperiod},
+           given={Arne},
+           giveni={A\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {AIP Publishing}%
+      }
+      \strng{namehash}{1fc97887388aa9bfec315c399423326c}
+      \strng{fullhash}{214d8f967646c508d4b75fcfb3e50441}
+      \strng{fullhashraw}{214d8f967646c508d4b75fcfb3e50441}
+      \strng{bibnamehash}{1fc97887388aa9bfec315c399423326c}
+      \strng{authorbibnamehash}{1fc97887388aa9bfec315c399423326c}
+      \strng{authornamehash}{1fc97887388aa9bfec315c399423326c}
+      \strng{authorfullhash}{214d8f967646c508d4b75fcfb3e50441}
+      \strng{authorfullhashraw}{214d8f967646c508d4b75fcfb3e50441}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{American Journal of Physics}
+      \field{number}{12}
+      \field{title}{Coherent control of NV- centers in diamond in a quantum teaching lab}
+      \field{volume}{88}
+      \field{year}{2020}
+      \field{pages}{1156\bibrangedash 1169}
+      \range{pages}{14}
+    \endentry
     \entry{haque2017overview}{article}{}{}
       \name{author}{2}{}{%
         {{hash=cc52ff0feda2ccbb8b91e8415d3a8104}{%
@@ -96,8 +186,8 @@
       \strng{authornamehash}{fbd2c2c7aca4731daf519800886e6d87}
       \strng{authorfullhash}{fbd2c2c7aca4731daf519800886e6d87}
       \strng{authorfullhashraw}{fbd2c2c7aca4731daf519800886e6d87}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Journal of Manufacturing and Materials Processing}
@@ -134,8 +224,8 @@
       \strng{authornamehash}{0150730a59a3815a8d0ae74e76fa1658}
       \strng{authorfullhash}{0150730a59a3815a8d0ae74e76fa1658}
       \strng{authorfullhashraw}{0150730a59a3815a8d0ae74e76fa1658}
-      \field{sortinit}{5}
-      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Frontiers in Sensors}
@@ -144,6 +234,131 @@
       \field{year}{2023}
       \field{pages}{1102176}
       \range{pages}{1}
+    \endentry
+    \entry{saijo2018ac}{article}{}{}
+      \name{author}{8}{}{%
+        {{hash=07cab2a3c854dae06cd70dad97615ea9}{%
+           family={Saijo},
+           familyi={S\bibinitperiod},
+           given={Soya},
+           giveni={S\bibinitperiod}}}%
+        {{hash=a014356dfd543fc90d0bb65db27774c3}{%
+           family={Matsuzaki},
+           familyi={M\bibinitperiod},
+           given={Yuichiro},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=6fa0e2ec36767733f5f8c729b03b1144}{%
+           family={Saito},
+           familyi={S\bibinitperiod},
+           given={Shiro},
+           giveni={S\bibinitperiod}}}%
+        {{hash=4439b47d46cc5e949087fedc7afe85aa}{%
+           family={Yamaguchi},
+           familyi={Y\bibinitperiod},
+           given={Tatsuma},
+           giveni={T\bibinitperiod}}}%
+        {{hash=a3fedad5a6256b94e3f8fbbfa8f0b545}{%
+           family={Hanano},
+           familyi={H\bibinitperiod},
+           given={Ikuya},
+           giveni={I\bibinitperiod}}}%
+        {{hash=18be0a4f593e827117fb989973acbb12}{%
+           family={Watanabe},
+           familyi={W\bibinitperiod},
+           given={Hideyuki},
+           giveni={H\bibinitperiod}}}%
+        {{hash=02bef654a5ecd3546d7d2698ef691b85}{%
+           family={Mizuochi},
+           familyi={M\bibinitperiod},
+           given={Norikazu},
+           giveni={N\bibinitperiod}}}%
+        {{hash=11c13a59c3c5d5dd306ae9bf039fc314}{%
+           family={Ishi-Hayase},
+           familyi={I\bibinithyphendelim H\bibinitperiod},
+           given={Junko},
+           giveni={J\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {AIP Publishing}%
+      }
+      \strng{namehash}{6efeb00c03854c29bdac51c2953f16ce}
+      \strng{fullhash}{cec812ec79baaa594db4be7d159c77ee}
+      \strng{fullhashraw}{cec812ec79baaa594db4be7d159c77ee}
+      \strng{bibnamehash}{6efeb00c03854c29bdac51c2953f16ce}
+      \strng{authorbibnamehash}{6efeb00c03854c29bdac51c2953f16ce}
+      \strng{authornamehash}{6efeb00c03854c29bdac51c2953f16ce}
+      \strng{authorfullhash}{cec812ec79baaa594db4be7d159c77ee}
+      \strng{authorfullhashraw}{cec812ec79baaa594db4be7d159c77ee}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Applied Physics Letters}
+      \field{number}{8}
+      \field{title}{AC magnetic field sensing using continuous-wave optically detected magnetic resonance of nitrogen-vacancy centers in diamond}
+      \field{volume}{113}
+      \field{year}{2018}
+    \endentry
+    \entry{zhang2020high}{article}{}{}
+      \name{author}{7}{}{%
+        {{hash=e760d38078aff4a5b24c867aa5178c26}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={Yang},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=30df905719e51e2390e92c8ecf9d093d}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={Zhonghao},
+           giveni={Z\bibinitperiod}}}%
+        {{hash=f73a6dbe9ac15feac06a38e90fc85525}{%
+           family={Feng},
+           familyi={F\bibinitperiod},
+           given={Yuanyao},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=12e5c129575811b74e80a4662971e0b0}{%
+           family={Guo},
+           familyi={G\bibinitperiod},
+           given={Hao},
+           giveni={H\bibinitperiod}}}%
+        {{hash=d99cf2fb1973ff756200c7f7d5e59b7b}{%
+           family={Wen},
+           familyi={W\bibinitperiod},
+           given={Huanfei},
+           giveni={H\bibinitperiod}}}%
+        {{hash=e5d55ceb618761c66de79968a9ed937f}{%
+           family={Tang},
+           familyi={T\bibinitperiod},
+           given={Jun},
+           giveni={J\bibinitperiod}}}%
+        {{hash=f2a0a4f5a03bef37fc5552061319cb71}{%
+           family={Liu},
+           familyi={L\bibinitperiod},
+           given={Jun},
+           giveni={J\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Optical Society of America}%
+      }
+      \strng{namehash}{81bf924c056b61f51145a9b44b1a7631}
+      \strng{fullhash}{acacd386be71d6d84135fd16e172ee59}
+      \strng{fullhashraw}{acacd386be71d6d84135fd16e172ee59}
+      \strng{bibnamehash}{81bf924c056b61f51145a9b44b1a7631}
+      \strng{authorbibnamehash}{81bf924c056b61f51145a9b44b1a7631}
+      \strng{authornamehash}{81bf924c056b61f51145a9b44b1a7631}
+      \strng{authorfullhash}{acacd386be71d6d84135fd16e172ee59}
+      \strng{authorfullhashraw}{acacd386be71d6d84135fd16e172ee59}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Optics Express}
+      \field{number}{11}
+      \field{title}{High-sensitivity DC magnetic field detection with ensemble NV centers by pulsed quantum filtering technology}
+      \field{volume}{28}
+      \field{year}{2020}
+      \field{pages}{16191\bibrangedash 16201}
+      \range{pages}{11}
     \endentry
   \enddatalist
 \endrefsection

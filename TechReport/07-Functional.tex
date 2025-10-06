@@ -1,4 +1,7 @@
 \chapter{Functional design} \label{chap:func_design}
+\section{Quantum protocols}
+There are a number of different quantum protocols, which differ in what they can measure, in how precisely they can measure it and in the complexity of the hardware they require to operate. CW ODMR is the main protocol this project is aimed at facilitating. As Saijo et al \cite{saijo2018ac} demonstrate, CW ODMR is relatively simple, while still detecting magnetic field with reasonable sensitivity. Pulsed ODMR does outperform CW ODMR \cite{zhang2020high}, but because of the added complexity working with it is a "Could have" (see Chapter \ref{project_boundaries}). Before being able to run pulsed ODMR on the setup at the lab, several protocols need to be implemented first \cite{sewani2020coherent}. $T_1$ relaxometry, which is one of the fundamentals of Magnetic Resonance Imaging (MRI), should be set up first.
+
 \section{Quantum sensing setup}
 \section{Photodetection PCB}
 \section{OLIA implementation}

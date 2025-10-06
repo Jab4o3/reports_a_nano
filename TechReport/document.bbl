@@ -1,0 +1,151 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{none/global//global/global/global}
+    \entry{enwiki:1301369588}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=b6aea1a416c89509a7df1cbb69249cb6}{%
+           family={{Wikipedia contributors}},
+           familyi={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{b6aea1a416c89509a7df1cbb69249cb6}
+      \strng{fullhash}{b6aea1a416c89509a7df1cbb69249cb6}
+      \strng{fullhashraw}{b6aea1a416c89509a7df1cbb69249cb6}
+      \strng{bibnamehash}{b6aea1a416c89509a7df1cbb69249cb6}
+      \strng{authorbibnamehash}{b6aea1a416c89509a7df1cbb69249cb6}
+      \strng{authornamehash}{b6aea1a416c89509a7df1cbb69249cb6}
+      \strng{authorfullhash}{b6aea1a416c89509a7df1cbb69249cb6}
+      \strng{authorfullhashraw}{b6aea1a416c89509a7df1cbb69249cb6}
+      \field{extraname}{1}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{[Online; accessed 3-September-2025]}
+      \field{title}{Nitrogen-vacancy center --- {Wikipedia}{,} The Free Encyclopedia}
+      \field{year}{2025}
+      \verb{urlraw}
+      \verb https://en.wikipedia.org/w/index.php?title=Nitrogen-vacancy_center&oldid=1301369588
+      \endverb
+      \verb{url}
+      \verb https://en.wikipedia.org/w/index.php?title=Nitrogen-vacancy_center&oldid=1301369588
+      \endverb
+    \endentry
+    \entry{enwiki:1309081879}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=b6aea1a416c89509a7df1cbb69249cb6}{%
+           family={{Wikipedia contributors}},
+           familyi={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{b6aea1a416c89509a7df1cbb69249cb6}
+      \strng{fullhash}{b6aea1a416c89509a7df1cbb69249cb6}
+      \strng{fullhashraw}{b6aea1a416c89509a7df1cbb69249cb6}
+      \strng{bibnamehash}{b6aea1a416c89509a7df1cbb69249cb6}
+      \strng{authorbibnamehash}{b6aea1a416c89509a7df1cbb69249cb6}
+      \strng{authornamehash}{b6aea1a416c89509a7df1cbb69249cb6}
+      \strng{authorfullhash}{b6aea1a416c89509a7df1cbb69249cb6}
+      \strng{authorfullhashraw}{b6aea1a416c89509a7df1cbb69249cb6}
+      \field{extraname}{2}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://en.wikipedia.org/w/index.php?title=Photoluminescence&oldid=1309081879}}
+      \field{note}{[Online; accessed 4-September-2025]}
+      \field{title}{Photoluminescence --- {Wikipedia}{,} The Free Encyclopedia}
+      \field{year}{2025}
+    \endentry
+    \entry{haque2017overview}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=cc52ff0feda2ccbb8b91e8415d3a8104}{%
+           family={Haque},
+           familyi={H\bibinitperiod},
+           given={Ariful},
+           giveni={A\bibinitperiod}}}%
+        {{hash=85b5eb3edb92af0bf6ef6b1735f83f32}{%
+           family={Sumaiya},
+           familyi={S\bibinitperiod},
+           given={Sharaf},
+           giveni={S\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {MDPI}%
+      }
+      \strng{namehash}{fbd2c2c7aca4731daf519800886e6d87}
+      \strng{fullhash}{fbd2c2c7aca4731daf519800886e6d87}
+      \strng{fullhashraw}{fbd2c2c7aca4731daf519800886e6d87}
+      \strng{bibnamehash}{fbd2c2c7aca4731daf519800886e6d87}
+      \strng{authorbibnamehash}{fbd2c2c7aca4731daf519800886e6d87}
+      \strng{authornamehash}{fbd2c2c7aca4731daf519800886e6d87}
+      \strng{authorfullhash}{fbd2c2c7aca4731daf519800886e6d87}
+      \strng{authorfullhashraw}{fbd2c2c7aca4731daf519800886e6d87}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Manufacturing and Materials Processing}
+      \field{number}{1}
+      \field{title}{An overview on the formation and processing of nitrogen-vacancy photonic centers in diamond by ion implantation}
+      \field{volume}{1}
+      \field{year}{2017}
+      \field{pages}{6}
+      \range{pages}{1}
+    \endentry
+    \entry{harvie2023olia}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=f2f07794b230a9efdee7f7bd1755b187}{%
+           family={Harvie},
+           familyi={H\bibinitperiod},
+           given={Andrew\bibnamedelima J},
+           giveni={A\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+        {{hash=7d5d59803420a48404b282fe94913eb9}{%
+           family={Mello},
+           familyi={M\bibinitperiod},
+           given={John\bibnamedelima C},
+           giveni={J\bibinitperiod\bibinitdelim C\bibinitperiod},
+           prefix={de},
+           prefixi={d\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Frontiers Media SA}%
+      }
+      \strng{namehash}{0150730a59a3815a8d0ae74e76fa1658}
+      \strng{fullhash}{0150730a59a3815a8d0ae74e76fa1658}
+      \strng{fullhashraw}{0150730a59a3815a8d0ae74e76fa1658}
+      \strng{bibnamehash}{0150730a59a3815a8d0ae74e76fa1658}
+      \strng{authorbibnamehash}{0150730a59a3815a8d0ae74e76fa1658}
+      \strng{authornamehash}{0150730a59a3815a8d0ae74e76fa1658}
+      \strng{authorfullhash}{0150730a59a3815a8d0ae74e76fa1658}
+      \strng{authorfullhashraw}{0150730a59a3815a8d0ae74e76fa1658}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Frontiers in Sensors}
+      \field{title}{OLIA: An open-source digital lock-in amplifier}
+      \field{volume}{4}
+      \field{year}{2023}
+      \field{pages}{1102176}
+      \range{pages}{1}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

@@ -132,7 +132,7 @@ colorlinks=true,urlcolor=blue,linkcolor=purple,citecolor=red
 
 \usepackage{csquotes}
 \usepackage[
-backend=bibtex,
+backend=biber,
 style=ieee,
 ]{biblatex}
 \addbibresource{sources.bib}
@@ -149,16 +149,15 @@ style=ieee,
 	
 	\tableofcontents
 	\chapter{Foreword}
-	This project was done as a graduation thesis for the Ambient Intelligence (AmI) research group at Saxion. I had a pleasant time working on this assignment and collaborating with the members of AmI. The professional environment was very productive and the facilities provided by AmI helped greatly with the project work.
+	%This project was done as a graduation thesis for the Ambient Intelligence (AmI) research group at Saxion. I had a pleasant time working on this assignment and collaborating with the members of AmI. The professional environment was very productive and the facilities provided by AmI helped greatly with the project work.
 	
-	I would like to thank the people who supported me throughout this project: my internship coach, Eyuel Ayele, and my Saxion coach, Yanin Kasemsinsup. The completion of the assignment is due in no small part to their constant guidance and advice. 
+	%I would like to thank the people who supported me throughout this project: my internship coach, Eyuel Ayele, and my Saxion coach, Yanin Kasemsinsup. The completion of the assignment is due in no small part to their constant guidance and advice. 
 	
 	\chapter{Summary}
 	% be more specific
 	% change question
 	% specify stages of the question answering process
 	% address 
-	NOWATT is a project that seeks to push the energy transition agenda further, by monitoring smart homes and making them more efficient. The team associated with the project is interested in using OpenRemote as the default device management platform. The purpose of this assignment is to answer the question \textbf{"Can OpenRemote reliably handle the data throughput if configured as a smart home monitoring system for a large number of households?"}. Answering this question was a multi-stage process based on the waterfall methodology. The start phase of the project involved researching smart home behavior and deploying the OpenRemote platform. This was followed by the realization phase, during which the smart home management simulation and the hardware setup were both created. After that, testing was done by recreating extreme scenarios, in order to ensure the stability and speed of the OpenRemote platform even under improbably intense loads. The results suggest that an instance of the platform can manage a big number of smart households. However, the performance of OpenRemote depends on the behavior of the smart homes it manages and the system specifications of the server that is hosting OpenRemote. It is recommended that all the tests from this report are carried out on a remote OpenRemote instance deployed on a production server, as this will provide more concrete results. 
 	
 	%An important part of the report is a summary. A summary is used to make clear to other possible interested parties, e.g., 
 	%the management, the major purpose / problem / question to be solved / answered, how this has been tackled and the 
@@ -178,17 +177,17 @@ style=ieee,
 	\chapter{Abbreviations and terminology}
 	
 	\include{05-Introduction}
-	%\include{06-Analysis_of_specifications}
-	%\include{07-Functional}
-	%\include{08-Technical}
+	\include{06-Analysis_of_specifications}
+	\include{07-Functional}
+	\include{08-Technical}
 	
 	%\chapter{Testing} \label{testing}
 	%\section{Data modeling and visualization}
 	
-	%\include{09-Conclusion}
+	\include{09-Conclusion}
 	
 	
-	%\include{A-Appendices}
+	\include{A-Appendices}
 	
 	
 	

@@ -1,5 +1,15 @@
-[1] Config.pm:308> INFO - This is Biber 2.20
-[1] Config.pm:311> INFO - Logfile is 'document.blg'
-[186] biber-MSWIN64:340> INFO - === 
-[698] Utils.pm:410> ERROR - Cannot find 'document.bcf'!
-[698] Biber.pm:136> INFO - ERRORS: 1
+[0] Config.pm:308> INFO - This is Biber 2.20
+[0] Config.pm:311> INFO - Logfile is 'document.blg'
+[165] biber-MSWIN64:340> INFO - === 
+[227] Biber.pm:420> INFO - Reading 'document.bcf'
+[388] Biber.pm:994> INFO - Found 4 citekeys in bib section 0
+[409] Biber.pm:4463> INFO - Processing section 0
+[423] Biber.pm:4654> INFO - Looking for bibtex file 'sources.bib' for section 0
+[506] bibtex.pm:1713> INFO - LaTeX decoding ...
+[529] bibtex.pm:1519> INFO - Found BibTeX data source 'sources.bib'
+[600] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[601] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[601] Biber.pm:4283> INFO - Sorting list 'none/global//global/global/global' of type 'entry' with template 'none' and locale 'en-US'
+[601] Biber.pm:4289> INFO - No sort tailoring available for locale 'en-US'
+[613] bbl.pm:676> INFO - Writing 'document.bbl' with encoding 'UTF-8'
+[618] bbl.pm:779> INFO - Output to document.bbl

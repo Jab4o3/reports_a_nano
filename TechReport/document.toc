@@ -12,3 +12,14 @@
 \contentsline {subsection}{\numberline {4.4.3}Deliverables}{7}{subsection.4.4.3}%
 \contentsline {section}{\numberline {4.5}Methodology}{7}{section.4.5}%
 \contentsline {section}{\numberline {4.6}Report outline}{7}{section.4.6}%
+\contentsline {chapter}{\numberline {5}Functional design}{9}{chapter.5}%
+\contentsline {chapter}{\numberline {6}Technical design}{10}{chapter.6}%
+\contentsline {chapter}{\numberline {7}Testing results}{11}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Test goals and performance metrics}{11}{section.7.1}%
+\contentsline {section}{\numberline {7.2}Test setup}{12}{section.7.2}%
+\contentsline {section}{\numberline {7.3}Results and discussion}{12}{section.7.3}%
+\contentsline {section}{\numberline {7.4}Known limitations}{12}{section.7.4}%
+\contentsline {chapter}{\numberline {8}Conclusion}{13}{chapter.8}%
+\contentsline {chapter}{\numberline {9}Recommendations}{14}{chapter.9}%
+\contentsline {chapter}{Appendices}{15}{section*.6}%
+\contentsline {chapter}{\numberline {A}Code}{15}{appendix.1.A}%

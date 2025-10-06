@@ -1,7 +1,7 @@
 \chapter{Testing results}\label{chap:conclusion}
-This chapter discusses the results of the tests and what conclusions could be gathered from them. All tests were based on real scenarios, but the performance tests push the platform to its limits by replicating rare and improbable edge cases.
+%This chapter discusses the results of the tests and what conclusions could be gathered from them. All tests were based on real scenarios, but the performance tests push the platform to its limits by replicating rare and improbable edge cases.
 
-Before the technical discussion of results can be started, the status of the goals needs to be presented. Table \ref{tab:goal_com} shows that, while most goals were completed, two are still left. The Prophet implementation could not be started, because, as of completing this report, the feature still has not been released. Disseminating the findings of the project is an activity that has been started already, but can only be completed after the results have been presented officially. This item will be changed from "Ongoing" to "Completed" soon after the completion and submission of this report.
+%Before the technical discussion of results can be started, the status of the goals needs to be presented. Table \ref{tab:goal_com} shows that, while most goals were completed, two are still left. The Prophet implementation could not be started, because, as of completing this report, the feature still has not been released. Disseminating the findings of the project is an activity that has been started already, but can only be completed after the results have been presented officially. This item will be changed from "Ongoing" to "Completed" soon after the completion and submission of this report.
 
 \begin{table}[ht]
 \centering
@@ -27,11 +27,11 @@ Before the technical discussion of results can be started, the status of the goa
 
 
 \section{Test goals and performance metrics}
-Verifying the scalability of OpenRemote is the main goal of the project and consequently the tests. There are two factors that reflect the scalability of a platform. The first one is the speed or how fast can the user and OpenRemote communicate. The second important factor is how reliable this communication is. Reliability, in this case, means the consistency of the data reception and transmission functionalities.
+%Verifying the scalability of OpenRemote is the main goal of the project and consequently the tests. There are two factors that reflect the scalability of a platform. The first one is the speed or how fast can the user and OpenRemote communicate. The second important factor is how reliable this communication is. Reliability, in this case, means the consistency of the data reception and transmission functionalities.
 
-Because the project uses 2 APIs for communication, there are 4 possible API parameters that can be tested: HTTP speed, HTTP reliability, MQTT speed and MQTT reliability. However, the MQTT transmission speed was not considered as important enough to investigate by the stakeholders, so it was omitted from the testing activities. There might be merit in testing it with a remote OpenRemote deployment, as this will provide some more useful insight than on the local deployment that is currently in use. Even then, there is little real-world insight to gain from MQTT speed data, because smart home management does not require low-latency communication.
+%Because the project uses 2 APIs for communication, there are 4 possible API parameters that can be tested: HTTP speed, HTTP reliability, MQTT speed and MQTT reliability. However, the MQTT transmission speed was not considered as important enough to investigate by the stakeholders, so it was omitted from the testing activities. There might be merit in testing it with a remote OpenRemote deployment, as this will provide some more useful insight than on the local deployment that is currently in use. Even then, there is little real-world insight to gain from MQTT speed data, because smart home management does not require low-latency communication.
 
-There is one additional metric, which helps to contextualize the speed and reliability of the platform, but also has importance as a standalone test. This metric is the resource usage of the system. Out of all system resources, CPU and memory usage are the two most important ones.
+%There is one additional metric, which helps to contextualize the speed and reliability of the platform, but also has importance as a standalone test. This metric is the resource usage of the system. Out of all system resources, CPU and memory usage are the two most important ones.
 
 \begin{table}[ht]
 	\centering
@@ -46,193 +46,20 @@ There is one additional metric, which helps to contextualize the speed and relia
 	\label{tab:metrics}
 \end{table}
 
-Table \ref{tab:metrics} contains the 3 metrics which the tests measure. HTTP reliability is not among them, because the HTTP API did not have any reliability issues.
-
-\section{Device provisioning latency}\label{chap:asset_creation}
-\subsection{Test setup}
-Asset creation, or alternatively device provisioning, is the term used for the HTTP API calls that create the OpenRemote asset representations of the simulated devices. Two different tests were devised to measure the provisioning response time, which is the time it takes to receive the response of the server. In both cases the user program sends a number of asset creation request and measures the time for the server to respond, as shown in Figure \ref{fig:dev_prov_setup}. The \textit{sequential} test sends out the requests one after the other and the \textit{parallel} test transmits them simultaneously.
-
-\begin{figure}[ht]
-    \centering
-    \includegraphics[width=0.5\linewidth]{images/dev_prov_setup.drawio.png}
-    \caption{High level overview of asset creation test}
-    \label{fig:dev_prov_setup}
-\end{figure}
-
-\subsection{Results and discussion}
-Asset creation is done in an sequential manner in the functionality showcase (from Chapter \ref{chap:func_test}) and this has little to no negative impact on OpenRemote (see Figure \ref{fig:iter_dev_prov}\footnote{This test was performed on the same setup as the parallel provisioning test and not on the main code}).
-
-\begin{figure}[ht]
-    \centering
-    \includegraphics[width=\linewidth]{images/iter_dev_prov_alt.png}
-    \caption{Sequential device provisioning response time}
-    \label{fig:iter_dev_prov}
-\end{figure}
-
-Using loops to create devices is better for the rest of the code, as it sacrifices some time to reduce the code complexity and the number of big arrays that need to be stored as global variables. However, in order to stress test OpenRemote, a parallel provisioning test was designed. Figure \ref{fig:par_dev_prov} shows the results of the parallel provisioning test. 
-
-From the results of both tests, it can be deduced that the HTTP API can be quite slow when provisioning large numbers of devices. Parallel provisioning is substantially faster in the test, but it has some downsides when integrated with the rest of the code.
-
-\begin{figure}[ht]
-    \centering
-    \includegraphics[width=1\linewidth]{images/par_dev_prov.png}
-    \caption{Parallel device provisioning response time}
-    \label{fig:par_dev_prov}
-\end{figure}
 
 
-\section{Message loss}\label{chap:com_stab}
-As communication stability and data integrity are the most important metrics in the real-world scenario, the test focuses on them. This chapter only discuses MQTT communication, because the setup HTTP API calls differ in functionality and testing methodology. HTTP API testing is discussed in Chapter \ref{chap:asset_creation}.
-
-\subsection{Test setup}
-The test consists of a number of simulated devices all sending \textbf{one MQTT message each} simultaneously to check how well OpenRemote deals with congestion. Figure \ref{fig:com_stab_setup} visualizes this basic idea. In it, the MQTT publish calls are each called by a different client to replicate real publishing. The assets are then retrieved using HTTP calls and the attributes are examined to get the count of all the messages that were received. To create a consistent frame of reference, every run consists of executing the test with 25, 35, 50 and 100 devices and then comparing the results. Each device has an ID number from 0 to the number of devices minus one. The term "data loss" is used to describe OpenRemote not processing an MQTT message due to congestion.
-
-\begin{figure}[ht]
-    \centering
-    \includegraphics[width=0.4\linewidth]{images/com_stab_setup.drawio.png}
-    \caption{High level overview of communication stability test}
-    \label{fig:com_stab_setup}
-\end{figure}
+\section{Test setup}
 
 
-\subsection{Results and discussion}
-Due to the unreliable nature of the hardware this test was ran on, the results varied depending on external circumstances, like external temperature and time that the computer was running before the test was started. It is also likely that driver issues might have contributed to the inconsistency of the setup.
+\section{Results and discussion}
 
-Under optimal external conditions, OpenRemote can process all messages. This was proven by running the test at two different levels of intensity. At the lower intensity level, testing was done with an interval of several minutes between runs\footnote{Every run consists of executing the test with 25, 35, 50 and 100 devices}. After 5 runs, no messages were dropped, which indicated that the higher intensity test would also need to be tried. This involved running tests without pausing in-between them. Figure \ref{fig:data_loss_bar_alt_20} shows that after 20 consecutive runs, OpenRemote still did not drop messages.
-
-\begin{figure}[ht]
-    \centering
-    \includegraphics[width=0.5\linewidth]{images/data_loss_bar_alt_20.png}
-    \caption{Data loss when subjected to negative external factors (20 consecutive runs)}
-    \label{fig:data_loss_bar_alt_20}
-\end{figure}
-
-When subjected to bad conditions, OpenRemote starts dropping messages when around 20 devices send data simultaneously. This number varies wildly, depending on the test setup. When the test was re-ran automatically upon completion, OpenRemote struggled more after the first run. There were also some runs, in which all messages were completely lost, even with only 25 devices. Figure \ref{fig:data_los_iter} shows the test results of 10 consecutive test runs. The difference between the lowest and highest values is very big in most of the test cases, which would be very problematic in the real world, as diagnosing and fixing the data loss would be even harder because of the inconsistency of the problem. Testing was mostly done with QoS\footnote{In the context of MQTT, QoS indicates the message transmission assurance \cite{rfc9431}. When transmitting a message, a QoS of 0 indicates "deliver at most once", a QoS of 1 indicates "deliver at least once" and a QoS of 2 indicates "deliver exactly once"} set to 0. Setting the QoS to 1 and 2 was also tried, however the results were almost identical. Figure \ref{fig:data_loss_stat_10_cons} presents data from the same test, but it shows the number of devices instead of the percentage. All test cases consistently lose most messages, which is why the confidence interval is so narrow.
-
-\begin{figure*}[ht]
-    \centering
-	\begin{subfigure}[t]{0.5\textwidth}
-		\centering
-    	\includegraphics[width=\columnwidth]{images/data_loss_bar_10_cons.png}
-    	\caption{Data loss when subjected to negative external factors}
-    	\label{fig:data_los_iter}
-	\end{subfigure}%
-	~
-	\begin{subfigure}[t]{0.5\textwidth}
-		\centering
-		\includegraphics[width=\columnwidth]{images/data_loss_stat_10_cons.png}
-		\caption{Mean and 95\% CI of communication stability test}
-		\label{fig:data_loss_stat_10_cons}
-	\end{subfigure}
-	\caption{Message loss test results after 10 consecutive runs}
-	\label{fig:data_loss_stat_10_both}
-\end{figure*}
-
-A slightly different testing process is presented in Figure \ref{fig:data_loss_bar_6_sep}. It presents the results of 6 runs, which were separated by several minutes. The test outcomes contrast the ones from Figure \ref{fig:data_loss_stat_10_both} and demonstrate how much more demanding sustained congestion is. However, Figure \ref{fig:data_loss_stat_6_sep} suggests concurrent sending is still an issue even if it is not simultaneous. The mean is significantly lower, however the confidence interval is much broader. The increase in the CI margin is because, while the test runs generally lose a small number of messages, some still lose all of them.
-
-
-\begin{figure*}[ht]
-	\centering
-	\begin{subfigure}[t]{0.5\textwidth}
-    	\centering
-		\includegraphics[width=\columnwidth]{images/data_loss_bar_6_sep.png}
-		\caption{Data loss when subjected to negative external factors}
-		\label{fig:data_loss_bar_6_sep}
-	\end{subfigure}%
-	~
-	\begin{subfigure}[t]{0.5\textwidth}
-		\centering
-		\includegraphics[width=\columnwidth]{images/data_loss_stat_6_sep.png}
-		\caption{Mean and 95\% CI of communication stability test}
-		\label{fig:data_loss_stat_6_sep}
-	\end{subfigure}
-	\caption{Message loss test results after 6 separate runs}
-\end{figure*}
-
-\begin{figure}[h!]
-
-\end{figure}
-
-\begin{figure}[ht]
-
-\end{figure}
-Figure \ref{fig:data_loss} plots every device according to its ID and whether or not the message of a single communication was processed by OpenRemote, which shows an important trend. Devices send data simultaneously on paper, however in reality that is not the case. The code relies on multi-threading to send data in parallel, but the threads get started sequentially. This leads to the threads that send messages from devices with a higher ID numbers getting started later. Consequently, devices with lower IDs do not run into as much congestion.
-
-\begin{figure}[h!]
-    \centering
-    \includegraphics[width=1\linewidth]{images/data_loss.png}
-    \caption{Data loss tendencies based on device ID}
-    \label{fig:data_loss}
-\end{figure}
-
-\section{Resource usage logging}\label{chap:stat_log}
-\subsection{Test setup}
-Every test, including the functionality showcase, logs the CPU and memory usage of the system while running the respective test. All test runs were executed with only the necessary programs and processes running. However the functionality showcase logs are most important, as they resemble the results from a real-world deployment.
-
-\subsection{Results and discussion}
-Figure \ref{fig:resources_main_100} shows the results after running the showcase with 100 simulated devices, 100 iterations per device, ESP32 test enabled, rule and dashboard creation, and server data deletion. 
-
-\begin{figure}[ht]
-    \centering
-    \includegraphics[width=1\linewidth]{images/resources_main_100.png}
-    \caption{Resource usage of the functionality test (100 devices, 100 messages/device)}
-    \label{fig:resources_main_100}
-\end{figure}
-
-
-\begin{figure}[ht]
-    \centering
-    \includegraphics[width=1\linewidth]{images/resources_main_10.png}
-    \caption{Resource usage of the functionality test (10 devices, 100 messages/device)}
-    \label{fig:resources_main_10}
-\end{figure}
-
-
-This plot, along with Figure \ref{fig:resources_main_10}, provides useful insight into how an actual smart home management system would use resources if deployed. According to the CPU logs, the HTTP calls, that are used for device provisioning, rule creation and data deletion, create the biggest sustained load. On the other hand, the load during communication is not sustained. The spikes in Figure \ref{fig:resources_main_100} are created by MQTT message transmission and processing. Comparing Figure \ref{fig:resources_main_100} to Figure \ref{fig:resources_main_10}, it becomes apparent that device count impacts the severity of the spikes in CPU usage. The increase in the number of almost concurrent messages is the reason behind this variance. 
-
-The memory usage spikes and dips are not entirely related to the program. While in general, memory usage increases over the course of the tests, it is mostly affected by background processes. If the computer, which the tests were ran on, is put in an idle state, the memory usage is usually between 65 and 75\%.
-
-Generally, the results of the tests are similar to the ones presented in this chapter, however Figure \ref{fig:resourcesmain100alt} shows an example of how the system performs under bad conditions. Even though the test setup was the same for both runs, it is also possible there were background processes contributing to the increased CPU usage.
-
-\begin{figure}[ht]
-	\centering
-	\includegraphics[width=\linewidth]{../../../../TechReport/resources_main_100_alt}
-	\caption{Resource usage of the functionality test (100 devices, 100 messages/device) under bad conditions}
-	\label{fig:resourcesmain100alt}
-\end{figure}
 
 
 \section{Known limitations}
-The most prominent limitation of this project is the hardware. The computer on which OpenRemote was deployed and the tests were ran was underpowered and because of this, some of the results are inconclusive. Chapter \ref{chap:com_stab} is the most extreme example of this, as it shows that 0\% and 90\% loss rate can be achieved on the same setup. Even though it is not clear what factors caused the big difference, it was likely in part because of CPU thermal throttling. This would explain why running the test with a high internal and ambient temperature resulted in the suboptimal scenario and low internal and ambient temperature resulted in the optimal scenario. It is also possible that bad drivers contributed to the CPU throttling issues. Another reason for the differing outcomes might be system processes, which could lead to the behavior shown in Figure \ref{fig:resourcesmain100alt}.
 
-It is also important to mention that latency testing was not done on the OpenRemote instance. Latency is an important metric to have for future reference, but testing it on a local instance will not produce useful results.
 
 \chapter{Conclusion}
-In conclusion, OpenRemote offers functionality that covers the needs of NOWATT. As an IoT management platform, OpenRemote enables users to manage things on a relatively large scale. There are also a number of useful features for automation and informing the end user. The functionality showcase from Chapter \ref{chap:func_test} demonstrated these features could realistically be integrated into a complete smart home management system. Even though this paper focused on the technical specifications of OpenRemote only, other papers have also compared it to different platforms. Turki et al. \cite{turki2024evaluating} have explored open-source IoT management platforms and claim that OpenRemote is good for managing environments, because it offers a diverse array of features. Aleksandrova \cite{aleksandrova2022using} also suggests that the functionalities of OpenRemote are sufficient for an assisted living system for elderly people. However, neither of these papers mentions technical details like provisioning latency and message loss, instead focusing on general features.
 
-To answer the question asked in Chapter \ref{intro}: \textbf{OpenRemote can handle the data throughput of a smart home monitoring system deployment}. However, the reliability depends on several factors, the main ones being the specifications of the server hosting OpenRemote and the amount of data being sent to and from the platform. 
-
-According to the asset creation test (see Chapter \ref{chap:asset_creation}), there might be a delay of several seconds if many smart homes need to be added to the platform simultaneously. A scenario like this should not happen, aside from when the OpenRemote instance is deployed for the first time. After that new smart homes should mostly be created one by one. The more important test is the congestion test from Chapter \ref{chap:com_stab}. It shows that congestion can result in data loss, which should be considered when designing the final system. The number of homes and time between communication need to be balanced in order to avoid losing MQTT messages. This conclusion is echoed by the findings presented in Chapter \ref{chap:stat_log}. Big numbers of concurrent messages strain the system significantly, but in a real scenario this is generally avoided and is not repeated, unlike the functionality showcase from Chapter \ref{chap:func_test}.
 
 \chapter{Recommendations}
-This chapter recommends several future development paths, some of which can even be combined.  
 
-\section{Security}\label{chap:security}
-The most important recommendation, if the project is continued, is to implement secure MQTT communication. Calls to the HTTP require authentication, but MQTT is done with no added security, which might compromise user data.
-
-To properly secure the MQTT communication, a remote OpenRemote instance needs to be deployed. Hosting can be done on an in-house server or using a hosting service like AWS \cite{aws}. Secure remote deployment also requires a certificate signed by a CA like Let's Encrypt \cite{letsencrypt}.
-
-\section{Further testing}
-It is also highly recommended to redo the testing on a remote setup with OpenRemote running on a proper server. This will give more realistic results, because all the tests in this report were performed on an underpowered system.
-
-After the OpenRemote instance is properly secured, as described in Chapter \ref{chap:security}, the code can be tested on the new platform. For further reference, see Appendix \ref{chap:readme}, as it discusses how all the tests should be ran. 
-
-\section{Queuing}
-Depending on the outcome of the congestion test from Chapter \ref{chap:com_stab} on the remote setup and the system requirements, a gateway that queues MQTT messages might need to be set up and tested. Doing this might not be necessary, if every device connected to the system only sends data in intervals of several minutes. Even if that is the case, a queuing system might still help in some edge cases.
-
-Testing the viability of the queuing system requires its implementation first. The implementation can be done by expanding on the gateway functionality of the existing code base. Once implemented, the queuing system should be tested for delay, as it will likely introduce some even in low-demand scenarios. It should also be tested using the existing test cases to see if it deals with extreme loads well enough so that it justifies the added delay.  
-
-\section{Device provisioning API switch}
-OpenRemote is a product that is constantly being updated. If implemented, some new features might significantly improve the performance of the code. For example, upcoming changes to the MQTT API \cite{mqtt_api_update} will execute the same actions as the HTTP API calls (see Chapter \ref{http_com}), but possibly faster.
-
-After implementing MQTT device provisioning, a methodical comparison of it and HTTP provisioning should be conducted. The easiest way to do this is by running the device creation tests on both. Additionally, the functionality test should be performed to determine if one of the two methods might be more resource-efficient. 

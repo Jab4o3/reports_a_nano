@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.6.12)  24 SEP 2025 14:05
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.6.12)  6 OCT 2025 10:54
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1050,88 +1050,90 @@ l.53 	\chapter
 
 ]
 Chapter 1.
-<img/nv_center.png, id=131, 2046.89719pt x 733.23938pt>
+<img/nv_center.png, id=138, 2046.89719pt x 733.23938pt>
 File: img/nv_center.png Graphic file (type png)
 <use img/nv_center.png>
-Package pdftex.def Info: img/nv_center.png  used on input line 63.
+Package pdftex.def Info: img/nv_center.png  used on input line 65.
 (pdftex.def)             Requested size: 298.75264pt x 107.01625pt.
 
 
 [2
 
  <./img/nv_center.png>]
-<img/vmodel.png, id=154, 330.7557pt x 246.6816pt>
+<img/vmodel.png, id=162, 330.7557pt x 246.6816pt>
 File: img/vmodel.png Graphic file (type png)
 <use img/vmodel.png>
-Package pdftex.def Info: img/vmodel.png  used on input line 87.
+Package pdftex.def Info: img/vmodel.png  used on input line 89.
 (pdftex.def)             Requested size: 298.75264pt x 222.81311pt.
 
 
-[3 <./img/vmodel.png>]
+[3]
+
+[4 <./img/vmodel.png>]
 Chapter 2.
-
-
-[4
-
-]
-Chapter 3.
 
 
 [5
 
 ]
+Chapter 3.
 
-[6]
+
+[6
+
+]
+
+[7]
 Chapter 4.
 
 
-[7
+[8
 
 ]
 
-[8]
+[9]
 Chapter 5.
-
-
-[9
-
-]
-Chapter 6.
 
 
 [10
 
 ]
-Chapter 7.
-<img/gantt.png, id=206, 1337.74782pt x 298.11375pt>
-File: img/gantt.png Graphic file (type png)
-<use img/gantt.png>
-Package pdftex.def Info: img/gantt.png  used on input line 236.
-(pdftex.def)             Requested size: 731.23584pt x 162.95776pt.
+Chapter 6.
 
 
 [11
 
+]
+Chapter 7.
+<img/gantt.png, id=220, 1337.74782pt x 298.11375pt>
+File: img/gantt.png Graphic file (type png)
+<use img/gantt.png>
+Package pdftex.def Info: img/gantt.png  used on input line 238.
+(pdftex.def)             Requested size: 731.23584pt x 162.95776pt.
+
+
+[12
+
 
  <./img/gantt.png>]
 
-[12
+[13
 
 ]
 Chapter 8.
 
 
-[13
+[14
 
 ]
 Chapter 9.
 
 
-[14
+[15
 
 ]
 
-[15
+[16
 
 ] (document.aux)
  ***********
@@ -1140,25 +1142,25 @@ L3 programming layer <2025-05-26>
  ***********
 
 
-Package rerunfilecheck Warning: File `document.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
+LaTeX Warning: There were undefined references.
 
-Package rerunfilecheck Info: Checksums for `document.out':
-(rerunfilecheck)             Before: 0D9310DEBD2CFDC4C7929393B3AD1543;2776
-(rerunfilecheck)             After:  EE85E08855DBC72B25F99488F11742BE;2916.
+Package rerunfilecheck Info: File `document.out' has not changed.
+(rerunfilecheck)             Checksum: EE85E08855DBC72B25F99488F11742BE;2916.
+
+Package biblatex Warning: Please rerun LaTeX.
+
 Package logreq Info: Writing requests to 'document.run.xml'.
 \openout1 = `document.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 26377 strings out of 468224
- 503748 string characters out of 5432952
- 1357190 words of memory out of 5000000
- 54489 multiletter control sequences out of 15000+600000
+ 26388 strings out of 468224
+ 504147 string characters out of 5432952
+ 1357337 words of memory out of 5000000
+ 54497 multiletter control sequences out of 15000+600000
  637102 words of font info for 79 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 99i,9n,123p,963b,1872s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 99i,9n,123p,1103b,1872s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\vladi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm
 1000.pk><C:/Users/vladi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfon
 ts/cm/cmbx10.pfb><C:/Users/vladi/AppData/Local/Programs/MiKTeX/fonts/type1/publ
@@ -1173,9 +1175,9 @@ s/vladi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsl10.pfb
 ><C:/Users/vladi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/c
 mti10.pfb><C:/Users/vladi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsf
 onts/cm/cmtt10.pfb>
-Output written on document.pdf (16 pages, 1320397 bytes).
+Output written on document.pdf (17 pages, 1325840 bytes).
 PDF statistics:
- 306 PDF objects out of 1000 (max. 8388607)
- 57 named destinations out of 1000 (max. 500000)
- 192 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 321 PDF objects out of 1000 (max. 8388607)
+ 60 named destinations out of 1000 (max. 500000)
+ 200 words of extra memory for PDF output out of 10000 (max. 10000000)
 

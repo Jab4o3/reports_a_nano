@@ -53,10 +53,12 @@ style=ieee,
 	\chapter{Introduction}
 	This chapter introduces the assignment and some foundational concepts of quantum sensing.
 	
-	\section{Background}
+	\section{Background}\label{chap:background}
 	Nitrogen-vacancy (NV) centers \cite{enwiki:1301369588} are imperfections in the atomic structure of diamonds. The two types of NV centers are NV0 and NV-, as seen in Figure \ref{fig:nvcenter}, but the NV- structure is much more commonly used in quantum applications. These imperfections have the useful property of spin-dependent luminescence. This means that the spin of the NV center affects the frequency of the light emitted by the structure\footnote{The NV center only emits light after absorbing photons, a phenomenon called photoluminescence \cite{enwiki:1309081879}}. Using this quality of the NV structure, different environmental metrics (e.g magnetic fields) can be measured. 
 	
-	The Applied Nanotechnology research group is working on a NV-center-based sensor setup. Processing data from the setup requires working with weak signals that are hard to distinguish from the environmental noise. While this is a significant problem, it is also a very common one. Because of this, there is already widely-used system used to isolate signals in such cases: the lock-in amplifier.
+	The Applied Nanotechnology research group is working on a NV-center-based sensor setup. There exist several quantum protocols, but the one this setup needs to support is called Continuous-Wave Optically Detected Magnetic Resonance (CW ODMR). At its core, ODMR is a set of protocols, which can detect magnetic fields based on the fluctuations in the fluorescence of NV centers \cite{enwiki:1301371272}. CW ODMR in particular involves exposing the NV center to a MicroWave (MW) sweep while illuminating it with a constant light source. This is in contrast with pulsed ODMR techniques, which use different TTL (transistor-transistor logic) pulse schemes \cite{sewani2020coherent} to modulate the MW signal and the light source.
+	
+ 	Processing data from the setup requires working with weak signals that are hard to distinguish from the environmental noise. While this is a significant problem, it is also a very common one. Because of this, there is already widely-used system used to isolate signals in such cases: the lock-in amplifier.
 	
 	\begin{figure}[ht]
 		\centering
@@ -75,7 +77,7 @@ style=ieee,
 	\section{Assignment specifications}\label{specifications}
 	As already explained, the assignment is quite broad and involves both hardware and software, causing the need for a number of different tools. 
 	
-	Most of the hardware tools are already available at the Applied Nanotechnology lab. The lock-in amplifiers which will be used for the tests are the most important pieces of hardware. Zurich Instruments HF2LI is the benchmark lock-in amplifier. There are several different photodetectors available and the one which fits the project best will be picked at a later date. 
+	Most of the hardware tools are already available at the Applied Nanotechnology lab. The lock-in amplifiers which will be used for the tests are the most important pieces of hardware. Zurich Instruments HF2LI is the benchmark lock-in amplifier. The target amplification is at least 10dB. There are also several different photodetectors available and the one which fits the project best will be picked at a later date. Chapter \ref{chap:background} already discussed the basics of the CW ODMR protocol. In order to get an operational CW ODMR setup, an MW generator and a laser will be used. MW sweeping needs to be done in the range of 2,8 - 2,9 GHz and the lab already has a custom-built MW generator that can output these frequencies. The laser is mostly outside the scope of the assignment, as it is almost entirely optical in nature. Setting it up, together with the NV samples, is up to the client. However, it is important to note that the fluorescence wavelength should be in the range of 637 - 800 nm, as it plays an important part in reading the CW ODMR data.
 	
 	In terms of software, there is more freedom of choice. Interfacing with the HF2LI is done through proprietary software, but this is the only required program. There are various electronic computer-aided design (ECAD) software suites that offer the same base functionality. KiCad was selected because the client prefers open-source software. The program for retrieving data from the lock-in amplifiers can be written in both Python and MATLAB. Both languages have good integration with the main lock-in amplifier. They also offer graphic user interface (GUI) programming capabilities and are good for scientific computing overall.
 	

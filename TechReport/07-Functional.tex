@@ -1,6 +1,23 @@
 \chapter{Functional design} \label{chap:func_design}
+\section{Background knowledge}
+\subsection{Spin states}
+Spin, at least in quantum mechanics, is the intrinsic angular momentum of a particle. Importantly, it differs from the angular momentum in classical mechanics, which is extrinsic. Spin characterizes systems of particles, usually electrons, using quantum entanglement. This phenomenon refers to the "entanglement", or spin correlation, of a set of particles.
+
+These foundational concepts make it possible to describe quantum systems using various states. The most simple states, used as descriptors, are the energy states. Ground states refer to the system being in an energy minimum. On the other hand, excited states signify that the system has more energy than at its ground state. Additionally, there can be intermediate states during state transition.
+
+While the aforementioned states describe system energy, they have no bearing on the spin. For the purposes of this project, only two spin states need to be explained. The first one is called singlet state. It occurs when an entangled system has a total spin of 0, caused by the mutual cancellation of spin. For example, for a system of two entangled electrons to be a singlet, the two spins would need to point in opposite directions. The second spin state is called triplet and it has a total spin of 1. Triplets can consist of, for instance, two unpaired electrons with aligned spins that sum up to 1. Singlets and triplets both have major distinguishing features and properties, which is why they can be used for quantum sensing. Aside from the difference in spin, triplets tend to have higher energy levels. They also exhibit attraction to magnetic fields, while singlets cannot be influenced directly by magnetism.
+
+%\subsection{Energy levels and state transitions}
+\subsection{Zeeman effect}
+
+\subsection{Zero-field splitting}
+
+
 \section{Quantum protocols}
-There are a number of different quantum protocols, which differ in what they can measure, in how precisely they can measure it and in the complexity of the hardware they require to operate. CW ODMR is the main protocol this project is aimed at facilitating. As Saijo et al \cite{saijo2018ac} demonstrate, CW ODMR is relatively simple, while still detecting magnetic field with reasonable sensitivity. Pulsed ODMR does outperform CW ODMR \cite{zhang2020high}, but because of the added complexity working with it is a "Could have" (see Chapter \ref{project_boundaries}). Before being able to run pulsed ODMR on the setup at the lab, several protocols need to be implemented first \cite{sewani2020coherent}. $T_1$ relaxometry, which is one of the fundamentals of Magnetic Resonance Imaging (MRI), should be set up first.
+There are a number of different quantum protocols, which differ in what they can measure, in how precisely they can measure it and in the complexity of the hardware they require to operate. CW ODMR is the main protocol this project is aimed at facilitating. As Saijo et al \cite{saijo2018ac} demonstrate, CW ODMR is relatively simple, while still detecting magnetic field with reasonable sensitivity. Pulsed ODMR does outperform CW ODMR \cite{zhang2020high}, but because of the added complexity working with it is a "Could have" (see Chapter \ref{project_boundaries}). Before being able to run pulsed ODMR on the setup at the lab, several protocols need to be implemented first \cite{sewani2020coherent}. $T_1$ measurements, which are one of the fundamentals of Magnetic Resonance Imaging (MRI), should be conducted first. Afterwards, Rabi oscillations 
+
+\section{CW ODMR}
+CW ODMR is a quantum protocol that has been used in many 
 
 \section{Quantum sensing setup}
 \section{Photodetection PCB}

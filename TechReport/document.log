@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.6.12)  6 OCT 2025 13:03
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.6.12)  8 OCT 2025 15:02
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1087,7 +1087,7 @@ Chapter 3.
 
  (05-Introduction.tex
 Chapter 4.
-<img/nv_center.png, id=191, 2046.89719pt x 733.23938pt>
+<img/nv_center.png, id=216, 2046.89719pt x 733.23938pt>
 File: img/nv_center.png Graphic file (type png)
 <use img/nv_center.png>
 Package pdftex.def Info: img/nv_center.png  used on input line 13.
@@ -1107,7 +1107,7 @@ LaTeX Warning: Reference `chap:background' on page 6 undefined on input line 28
 [6]
 
 [7]
-<img/vmodel.png, id=234, 330.7557pt x 246.6816pt>
+<img/vmodel.png, id=259, 330.7557pt x 246.6816pt>
 File: img/vmodel.png Graphic file (type png)
 <use img/vmodel.png>
 Package pdftex.def Info: img/vmodel.png  used on input line 115.
@@ -1133,13 +1133,15 @@ Chapter 5.
 
 
 ]
+
+[10]
 \openout2 = `08-Technical.aux'.
 
  (08-Technical.tex
 Chapter 6.
 )
 
-[10
+[11
 
 
 
@@ -1151,24 +1153,24 @@ Chapter 6.
 Chapter 7.
 
 
-[11
+[12
 
 
 
 
 ]
 
-[12]
+[13]
 Chapter 8.
 
 
-[13
+[14
 
 ]
 Chapter 9.
 )
 
-[14
+[15
 
 ]
 \openout2 = `A-Appendices.aux'.
@@ -1177,7 +1179,7 @@ Chapter 9.
 Appendix A.
 )
 
-[15
+[16
 
 
 
@@ -1185,7 +1187,7 @@ Appendix A.
 
 ]
 
-[16
+[17
 
 
 
@@ -1200,16 +1202,16 @@ L3 programming layer <2025-05-26>
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `document.out' has not changed.
-(rerunfilecheck)             Checksum: 0218EB682CC3739620949A3068E3F277;4150.
+(rerunfilecheck)             Checksum: 5708E90141774EC52018D85339836A79;4816.
 Package logreq Info: Writing requests to 'document.run.xml'.
 \openout1 = `document.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 27835 strings out of 468224
- 527375 string characters out of 5432952
- 1402121 words of memory out of 5000000
- 55892 multiletter control sequences out of 15000+600000
+ 27846 strings out of 468224
+ 527532 string characters out of 5432952
+ 1403124 words of memory out of 5000000
+ 55897 multiletter control sequences out of 15000+600000
  637102 words of font info for 79 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  99i,17n,123p,1138b,1874s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1228,9 +1230,9 @@ ers/vladi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb
 msl10.pfb><C:/Users/vladi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsf
 onts/cm/cmti10.pfb><C:/Users/vladi/AppData/Local/Programs/MiKTeX/fonts/type1/pu
 blic/amsfonts/cm/cmtt10.pfb>
-Output written on document.pdf (17 pages, 1300957 bytes).
+Output written on document.pdf (18 pages, 1307395 bytes).
 PDF statistics:
- 363 PDF objects out of 1000 (max. 8388607)
- 69 named destinations out of 1000 (max. 500000)
- 259 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 394 PDF objects out of 1000 (max. 8388607)
+ 75 named destinations out of 1000 (max. 500000)
+ 299 words of extra memory for PDF output out of 10000 (max. 10000000)
 

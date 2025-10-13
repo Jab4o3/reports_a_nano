@@ -235,6 +235,66 @@
       \field{pages}{1102176}
       \range{pages}{1}
     \endentry
+    \entry{song2024enhancing}{article}{}{}
+      \name{author}{7}{}{%
+        {{hash=fa98c62dcd32af3e19007942ec23c3b1}{%
+           family={Song},
+           familyi={S\bibinitperiod},
+           given={Zhiying},
+           giveni={Z\bibinitperiod}}}%
+        {{hash=b00a1bd56d0fbfa21451b4f9934f793b}{%
+           family={Yuan},
+           familyi={Y\bibinitperiod},
+           given={Heng},
+           giveni={H\bibinitperiod}}}%
+        {{hash=0dad1eb9f08e3fe69f12a5ca53889a29}{%
+           family={Fan},
+           familyi={F\bibinitperiod},
+           given={Pengcheng},
+           giveni={P\bibinitperiod}}}%
+        {{hash=5b36d6956f55a2f3374c62ce3c798f3f}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={Mingxin},
+           giveni={M\bibinitperiod}}}%
+        {{hash=3b910c72461023e856055e5ec95c2bca}{%
+           family={Shen},
+           familyi={S\bibinitperiod},
+           given={Jihongbo},
+           giveni={J\bibinitperiod}}}%
+        {{hash=247aa5f49c19ace9c2feb1ac0c42c747}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={Sixian},
+           giveni={S\bibinitperiod}}}%
+        {{hash=7e83f37e08514a4b9c65eb5e9fe11d35}{%
+           family={Bian},
+           familyi={B\bibinitperiod},
+           given={Guodong},
+           giveni={G\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{3fe4b5b63ee4caa3f7ee8770ae41b397}
+      \strng{fullhash}{1ddb97fc4d7f55c2a34530a25ceebf37}
+      \strng{fullhashraw}{1ddb97fc4d7f55c2a34530a25ceebf37}
+      \strng{bibnamehash}{3fe4b5b63ee4caa3f7ee8770ae41b397}
+      \strng{authorbibnamehash}{3fe4b5b63ee4caa3f7ee8770ae41b397}
+      \strng{authornamehash}{3fe4b5b63ee4caa3f7ee8770ae41b397}
+      \strng{authorfullhash}{1ddb97fc4d7f55c2a34530a25ceebf37}
+      \strng{authorfullhashraw}{1ddb97fc4d7f55c2a34530a25ceebf37}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Diamond and Related Materials}
+      \field{title}{Enhancing fluorescence of diamond NV- centers for quantum sensing: a multi-layer optical antireflection coating}
+      \field{volume}{141}
+      \field{year}{2024}
+      \field{pages}{110584}
+      \range{pages}{1}
+    \endentry
     \entry{saijo2018ac}{article}{}{}
       \name{author}{8}{}{%
         {{hash=07cab2a3c854dae06cd70dad97615ea9}{%
@@ -289,8 +349,8 @@
       \strng{authornamehash}{6efeb00c03854c29bdac51c2953f16ce}
       \strng{authorfullhash}{cec812ec79baaa594db4be7d159c77ee}
       \strng{authorfullhashraw}{cec812ec79baaa594db4be7d159c77ee}
-      \field{sortinit}{9}
-      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Applied Physics Letters}
@@ -359,6 +419,47 @@
       \field{year}{2020}
       \field{pages}{16191\bibrangedash 16201}
       \range{pages}{11}
+    \endentry
+    \entry{ballinger23}{misc}{}{}
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{3}{}{%
+        {{hash=83348e9dade2178e219172d1159861c8}{%
+           family={Jones},
+           familyi={J\bibinitperiod},
+           given={J},
+           giveni={J\bibinitperiod}}}%
+        {{hash=f15c1f3fc8a2f541ded47c5bd7804212}{%
+           family={Howden},
+           familyi={H\bibinitperiod},
+           given={W},
+           giveni={W\bibinitperiod}}}%
+        {{hash=b6587f4d787e8a5faa13ceb9dc5c1da3}{%
+           family={Murphy},
+           familyi={M\bibinitperiod},
+           given={A},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{960b02860c462d753981022155491bc4}
+      \strng{fullhash}{e0ebc895d836becf4334fe9746c38946}
+      \strng{fullhashraw}{e0ebc895d836becf4334fe9746c38946}
+      \strng{bibnamehash}{e0ebc895d836becf4334fe9746c38946}
+      \strng{authorbibnamehash}{e0ebc895d836becf4334fe9746c38946}
+      \strng{authornamehash}{960b02860c462d753981022155491bc4}
+      \strng{authorfullhash}{e0ebc895d836becf4334fe9746c38946}
+      \strng{authorfullhashraw}{e0ebc895d836becf4334fe9746c38946}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Radiopaedia.org}
+      \field{title}{T1 relaxation time}
+      \verb{urlraw}
+      \verb https://doi.org/10.53347/rID-25821
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.53347/rID-25821
+      \endverb
     \endentry
   \enddatalist
 \endrefsection

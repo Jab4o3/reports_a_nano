@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.6.12)  13 OCT 2025 15:23
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.6.12)  15 OCT 2025 13:40
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1088,7 +1088,7 @@ Chapter 3.
 
  (05-Introduction.tex
 Chapter 4.
-<img/nv_center.png, id=228, 2046.89719pt x 733.23938pt>
+<img/nv_center.png, id=233, 2046.89719pt x 733.23938pt>
 File: img/nv_center.png Graphic file (type png)
 <use img/nv_center.png>
 Package pdftex.def Info: img/nv_center.png  used on input line 13.
@@ -1108,7 +1108,7 @@ LaTeX Warning: Reference `chap:background' on page 6 undefined on input line 28
 [6]
 
 [7]
-<img/vmodel.png, id=270, 330.7557pt x 246.6816pt>
+<img/vmodel.png, id=275, 330.7557pt x 246.6816pt>
 File: img/vmodel.png Graphic file (type png)
 <use img/vmodel.png>
 Package pdftex.def Info: img/vmodel.png  used on input line 115.
@@ -1123,7 +1123,7 @@ Package pdftex.def Info: img/vmodel.png  used on input line 115.
 
  (07-Functional.tex
 Chapter 5.
-<img/energy_levels.png, id=278, 486.31688pt x 543.53062pt>
+<img/energy_levels.png, id=283, 486.31688pt x 543.53062pt>
 File: img/energy_levels.png Graphic file (type png)
 <use img/energy_levels.png>
 Package pdftex.def Info: img/energy_levels.png  used on input line 19.
@@ -1139,7 +1139,7 @@ Package pdftex.def Info: img/energy_levels.png  used on input line 19.
 
 
 ]
-<img/cw_odmr.png, id=295, 615.80063pt x 445.665pt>
+<img/cw_odmr.png, id=300, 615.80063pt x 445.665pt>
 File: img/cw_odmr.png Graphic file (type png)
 <use img/cw_odmr.png>
 Package pdftex.def Info: img/cw_odmr.png  used on input line 37.
@@ -1159,16 +1159,30 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 
 
 
-[10 <./img/energy_levels.png>])
+[10 <./img/energy_levels.png>]
+<drawio_diagrams/t1_waveforms.drawio.png, id=320, 1246.6575pt x 602.25pt>
+File: drawio_diagrams/t1_waveforms.drawio.png Graphic file (type png)
+<use drawio_diagrams/t1_waveforms.drawio.png>
+Package pdftex.def Info: drawio_diagrams/t1_waveforms.drawio.png  used on input
+ line 48.
+(pdftex.def)             Requested size: 384.1096pt x 185.55606pt.
+<img/t1_result.png, id=326, 372.64218pt x 333.49594pt>
+File: img/t1_result.png Graphic file (type png)
+<use img/t1_result.png>
+Package pdftex.def Info: img/t1_result.png  used on input line 63.
+(pdftex.def)             Requested size: 298.75264pt x 267.37721pt.
 
-[11 <./img/cw_odmr.png>]
+
+[11 <./img/cw_odmr.png> <./drawio_diagrams/t1_waveforms.drawio.png>])
+
+[12 <./img/t1_result.png>]
 \openout2 = `08-Technical.aux'.
 
  (08-Technical.tex
 Chapter 6.
 )
 
-[12
+[13
 
 
 
@@ -1180,24 +1194,24 @@ Chapter 6.
 Chapter 7.
 
 
-[13
+[14
 
 
 
 
 ]
 
-[14]
+[15]
 Chapter 8.
 
 
-[15
+[16
 
 ]
 Chapter 9.
 )
 
-[16
+[17
 
 ]
 \openout2 = `A-Appendices.aux'.
@@ -1206,7 +1220,7 @@ Chapter 9.
 Appendix A.
 )
 
-[17
+[18
 
 
 
@@ -1214,7 +1228,7 @@ Appendix A.
 
 ]
 
-[18
+[19
 
 
 
@@ -1229,43 +1243,46 @@ L3 programming layer <2025-05-26>
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `document.out' has not changed.
-(rerunfilecheck)             Checksum: 8EBA3237B5DAA5BBD8EA4ED70BB63AAC;5040.
+(rerunfilecheck)             Checksum: E5595A7A73EA74948A0D7FCD5E9F632D;5204.
 Package logreq Info: Writing requests to 'document.run.xml'.
 \openout1 = `document.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 27924 strings out of 468224
- 529273 string characters out of 5432952
- 1403850 words of memory out of 5000000
- 55963 multiletter control sequences out of 15000+600000
+ 27959 strings out of 468224
+ 530254 string characters out of 5432952
+ 1405179 words of memory out of 5000000
+ 55993 multiletter control sequences out of 15000+600000
  637102 words of font info for 79 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 99i,17n,123p,1138b,1874s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 99i,17n,123p,1271b,1874s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\vladi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm
 1000.pk><C:/Users/vladi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfon
 ts/cm/cmbx10.pfb><C:/Users/vladi/AppData/Local/Programs/MiKTeX/fonts/type1/publ
 ic/amsfonts/cm/cmbx12.pfb><C:/Users/vladi/AppData/Local/Programs/MiKTeX/fonts/t
 ype1/public/amsfonts/cm/cmmi10.pfb><C:/Users/vladi/AppData/Local/Programs/MiKTe
 X/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/vladi/AppData/Local/Progr
-ams/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/vladi/AppData/Loc
-al/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/vladi/App
-Data/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/v
-ladi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:
-/Users/vladi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12
+ams/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/vladi/AppData/Loc
+al/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/vladi/App
+Data/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/v
+ladi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:
+/Users/vladi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10
 .pfb><C:/Users/vladi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/
-cm/cmr17.pfb><C:/Users/vladi/AppData/Local/Programs/MiKTeX/fonts/type1/public/a
-msfonts/cm/cmr6.pfb><C:/Users/vladi/AppData/Local/Programs/MiKTeX/fonts/type1/p
-ublic/amsfonts/cm/cmr7.pfb><C:/Users/vladi/AppData/Local/Programs/MiKTeX/fonts/
-type1/public/amsfonts/cm/cmr8.pfb><C:/Users/vladi/AppData/Local/Programs/MiKTeX
-/fonts/type1/public/amsfonts/cm/cmsl10.pfb><C:/Users/vladi/AppData/Local/Progra
-ms/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/vladi/AppData/Loc
-al/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/vladi/App
-Data/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/
-vladi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on document.pdf (19 pages, 1600649 bytes).
+cm/cmr12.pfb><C:/Users/vladi/AppData/Local/Programs/MiKTeX/fonts/type1/public/a
+msfonts/cm/cmr17.pfb><C:/Users/vladi/AppData/Local/Programs/MiKTeX/fonts/type1/
+public/amsfonts/cm/cmr5.pfb><C:/Users/vladi/AppData/Local/Programs/MiKTeX/fonts
+/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/vladi/AppData/Local/Programs/MiKTe
+X/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/vladi/AppData/Local/Program
+s/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/vladi/AppData/Local/
+Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsl10.pfb><C:/Users/vladi/AppDa
+ta/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/vl
+adi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/
+Users/vladi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10
+.pfb><C:/Users/vladi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/
+cm/cmtt10.pfb>
+Output written on document.pdf (20 pages, 1669574 bytes).
 PDF statistics:
- 461 PDF objects out of 1000 (max. 8388607)
- 83 named destinations out of 1000 (max. 500000)
- 325 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 495 PDF objects out of 1000 (max. 8388607)
+ 88 named destinations out of 1000 (max. 500000)
+ 343 words of extra memory for PDF output out of 10000 (max. 10000000)
 

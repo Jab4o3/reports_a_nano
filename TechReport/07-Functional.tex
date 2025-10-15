@@ -30,22 +30,47 @@ There are a number of different quantum protocols, which differ in what they can
 
 
 \subsection{CW-ODMR}
-CW-ODMR is a quantum protocol that has seen extensive usage in sensing setups that measure magnetic fields. Its working principle is centered around the photoluminescence of NV centers and the difference in light emission based on spin states. As already discussed in Chapter \ref{chap:energy_levels}, the NV center emits less visible light when at the resonant frequency $\nu$. Additionally, two more dips appear on the spectrum if a magnetic field is applied.Calculating the magnetic field can be done using the formula $h\nu = g_e\mu_BB_{AC}$ \footcite[In the formula, $h$ is the Planck constant, $g_e$ is the g-factor of the electron and $\mu_B$ is the Bohr magnetron. Knowing all other variables, $B_{AC}$ can easily be calculated.]{enwiki:1301371272}. Figure \ref{fig:cwodmr} shows an example of what a CW-ODMR spectrum might look like. 
+CW-ODMR is a quantum protocol that has seen extensive usage in sensing setups that measure magnetic fields. Its working principle is centered around the photoluminescence of NV centers and the difference in light emission based on spin states. As already discussed in Chapter \ref{chap:energy_levels}, the NV center emits less visible light when at the resonant frequency $\nu$. Additionally, two more dips appear on the spectrum if a magnetic field is applied.Calculating the magnetic field can be done using the formula $h\nu = g_e\mu_BB_{AC}$ \footcite[In the formula, $h$ is the Planck constant, $g_e$ is the g-factor of the electron and $\mu_B$ is the Bohr magneton. Knowing all other variables, $B_{AC}$ can easily be calculated.]{enwiki:1301371272}. Figure \ref{fig:cwodmr} shows an example of what a CW-ODMR spectrum might look like. 
 
 \begin{figure}[ht]
 	\centering
 	\includegraphics[width=0.7\linewidth]{img/cw_odmr}
-	\caption{Spectrum of CW-ODMR \textbf{\textcolor{red}{with}} and \textbf{without} the magnetic field $B_{AC}$ (image credit Saijo et al \cite{saijo2018ac})}
+	\caption{Example of a CW-ODMR spectrum \textbf{\textcolor{red}{with}} and \textbf{without} a magnetic field (image credit Saijo et al \cite{saijo2018ac})}
 	\label{fig:cwodmr}
 \end{figure}
 
 
 \subsection{$T_1$ relaxometry}
-$T_1$, $T_2$ and $T_2^*$ relaxation time measurements are commonly associated with radiometry, but they have other uses too \cite{ballinger23}. $T_1$ measurements, in particular, are useful in the realm of quantum sensing. Knowing the $T_1$ relaxation time makes it possible to adjust the pulse sequences of more complex protocols. %explain what relaxation is and the protcol
+$T_1$, $T_2$ and $T_2^*$ relaxation time measurements are commonly associated with radiometry \cite{ballinger23}, but they have other uses too. $T_1$ measurements, in particular, are useful in the realm of quantum sensing. Knowing the $T_1$ relaxation time, which refers to the time it takes for the spins in an NV system to decay back to their original state, makes it possible to adjust the pulse sequences of more complex protocols and thus get better results.  %explain what relaxation is and the protcol
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.9\linewidth]{drawio_diagrams/t1_waveforms.drawio}
+	\caption{Laser and reference signals for $T_1$ measurements}
+	\label{fig:t1waveforms}
+\end{figure}
+
+The waveforms which are needed for $T_1$ measurements are shown if Figure \ref{fig:t1waveforms}. While both are important in practice, the lock-in is not as relevant, at least in this section of the report. However, its working principle is explored in Chapter \ref{chap:lockin}. For now, all that needs to be said about the lock-in reference signal is that it is periodic and $t_{li}$ is much longer than $t_{las}$ (Sewani et al \cite{sewani2020coherent} propose $t_{li} = 15 ms$ and $t_{las} = 5 \mu s$). Laser pulses, on the other hand, are not periodic. Instead, there are three short pulses every reference period (which is $2t_{li} s$ long). The two blue pulses have the same timing every cycle, because they initialize the NV spins. However, the red pulse always occurs after the variable dark time $t_d$. Depending on the $T_1$ decay at the time of the readout pulse, a different voltage will be detected. Figure \ref{fig:t1result} shows what results can be expected when measuring $T_1$. Determining the value of $T_1$ is done using Formula \ref{eq:t1}, where $I$ is the light intensity, $I_\infty$ is the light intensity offset and $t_d$ is the dark time. 
+
+\begin{equation}\label{eq:t1}
+I(t)=I_\infty+I(0)e^{-t_d/T_1}
+\end{equation}
+
+
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.7\linewidth]{img/t1_result}
+	\caption{Results of a set of $T_1$ measurements with varied dark time $t_d$ (image credit to Sewani et al \cite{sewani2020coherent})}
+	\label{fig:t1result}
+\end{figure}
+
+
 
 \subsection{Pulsed ODMR}
 As a more complex protocol
 
+\section{Lock-in amplification} \label{chap:lockin}
 \section{Quantum sensing setup}
 \section{Photodetection PCB}
 \section{OLIA implementation}

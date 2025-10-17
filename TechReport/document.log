@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.6.12)  15 OCT 2025 13:40
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.6.12)  17 OCT 2025 11:54
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -598,62 +598,16 @@ Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
 \@vwid@roff=\dimen195
 )
 ==> First Aid for varwidth.sty applied!
-) (C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.sty
-Package: geometry 2020/01/02 v5.9 Page Geometry
-(C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/generic/iftex\ifvtex.sty
-Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
-)
-\Gm@cnth=\count354
-\Gm@cntv=\count355
-\c@Gm@tempcnt=\count356
-\Gm@bindingoffset=\dimen196
-\Gm@wd@mp=\dimen197
-\Gm@odd@mp=\dimen198
-\Gm@even@mp=\dimen199
-\Gm@layoutwidth=\dimen256
-\Gm@layoutheight=\dimen257
-\Gm@layouthoffset=\dimen258
-\Gm@layoutvoffset=\dimen259
-\Gm@dimlist=\toks38
-
-(C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.cfg))
-(C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/latex/listings\listings.sty
-\lst@mode=\count357
-\lst@gtempboxa=\box64
-\lst@token=\toks39
-\lst@length=\count358
-\lst@currlwidth=\dimen260
-\lst@column=\count359
-\lst@pos=\count360
-\lst@lostspace=\dimen261
-\lst@width=\dimen262
-\lst@newlines=\count361
-\lst@lineno=\count362
-\lst@maxwidth=\dimen263
-
-(C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstpatch.sty
-File: lstpatch.sty 2024/09/23 1.10c (Carsten Heinz)
-)
-(C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstmisc.sty
-File: lstmisc.sty 2024/09/23 1.10c (Carsten Heinz)
-\c@lstnumber=\count363
-\lst@skipnumbers=\count364
-\lst@framebox=\box65
-)
-(C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/latex/listings\listings.cfg
-File: listings.cfg 2024/09/23 1.10c listings configuration
-))
-Package: listings 2024/09/23 1.10c (Carsten Heinz)
-(C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/latex/braket\braket.sty)
+) (C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/latex/braket\braket.sty)
 (C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/latex/csquotes\csquotes.sty
 Package: csquotes 2024-04-04 v5.2o context-sensitive quotations (JAW)
-\csq@reset=\count365
-\csq@gtype=\count366
-\csq@glevel=\count367
-\csq@qlevel=\count368
-\csq@maxlvl=\count369
-\csq@tshold=\count370
-\csq@ltx@everypar=\toks40
+\csq@reset=\count354
+\csq@gtype=\count355
+\csq@glevel=\count356
+\csq@qlevel=\count357
+\csq@maxlvl=\count358
+\csq@tshold=\count359
+\csq@ltx@everypar=\toks38
 
 (C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/latex/csquotes\csquotes.def
 File: csquotes.def 2024-04-04 v5.2o csquotes generic definitions (JAW)
@@ -663,8 +617,55 @@ Package csquotes Info: ... configuration file loaded successfully.
 
 (C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/latex/csquotes\csquotes.cfg
 File: csquotes.cfg 
-)) (C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/latex/biblatex\biblatex.st
+)) (C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.st
 y
+Package: geometry 2020/01/02 v5.9 Page Geometry
+
+(C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/generic/iftex\ifvtex.sty
+Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
+)
+\Gm@cnth=\count360
+\Gm@cntv=\count361
+\c@Gm@tempcnt=\count362
+\Gm@bindingoffset=\dimen196
+\Gm@wd@mp=\dimen197
+\Gm@odd@mp=\dimen198
+\Gm@even@mp=\dimen199
+\Gm@layoutwidth=\dimen256
+\Gm@layoutheight=\dimen257
+\Gm@layouthoffset=\dimen258
+\Gm@layoutvoffset=\dimen259
+\Gm@dimlist=\toks39
+
+(C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.cfg))
+(C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/latex/listings\listings.sty
+\lst@mode=\count363
+\lst@gtempboxa=\box64
+\lst@token=\toks40
+\lst@length=\count364
+\lst@currlwidth=\dimen260
+\lst@column=\count365
+\lst@pos=\count366
+\lst@lostspace=\dimen261
+\lst@width=\dimen262
+\lst@newlines=\count367
+\lst@lineno=\count368
+\lst@maxwidth=\dimen263
+
+(C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstpatch.sty
+File: lstpatch.sty 2024/09/23 1.10c (Carsten Heinz)
+)
+(C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstmisc.sty
+File: lstmisc.sty 2024/09/23 1.10c (Carsten Heinz)
+\c@lstnumber=\count369
+\lst@skipnumbers=\count370
+\lst@framebox=\box65
+)
+(C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/latex/listings\listings.cfg
+File: listings.cfg 2024/09/23 1.10c listings configuration
+))
+Package: listings 2024/09/23 1.10c (Carsten Heinz)
+(C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/latex/biblatex\biblatex.sty
 Package: biblatex 2024/03/21 v3.20 programmable bibliographies (PK/MW)
 
 (C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/latex/logreq\logreq.sty
@@ -921,51 +922,273 @@ Package: xparse 2024-08-16 L3 Experimental document command parser
 )
 Package: blx-case-expl3 2024/03/21 v3.20 expl3 case changing code for biblatex
 ))
+(C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/latex/fancyhdr\fancyhdr.sty
+Package: fancyhdr 2025/02/07 v5.2 Extensive control of page headers and footers
+
+\f@nch@headwidth=\skip86
+\f@nch@offset@elh=\skip87
+\f@nch@offset@erh=\skip88
+\f@nch@offset@olh=\skip89
+\f@nch@offset@orh=\skip90
+\f@nch@offset@elf=\skip91
+\f@nch@offset@erf=\skip92
+\f@nch@offset@olf=\skip93
+\f@nch@offset@orf=\skip94
+\f@nch@height=\skip95
+\f@nch@footalignment=\skip96
+\f@nch@widthL=\skip97
+\f@nch@widthC=\skip98
+\f@nch@widthR=\skip99
+\@temptokenb=\toks41
+)
+(C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/latex/lastpage\lastpage.sty
+Package: lastpage 2025/08/14 v2.1h lastpage: 2.09 or 2e? (HMM)
+
+(C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/latex/lastpage\lastpage2e.sty
+Package: lastpage2e 2025/08/14 v2.1h Decide which 2e lastpage version to use (H
+MM)
+
+(C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/latex/lastpage\lastpagemodern
+.sty
+Package: lastpagemodern 2025-08-14 v2.1h Refers to last page's name (HMM; JPG)
+\c@lastpagecount=\count497
+) 
+))
+(C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/latex/glossaries-extra\glossa
+ries-extra.sty
+Package: glossaries-extra 2025/08/13 v1.8 (NLCT)
+
+(C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/latex/glossaries/base\glossar
+ies.sty
+Package: glossaries 2025/05/14 v4.7 (NLCT)
+
+(C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/latex/mfirstuc\mfirstuc.sty
+Package: mfirstuc 2025/04/03 v2.09 (NLCT)
+\@glsmfirst=\toks42
+\@glsmrest=\toks43
+)
+(C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/latex/xfor\xfor.sty
+Package: xfor 2009/02/05 v1.05 (NLCT)
+) ()
+(C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/latex/tracklang\tracklang.sty
+Package: tracklang 2025/03/11 v1.6.6 (NLCT) Track Languages
+
+(C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/generic/tracklang\tracklang.t
+ex)
+Package tracklang Info: Tracking dialect `english' (language `english') on inpu
+t line 264.
+Package tracklang Info: Tracking dialect `english' (language `english') on inpu
+t line 264.
+)
+(C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/latex/glossaries-english\glos
+saries-english.ldf
+File: glossaries-english.ldf 2014/11/23 v1.0
+)
+(C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/latex/datatool\datatool-base.
+sty
+Package: datatool-base 2025/04/25 v3.4.1 (NLCT)
+
+(C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/latex/datatool\datatool-l3fp.
+def
+File: datatool-l3fp.def 2025/04/25 v3.4.1 (NLCT)
+)
+\@dtl@toks=\toks44
+\@dtl@tmpcount=\count498
+\dtl@tmplength=\skip100
+\l__datatool_measure_box=\box66
+\dtl@sortresult=\count499
+
+(C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/latex/datatool\datatool-utf8.
+ldf
+File: datatool-utf8.ldf 2025/04/25 v3.4.1 (NLCT)
+)
+\@dtl@datatype=\count500
+\l__datatool_tmpa_int=\count501
+\l__datatool_tmpb_int=\count502
+\l__datatool_tmpc_int=\count503
+\l__datatool_tmpd_int=\count504
+\l__datatool_count_int=\count505
+\l__datatool_tmp_datatype_int=\count506
+\l__datatool_tmpa_dim=\dimen264
+\l__datatool_tmpb_dim=\dimen265
+\c_datatool_unknown_int=\count507
+\l__datatool_year_int=\count508
+\l__datatool_month_int=\count509
+\l__datatool_day_int=\count510
+\l__datatool_hour_int=\count511
+\l__datatool_minute_int=\count512
+\l__datatool_second_int=\count513
+\l__datatool_tzhour_int=\count514
+\l__datatool_tzminute_int=\count515
+\l__datatool_julian_int=\count516
+\l__datatool_local_julian_int=\count517
+\l__datatool_prefix_int=\count518
+\l__datatool_suffix_int=\count519
+\@dtl@foreach@level=\count520
+
+
+Package tracklang Warning: No `datatool' support for dialect `english'  on inpu
+t line 9908.
+
+\dtl@codeA=\count521
+\dtl@codeB=\count522
+)
+\gls@level=\count523
+\@gls@tmpb=\toks45
+\gls@tmplen=\skip101
+\l__glossaries_tmpa_dim=\dimen266
+\l__glossaries_tmpb_dim=\dimen267
+\glskeylisttok=\toks46
+\glslabeltok=\toks47
+\glsshorttok=\toks48
+\glslongtok=\toks49
+
+(C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/latex/glossaries/styles\gloss
+ary-hypernav.sty
+Package: glossary-hypernav 2025/05/14 v4.7 (NLCT)
+)
+(C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/latex/glossaries/styles\gloss
+ary-list.sty
+Package: glossary-list 2025/05/14 v4.7 (NLCT)
+\glslistdottedwidth=\skip102
+)
+(C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/latex/glossaries/styles\gloss
+ary-long.sty
+Package: glossary-long 2025/05/14 v4.7 (NLCT)
+
+(C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/latex/tools\longtable.sty
+Package: longtable 2024-12-18 v4.23 Multi-page Table package (DPC)
+\LTleft=\skip103
+\LTright=\skip104
+\LTpre=\skip105
+\LTpost=\skip106
+\LTchunksize=\count524
+\LTcapwidth=\dimen268
+\LT@head=\box67
+\LT@firsthead=\box68
+\LT@foot=\box69
+\LT@lastfoot=\box70
+\LT@gbox=\box71
+\LT@cols=\count525
+\LT@rows=\count526
+\c@LT@tables=\count527
+\c@LT@chunks=\count528
+\LT@p@ftn=\toks50
+)
+\glsdescwidth=\skip107
+\glspagelistwidth=\skip108
+)
+(C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/latex/glossaries/styles\gloss
+ary-super.sty
+Package: glossary-super 2025/05/14 v4.7 (NLCT)
+
+(C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/latex/supertabular\supertabul
+ar.sty
+Package: supertabular 2024/07/20 v4.2c the supertabular environment
+\c@tracingst=\count529
+\ST@wd=\dimen269
+\ST@rightskip=\skip109
+\ST@leftskip=\skip110
+\ST@parfillskip=\skip111
+\ST@pageleft=\dimen270
+\ST@headht=\dimen271
+\ST@tailht=\dimen272
+\ST@pagesofar=\dimen273
+\ST@pboxht=\dimen274
+\ST@rowht=\dimen275
+\ST@prevht=\dimen276
+\ST@toadd=\dimen277
+\ST@dimen=\dimen278
+\ST@pbox=\box72
+))
+(C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/latex/glossaries/styles\gloss
+ary-tree.sty
+Package: glossary-tree 2025/05/14 v4.7 (NLCT)
+\l__glossaries_tree_max_known_level_int=\count530
+\l__glossaries_tree_offset_dim=\dimen279
+\l__glossaries_tree_namewidth_dim=\dimen280
+\l__glossaries_tree_symbolwidth_dim=\dimen281
+\l__glossaries_tree_prenamesym_width_dim=\dimen282
+\l__glossaries_tree_presubnamesym_width_dim=\dimen283
+\l__glossaries_tree_namewidth_padding_dim=\dimen284
+\l__glossaries_tree_symbolwidth_padding_dim=\dimen285
+\l__glossaries_tree_namesymbolwidth_dim=\dimen286
+\l__glossaries_tree_namesymbolwidth_padding_dim=\dimen287
+\l__glossaries_tree_level_int=\count531
+\glstreeindent=\skip112
+))
+\@glsxtr@leveloffset=\count532
+\glsxtrresourcecount=\count533
+\@glsxtrnewgls@inner=\count534
+\glsshortpltok=\toks51
+\glslongpltok=\toks52
+
+(C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/latex/glossaries-extra\glossa
+ries-extra-abbrstyles.def
+File: glossaries-extra-abbrstyles.def 2025/08/13 v1.8 (NLCT)
+)
+\mglselementindex=\count535
+)
+runsystem(makeindex -s document.ist -t document.glg -o document.gls document.gl
+o)...executed safely (allowed).
+
+\glswrite=\write7
+\glo@main@file=\write8
+\openout8 = `document.glo'.
+
+Package glossaries Info: Writing glossary file document.glo on input line 171.
 Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... found 'babel' package.
 Package csquotes Info: Adjusting default style.
 Package csquotes Info: Redefining alias 'default' -> 'english'.
- (document.aux (05-Introduction.aux) (06-Analysis_of_specifications.aux) (07-Fu
-nctional.aux) (08-Technical.aux) (09-Conclusion.aux) (A-Appendices.aux))
+ (document.aux (05-Introduction.aux)
+(06-Analysis_of_specifications.aux) (07-Functional.aux) (08-Technical.aux)
+(09-Conclusion.aux) (A-Appendices.aux))
 \openout1 = `document.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 148.
-LaTeX Font Info:    ... okay on input line 148.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 148.
-LaTeX Font Info:    ... okay on input line 148.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 148.
-LaTeX Font Info:    ... okay on input line 148.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 148.
-LaTeX Font Info:    ... okay on input line 148.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 148.
-LaTeX Font Info:    ... okay on input line 148.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 148.
-LaTeX Font Info:    ... okay on input line 148.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 148.
-LaTeX Font Info:    ... okay on input line 148.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 148.
-LaTeX Font Info:    ... okay on input line 148.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 148.
-LaTeX Font Info:    ... okay on input line 148.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 176.
+LaTeX Font Info:    ... okay on input line 176.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 176.
+LaTeX Font Info:    ... okay on input line 176.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 176.
+LaTeX Font Info:    ... okay on input line 176.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 176.
+LaTeX Font Info:    ... okay on input line 176.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 176.
+LaTeX Font Info:    ... okay on input line 176.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 176.
+LaTeX Font Info:    ... okay on input line 176.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 176.
+LaTeX Font Info:    ... okay on input line 176.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 176.
+LaTeX Font Info:    ... okay on input line 176.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 176.
+LaTeX Font Info:    ... okay on input line 176.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: hyperref package is loaded.
 Package caption Info: listings package is loaded.
+Package caption Info: longtable package is loaded.
+
+(C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/latex/caption\ltcaption.sty
+Package: ltcaption 2021/01/08 v1.4c longtable captions (AR)
+)
+Package caption Info: supertabular package is loaded.
 Package caption Info: End \AtBeginDocument code.
 
 (C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mk
 ii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count497
-\scratchdimen=\dimen264
-\scratchbox=\box66
-\nofMPsegments=\count498
-\nofMParguments=\count499
-\everyMPshowfont=\toks41
-\MPscratchCnt=\count500
-\MPscratchDim=\dimen265
-\MPnumerator=\count501
-\makeMPintoPDFobject=\count502
-\everyMPtoPDFconversion=\toks42
+\scratchcounter=\count536
+\scratchdimen=\dimen288
+\scratchbox=\box73
+\nofMPsegments=\count537
+\nofMParguments=\count538
+\everyMPshowfont=\toks53
+\MPscratchCnt=\count539
+\MPscratchDim=\dimen289
+\MPnumerator=\count540
+\makeMPintoPDFobject=\count541
+\everyMPtoPDFconversion=\toks54
 )
 (C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-b
 ase.sty
@@ -977,10 +1200,10 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 fg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
-Package hyperref Info: Link coloring ON on input line 148.
+Package hyperref Info: Link coloring ON on input line 176.
  (document.out) (document.out)
-\@outlinefile=\write7
-\openout7 = `document.out'.
+\@outlinefile=\write9
+\openout9 = `document.out'.
 
 
 *geometry* driver: auto-detecting
@@ -1017,7 +1240,7 @@ Package hyperref Info: Link coloring ON on input line 148.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-\c@lstlisting=\count503
+\c@lstlisting=\count542
 Package biblatex Info: Trying to load language 'english'...
 Package biblatex Info: ... file 'english.lbx' found.
 
@@ -1033,15 +1256,15 @@ Package biblatex Info: Automatic encoding selection.
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'document.bbl' found.
  (document.bbl)
-Package biblatex Info: Reference section=0 on input line 148.
-Package biblatex Info: Reference segment=0 on input line 148.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 150
+Package biblatex Info: Reference section=0 on input line 176.
+Package biblatex Info: Reference segment=0 on input line 176.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 178
 .
 
 (C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 150
+LaTeX Font Info:    Trying to load font information for U+msb on input line 178
 .
 
 (C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
@@ -1050,10 +1273,12 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 [1
 
+\openout7 = `document.ist'.
+
 {C:/Users/vladi/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
 (document.toc)
-\tf@toc=\write8
-\openout8 = `document.toc'.
+\tf@toc=\write10
+\openout10 = `document.toc'.
 
 
 
@@ -1062,7 +1287,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.154 	\chapter
+l.182 	\chapter
                {Foreword} [1
 
 ]
@@ -1078,59 +1303,48 @@ Chapter 2.
 [3
 
 ]
-Chapter 3.
-
-
-[4
-
-]
 \openout2 = `05-Introduction.aux'.
 
  (05-Introduction.tex
-Chapter 4.
-<img/nv_center.png, id=233, 2046.89719pt x 733.23938pt>
+Chapter 3.
+<img/nv_center.png, id=250, 2046.89719pt x 733.23938pt>
 File: img/nv_center.png Graphic file (type png)
 <use img/nv_center.png>
 Package pdftex.def Info: img/nv_center.png  used on input line 13.
 (pdftex.def)             Requested size: 298.75264pt x 107.01625pt.
 
 
-[5
+[4
 
 
  <./img/nv_center.png>]
 
-LaTeX Warning: Reference `chap:background' on page 6 undefined on input line 28
-.
-
-
+[5]
 
 [6]
-
-[7]
-<img/vmodel.png, id=275, 330.7557pt x 246.6816pt>
+<img/vmodel.png, id=338, 330.7557pt x 246.6816pt>
 File: img/vmodel.png Graphic file (type png)
 <use img/vmodel.png>
 Package pdftex.def Info: img/vmodel.png  used on input line 115.
 (pdftex.def)             Requested size: 298.75264pt x 222.81311pt.
 )
 
-[8 <./img/vmodel.png>]
+[7 <./img/vmodel.png>]
 \openout2 = `06-Analysis_of_specifications.aux'.
 
  (06-Analysis_of_specifications.tex)
 \openout2 = `07-Functional.aux'.
 
  (07-Functional.tex
-Chapter 5.
-<img/energy_levels.png, id=283, 486.31688pt x 543.53062pt>
+Chapter 4.
+<img/energy_levels.png, id=349, 486.31688pt x 543.53062pt>
 File: img/energy_levels.png Graphic file (type png)
 <use img/energy_levels.png>
 Package pdftex.def Info: img/energy_levels.png  used on input line 19.
 (pdftex.def)             Requested size: 298.75264pt x 333.90027pt.
 
 
-[9
+[8
 
 
 
@@ -1139,7 +1353,7 @@ Package pdftex.def Info: img/energy_levels.png  used on input line 19.
 
 
 ]
-<img/cw_odmr.png, id=300, 615.80063pt x 445.665pt>
+<img/cw_odmr.png, id=382, 615.80063pt x 445.665pt>
 File: img/cw_odmr.png Graphic file (type png)
 <use img/cw_odmr.png>
 Package pdftex.def Info: img/cw_odmr.png  used on input line 37.
@@ -1159,30 +1373,30 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 
 
 
-[10 <./img/energy_levels.png>]
-<drawio_diagrams/t1_waveforms.drawio.png, id=320, 1246.6575pt x 602.25pt>
+[9 <./img/energy_levels.png>]
+<drawio_diagrams/t1_waveforms.drawio.png, id=408, 1246.6575pt x 602.25pt>
 File: drawio_diagrams/t1_waveforms.drawio.png Graphic file (type png)
 <use drawio_diagrams/t1_waveforms.drawio.png>
 Package pdftex.def Info: drawio_diagrams/t1_waveforms.drawio.png  used on input
  line 48.
 (pdftex.def)             Requested size: 384.1096pt x 185.55606pt.
-<img/t1_result.png, id=326, 372.64218pt x 333.49594pt>
+<img/t1_result.png, id=415, 372.64218pt x 333.49594pt>
 File: img/t1_result.png Graphic file (type png)
 <use img/t1_result.png>
 Package pdftex.def Info: img/t1_result.png  used on input line 63.
 (pdftex.def)             Requested size: 298.75264pt x 267.37721pt.
 
 
-[11 <./img/cw_odmr.png> <./drawio_diagrams/t1_waveforms.drawio.png>])
+[10 <./img/cw_odmr.png> <./drawio_diagrams/t1_waveforms.drawio.png>])
 
-[12 <./img/t1_result.png>]
+[11 <./img/t1_result.png>]
 \openout2 = `08-Technical.aux'.
 
  (08-Technical.tex
-Chapter 6.
+Chapter 5.
 )
 
-[13
+[12
 
 
 
@@ -1191,27 +1405,27 @@ Chapter 6.
 \openout2 = `09-Conclusion.aux'.
 
  (09-Conclusion.tex
+Chapter 6.
+
+
+[13
+
+
+
+
+]
+
+[14]
 Chapter 7.
 
 
-[14
-
-
-
+[15
 
 ]
-
-[15]
 Chapter 8.
-
-
-[16
-
-]
-Chapter 9.
 )
 
-[17
+[16
 
 ]
 \openout2 = `A-Appendices.aux'.
@@ -1220,8 +1434,15 @@ Chapter 9.
 Appendix A.
 )
 
-[18
+[17
 
+
+
+
+
+] (document.gls)
+
+[18
 
 
 
@@ -1230,32 +1451,28 @@ Appendix A.
 
 [19
 
-
-
-] (document.aux (05-Introduction.aux) (06-Analysis_of_specifications.aux)
+] 
+enddocument/afterlastpage (AED): lastpage setting LastPage.
+(document.aux (05-Introduction.aux) (06-Analysis_of_specifications.aux)
 (07-Functional.aux) (08-Technical.aux) (09-Conclusion.aux) (A-Appendices.aux))
  ***********
 LaTeX2e <2025-06-01>
 L3 programming layer <2025-05-26>
  ***********
-
-
-LaTeX Warning: There were undefined references.
-
 Package rerunfilecheck Info: File `document.out' has not changed.
-(rerunfilecheck)             Checksum: E5595A7A73EA74948A0D7FCD5E9F632D;5204.
+(rerunfilecheck)             Checksum: 37DCA01200ADE0D0192229283B802E31;5067.
 Package logreq Info: Writing requests to 'document.run.xml'.
 \openout1 = `document.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 27959 strings out of 468224
- 530254 string characters out of 5432952
- 1405179 words of memory out of 5000000
- 55993 multiletter control sequences out of 15000+600000
- 637102 words of font info for 79 fonts, out of 8000000 for 9000
+ 38299 strings out of 468224
+ 767620 string characters out of 5432952
+ 1749947 words of memory out of 5000000
+ 66234 multiletter control sequences out of 15000+600000
+ 636749 words of font info for 78 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 99i,17n,123p,1271b,1874s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 99i,17n,123p,2594b,2120s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\vladi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm
 1000.pk><C:/Users/vladi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfon
 ts/cm/cmbx10.pfb><C:/Users/vladi/AppData/Local/Programs/MiKTeX/fonts/type1/publ
@@ -1274,15 +1491,14 @@ public/amsfonts/cm/cmr5.pfb><C:/Users/vladi/AppData/Local/Programs/MiKTeX/fonts
 /type1/public/amsfonts/cm/cmr6.pfb><C:/Users/vladi/AppData/Local/Programs/MiKTe
 X/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/vladi/AppData/Local/Program
 s/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/vladi/AppData/Local/
-Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsl10.pfb><C:/Users/vladi/AppDa
-ta/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/vl
-adi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/
-Users/vladi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10
-.pfb><C:/Users/vladi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/
-cm/cmtt10.pfb>
-Output written on document.pdf (20 pages, 1669574 bytes).
+Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/vladi/AppDa
+ta/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/vla
+di/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/
+Users/vladi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10
+.pfb>
+Output written on document.pdf (20 pages, 1682617 bytes).
 PDF statistics:
- 495 PDF objects out of 1000 (max. 8388607)
- 88 named destinations out of 1000 (max. 500000)
+ 621 PDF objects out of 1000 (max. 8388607)
+ 100 named destinations out of 1000 (max. 500000)
  343 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -9,39 +9,39 @@ While the aforementioned states describe system energy, they have no bearing on 
 
 %\subsection{Energy levels and state transitions} and Zero-field splitting
 \subsection{Zeeman effect}
-Discovered by Pieter Zeeman in 1896, the Zeeman effect is another important phenomenon that enables quantum sensing. If under normal circumstances a light-emitting quantum system only emits one spectral line, then when a magnetic field is applied to it the line will split, thus exhibiting the Zeeman effect. In an NV center, this phenomenon causes the $\ket{\pm1}$ energy level to split into $\ket{+1}$ and $\ket{-1}$. 
+Discovered by Pieter Zeeman in 1896, the Zeeman effect is another important phenomenon that enables quantum sensing. If under normal circumstances a light-emitting quantum system only emits one spectral line, then when a magnetic field is applied to it the line will split, thus exhibiting the Zeeman effect. In an \gls{nv} center, this phenomenon causes the $\ket{\pm1}$ energy level to split into $\ket{+1}$ and $\ket{-1}$. 
 
 \subsection{Energy levels}\label{chap:energy_levels}
-Figure \ref{fig:energylevels} shows the energy level diagram of an NV center.
+Figure \ref{fig:energylevels} shows the energy level diagram of an \gls{nv} center.
 
 \begin{figure}[ht]
 	\centering
 	\includegraphics[width=0.7\linewidth]{img/energy_levels}
-	\caption{NV center energy level diagram (image credit to Song et al \cite{song2024enhancing})}
+	\caption{\gls{nv} center energy level diagram (image credit to Song et al \cite{song2024enhancing})}
 	\label{fig:energylevels}
 \end{figure}
 
-After illuminating the NV center with a green laser, electrons go from a ground state to an excited state. They then need to return to the ground state. This decay process is usually direct and emits a red photon, however it can also go through the metastable singlet state and emit an infrared photon. It should be noted that whenever the NV center is exposed to the resonant frequency $\nu = 2,87 GHz$ the probability of emitting an infrared photon is significantly increased.
+After illuminating the \gls{nv} center with a green laser, electrons go from a ground state to an excited state. They then need to return to the ground state. This decay process is usually direct and emits a red photon, however it can also go through the metastable singlet state and emit an infrared photon. It should be noted that whenever the \gls{nv} center is exposed to the resonant frequency $\nu = 2,87 GHz$ the probability of emitting an infrared photon is significantly increased.
 
 
 \section{Quantum protocols}
-There are a number of different quantum protocols, which differ in what they can measure, in how precisely they can measure it and in the complexity of the hardware they require to operate. CW-ODMR is the main protocol this project is aimed at facilitating. As Saijo et al \cite{saijo2018ac} demonstrate, CW-ODMR is relatively simple, while still detecting magnetic field with reasonable sensitivity. Pulsed ODMR does outperform CW-ODMR \cite{zhang2020high}, but because of the added complexity working with it is a "Could have" (see Chapter \ref{project_boundaries}). Before being able to run pulsed ODMR on the setup at the lab, several protocols need to be implemented first \cite{sewani2020coherent}. $T_1$ measurements, which are one of the fundamentals of Magnetic Resonance Imaging (MRI), should be conducted first. Afterwards, Rabi oscillations need to be observed and measured in order to calibrate the setup. Without these intermediate protocols, pulsed ODMR cannot be performed.
+There are a number of different quantum protocols, which differ in what they can measure, in how precisely they can measure it and in the complexity of the hardware they require to operate. \gls{cwodmr} is the main protocol this project is aimed at facilitating. As Saijo et al \cite{saijo2018ac} demonstrate, \gls{cwodmr} is relatively simple, while still detecting magnetic field with reasonable sensitivity. \gls{podmr} does outperform \gls{cwodmr} \cite{zhang2020high}, but because of the added complexity working with it is a "Could have" (see Chapter \ref{project_boundaries}). Before being able to run \gls{podmr} on the setup at the lab, several protocols need to be implemented first \cite{sewani2020coherent}. $T_1$ measurements, which are one of the fundamentals of \gls{mri}, should be conducted first. Afterwards, Rabi oscillations need to be observed and measured in order to calibrate the setup. Without these intermediate protocols, \gls{podmr} cannot be performed.
 
 
 
-\subsection{CW-ODMR}
-CW-ODMR is a quantum protocol that has seen extensive usage in sensing setups that measure magnetic fields. Its working principle is centered around the photoluminescence of NV centers and the difference in light emission based on spin states. As already discussed in Chapter \ref{chap:energy_levels}, the NV center emits less visible light when at the resonant frequency $\nu$. Additionally, two more dips appear on the spectrum if a magnetic field is applied.Calculating the magnetic field can be done using the formula $h\nu = g_e\mu_BB_{AC}$ \footcite[In the formula, $h$ is the Planck constant, $g_e$ is the g-factor of the electron and $\mu_B$ is the Bohr magneton. Knowing all other variables, $B_{AC}$ can easily be calculated.]{enwiki:1301371272}. Figure \ref{fig:cwodmr} shows an example of what a CW-ODMR spectrum might look like. 
+\subsection{\glsfmtshort{cwodmr}}
+\gls{cwodmr} is a quantum protocol that has seen extensive usage in sensing setups that measure magnetic fields. Its working principle is centered around the photoluminescence of \gls{nv} centers and the difference in light emission based on spin states. As already discussed in Chapter \ref{chap:energy_levels}, the \gls{nv} center emits less visible light when at the resonant frequency $\nu$. Additionally, two more dips appear on the spectrum if a magnetic field is applied.Calculating the magnetic field can be done using the formula $h\nu = g_e\mu_BB_{AC}$ \footcite[In the formula, $h$ is the Planck constant, $g_e$ is the g-factor of the electron and $\mu_B$ is the Bohr magneton. Knowing all other variables, $B_{AC}$ can easily be calculated.]{enwiki:1301371272}. Figure \ref{fig:cwodmr} shows an example of what a \gls{cwodmr} spectrum might look like. 
 
 \begin{figure}[ht]
 	\centering
 	\includegraphics[width=0.7\linewidth]{img/cw_odmr}
-	\caption{Example of a CW-ODMR spectrum \textbf{\textcolor{red}{with}} and \textbf{without} a magnetic field (image credit Saijo et al \cite{saijo2018ac})}
+	\caption{Example of a \gls{cwodmr} spectrum \textbf{\textcolor{red}{with}} and \textbf{without} a magnetic field (image credit Saijo et al \cite{saijo2018ac})}
 	\label{fig:cwodmr}
 \end{figure}
 
 
 \subsection{$T_1$ relaxometry}
-$T_1$, $T_2$ and $T_2^*$ relaxation time measurements are commonly associated with radiometry \cite{ballinger23}, but they have other uses too. $T_1$ measurements, in particular, are useful in the realm of quantum sensing. Knowing the $T_1$ relaxation time, which refers to the time it takes for the spins in an NV system to decay back to their original state, makes it possible to adjust the pulse sequences of more complex protocols and thus get better results.  %explain what relaxation is and the protcol
+$T_1$, $T_2$ and $T_2^*$ relaxation time measurements are commonly associated with radiometry \cite{ballinger23}, but they have other uses too. $T_1$ measurements, in particular, are useful in the realm of quantum sensing. Knowing the $T_1$ relaxation time, which refers to the time it takes for the spins in an \gls{nv} system to decay back to their original state, makes it possible to adjust the pulse sequences of more complex protocols and thus get better results.  %explain what relaxation is and the protcol
 
 \begin{figure}[ht]
 	\centering
@@ -50,7 +50,7 @@ $T_1$, $T_2$ and $T_2^*$ relaxation time measurements are commonly associated wi
 	\label{fig:t1waveforms}
 \end{figure}
 
-The waveforms which are needed for $T_1$ measurements are shown if Figure \ref{fig:t1waveforms}. While both are important in practice, the lock-in is not as relevant, at least in this section of the report. However, its working principle is explored in Chapter \ref{chap:lockin}. For now, all that needs to be said about the lock-in reference signal is that it is periodic and $t_{li}$ is much longer than $t_{las}$ (Sewani et al \cite{sewani2020coherent} propose $t_{li} = 15 ms$ and $t_{las} = 5 \mu s$). Laser pulses, on the other hand, are not periodic. Instead, there are three short pulses every reference period (which is $2t_{li} s$ long). The two blue pulses have the same timing every cycle, because they initialize the NV spins. However, the red pulse always occurs after the variable dark time $t_d$. Depending on the $T_1$ decay at the time of the readout pulse, a different voltage will be detected. Figure \ref{fig:t1result} shows what results can be expected when measuring $T_1$. Determining the value of $T_1$ is done using Formula \ref{eq:t1}, where $I$ is the light intensity, $I_\infty$ is the light intensity offset and $t_d$ is the dark time. 
+The waveforms which are needed for $T_1$ measurements are shown if Figure \ref{fig:t1waveforms}. While both are important in practice, the lock-in is not as relevant, at least in this section of the report. However, its working principle is explored in Chapter \ref{chap:lockin}. For now, all that needs to be said about the lock-in reference signal is that it is periodic and $t_{li}$ is much longer than $t_{las}$ (Sewani et al \cite{sewani2020coherent} propose $t_{li} = 15 ms$ and $t_{las} = 5 \mu s$). Laser pulses, on the other hand, are not periodic. Instead, there are three short pulses every reference period (which is $2t_{li} s$ long). The two blue pulses have the same timing every cycle, because they initialize the \gls{nv} spins. However, the red pulse always occurs after the variable dark time $t_d$. Depending on the $T_1$ decay at the time of the readout pulse, a different voltage will be detected. Figure \ref{fig:t1result} shows what results can be expected when measuring $T_1$. Determining the value of $T_1$ is done using Formula \ref{eq:t1}, where $I$ is the light intensity, $I_\infty$ is the light intensity offset and $t_d$ is the dark time. 
 
 \begin{equation}\label{eq:t1}
 I(t)=I_\infty+I(0)e^{-t_d/T_1}
@@ -67,10 +67,11 @@ I(t)=I_\infty+I(0)e^{-t_d/T_1}
 
 
 
-\subsection{Pulsed ODMR}
+\subsection{\glsfmtshort{podmr}}
 As a more complex protocol
 
 \section{Lock-in amplification} \label{chap:lockin}
 \section{Quantum sensing setup}
-\section{Photodetection PCB}
-\section{OLIA implementation}
+\section{Photodetection \glsfmtshort{pcb}}
+Photodetection is how the \gls{nv} photoluminescence is measured, effectively turning light into current using a photodiode. However, a bare photodiode cannot be connected to a lock-in amplifier, because it functions as a current generator. This is where the photodetection \gls {pcb} comes in. Its purpose is to transform the current into voltage and then amplify the resulting signal to the necessary voltage level. 
+\section{\glsfmtshort{olia} implementation}

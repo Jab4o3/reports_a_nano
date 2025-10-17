@@ -14,13 +14,18 @@
 \usepackage{graphicx}
 \usepackage{xcolor}
 \usepackage[
-colorlinks=true,urlcolor=blue,linkcolor=purple,citecolor=red
+colorlinks=true,
+urlcolor=blue,
+linkcolor=purple,
+citecolor=red,
+pdftitle={V. Serafimov Bachelor Thesis EEE}
 ]{hyperref}
 \usepackage[toc]{appendix}
 \usepackage{markdown}
-
 \usepackage[table,xcdraw]{xcolor}
 \usepackage{adjustbox}
+\usepackage{braket} % package for ket (quantum) brackets
+\usepackage{csquotes} % quotes using \say{}
 
 % Set page size and margins
 % Replace `letterpaper' with `a4paper' for UK/EU standard size
@@ -130,16 +135,39 @@ colorlinks=true,urlcolor=blue,linkcolor=purple,citecolor=red
 	morekeywords={const, void, char, int, float}, keywordstyle=\color{red},
 }
 
-\usepackage{braket} % package for ket (quantum) brackets
-
-\usepackage{csquotes}
+% bibliography
 \usepackage[
 backend=biber,
 style=ieee,
 ]{biblatex}
 \addbibresource{sources.bib}
 
-\pagestyle{headings}
+% custom headers and footers
+\usepackage{fancyhdr, lastpage}
+\pagestyle{fancy}
+\lhead{Vladislav Serafimov}
+\rhead{Enabling photodetection for quantum sensing}
+\cfoot{Page \thepage\ of \pageref{LastPage}}
+
+% force chapter pages to use custom headers
+\usepackage{etoolbox}
+\patchcmd{\chapter}{\thispagestyle{plain}}{\thispagestyle{fancy}}{}{}
+
+% glossary
+\usepackage[automake, style=tree]{glossaries-extra} % autocompile and make nested abbreviations appear on separate lines
+\setabbreviationstyle[acronym]{long-short} % first occurence shows long and short form
+\newacronym{odmr}{ODMR}{Optically Detected Magnetic Resonance}
+\newacronym[parent=odmr]{cwodmr}{CW-ODMR}{Constan-Wave \glstext{odmr}}
+\newacronym[parent=odmr]{podmr}{P-ODMR}{Pulsed \glstext{odmr}}
+\newacronym{ecad}{ECAD}{Electronic Computer-Aided Design}
+\newacronym{gui}{GUI}{Graphical User Interface}
+\newacronym{mri}{MRI}{Magnetic Resonance Imaging}
+\newacronym{mw}{MW}{Microwave}
+\newacronym{nv}{NV}{Nitrogen Vacancy}
+\newacronym{olia}{OLIA}{Open Lock-In Amplifier}
+\newacronym{pcb}{PCB}{Printed Circuit Board}
+\newacronym{ttl}{TTL}{Transistor-Transistor Logic}
+\makeglossaries
 
 \title{Enabling photodetection electronics for 
 	fluorescent diamond based quantum sensing}
@@ -177,19 +205,6 @@ style=ieee,
 	%• It must be written in English, maximum 1 A4
 	
 	
-	\chapter{Abbreviations and terminology}
-	\begin{itemize}
-		\item{CW - Constant-Wave}
-		\item{ECAD - Electronic Computer-Aided Design}
-		\item{GUI - Graphical User Interface}
-		\item{MRI - Magnetic Resonance Imaging}
-		\item{MW - MicroWave}	
-		\item{NV - Nitrogen Vacancy}
-		\item{ODMR - Optically Detected Magnetic Resonance}
-		\item{OLIA - Open Lock-In Amplifier}
-		\item{PCB - Printed Circuit Board}
-	\end{itemize}
-	
 	\include{05-Introduction}
 	\include{06-Analysis_of_specifications}
 	\include{07-Functional}
@@ -204,7 +219,7 @@ style=ieee,
 	\include{A-Appendices}
 	
 	
-	
+	\printglossary[type=\acronymtype]
 	\printbibliography
 	
 \end{document}

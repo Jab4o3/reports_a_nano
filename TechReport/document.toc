@@ -23,18 +23,19 @@
 \contentsline {section}{\numberline {4.3}Lock-in amplification}{11}{section.4.3}%
 \contentsline {section}{\numberline {4.4}Quantum sensing setup}{11}{section.4.4}%
 \contentsline {section}{\numberline {4.5}Photodetection \glsxtrtitleshort {pcb}}{11}{section.4.5}%
-\contentsline {section}{\numberline {4.6}\glsxtrtitleshort {olia} implementation}{11}{section.4.6}%
-\contentsline {chapter}{\numberline {5}Technical design}{12}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Quantum sensing setup}{12}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Photodetection PCB}{12}{section.5.2}%
-\contentsline {section}{\numberline {5.3}OLIA implementation}{12}{section.5.3}%
-\contentsline {chapter}{\numberline {6}Testing results}{13}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Test goals and performance metrics}{13}{section.6.1}%
-\contentsline {section}{\numberline {6.2}Test setup}{14}{section.6.2}%
-\contentsline {section}{\numberline {6.3}Results and discussion}{14}{section.6.3}%
-\contentsline {section}{\numberline {6.4}Known limitations}{14}{section.6.4}%
-\contentsline {chapter}{\numberline {7}Conclusion}{15}{chapter.7}%
-\contentsline {chapter}{\numberline {8}Recommendations}{16}{chapter.8}%
-\contentsline {chapter}{Appendices}{17}{section*.10}%
-\contentsline {chapter}{\numberline {A}Code}{17}{appendix.1.A}%
-\contentsline {chapter}{Glossary}{18}{section*.11}%
+\contentsline {subsection}{\numberline {4.5.1}Design process}{11}{subsection.4.5.1}%
+\contentsline {section}{\numberline {4.6}\glsxtrtitleshort {olia} implementation}{12}{section.4.6}%
+\contentsline {chapter}{\numberline {5}Technical design}{13}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Quantum sensing setup}{13}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Photodetection PCB}{13}{section.5.2}%
+\contentsline {section}{\numberline {5.3}OLIA implementation}{13}{section.5.3}%
+\contentsline {chapter}{\numberline {6}Testing results}{14}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Test goals and performance metrics}{14}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Test setup}{15}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Results and discussion}{15}{section.6.3}%
+\contentsline {section}{\numberline {6.4}Known limitations}{15}{section.6.4}%
+\contentsline {chapter}{\numberline {7}Conclusion}{16}{chapter.7}%
+\contentsline {chapter}{\numberline {8}Recommendations}{17}{chapter.8}%
+\contentsline {chapter}{Appendices}{18}{section*.11}%
+\contentsline {chapter}{\numberline {A}Code}{18}{appendix.1.A}%
+\contentsline {chapter}{Glossary}{19}{section*.12}%

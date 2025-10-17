@@ -74,4 +74,50 @@ As a more complex protocol
 \section{Quantum sensing setup}
 \section{Photodetection \glsfmtshort{pcb}}
 Photodetection is how the \gls{nv} photoluminescence is measured, effectively turning light into current using a photodiode. However, a bare photodiode cannot be connected to a lock-in amplifier, because it functions as a current generator. This is where the photodetection \gls {pcb} comes in. Its purpose is to transform the current into voltage and then amplify the resulting signal to the necessary voltage level. 
+
+\subsection{Design process}
+Designing the photodetector is mostly about creating a transimpedance amplifier, which is a tool used for converting current to voltage, and specifically tuning its parameters so that it works with the selected photodiode under operating conditions. 
+
+\begin{figure}[ht]
+	\centering
+	\resizebox{.2\textwidth}{!}{%
+		\begin{circuitikz}
+			\tikzstyle{every node}=[font=\normalsize]
+			\draw [ line width=0.5pt](3.75,10.75) to[empty photodiode,l={ \normalsize $D_1$}] (3.75,9);
+			\draw [ line width=0.5pt](6.5,10.25) node[op amp,scale=1] (opamp2) {};
+			\draw [ line width=0.5pt](opamp2.+) to[short] (5,9.75);
+			\draw [ line width=0.5pt] (opamp2.-) to[short] (5,10.75);
+			\draw [ line width=0.5pt](7.7,10.25) to[short](8,10.25);
+			\draw [line width=0.5pt](5,9) to (5,8.25) node[ground]{};
+			\draw [ line width=0.5pt](5,8.5) to[short] (5,9.75);
+			\draw [ line width=0.5pt](3.75,10.5) to[short] (3.75,10.75);
+			\draw [ line width=0.5pt](3.75,10.75) to[short] (5,10.75);
+			\node at (4.5,10.75) [circ] {};
+			\draw [ line width=0.5pt](4.5,10.75) to[short] (4.5,13.5);
+			\draw [ line width=0.5pt](4.5,12.25) to[short] (5,12.25);
+			\draw [ line width=0.5pt](4.5,13.5) to[short] (5,13.5);
+			\draw [ line width=0.5pt](7.5,10.25) to[short] (7.5,11);
+			\draw [ line width=0.5pt](5,12.25) to[european resistor,l={ \normalsize $R_1$}] (7,12.25);
+			\node at (4.5,12.25) [circ] {};
+			\draw [ line width=0.5pt](7,12.25) to[short] (7.5,12.25);
+			\draw [ line width=0.5pt](7.5,12.25) to[short] (7.5,11);
+			\draw [ line width=0.5pt](7.5,12.25) to[short] (7.5,13.5);
+			\draw [line width=0.5pt](5,13.5) to[C,l={ \normalsize $C_1$}] (7,13.5);
+			\node at (7.5,12.25) [circ] {};
+			\draw [ line width=0.5pt](7,13.5) to[short] (7.5,13.5);
+			\draw [ line width=0.5pt](8,10.25) to[short, -o] (8.25,10.25) node {$\ \ \ \ \ \ \ \ \ V_{out}$};
+			\draw [ line width=0.5pt](3.75,10.75) to[short] (3.75,10.5);
+			\draw [line width=0.5pt](3.75,9) to (3.75,8.25) node[ground]{};
+			\draw [line width=0.5pt, ->, >=Stealth] (3.25,10.25) -- (3.25,9.25);
+			\node [font=\normalsize] at (3,9.75) {$I_f$};
+		\end{circuitikz}
+	}%
+	\caption{Transimpedance amplifier circuit}
+	\label{fig:tia}
+\end{figure}
+
+The basic circuit, shown in Figure \ref{fig:tia}, is all that is required for photodetection. 
+
+The design is based on circuits provided by the client. At their request, the first version of the PCB is an exact replica of the original circuit.  
+
 \section{\glsfmtshort{olia} implementation}

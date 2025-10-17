@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.6.12)  17 OCT 2025 11:54
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.6.12)  17 OCT 2025 15:27
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -638,28 +638,391 @@ Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 \Gm@dimlist=\toks39
 
 (C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.cfg))
+
+(C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/latex/circuitikz\circuitikz.s
+ty
+Package: circuitikz 2025/07/08{} The CircuiTikz circuit drawing package version
+ 1.8.2
+
+(C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/latex/pgf/frontendlayer\tikz.
+sty
+(C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/latex/pgf/basiclayer\pgf.sty
+Package: pgf 2023-01-15 v3.1.10 (3.1.10)
+
+(C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/latex/pgf/basiclayer\pgfcore.
+sty
+(C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/latex/pgf/systemlayer\pgfsys.
+sty
+(C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsy
+s.code.tex
+Package: pgfsys 2023-01-15 v3.1.10 (3.1.10)
+\pgf@x=\dimen260
+\pgf@y=\dimen261
+\pgf@xa=\dimen262
+\pgf@ya=\dimen263
+\pgf@xb=\dimen264
+\pgf@yb=\dimen265
+\pgf@xc=\dimen266
+\pgf@yc=\dimen267
+\pgf@xd=\dimen268
+\pgf@yd=\dimen269
+\w@pgf@writea=\write6
+\r@pgf@reada=\read6
+\c@pgf@counta=\count363
+\c@pgf@countb=\count364
+\c@pgf@countc=\count365
+\c@pgf@countd=\count366
+\t@pgf@toka=\toks40
+\t@pgf@tokb=\toks41
+\t@pgf@tokc=\toks42
+\pgf@sys@id@count=\count367
+
+(C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgf.c
+fg
+File: pgf.cfg 2023-01-15 v3.1.10 (3.1.10)
+)
+Driver file for pgf: pgfsys-pdftex.def
+
+(C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsy
+s-pdftex.def
+File: pgfsys-pdftex.def 2023-01-15 v3.1.10 (3.1.10)
+
+(C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsy
+s-common-pdf.def
+File: pgfsys-common-pdf.def 2023-01-15 v3.1.10 (3.1.10)
+)))
+(C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsy
+ssoftpath.code.tex
+File: pgfsyssoftpath.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfsyssoftpath@smallbuffer@items=\count368
+\pgfsyssoftpath@bigbuffer@items=\count369
+)
+(C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsy
+sprotocol.code.tex
+File: pgfsysprotocol.code.tex 2023-01-15 v3.1.10 (3.1.10)
+))
+(C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+e.code.tex
+Package: pgfcore 2023-01-15 v3.1.10 (3.1.10)
+
+(C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmath.code
+.tex
+(C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathutil.
+code.tex)
+(C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathparse
+r.code.tex
+\pgfmath@dimen=\dimen270
+\pgfmath@count=\count370
+\pgfmath@box=\box64
+\pgfmath@toks=\toks43
+\pgfmath@stack@operand=\toks44
+\pgfmath@stack@operation=\toks45
+)
+(C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunct
+ions.code.tex)
+(C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunct
+ions.basic.code.tex)
+(C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunct
+ions.trigonometric.code.tex)
+(C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunct
+ions.random.code.tex)
+(C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunct
+ions.comparison.code.tex)
+(C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunct
+ions.base.code.tex)
+(C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunct
+ions.round.code.tex)
+(C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunct
+ions.misc.code.tex)
+(C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunct
+ions.integerarithmetics.code.tex)
+(C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathcalc.
+code.tex)
+(C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfloat
+.code.tex
+\c@pgfmathroundto@lastzeros=\count371
+))
+(C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfint.code.
+tex)
+(C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+epoints.code.tex
+File: pgfcorepoints.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgf@picminx=\dimen271
+\pgf@picmaxx=\dimen272
+\pgf@picminy=\dimen273
+\pgf@picmaxy=\dimen274
+\pgf@pathminx=\dimen275
+\pgf@pathmaxx=\dimen276
+\pgf@pathminy=\dimen277
+\pgf@pathmaxy=\dimen278
+\pgf@xx=\dimen279
+\pgf@xy=\dimen280
+\pgf@yx=\dimen281
+\pgf@yy=\dimen282
+\pgf@zx=\dimen283
+\pgf@zy=\dimen284
+)
+(C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+epathconstruct.code.tex
+File: pgfcorepathconstruct.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgf@path@lastx=\dimen285
+\pgf@path@lasty=\dimen286
+)
+(C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+epathusage.code.tex
+File: pgfcorepathusage.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgf@shorten@end@additional=\dimen287
+\pgf@shorten@start@additional=\dimen288
+)
+(C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+escopes.code.tex
+File: pgfcorescopes.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfpic=\box65
+\pgf@hbox=\box66
+\pgf@layerbox@main=\box67
+\pgf@picture@serial@count=\count372
+)
+(C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+egraphicstate.code.tex
+File: pgfcoregraphicstate.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgflinewidth=\dimen289
+)
+(C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+etransformations.code.tex
+File: pgfcoretransformations.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgf@pt@x=\dimen290
+\pgf@pt@y=\dimen291
+\pgf@pt@temp=\dimen292
+)
+(C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+equick.code.tex
+File: pgfcorequick.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)
+(C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+eobjects.code.tex
+File: pgfcoreobjects.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)
+(C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+epathprocessing.code.tex
+File: pgfcorepathprocessing.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)
+(C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+earrows.code.tex
+File: pgfcorearrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfarrowsep=\dimen293
+)
+(C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+eshade.code.tex
+File: pgfcoreshade.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgf@max=\dimen294
+\pgf@sys@shading@range@num=\count373
+\pgf@shadingcount=\count374
+)
+(C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+eimage.code.tex
+File: pgfcoreimage.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)
+(C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+eexternal.code.tex
+File: pgfcoreexternal.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfexternal@startupbox=\box68
+)
+(C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+elayers.code.tex
+File: pgfcorelayers.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)
+(C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+etransparency.code.tex
+File: pgfcoretransparency.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)
+(C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+epatterns.code.tex
+File: pgfcorepatterns.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)
+(C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+erdf.code.tex
+File: pgfcorerdf.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)))
+(C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmodule
+shapes.code.tex
+File: pgfmoduleshapes.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfnodeparttextbox=\box69
+)
+(C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmodule
+plot.code.tex
+File: pgfmoduleplot.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)
+(C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/latex/pgf/compatibility\pgfco
+mp-version-0-65.sty
+Package: pgfcomp-version-0-65 2023-01-15 v3.1.10 (3.1.10)
+\pgf@nodesepstart=\dimen295
+\pgf@nodesepend=\dimen296
+)
+(C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/latex/pgf/compatibility\pgfco
+mp-version-1-18.sty
+Package: pgfcomp-version-1-18 2023-01-15 v3.1.10 (3.1.10)
+))
+(C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/latex/pgf/utilities\pgffor.st
+y (C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/latex/pgf/math\pgfmath.sty
+(C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmath.code
+.tex))
+(C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgffor.
+code.tex
+Package: pgffor 2023-01-15 v3.1.10 (3.1.10)
+\pgffor@iter=\dimen297
+\pgffor@skip=\dimen298
+\pgffor@stack=\toks46
+\pgffor@toks=\toks47
+))
+(C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
+z\tikz.code.tex
+Package: tikz 2023-01-15 v3.1.10 (3.1.10)
+
+(C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries\pgflibr
+aryplothandlers.code.tex
+File: pgflibraryplothandlers.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgf@plot@mark@count=\count375
+\pgfplotmarksize=\dimen299
+)
+\tikz@lastx=\dimen300
+\tikz@lasty=\dimen301
+\tikz@lastxsaved=\dimen302
+\tikz@lastysaved=\dimen303
+\tikz@lastmovetox=\dimen304
+\tikz@lastmovetoy=\dimen305
+\tikzleveldistance=\dimen306
+\tikzsiblingdistance=\dimen307
+\tikz@figbox=\box70
+\tikz@figbox@bg=\box71
+\tikz@tempbox=\box72
+\tikz@tempbox@bg=\box73
+\tikztreelevel=\count376
+\tikznumberofchildren=\count377
+\tikznumberofcurrentchild=\count378
+\tikz@fig@count=\count379
+
+(C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmodule
+matrix.code.tex
+File: pgfmodulematrix.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfmatrixcurrentrow=\count380
+\pgfmatrixcurrentcolumn=\count381
+\pgf@matrix@numberofcolumns=\count382
+)
+\tikz@expandcount=\count383
+
+(C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
+z/libraries\tikzlibrarytopaths.code.tex
+File: tikzlibrarytopaths.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)))
+(C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
+z/libraries\tikzlibrarycalc.code.tex
+File: tikzlibrarycalc.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)
+(C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries\pgflibr
+aryarrows.meta.code.tex
+File: pgflibraryarrows.meta.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfarrowinset=\dimen308
+\pgfarrowlength=\dimen309
+\pgfarrowwidth=\dimen310
+\pgfarrowlinewidth=\dimen311
+)
+(C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
+z/libraries\tikzlibrarybending.code.tex
+File: tikzlibrarybending.code.tex 2023-01-15 v3.1.10 (3.1.10)
+
+(C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmodule
+bending.code.tex
+File: pgfmodulebending.code.tex 2023-01-15 v3.1.10 (3.1.10)
+
+(C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmodule
+nonlineartransformations.code.tex
+File: pgfmodulenonlineartransformations.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgftransformnonlinearflatness=\dimen312
+)
+(C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries\pgflibr
+arycurvilinear.code.tex
+File: pgflibrarycurvilinear.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgf@curvilinear@time@a=\dimen313
+\pgf@curvilinear@length@a=\dimen314
+\pgf@curvilinear@length@b=\dimen315
+\pgf@curvilinear@length@c=\dimen316
+\pgf@curvilinear@length@d=\dimen317
+)
+\pgf@arrows@the@rigidity=\dimen318
+))
+(C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
+z/libraries\tikzlibraryfpu.code.tex
+(C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries\pgflibr
+aryfpu.code.tex))
+(C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/generic/circuitikz\pgfcirc.de
+fines.tex
+\pgf@circ@count@a=\count384
+\pgf@circ@count@b=\count385
+\pgf@circ@count@c=\count386
+\pgf@circ@res@up=\dimen319
+\pgf@circ@res@down=\dimen320
+\pgf@circ@res@zero=\dimen321
+\pgf@circ@res@left=\dimen322
+\pgf@circ@res@right=\dimen323
+\pgf@circ@res@other=\dimen324
+\pgf@circ@res@step=\dimen325
+\pgf@circ@res@temp=\dimen326
+\pgf@circ@Rlen=\dimen327
+\pgf@circ@scaled@Rlen=\dimen328
+\pgfstartlinewidth=\dimen329
+)
+(C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/generic/circuitikz\pgfcircuti
+ls.tex
+\ctikz@scratchbox=\box74
+)
+(C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/generic/circuitikz\pgfcircpat
+h.tex)
+(C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/generic/circuitikz\pgfcircsha
+pes.tex)
+(C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/generic/circuitikz\pgfcircmon
+opoles.tex)
+(C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/generic/circuitikz\pgfcircbip
+oles.tex)
+(C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/generic/circuitikz\pgfcirctri
+poles.tex
+\pgf@circ@res@count=\count387
+)
+(C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/generic/circuitikz\pgfcircqua
+dpoles.tex)
+(C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/generic/circuitikz\pgfcircmul
+tipoles.tex)
+(C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/generic/circuitikz\pgfcirclab
+el.tex)
+(C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/generic/circuitikz\pgfcircvol
+tage.tex
+\pgfcirc@labelshift=\dimen330
+)
+(C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/generic/circuitikz\pgfcirccur
+rent.tex)
+(C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/generic/circuitikz\pgfcircflo
+w.tex))
 (C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/latex/listings\listings.sty
-\lst@mode=\count363
-\lst@gtempboxa=\box64
-\lst@token=\toks40
-\lst@length=\count364
-\lst@currlwidth=\dimen260
-\lst@column=\count365
-\lst@pos=\count366
-\lst@lostspace=\dimen261
-\lst@width=\dimen262
-\lst@newlines=\count367
-\lst@lineno=\count368
-\lst@maxwidth=\dimen263
+\lst@mode=\count388
+\lst@gtempboxa=\box75
+\lst@token=\toks48
+\lst@length=\count389
+\lst@currlwidth=\dimen331
+\lst@column=\count390
+\lst@pos=\count391
+\lst@lostspace=\dimen332
+\lst@width=\dimen333
+\lst@newlines=\count392
+\lst@lineno=\count393
+\lst@maxwidth=\dimen334
 
 (C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstpatch.sty
 File: lstpatch.sty 2024/09/23 1.10c (Carsten Heinz)
 )
 (C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstmisc.sty
 File: lstmisc.sty 2024/09/23 1.10c (Carsten Heinz)
-\c@lstnumber=\count369
-\lst@skipnumbers=\count370
-\lst@framebox=\box65
+\c@lstnumber=\count394
+\lst@skipnumbers=\count395
+\lst@framebox=\box76
 )
 (C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/latex/listings\listings.cfg
 File: listings.cfg 2024/09/23 1.10c listings configuration
@@ -670,54 +1033,54 @@ Package: biblatex 2024/03/21 v3.20 programmable bibliographies (PK/MW)
 
 (C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/latex/logreq\logreq.sty
 Package: logreq 2010/08/04 v1.0 xml request logger
-\lrq@indent=\count371
+\lrq@indent=\count396
 
 (C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/latex/logreq\logreq.def
 File: logreq.def 2010/08/04 v1.0 logreq spec v1.0
 ))
-\c@tabx@nest=\count372
-\c@listtotal=\count373
-\c@listcount=\count374
-\c@liststart=\count375
-\c@liststop=\count376
-\c@citecount=\count377
-\c@citetotal=\count378
-\c@multicitecount=\count379
-\c@multicitetotal=\count380
-\c@instcount=\count381
-\c@maxnames=\count382
-\c@minnames=\count383
-\c@maxitems=\count384
-\c@minitems=\count385
-\c@citecounter=\count386
-\c@maxcitecounter=\count387
-\c@savedcitecounter=\count388
-\c@uniquelist=\count389
-\c@uniquename=\count390
-\c@refsection=\count391
-\c@refsegment=\count392
-\c@maxextratitle=\count393
-\c@maxextratitleyear=\count394
-\c@maxextraname=\count395
-\c@maxextradate=\count396
-\c@maxextraalpha=\count397
-\c@abbrvpenalty=\count398
-\c@highnamepenalty=\count399
-\c@lownamepenalty=\count400
-\c@maxparens=\count401
-\c@parenlevel=\count402
-\blx@tempcnta=\count403
-\blx@tempcntb=\count404
-\blx@tempcntc=\count405
-\c@blx@maxsection=\count406
-\blx@maxsegment@0=\count407
-\blx@notetype=\count408
-\blx@parenlevel@text=\count409
-\blx@parenlevel@foot=\count410
-\blx@sectionciteorder@0=\count411
-\blx@sectionciteorderinternal@0=\count412
-\blx@entrysetcounter=\count413
-\blx@biblioinstance=\count414
+\c@tabx@nest=\count397
+\c@listtotal=\count398
+\c@listcount=\count399
+\c@liststart=\count400
+\c@liststop=\count401
+\c@citecount=\count402
+\c@citetotal=\count403
+\c@multicitecount=\count404
+\c@multicitetotal=\count405
+\c@instcount=\count406
+\c@maxnames=\count407
+\c@minnames=\count408
+\c@maxitems=\count409
+\c@minitems=\count410
+\c@citecounter=\count411
+\c@maxcitecounter=\count412
+\c@savedcitecounter=\count413
+\c@uniquelist=\count414
+\c@uniquename=\count415
+\c@refsection=\count416
+\c@refsegment=\count417
+\c@maxextratitle=\count418
+\c@maxextratitleyear=\count419
+\c@maxextraname=\count420
+\c@maxextradate=\count421
+\c@maxextraalpha=\count422
+\c@abbrvpenalty=\count423
+\c@highnamepenalty=\count424
+\c@lownamepenalty=\count425
+\c@maxparens=\count426
+\c@parenlevel=\count427
+\blx@tempcnta=\count428
+\blx@tempcntb=\count429
+\blx@tempcntc=\count430
+\c@blx@maxsection=\count431
+\blx@maxsegment@0=\count432
+\blx@notetype=\count433
+\blx@parenlevel@text=\count434
+\blx@parenlevel@foot=\count435
+\blx@sectionciteorder@0=\count436
+\blx@sectionciteorderinternal@0=\count437
+\blx@entrysetcounter=\count438
+\blx@biblioinstance=\count439
 \labelnumberwidth=\skip64
 \labelalphawidth=\skip65
 \biblabelsep=\skip66
@@ -726,12 +1089,12 @@ File: logreq.def 2010/08/04 v1.0 logreq spec v1.0
 \bibinitsep=\skip69
 \bibparsep=\skip70
 \bibhang=\skip71
-\blx@bcfin=\read6
-\blx@bcfout=\write6
+\blx@bcfin=\read7
+\blx@bcfout=\write7
 \blx@langwohyphens=\language80
-\c@mincomprange=\count415
-\c@maxcomprange=\count416
-\c@mincompwidth=\count417
+\c@mincomprange=\count440
+\c@maxcomprange=\count441
+\c@mincompwidth=\count442
 Package biblatex Info: Trying to load biblatex default data model...
 Package biblatex Info: ... file 'blx-dm.def' found.
 
@@ -742,74 +1105,74 @@ Package biblatex Info: Trying to load biblatex style data model...
 Package biblatex Info: ... file 'ieee.dbx' not found.
 Package biblatex Info: Trying to load biblatex custom data model...
 Package biblatex Info: ... file 'biblatex-dm.cfg' not found.
-\c@afterword=\count418
-\c@savedafterword=\count419
-\c@annotator=\count420
-\c@savedannotator=\count421
-\c@author=\count422
-\c@savedauthor=\count423
-\c@bookauthor=\count424
-\c@savedbookauthor=\count425
-\c@commentator=\count426
-\c@savedcommentator=\count427
-\c@editor=\count428
-\c@savededitor=\count429
-\c@editora=\count430
-\c@savededitora=\count431
-\c@editorb=\count432
-\c@savededitorb=\count433
-\c@editorc=\count434
-\c@savededitorc=\count435
-\c@foreword=\count436
-\c@savedforeword=\count437
-\c@holder=\count438
-\c@savedholder=\count439
-\c@introduction=\count440
-\c@savedintroduction=\count441
-\c@namea=\count442
-\c@savednamea=\count443
-\c@nameb=\count444
-\c@savednameb=\count445
-\c@namec=\count446
-\c@savednamec=\count447
-\c@translator=\count448
-\c@savedtranslator=\count449
-\c@shortauthor=\count450
-\c@savedshortauthor=\count451
-\c@shorteditor=\count452
-\c@savedshorteditor=\count453
-\c@labelname=\count454
-\c@savedlabelname=\count455
-\c@institution=\count456
-\c@savedinstitution=\count457
-\c@lista=\count458
-\c@savedlista=\count459
-\c@listb=\count460
-\c@savedlistb=\count461
-\c@listc=\count462
-\c@savedlistc=\count463
-\c@listd=\count464
-\c@savedlistd=\count465
-\c@liste=\count466
-\c@savedliste=\count467
-\c@listf=\count468
-\c@savedlistf=\count469
-\c@location=\count470
-\c@savedlocation=\count471
-\c@organization=\count472
-\c@savedorganization=\count473
-\c@origlocation=\count474
-\c@savedoriglocation=\count475
-\c@origpublisher=\count476
-\c@savedorigpublisher=\count477
-\c@publisher=\count478
-\c@savedpublisher=\count479
-\c@language=\count480
-\c@savedlanguage=\count481
-\c@origlanguage=\count482
-\c@savedoriglanguage=\count483
-\c@pageref=\count484
-\c@savedpageref=\count485
+\c@afterword=\count443
+\c@savedafterword=\count444
+\c@annotator=\count445
+\c@savedannotator=\count446
+\c@author=\count447
+\c@savedauthor=\count448
+\c@bookauthor=\count449
+\c@savedbookauthor=\count450
+\c@commentator=\count451
+\c@savedcommentator=\count452
+\c@editor=\count453
+\c@savededitor=\count454
+\c@editora=\count455
+\c@savededitora=\count456
+\c@editorb=\count457
+\c@savededitorb=\count458
+\c@editorc=\count459
+\c@savededitorc=\count460
+\c@foreword=\count461
+\c@savedforeword=\count462
+\c@holder=\count463
+\c@savedholder=\count464
+\c@introduction=\count465
+\c@savedintroduction=\count466
+\c@namea=\count467
+\c@savednamea=\count468
+\c@nameb=\count469
+\c@savednameb=\count470
+\c@namec=\count471
+\c@savednamec=\count472
+\c@translator=\count473
+\c@savedtranslator=\count474
+\c@shortauthor=\count475
+\c@savedshortauthor=\count476
+\c@shorteditor=\count477
+\c@savedshorteditor=\count478
+\c@labelname=\count479
+\c@savedlabelname=\count480
+\c@institution=\count481
+\c@savedinstitution=\count482
+\c@lista=\count483
+\c@savedlista=\count484
+\c@listb=\count485
+\c@savedlistb=\count486
+\c@listc=\count487
+\c@savedlistc=\count488
+\c@listd=\count489
+\c@savedlistd=\count490
+\c@liste=\count491
+\c@savedliste=\count492
+\c@listf=\count493
+\c@savedlistf=\count494
+\c@location=\count495
+\c@savedlocation=\count496
+\c@organization=\count497
+\c@savedorganization=\count498
+\c@origlocation=\count499
+\c@savedoriglocation=\count500
+\c@origpublisher=\count501
+\c@savedorigpublisher=\count502
+\c@publisher=\count503
+\c@savedpublisher=\count504
+\c@language=\count505
+\c@savedlanguage=\count506
+\c@origlanguage=\count507
+\c@savedoriglanguage=\count508
+\c@pageref=\count509
+\c@savedpageref=\count510
 \shorthandwidth=\skip72
 \shortjournalwidth=\skip73
 \shortserieswidth=\skip74
@@ -834,19 +1197,19 @@ Package biblatex Info: Trying to load generic definitions...
 Package biblatex Info: ... file 'biblatex.def' found.
  (C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/latex/biblatex\biblatex.def
 File: biblatex.def 2024/03/21 v3.20 biblatex compatibility (PK/MW)
-\c@textcitecount=\count486
-\c@textcitetotal=\count487
-\c@textcitemaxnames=\count488
-\c@biburlbigbreakpenalty=\count489
-\c@biburlbreakpenalty=\count490
-\c@biburlnumpenalty=\count491
-\c@biburlucpenalty=\count492
-\c@biburllcpenalty=\count493
+\c@textcitecount=\count511
+\c@textcitetotal=\count512
+\c@textcitemaxnames=\count513
+\c@biburlbigbreakpenalty=\count514
+\c@biburlbreakpenalty=\count515
+\c@biburlnumpenalty=\count516
+\c@biburlucpenalty=\count517
+\c@biburllcpenalty=\count518
 \biburlbigskip=\muskip19
 \biburlnumskip=\muskip20
 \biburlucskip=\muskip21
 \biburllcskip=\muskip22
-\c@smartand=\count494
+\c@smartand=\count519
 )
 Package biblatex Info: Trying to load bibliography style 'ieee'...
 Package biblatex Info: ... file 'ieee.bbx' found.
@@ -871,8 +1234,8 @@ Package biblatex Info: ... file 'standard.bbx' found.
 (C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/latex/biblatex/bbx\standard.b
 bx
 File: standard.bbx 2024/03/21 v3.20 biblatex bibliography style (PK/MW)
-\c@bbx:relatedcount=\count495
-\c@bbx:relatedtotal=\count496
+\c@bbx:relatedcount=\count520
+\c@bbx:relatedtotal=\count521
 )))
 
 Package biblatex Warning: Macro 'volume+number' undefined.
@@ -939,7 +1302,7 @@ Package: fancyhdr 2025/02/07 v5.2 Extensive control of page headers and footers
 \f@nch@widthL=\skip97
 \f@nch@widthC=\skip98
 \f@nch@widthR=\skip99
-\@temptokenb=\toks41
+\@temptokenb=\toks49
 )
 (C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/latex/lastpage\lastpage.sty
 Package: lastpage 2025/08/14 v2.1h lastpage: 2.09 or 2e? (HMM)
@@ -951,7 +1314,7 @@ MM)
 (C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/latex/lastpage\lastpagemodern
 .sty
 Package: lastpagemodern 2025-08-14 v2.1h Refers to last page's name (HMM; JPG)
-\c@lastpagecount=\count497
+\c@lastpagecount=\count522
 ) 
 ))
 (C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/latex/glossaries-extra\glossa
@@ -964,8 +1327,8 @@ Package: glossaries 2025/05/14 v4.7 (NLCT)
 
 (C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/latex/mfirstuc\mfirstuc.sty
 Package: mfirstuc 2025/04/03 v2.09 (NLCT)
-\@glsmfirst=\toks42
-\@glsmrest=\toks43
+\@glsmfirst=\toks50
+\@glsmrest=\toks51
 )
 (C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/latex/xfor\xfor.sty
 Package: xfor 2009/02/05 v1.05 (NLCT)
@@ -992,56 +1355,56 @@ Package: datatool-base 2025/04/25 v3.4.1 (NLCT)
 def
 File: datatool-l3fp.def 2025/04/25 v3.4.1 (NLCT)
 )
-\@dtl@toks=\toks44
-\@dtl@tmpcount=\count498
+\@dtl@toks=\toks52
+\@dtl@tmpcount=\count523
 \dtl@tmplength=\skip100
-\l__datatool_measure_box=\box66
-\dtl@sortresult=\count499
+\l__datatool_measure_box=\box77
+\dtl@sortresult=\count524
 
 (C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/latex/datatool\datatool-utf8.
 ldf
 File: datatool-utf8.ldf 2025/04/25 v3.4.1 (NLCT)
 )
-\@dtl@datatype=\count500
-\l__datatool_tmpa_int=\count501
-\l__datatool_tmpb_int=\count502
-\l__datatool_tmpc_int=\count503
-\l__datatool_tmpd_int=\count504
-\l__datatool_count_int=\count505
-\l__datatool_tmp_datatype_int=\count506
-\l__datatool_tmpa_dim=\dimen264
-\l__datatool_tmpb_dim=\dimen265
-\c_datatool_unknown_int=\count507
-\l__datatool_year_int=\count508
-\l__datatool_month_int=\count509
-\l__datatool_day_int=\count510
-\l__datatool_hour_int=\count511
-\l__datatool_minute_int=\count512
-\l__datatool_second_int=\count513
-\l__datatool_tzhour_int=\count514
-\l__datatool_tzminute_int=\count515
-\l__datatool_julian_int=\count516
-\l__datatool_local_julian_int=\count517
-\l__datatool_prefix_int=\count518
-\l__datatool_suffix_int=\count519
-\@dtl@foreach@level=\count520
+\@dtl@datatype=\count525
+\l__datatool_tmpa_int=\count526
+\l__datatool_tmpb_int=\count527
+\l__datatool_tmpc_int=\count528
+\l__datatool_tmpd_int=\count529
+\l__datatool_count_int=\count530
+\l__datatool_tmp_datatype_int=\count531
+\l__datatool_tmpa_dim=\dimen335
+\l__datatool_tmpb_dim=\dimen336
+\c_datatool_unknown_int=\count532
+\l__datatool_year_int=\count533
+\l__datatool_month_int=\count534
+\l__datatool_day_int=\count535
+\l__datatool_hour_int=\count536
+\l__datatool_minute_int=\count537
+\l__datatool_second_int=\count538
+\l__datatool_tzhour_int=\count539
+\l__datatool_tzminute_int=\count540
+\l__datatool_julian_int=\count541
+\l__datatool_local_julian_int=\count542
+\l__datatool_prefix_int=\count543
+\l__datatool_suffix_int=\count544
+\@dtl@foreach@level=\count545
 
 
 Package tracklang Warning: No `datatool' support for dialect `english'  on inpu
 t line 9908.
 
-\dtl@codeA=\count521
-\dtl@codeB=\count522
+\dtl@codeA=\count546
+\dtl@codeB=\count547
 )
-\gls@level=\count523
-\@gls@tmpb=\toks45
+\gls@level=\count548
+\@gls@tmpb=\toks53
 \gls@tmplen=\skip101
-\l__glossaries_tmpa_dim=\dimen266
-\l__glossaries_tmpb_dim=\dimen267
-\glskeylisttok=\toks46
-\glslabeltok=\toks47
-\glsshorttok=\toks48
-\glslongtok=\toks49
+\l__glossaries_tmpa_dim=\dimen337
+\l__glossaries_tmpb_dim=\dimen338
+\glskeylisttok=\toks54
+\glslabeltok=\toks55
+\glsshorttok=\toks56
+\glslongtok=\toks57
 
 (C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/latex/glossaries/styles\gloss
 ary-hypernav.sty
@@ -1062,18 +1425,18 @@ Package: longtable 2024-12-18 v4.23 Multi-page Table package (DPC)
 \LTright=\skip104
 \LTpre=\skip105
 \LTpost=\skip106
-\LTchunksize=\count524
-\LTcapwidth=\dimen268
-\LT@head=\box67
-\LT@firsthead=\box68
-\LT@foot=\box69
-\LT@lastfoot=\box70
-\LT@gbox=\box71
-\LT@cols=\count525
-\LT@rows=\count526
-\c@LT@tables=\count527
-\c@LT@chunks=\count528
-\LT@p@ftn=\toks50
+\LTchunksize=\count549
+\LTcapwidth=\dimen339
+\LT@head=\box78
+\LT@firsthead=\box79
+\LT@foot=\box80
+\LT@lastfoot=\box81
+\LT@gbox=\box82
+\LT@cols=\count550
+\LT@rows=\count551
+\c@LT@tables=\count552
+\c@LT@chunks=\count553
+\LT@p@ftn=\toks58
 )
 \glsdescwidth=\skip107
 \glspagelistwidth=\skip108
@@ -1085,58 +1448,58 @@ Package: glossary-super 2025/05/14 v4.7 (NLCT)
 (C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/latex/supertabular\supertabul
 ar.sty
 Package: supertabular 2024/07/20 v4.2c the supertabular environment
-\c@tracingst=\count529
-\ST@wd=\dimen269
+\c@tracingst=\count554
+\ST@wd=\dimen340
 \ST@rightskip=\skip109
 \ST@leftskip=\skip110
 \ST@parfillskip=\skip111
-\ST@pageleft=\dimen270
-\ST@headht=\dimen271
-\ST@tailht=\dimen272
-\ST@pagesofar=\dimen273
-\ST@pboxht=\dimen274
-\ST@rowht=\dimen275
-\ST@prevht=\dimen276
-\ST@toadd=\dimen277
-\ST@dimen=\dimen278
-\ST@pbox=\box72
+\ST@pageleft=\dimen341
+\ST@headht=\dimen342
+\ST@tailht=\dimen343
+\ST@pagesofar=\dimen344
+\ST@pboxht=\dimen345
+\ST@rowht=\dimen346
+\ST@prevht=\dimen347
+\ST@toadd=\dimen348
+\ST@dimen=\dimen349
+\ST@pbox=\box83
 ))
 (C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/latex/glossaries/styles\gloss
 ary-tree.sty
 Package: glossary-tree 2025/05/14 v4.7 (NLCT)
-\l__glossaries_tree_max_known_level_int=\count530
-\l__glossaries_tree_offset_dim=\dimen279
-\l__glossaries_tree_namewidth_dim=\dimen280
-\l__glossaries_tree_symbolwidth_dim=\dimen281
-\l__glossaries_tree_prenamesym_width_dim=\dimen282
-\l__glossaries_tree_presubnamesym_width_dim=\dimen283
-\l__glossaries_tree_namewidth_padding_dim=\dimen284
-\l__glossaries_tree_symbolwidth_padding_dim=\dimen285
-\l__glossaries_tree_namesymbolwidth_dim=\dimen286
-\l__glossaries_tree_namesymbolwidth_padding_dim=\dimen287
-\l__glossaries_tree_level_int=\count531
+\l__glossaries_tree_max_known_level_int=\count555
+\l__glossaries_tree_offset_dim=\dimen350
+\l__glossaries_tree_namewidth_dim=\dimen351
+\l__glossaries_tree_symbolwidth_dim=\dimen352
+\l__glossaries_tree_prenamesym_width_dim=\dimen353
+\l__glossaries_tree_presubnamesym_width_dim=\dimen354
+\l__glossaries_tree_namewidth_padding_dim=\dimen355
+\l__glossaries_tree_symbolwidth_padding_dim=\dimen356
+\l__glossaries_tree_namesymbolwidth_dim=\dimen357
+\l__glossaries_tree_namesymbolwidth_padding_dim=\dimen358
+\l__glossaries_tree_level_int=\count556
 \glstreeindent=\skip112
 ))
-\@glsxtr@leveloffset=\count532
-\glsxtrresourcecount=\count533
-\@glsxtrnewgls@inner=\count534
-\glsshortpltok=\toks51
-\glslongpltok=\toks52
+\@glsxtr@leveloffset=\count557
+\glsxtrresourcecount=\count558
+\@glsxtrnewgls@inner=\count559
+\glsshortpltok=\toks59
+\glslongpltok=\toks60
 
 (C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/latex/glossaries-extra\glossa
 ries-extra-abbrstyles.def
 File: glossaries-extra-abbrstyles.def 2025/08/13 v1.8 (NLCT)
 )
-\mglselementindex=\count535
+\mglselementindex=\count560
 )
 runsystem(makeindex -s document.ist -t document.glg -o document.gls document.gl
 o)...executed safely (allowed).
 
-\glswrite=\write7
-\glo@main@file=\write8
-\openout8 = `document.glo'.
+\glswrite=\write8
+\glo@main@file=\write9
+\openout9 = `document.glo'.
 
-Package glossaries Info: Writing glossary file document.glo on input line 171.
+Package glossaries Info: Writing glossary file document.glo on input line 173.
 Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... found 'babel' package.
 Package csquotes Info: Adjusting default style.
@@ -1146,24 +1509,24 @@ Package csquotes Info: Redefining alias 'default' -> 'english'.
 (09-Conclusion.aux) (A-Appendices.aux))
 \openout1 = `document.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 176.
-LaTeX Font Info:    ... okay on input line 176.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 176.
-LaTeX Font Info:    ... okay on input line 176.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 176.
-LaTeX Font Info:    ... okay on input line 176.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 176.
-LaTeX Font Info:    ... okay on input line 176.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 176.
-LaTeX Font Info:    ... okay on input line 176.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 176.
-LaTeX Font Info:    ... okay on input line 176.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 176.
-LaTeX Font Info:    ... okay on input line 176.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 176.
-LaTeX Font Info:    ... okay on input line 176.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 176.
-LaTeX Font Info:    ... okay on input line 176.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 178.
+LaTeX Font Info:    ... okay on input line 178.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 178.
+LaTeX Font Info:    ... okay on input line 178.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 178.
+LaTeX Font Info:    ... okay on input line 178.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 178.
+LaTeX Font Info:    ... okay on input line 178.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 178.
+LaTeX Font Info:    ... okay on input line 178.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 178.
+LaTeX Font Info:    ... okay on input line 178.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 178.
+LaTeX Font Info:    ... okay on input line 178.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 178.
+LaTeX Font Info:    ... okay on input line 178.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 178.
+LaTeX Font Info:    ... okay on input line 178.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: hyperref package is loaded.
 Package caption Info: listings package is loaded.
@@ -1178,17 +1541,17 @@ Package caption Info: End \AtBeginDocument code.
 (C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mk
 ii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count536
-\scratchdimen=\dimen288
-\scratchbox=\box73
-\nofMPsegments=\count537
-\nofMParguments=\count538
-\everyMPshowfont=\toks53
-\MPscratchCnt=\count539
-\MPscratchDim=\dimen289
-\MPnumerator=\count540
-\makeMPintoPDFobject=\count541
-\everyMPtoPDFconversion=\toks54
+\scratchcounter=\count561
+\scratchdimen=\dimen359
+\scratchbox=\box84
+\nofMPsegments=\count562
+\nofMParguments=\count563
+\everyMPshowfont=\toks61
+\MPscratchCnt=\count564
+\MPscratchDim=\dimen360
+\MPnumerator=\count565
+\makeMPintoPDFobject=\count566
+\everyMPtoPDFconversion=\toks62
 )
 (C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-b
 ase.sty
@@ -1200,10 +1563,10 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 fg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
-Package hyperref Info: Link coloring ON on input line 176.
+Package hyperref Info: Link coloring ON on input line 178.
  (document.out) (document.out)
-\@outlinefile=\write9
-\openout9 = `document.out'.
+\@outlinefile=\write10
+\openout10 = `document.out'.
 
 
 *geometry* driver: auto-detecting
@@ -1240,7 +1603,7 @@ Package hyperref Info: Link coloring ON on input line 176.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-\c@lstlisting=\count542
+\c@lstlisting=\count567
 Package biblatex Info: Trying to load language 'english'...
 Package biblatex Info: ... file 'english.lbx' found.
 
@@ -1251,20 +1614,20 @@ File: english.lbx 2024/03/21 v3.20 biblatex localization (PK/MW)
 Package biblatex Info: Input encoding 'utf8' detected.
 Package biblatex Info: Automatic encoding selection.
 (biblatex)             Assuming data encoding 'utf8'.
-\openout6 = `document.bcf'.
+\openout7 = `document.bcf'.
 
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'document.bbl' found.
  (document.bbl)
-Package biblatex Info: Reference section=0 on input line 176.
-Package biblatex Info: Reference segment=0 on input line 176.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 178
+Package biblatex Info: Reference section=0 on input line 178.
+Package biblatex Info: Reference segment=0 on input line 178.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 180
 .
 
 (C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 178
+LaTeX Font Info:    Trying to load font information for U+msb on input line 180
 .
 
 (C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
@@ -1273,12 +1636,12 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 [1
 
-\openout7 = `document.ist'.
+\openout8 = `document.ist'.
 
 {C:/Users/vladi/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
 (document.toc)
-\tf@toc=\write10
-\openout10 = `document.toc'.
+\tf@toc=\write11
+\openout11 = `document.toc'.
 
 
 
@@ -1287,7 +1650,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.182 	\chapter
+l.184 	\chapter
                {Foreword} [1
 
 ]
@@ -1307,7 +1670,7 @@ Chapter 2.
 
  (05-Introduction.tex
 Chapter 3.
-<img/nv_center.png, id=250, 2046.89719pt x 733.23938pt>
+<img/nv_center.png, id=258, 2046.89719pt x 733.23938pt>
 File: img/nv_center.png Graphic file (type png)
 <use img/nv_center.png>
 Package pdftex.def Info: img/nv_center.png  used on input line 13.
@@ -1322,7 +1685,7 @@ Package pdftex.def Info: img/nv_center.png  used on input line 13.
 [5]
 
 [6]
-<img/vmodel.png, id=338, 330.7557pt x 246.6816pt>
+<img/vmodel.png, id=346, 330.7557pt x 246.6816pt>
 File: img/vmodel.png Graphic file (type png)
 <use img/vmodel.png>
 Package pdftex.def Info: img/vmodel.png  used on input line 115.
@@ -1337,7 +1700,7 @@ Package pdftex.def Info: img/vmodel.png  used on input line 115.
 
  (07-Functional.tex
 Chapter 4.
-<img/energy_levels.png, id=349, 486.31688pt x 543.53062pt>
+<img/energy_levels.png, id=357, 486.31688pt x 543.53062pt>
 File: img/energy_levels.png Graphic file (type png)
 <use img/energy_levels.png>
 Package pdftex.def Info: img/energy_levels.png  used on input line 19.
@@ -1353,7 +1716,7 @@ Package pdftex.def Info: img/energy_levels.png  used on input line 19.
 
 
 ]
-<img/cw_odmr.png, id=382, 615.80063pt x 445.665pt>
+<img/cw_odmr.png, id=390, 615.80063pt x 445.665pt>
 File: img/cw_odmr.png Graphic file (type png)
 <use img/cw_odmr.png>
 Package pdftex.def Info: img/cw_odmr.png  used on input line 37.
@@ -1374,29 +1737,31 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 
 
 [9 <./img/energy_levels.png>]
-<drawio_diagrams/t1_waveforms.drawio.png, id=408, 1246.6575pt x 602.25pt>
+<drawio_diagrams/t1_waveforms.drawio.png, id=416, 1246.6575pt x 602.25pt>
 File: drawio_diagrams/t1_waveforms.drawio.png Graphic file (type png)
 <use drawio_diagrams/t1_waveforms.drawio.png>
 Package pdftex.def Info: drawio_diagrams/t1_waveforms.drawio.png  used on input
  line 48.
 (pdftex.def)             Requested size: 384.1096pt x 185.55606pt.
-<img/t1_result.png, id=415, 372.64218pt x 333.49594pt>
+<img/t1_result.png, id=423, 372.64218pt x 333.49594pt>
 File: img/t1_result.png Graphic file (type png)
 <use img/t1_result.png>
 Package pdftex.def Info: img/t1_result.png  used on input line 63.
 (pdftex.def)             Requested size: 298.75264pt x 267.37721pt.
 
 
-[10 <./img/cw_odmr.png> <./drawio_diagrams/t1_waveforms.drawio.png>])
+[10 <./img/cw_odmr.png> <./drawio_diagrams/t1_waveforms.drawio.png>]
 
-[11 <./img/t1_result.png>]
+[11 <./img/t1_result.png>])
+
+[12]
 \openout2 = `08-Technical.aux'.
 
  (08-Technical.tex
 Chapter 5.
 )
 
-[12
+[13
 
 
 
@@ -1408,24 +1773,24 @@ Chapter 5.
 Chapter 6.
 
 
-[13
+[14
 
 
 
 
 ]
 
-[14]
+[15]
 Chapter 7.
 
 
-[15
+[16
 
 ]
 Chapter 8.
 )
 
-[16
+[17
 
 ]
 \openout2 = `A-Appendices.aux'.
@@ -1434,7 +1799,7 @@ Chapter 8.
 Appendix A.
 )
 
-[17
+[18
 
 
 
@@ -1442,14 +1807,14 @@ Appendix A.
 
 ] (document.gls)
 
-[18
+[19
 
 
 
 
 ]
 
-[19
+[20
 
 ] 
 enddocument/afterlastpage (AED): lastpage setting LastPage.
@@ -1460,45 +1825,46 @@ LaTeX2e <2025-06-01>
 L3 programming layer <2025-05-26>
  ***********
 Package rerunfilecheck Info: File `document.out' has not changed.
-(rerunfilecheck)             Checksum: 37DCA01200ADE0D0192229283B802E31;5067.
+(rerunfilecheck)             Checksum: 311D6E7B92D8D1B6796D28666093C157;5202.
 Package logreq Info: Writing requests to 'document.run.xml'.
 \openout1 = `document.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 38299 strings out of 468224
- 767620 string characters out of 5432952
- 1749947 words of memory out of 5000000
- 66234 multiletter control sequences out of 15000+600000
- 636749 words of font info for 78 fonts, out of 8000000 for 9000
+ 66501 strings out of 468224
+ 1540106 string characters out of 5432952
+ 2735367 words of memory out of 5000000
+ 94181 multiletter control sequences out of 15000+600000
+ 639198 words of font info for 86 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  99i,17n,123p,2594b,2120s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\vladi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm
 1000.pk><C:/Users/vladi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfon
-ts/cm/cmbx10.pfb><C:/Users/vladi/AppData/Local/Programs/MiKTeX/fonts/type1/publ
-ic/amsfonts/cm/cmbx12.pfb><C:/Users/vladi/AppData/Local/Programs/MiKTeX/fonts/t
-ype1/public/amsfonts/cm/cmmi10.pfb><C:/Users/vladi/AppData/Local/Programs/MiKTe
-X/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/vladi/AppData/Local/Progr
-ams/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/vladi/AppData/Loc
-al/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/vladi/App
-Data/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/v
-ladi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:
-/Users/vladi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10
-.pfb><C:/Users/vladi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/
-cm/cmr12.pfb><C:/Users/vladi/AppData/Local/Programs/MiKTeX/fonts/type1/public/a
-msfonts/cm/cmr17.pfb><C:/Users/vladi/AppData/Local/Programs/MiKTeX/fonts/type1/
-public/amsfonts/cm/cmr5.pfb><C:/Users/vladi/AppData/Local/Programs/MiKTeX/fonts
-/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/vladi/AppData/Local/Programs/MiKTe
-X/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/vladi/AppData/Local/Program
-s/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/vladi/AppData/Local/
-Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/vladi/AppDa
-ta/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/vla
-di/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/
-Users/vladi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10
-.pfb>
-Output written on document.pdf (20 pages, 1682617 bytes).
+ts/cm/cmbsy10.pfb><C:/Users/vladi/AppData/Local/Programs/MiKTeX/fonts/type1/pub
+lic/amsfonts/cm/cmbx10.pfb><C:/Users/vladi/AppData/Local/Programs/MiKTeX/fonts/
+type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/vladi/AppData/Local/Programs/MiKT
+eX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/vladi/AppData/Local/Prog
+rams/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/vladi/AppData/L
+ocal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/vladi/A
+ppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users
+/vladi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><
+C:/Users/vladi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmm
+i8.pfb><C:/Users/vladi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfont
+s/cm/cmr10.pfb><C:/Users/vladi/AppData/Local/Programs/MiKTeX/fonts/type1/public
+/amsfonts/cm/cmr12.pfb><C:/Users/vladi/AppData/Local/Programs/MiKTeX/fonts/type
+1/public/amsfonts/cm/cmr17.pfb><C:/Users/vladi/AppData/Local/Programs/MiKTeX/fo
+nts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/vladi/AppData/Local/Programs/Mi
+KTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/vladi/AppData/Local/Prog
+rams/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/vladi/AppData/Loc
+al/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/vladi/AppD
+ata/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/v
+ladi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:
+/Users/vladi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti1
+0.pfb><C:/Users/vladi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts
+/cm/cmtt10.pfb>
+Output written on document.pdf (21 pages, 1699102 bytes).
 PDF statistics:
- 621 PDF objects out of 1000 (max. 8388607)
- 100 named destinations out of 1000 (max. 500000)
- 343 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 643 PDF objects out of 1000 (max. 8388607)
+ 103 named destinations out of 1000 (max. 500000)
+ 363 words of extra memory for PDF output out of 10000 (max. 10000000)
 

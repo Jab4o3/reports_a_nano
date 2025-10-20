@@ -461,6 +461,35 @@
       \verb https://doi.org/10.53347/rID-25821
       \endverb
     \endentry
+    \entry{semig24}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=7faadf5632630d8d3e586eb33c023a9c}{%
+           family={Semig},
+           familyi={S\bibinitperiod},
+           given={Paul},
+           giveni={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{7faadf5632630d8d3e586eb33c023a9c}
+      \strng{fullhash}{7faadf5632630d8d3e586eb33c023a9c}
+      \strng{fullhashraw}{7faadf5632630d8d3e586eb33c023a9c}
+      \strng{bibnamehash}{7faadf5632630d8d3e586eb33c023a9c}
+      \strng{authorbibnamehash}{7faadf5632630d8d3e586eb33c023a9c}
+      \strng{authornamehash}{7faadf5632630d8d3e586eb33c023a9c}
+      \strng{authorfullhash}{7faadf5632630d8d3e586eb33c023a9c}
+      \strng{authorfullhashraw}{7faadf5632630d8d3e586eb33c023a9c}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Texas Instruments Incorporated}
+      \field{title}{Transimpedence Amplifier Circuit}
+      \verb{urlraw}
+      \verb https://www.ti.com/lit/an/sboa268b/sboa268b.pdf
+      \endverb
+      \verb{url}
+      \verb https://www.ti.com/lit/an/sboa268b/sboa268b.pdf
+      \endverb
+    \endentry
   \enddatalist
 \endrefsection
 \endinput

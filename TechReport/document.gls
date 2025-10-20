@@ -24,7 +24,8 @@
 		\setentrycounter[]{page}\glsnumberformat{9\delimN 10}}}%
 \subglossentry{1}{podmr}{\glossaryentrynumbers{\relax 
 		\setentrycounter[]{page}\glsnumberformat{4}\delimN 
-		\setentrycounter[]{page}\glsnumberformat{9}}}%
+		\setentrycounter[]{page}\glsnumberformat{9}\delimN 
+		\setentrycounter[]{page}\glsnumberformat{11}}}%
 \glossentry{olia}{\glossaryentrynumbers{\relax 
 		\setentrycounter[]{page}\glsnumberformat{5\delimN 6}}}\glsgroupskip
 \glsgroupheading{P}\relax \glsresetentrylist %

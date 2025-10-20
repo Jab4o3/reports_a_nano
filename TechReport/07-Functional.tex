@@ -43,17 +43,57 @@ There are a number of different quantum protocols, which differ in what they can
 \subsection{$T_1$ relaxometry}
 $T_1$, $T_2$ and $T_2^*$ relaxation time measurements are commonly associated with radiometry \cite{ballinger23}, but they have other uses too. $T_1$ measurements, in particular, are useful in the realm of quantum sensing. Knowing the $T_1$ relaxation time, which refers to the time it takes for the spins in an \gls{nv} system to decay back to their original state, makes it possible to adjust the pulse sequences of more complex protocols and thus get better results.  %explain what relaxation is and the protcol
 
+% % alternative to tikz diagram
+%\begin{figure}[ht]
+%	\centering
+%	\includegraphics[width=0.9\linewidth]{drawio_diagrams/t1_waveforms.drawio}
+%	\caption{Laser and reference signals for $T_1$ measurements}
+%	\label{fig:t1waveforms}
+%\end{figure}
+
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width=0.9\linewidth]{drawio_diagrams/t1_waveforms.drawio}
+	\begin{tikzpicture}[scale=.3]
+		% TTL signal rectangles
+		\fill [blue!20] 		(4,0) 	rectangle (8,4);
+		\fill [blue!20] 		(20,0) 	rectangle (24,4);
+		\fill [red!20]			(26,0)	rectangle (30,4);
+		\fill [green!20] 		(4,8) 	rectangle (20,12);
+		
+		% signal lines
+		\draw [thick] (0,0) -- (4, 0) -- (4,4) --(8,4) -- (8,0) -- (20,0) -- (20,4) -- (24,4) --(24,0) -- (26,0) -- (26,4) -- (30,4) -- (30,0) -- (40,0) node[anchor=west]{Laser};
+		\draw [thick] (0,8) -- (4,8) -- (4,12) -- (20,12) -- (20,8) -- (40,8) node[anchor=west]{Lock-in reference}; % ref
+		
+		% curly braces top
+		\draw [decorate, decoration={brace}] (4,14) -- (8,14) node[midway, above]{$\tau_{las}$};
+		\draw [decorate, decoration={brace}] (20,14) -- (24,14) node[midway, above]{$\tau_{las}$};
+		\draw [decorate, decoration={brace}] (26,14) -- (30,14) node[midway, above]{$\tau_{las}$};
+		
+		% curly braces bottom
+		\draw [decorate, decoration={brace, mirror}] (4,-4) -- (20,-4) node[midway, below]{$\tau_{li}$};
+		\draw [decorate, decoration={brace, mirror}] (24,-4) -- (26,-4) node[midway, below]{$\tau_{d}$};
+		
+		% dash-dotted lines
+		\draw [dash dot] (4,14) -- (4,-4);
+		\draw [dash dot] (8,14) -- (8,-4);
+		\draw [dash dot] (20,14) -- (20,-4);
+		\draw [dash dot] (24,14) -- (24,-4);
+		\draw [dash dot] (26,14) -- (26,-4);
+		\draw [dash dot] (30,14) -- (30,-4);
+		
+	\end{tikzpicture}
 	\caption{Laser and reference signals for $T_1$ measurements}
 	\label{fig:t1waveforms}
 \end{figure}
 
-The waveforms which are needed for $T_1$ measurements are shown if Figure \ref{fig:t1waveforms}. While both are important in practice, the lock-in is not as relevant, at least in this section of the report. However, its working principle is explored in Chapter \ref{chap:lockin}. For now, all that needs to be said about the lock-in reference signal is that it is periodic and $t_{li}$ is much longer than $t_{las}$ (Sewani et al \cite{sewani2020coherent} propose $t_{li} = 15 ms$ and $t_{las} = 5 \mu s$). Laser pulses, on the other hand, are not periodic. Instead, there are three short pulses every reference period (which is $2t_{li} s$ long). The two blue pulses have the same timing every cycle, because they initialize the \gls{nv} spins. However, the red pulse always occurs after the variable dark time $t_d$. Depending on the $T_1$ decay at the time of the readout pulse, a different voltage will be detected. Figure \ref{fig:t1result} shows what results can be expected when measuring $T_1$. Determining the value of $T_1$ is done using Formula \ref{eq:t1}, where $I$ is the light intensity, $I_\infty$ is the light intensity offset and $t_d$ is the dark time. 
+
+
+
+
+The waveforms which are needed for $T_1$ measurements are shown if Figure \ref{fig:t1waveforms}. While both are important in practice, the lock-in is not as relevant, at least in this section of the report. However, its working principle is explored in Chapter \ref{chap:lockin}. For now, all that needs to be said about the lock-in reference signal is that it is periodic and $\tau_{li}$ is much longer than $\tau_{las}$ (Sewani et al \cite{sewani2020coherent} propose $\tau_{li} = 15 ms$ and $\tau_{las} = 5 \mu s$). Laser pulses, on the other hand, are not periodic. Instead, there are three short pulses every reference period (which is $2\tau_{li} s$ long). The two blue pulses have the same timing every cycle, because they initialize the \gls{nv} spins. However, the red pulse always occurs after the variable dark time $\tau_d$. Depending on the $T_1$ decay at the time of the readout pulse, a different voltage will be detected. Figure \ref{fig:t1result} shows what results can be expected when measuring $T_1$. Determining the value of $T_1$ is done using Formula \ref{eq:t1}, where $I$ is the light intensity, $I_\infty$ is the light intensity offset and $\tau_d$ is the dark time. 
 
 \begin{equation}\label{eq:t1}
-I(t)=I_\infty+I(0)e^{-t_d/T_1}
+I(t)=I_\infty+I(0)e^{-\tau_d/T_1}
 \end{equation}
 
 
@@ -61,14 +101,14 @@ I(t)=I_\infty+I(0)e^{-t_d/T_1}
 \begin{figure}[ht]
 	\centering
 	\includegraphics[width=0.7\linewidth]{img/t1_result}
-	\caption{Results of a set of $T_1$ measurements with varied dark time $t_d$ (image credit to Sewani et al \cite{sewani2020coherent})}
+	\caption{Results of a set of $T_1$ measurements with varied dark time $\tau_d$ (image credit to Sewani et al \cite{sewani2020coherent})}
 	\label{fig:t1result}
 \end{figure}
 
 
 
 \subsection{\glsfmtshort{podmr}}
-As a more complex protocol
+As a descriptor \gls{podmr} is somewhat vague, which is why it has been used for a number of protocols. Different pulse schemes can result in radically different . Some researches use 
 
 \section{Lock-in amplification} \label{chap:lockin}
 \section{Quantum sensing setup}
@@ -80,7 +120,7 @@ Designing the photodetector is mostly about creating a transimpedance amplifier,
 
 \begin{figure}[ht]
 	\centering
-	\resizebox{.2\textwidth}{!}{%
+	\resizebox{.4\textwidth}{!}{%
 		\begin{circuitikz}
 			\tikzstyle{every node}=[font=\normalsize]
 			\draw [ line width=0.5pt](3.75,10.75) to[empty photodiode,l={ \normalsize $D_1$}] (3.75,9);
@@ -116,7 +156,25 @@ Designing the photodetector is mostly about creating a transimpedance amplifier,
 	\label{fig:tia}
 \end{figure}
 
-The basic circuit, shown in Figure \ref{fig:tia}, is all that is required for photodetection. 
+The basic circuit, shown in Figure \ref{fig:tia}, is all that is required for photodetection. Following the guidelines for making a transimpedance amplifier set by Texas Instruments \cite{semig24}, all the parameters of the circuit can be calculated.
+
+\begin{equation}\label{eq:r1}
+	R_1 = \frac{V_{o\ max}}{I_{o\ max}}\ \text{assuming}\ V_{o\ min} = 0 \unit{\volt}
+\end{equation}
+
+The resistor $R_1$ determines the transimpedance gain of the amplifier. Equation \ref{eq:r1} shows how its value can be calculated by using the output voltage and input current. It should be noted that the minimum output voltage cannot be different from 0 in this use case.
+
+\begin{equation}\label{eq:c1}
+	C_1 = \frac{1}{2 \pi R_1 f_{rc}}
+\end{equation}
+
+The capacitance of $C_1$ can be calculated using the resistance of $R_1$ and the cutoff frequency $f_{rc}$, as shown in Equation \ref{eq:c1}. 
+
+\begin{equation}\label{eq:gbw}
+	f_{c} = (1 + \frac{C_d + C_{cm}}{C_1})f_{rc} \approx f_{rc}
+\end{equation}
+
+Even though $f_{rc}$ provides an approximation for the cutoff frequency, the parasitic capacitances in the system will cause it to be slightly bigger. Equation \ref{eq:gbw} shows how a more accurate cutoff frequency $f_c$ can be calculated by taking into account $C_d$ and $C_{cm}$ (differential and common-mode capacitance respectively).
 
 The design is based on circuits provided by the client. At their request, the first version of the PCB is an exact replica of the original circuit.  
 

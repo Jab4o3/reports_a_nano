@@ -7,7 +7,8 @@
 \usepackage{titlesec}
 
 % Useful packages
-\usepackage{amsmath}
+\usepackage{amsmath} % math
+\usepackage{siunitx} % SI units in math environments
 \usepackage{float}
 \usepackage{caption}
 \usepackage[skip=0.5ex]{subcaption}
@@ -32,6 +33,10 @@ pdftitle={V. Serafimov Bachelor Thesis EEE}
 \usepackage[a4paper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
 
 \usepackage{circuitikz} % drawing circuits
+\usepackage{tikz, pgfplots} % drawing diagrams
+\usetikzlibrary{positioning} % for positioning tikz elements (e.g. right=of, left=of)
+\usetikzlibrary{backgrounds} % for drawing in the background (using scope environment)
+\usetikzlibrary{decorations.pathreplacing} % for drawing curly braces with tikz
 
 % Code listings
 \usepackage{listings}
@@ -159,7 +164,7 @@ style=ieee,
 \usepackage[automake, style=tree]{glossaries-extra} % autocompile and make nested abbreviations appear on separate lines
 \setabbreviationstyle[acronym]{long-short} % first occurence shows long and short form
 \newacronym{odmr}{ODMR}{Optically Detected Magnetic Resonance}
-\newacronym[parent=odmr]{cwodmr}{CW-ODMR}{Constan-Wave \glstext{odmr}}
+\newacronym[parent=odmr]{cwodmr}{CW-ODMR}{Constant-Wave \glstext{odmr}}
 \newacronym[parent=odmr]{podmr}{P-ODMR}{Pulsed \glstext{odmr}}
 \newacronym{ecad}{ECAD}{Electronic Computer-Aided Design}
 \newacronym{gui}{GUI}{Graphical User Interface}

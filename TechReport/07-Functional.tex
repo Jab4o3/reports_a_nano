@@ -115,12 +115,12 @@ As a descriptor \gls{podmr} is somewhat vague, which is why it has been used for
 \section{Photodetection \glsfmtshort{pcb}}
 Photodetection is how the \gls{nv} photoluminescence is measured, effectively turning light into current using a photodiode. However, a bare photodiode cannot be connected to a lock-in amplifier, because it functions as a current generator. This is where the photodetection \gls {pcb} comes in. Its purpose is to transform the current into voltage and then amplify the resulting signal to the necessary voltage level. 
 
-\subsection{Design process}
-Designing the photodetector is mostly about creating a transimpedance amplifier, which is a tool used for converting current to voltage, and specifically tuning its parameters so that it works with the selected photodiode under operating conditions. 
+\subsection{Design process} \label{chap:photodetection_design}
+Designing the photodetector is mostly about creating a \gls{tia}, which is a tool used for converting current to voltage, and specifically tuning its parameters so that it works with the selected photodiode under operating conditions. 
 
 \begin{figure}[ht]
 	\centering
-	\resizebox{.4\textwidth}{!}{%
+	\resizebox{.5\textwidth}{!}{%
 		\begin{circuitikz}
 			\tikzstyle{every node}=[font=\normalsize]
 			\draw [ line width=0.5pt](3.75,10.75) to[empty photodiode,l={ \normalsize $D_1$}] (3.75,9);
@@ -152,11 +152,11 @@ Designing the photodetector is mostly about creating a transimpedance amplifier,
 			\node [font=\normalsize] at (3,9.75) {$I_f$};
 		\end{circuitikz}
 	}%
-	\caption{Transimpedance amplifier circuit}
+	\caption{Basic \gls{tia} circuit}
 	\label{fig:tia}
 \end{figure}
 
-The basic circuit, shown in Figure \ref{fig:tia}, is all that is required for photodetection. Following the guidelines for making a transimpedance amplifier set by Texas Instruments \cite{semig24}, all the parameters of the circuit can be calculated.
+The basic circuit, shown in Figure \ref{fig:tia}, is all that is required for photodetection. Following the guidelines for making a \gls{tia} set by Texas Instruments \cite{semig24}, all the parameters of the circuit can be calculated.
 
 \begin{equation}\label{eq:r1}
 	R_1 = \frac{V_{o\ max}}{I_{o\ max}}\ \text{assuming}\ V_{o\ min} = 0 \unit{\volt}
@@ -174,7 +174,72 @@ The capacitance of $C_1$ can be calculated using the resistance of $R_1$ and the
 	f_{c} = (1 + \frac{C_d + C_{cm}}{C_1})f_{rc} \approx f_{rc}
 \end{equation}
 
-Even though $f_{rc}$ provides an approximation for the cutoff frequency, the parasitic capacitances in the system will cause it to be slightly bigger. Equation \ref{eq:gbw} shows how a more accurate cutoff frequency $f_c$ can be calculated by taking into account $C_d$ and $C_{cm}$ (differential and common-mode capacitance respectively).
+Even though $f_{rc}$ provides an approximation for the cutoff frequency, the parasitic capacitances in the system will cause it to be slightly bigger. Equation \ref{eq:gbw} shows how a more accurate cutoff frequency $f_c$ can be calculated by taking into account $C_d$ and $C_{cm}$ (differential and common-mode capacitance respectively). In this case, $f_c$ tells us the gain bandwidth or the frequency range in which DC gain is retained.
+
+In addition, a non-inverting amplifier can be added, to increase the gain of the circuit even more, without affecting the phase. Figure \ref{fig:tia_nia} shows how it can be connected to the output of the \gls{tia} from Figure \ref{fig:tia}.
+
+\begin{figure}[!ht]
+	\centering
+	\resizebox{.9\textwidth}{!}{%
+		\begin{circuitikz}
+			\tikzstyle{every node}=[font=\normalsize]
+			\draw [ line width=0.5pt](3.75,10.75) to[empty photodiode,l={ \normalsize $D_1$}] (3.75,9);
+			\draw [ line width=0.5pt](6.5,10.25) node[op amp,scale=1] (opamp2) {};
+			\draw [ line width=0.5pt](opamp2.+) to[short] (5,9.75);
+			\draw [ line width=0.5pt] (opamp2.-) to[short] (5,10.75);
+			\draw [ line width=0.5pt](7.7,10.25) to[short](8,10.25);
+			\draw [line width=0.5pt](5,9) to (5,8.25) node[ground]{};
+			\draw [ line width=0.5pt](5,8.5) to[short] (5,9.75);
+			\draw [ line width=0.5pt](3.75,10.5) to[short] (3.75,10.75);
+			\draw [ line width=0.5pt](3.75,10.75) to[short] (5,10.75);
+			\node at (4.5,10.75) [circ] {};
+			\draw [ line width=0.5pt](4.5,10.75) to[short] (4.5,13.5);
+			\draw [ line width=0.5pt](4.5,12.25) to[short] (5,12.25);
+			\draw [ line width=0.5pt](4.5,13.5) to[short] (5,13.5);
+			\draw [ line width=0.5pt](7.5,10.25) to[short] (7.5,11);
+			\draw [ line width=0.5pt](5,12.25) to[european resistor,l={ \normalsize $R_1$}] (7,12.25);
+			\node at (4.5,12.25) [circ] {};
+			\draw [ line width=0.5pt](7,12.25) to[short] (7.5,12.25);
+			\draw [ line width=0.5pt](7.5,12.25) to[short] (7.5,11);
+			\draw [ line width=0.5pt](7.5,12.25) to[short] (7.5,13.5);
+			\draw [line width=0.5pt](5,13.5) to[C,l={ \normalsize $C_1$}] (7,13.5);
+			\node at (7.5,12.25) [circ] {};
+			\draw [ line width=0.5pt](7,13.5) to[short] (7.5,13.5);
+			\draw [ line width=0.5pt](3.75,10.75) to[short] (3.75,10.5);
+			\draw [line width=0.5pt](3.75,9) to (3.75,8.25) node[ground]{};
+			\draw [line width=0.5pt, ->, >=Stealth] (3.25,10.25) -- (3.25,9.25);
+			\node [font=\normalsize] at (3,9.75) {$I_f$};
+			\draw (8,10.25) to[short] (10.25,10.25);
+			\draw (11.75,10.75) node[op amp,scale=1] (opamp2) {};
+			\draw (opamp2.+) to[short] (10.25,10.25);
+			\draw  (opamp2.-) to[short] (10.25,11.25);
+			\draw (12.95,10.75) to[short](13.25,10.75);
+			\draw (8.5,11.25) to[european resistor,l={ \normalsize $R_2$}] (10.25,11.25);
+			\draw (8.5,11.25) to (8.5,11) node[ground]{};
+			\draw (11.75,10.75) node[op amp,scale=1] (opamp2) {};
+			\draw (opamp2.+) to[short] (10.25,10.25);
+			\draw  (opamp2.-) to[short] (10.25,11.25);
+			\draw (12.95,10.75) to[short](13.25,10.75);
+			\node at (10.25,11.25) [circ] {};
+			\draw (10.25,11.25) to[short] (10.25,12.5);
+			\draw (10.25,12.5) to[european resistor,l={ \normalsize $R_3$}] (13,12.5);
+			\draw (13,12.5) to[short] (13,10.75);
+			\draw (13.25,10.75) to[short, -o] (13.5,10.75) node {$\ \ \ \ \ \ \ \ \ V_{out}$};
+			\draw (13.5,10.75) to[short, -o] (13.5,10.75) ;
+			\node at (7.5,10.25) [circ] {};
+			\node [font=\normalsize, anchor=north] at (7.5,10.25) {$V_{ot}$};
+			\node [font=\normalsize, anchor=north] at (10.5,11.25) {$V_{-}$};
+		\end{circuitikz}
+	}%
+	\caption{\gls{tia} with non-inverting output amplification}
+	\label{fig:tia_nia}
+\end{figure}
+
+Equation \ref{eq:nia} is used to calculate the gain of second amplification stage. The formula is derived from the voltage divider formed by the two resistors and the fact that $V_{ot} = V_{-}$.
+
+\begin{equation}\label{eq:nia}
+	A_{nia} = \frac{V{out}}{V{ot}} = 1 + \frac{R_3}{R_2}
+\end{equation}
 
 The design is based on circuits provided by the client. At their request, the first version of the PCB is an exact replica of the original circuit.  
 

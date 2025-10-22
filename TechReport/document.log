@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.6.12)  20 OCT 2025 15:18
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.6.12)  22 OCT 2025 15:30
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1666,7 +1666,7 @@ o)...executed safely (allowed).
 \glo@main@file=\write9
 \openout9 = `document.glo'.
 
-Package glossaries Info: Writing glossary file document.glo on input line 178.
+Package glossaries Info: Writing glossary file document.glo on input line 181.
 Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... found 'babel' package.
 Package csquotes Info: Adjusting default style.
@@ -1676,24 +1676,24 @@ Package csquotes Info: Redefining alias 'default' -> 'english'.
 (09-Conclusion.aux) (A-Appendices.aux))
 \openout1 = `document.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 183.
-LaTeX Font Info:    ... okay on input line 183.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 183.
-LaTeX Font Info:    ... okay on input line 183.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 183.
-LaTeX Font Info:    ... okay on input line 183.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 183.
-LaTeX Font Info:    ... okay on input line 183.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 183.
-LaTeX Font Info:    ... okay on input line 183.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 183.
-LaTeX Font Info:    ... okay on input line 183.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 183.
-LaTeX Font Info:    ... okay on input line 183.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 183.
-LaTeX Font Info:    ... okay on input line 183.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 183.
-LaTeX Font Info:    ... okay on input line 183.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 186.
+LaTeX Font Info:    ... okay on input line 186.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 186.
+LaTeX Font Info:    ... okay on input line 186.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 186.
+LaTeX Font Info:    ... okay on input line 186.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 186.
+LaTeX Font Info:    ... okay on input line 186.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 186.
+LaTeX Font Info:    ... okay on input line 186.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 186.
+LaTeX Font Info:    ... okay on input line 186.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 186.
+LaTeX Font Info:    ... okay on input line 186.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 186.
+LaTeX Font Info:    ... okay on input line 186.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 186.
+LaTeX Font Info:    ... okay on input line 186.
 
 (C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/latex/translations/dicts\tran
 slations-basic-dictionary-english.trsl
@@ -1701,7 +1701,7 @@ File: translations-basic-dictionary-english.trsl (english translation file `tra
 nslations-basic-dictionary')
 )
 Package translations Info: loading dictionary `translations-basic-dictionary' f
-or `english'. on input line 183.
+or `english'. on input line 186.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: hyperref package is loaded.
 Package caption Info: listings package is loaded.
@@ -1738,7 +1738,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 fg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
-Package hyperref Info: Link coloring ON on input line 183.
+Package hyperref Info: Link coloring ON on input line 186.
  (document.out) (document.out)
 \@outlinefile=\write10
 \openout10 = `document.out'.
@@ -1782,7 +1782,7 @@ Package hyperref Info: Link coloring ON on input line 183.
 Package pgfplots Warning: running in backwards compatibility mode (unsuitable t
 ick labels; missing features). Consider writing \pgfplotsset{compat=1.18} into 
 your preamble.
- on input line 183.
+ on input line 186.
 
 \c@lstlisting=\count588
 Package biblatex Info: Trying to load language 'english'...
@@ -1800,15 +1800,15 @@ Package biblatex Info: Automatic encoding selection.
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'document.bbl' found.
  (document.bbl)
-Package biblatex Info: Reference section=0 on input line 183.
-Package biblatex Info: Reference segment=0 on input line 183.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 185
+Package biblatex Info: Reference section=0 on input line 186.
+Package biblatex Info: Reference segment=0 on input line 186.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 188
 .
 
 (C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 185
+LaTeX Font Info:    Trying to load font information for U+msb on input line 188
 .
 
 (C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
@@ -1820,60 +1820,62 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 \openout8 = `document.ist'.
 
 {C:/Users/vladi/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
-(document.toc)
-\tf@toc=\write11
-\openout11 = `document.toc'.
-
-
+(document.toc
 
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.189 	\chapter
-               {Foreword} [1
+l.44 ...sline {chapter}{Glossary}{22}{section*.18}
+                                                  % [1
 
-]
+])
+\tf@toc=\write11
+\openout11 = `document.toc'.
+
+
+
+[2]
 Chapter 1.
 
 
-[2
+[3
 
 ]
 Chapter 2.
 
 
-[3
+[4
 
 ]
 \openout2 = `05-Introduction.aux'.
 
  (05-Introduction.tex
 Chapter 3.
-<img/nv_center.png, id=258, 2046.89719pt x 733.23938pt>
+<img/nv_center.png, id=268, 2046.89719pt x 733.23938pt>
 File: img/nv_center.png Graphic file (type png)
 <use img/nv_center.png>
 Package pdftex.def Info: img/nv_center.png  used on input line 13.
 (pdftex.def)             Requested size: 298.75264pt x 107.01625pt.
 
 
-[4
+[5
 
 
  <./img/nv_center.png>]
 
-[5]
-
 [6]
-<img/vmodel.png, id=346, 330.7557pt x 246.6816pt>
+
+[7]
+<img/vmodel.png, id=358, 330.7557pt x 246.6816pt>
 File: img/vmodel.png Graphic file (type png)
 <use img/vmodel.png>
 Package pdftex.def Info: img/vmodel.png  used on input line 115.
 (pdftex.def)             Requested size: 298.75264pt x 222.81311pt.
 )
 
-[7 <./img/vmodel.png>]
+[8 <./img/vmodel.png>]
 \openout2 = `06-Analysis_of_specifications.aux'.
 
  (06-Analysis_of_specifications.tex)
@@ -1881,14 +1883,14 @@ Package pdftex.def Info: img/vmodel.png  used on input line 115.
 
  (07-Functional.tex
 Chapter 4.
-<img/energy_levels.png, id=357, 486.31688pt x 543.53062pt>
+<img/energy_levels.png, id=369, 486.31688pt x 543.53062pt>
 File: img/energy_levels.png Graphic file (type png)
 <use img/energy_levels.png>
 Package pdftex.def Info: img/energy_levels.png  used on input line 19.
 (pdftex.def)             Requested size: 298.75264pt x 333.90027pt.
 
 
-[8
+[9
 
 
 
@@ -1897,7 +1899,7 @@ Package pdftex.def Info: img/energy_levels.png  used on input line 19.
 
 
 ]
-<img/cw_odmr.png, id=390, 615.80063pt x 445.665pt>
+<img/cw_odmr.png, id=402, 615.80063pt x 445.665pt>
 File: img/cw_odmr.png Graphic file (type png)
 <use img/cw_odmr.png>
 Package pdftex.def Info: img/cw_odmr.png  used on input line 37.
@@ -1917,55 +1919,80 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 
 
 
-[9 <./img/energy_levels.png>]
-<img/t1_result.png, id=422, 372.64218pt x 333.49594pt>
+[10 <./img/energy_levels.png>]
+<img/t1_result.png, id=434, 372.64218pt x 333.49594pt>
 File: img/t1_result.png Graphic file (type png)
 <use img/t1_result.png>
 Package pdftex.def Info: img/t1_result.png  used on input line 103.
 (pdftex.def)             Requested size: 298.75264pt x 267.37721pt.
 
 
-[10 <./img/cw_odmr.png>]
+[11 <./img/cw_odmr.png>]
 
-[11 <./img/t1_result.png>])
+[12 <./img/t1_result.png>]
 
-[12]
+[13])
+
+[14]
 \openout2 = `08-Technical.aux'.
 
  (08-Technical.tex
 Chapter 5.
-)
+<img/photodetec_og.png, id=495, 729.47531pt x 532.23843pt>
+File: img/photodetec_og.png Graphic file (type png)
+<use img/photodetec_og.png>
+Package pdftex.def Info: img/photodetec_og.png  used on input line 12.
+(pdftex.def)             Requested size: 298.75264pt x 217.97552pt.
+<img/tina_AC_2probes.jpg, id=499, 548.0475pt x 336.25626pt>
+File: img/tina_AC_2probes.jpg Graphic file (type jpg)
+<use img/tina_AC_2probes.jpg>
+Package pdftex.def Info: img/tina_AC_2probes.jpg  used on input line 24.
+(pdftex.def)             Requested size: 209.1301pt x 128.3123pt.
+<img/tina_DC_2probes.jpg, id=500, 531.9875pt x 320.19624pt>
+File: img/tina_DC_2probes.jpg Graphic file (type jpg)
+<use img/tina_DC_2probes.jpg>
+Package pdftex.def Info: img/tina_DC_2probes.jpg  used on input line 30.
+(pdftex.def)             Requested size: 209.1301pt x 125.87273pt.
+<img/photodetec_og_pcb.png, id=501, 1189.44376pt x 567.62062pt>
+File: img/photodetec_og_pcb.png Graphic file (type png)
+<use img/photodetec_og_pcb.png>
+Package pdftex.def Info: img/photodetec_og_pcb.png  used on input line 43.
+(pdftex.def)             Requested size: 298.75264pt x 142.56305pt.
 
-[13
+
+[15
 
 
 
 
-]
+ <./img/photodetec_og.png>])
+
+[16 <./img/tina_AC_2probes.jpg> <./img/tina_DC_2probes.jpg> <./img/photodetec_o
+g_pcb.png (PNG copy)>]
 \openout2 = `09-Conclusion.aux'.
 
  (09-Conclusion.tex
 Chapter 6.
 
 
-[14
+[17
 
 
 
 
 ]
 
-[15]
+[18]
 Chapter 7.
 
 
-[16
+[19
 
 ]
 Chapter 8.
 )
 
-[17
+[20
 
 ]
 \openout2 = `A-Appendices.aux'.
@@ -1974,7 +2001,7 @@ Chapter 8.
 Appendix A.
 )
 
-[18
+[21
 
 
 
@@ -1982,14 +2009,14 @@ Appendix A.
 
 ] (document.gls)
 
-[19
+[22
 
 
 
 
 ]
 
-[20
+[23
 
 ] 
 enddocument/afterlastpage (AED): lastpage setting LastPage.
@@ -2000,19 +2027,19 @@ LaTeX2e <2025-06-01>
 L3 programming layer <2025-05-26>
  ***********
 Package rerunfilecheck Info: File `document.out' has not changed.
-(rerunfilecheck)             Checksum: 311D6E7B92D8D1B6796D28666093C157;5202.
+(rerunfilecheck)             Checksum: 25296E8E6857389D6B87D7EBE1A28370;5342.
 Package logreq Info: Writing requests to 'document.run.xml'.
 \openout1 = `document.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 79995 strings out of 468224
- 1994994 string characters out of 5432952
- 3241972 words of memory out of 5000000
- 107519 multiletter control sequences out of 15000+600000
- 639198 words of font info for 86 fonts, out of 8000000 for 9000
+ 80848 strings out of 468224
+ 2019579 string characters out of 5432952
+ 3277220 words of memory out of 5000000
+ 108358 multiletter control sequences out of 15000+600000
+ 639497 words of font info for 87 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 99i,17n,123p,2594b,2120s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 99i,17n,123p,2594b,2940s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\vladi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm
 1000.pk><C:/Users/vladi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfon
 ts/cm/cmbsy10.pfb><C:/Users/vladi/AppData/Local/Programs/MiKTeX/fonts/type1/pub
@@ -2032,14 +2059,15 @@ nts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/vladi/AppData/Local/Programs/Mi
 KTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/vladi/AppData/Local/Prog
 rams/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/vladi/AppData/Loc
 al/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/vladi/AppD
-ata/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/v
-ladi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:
-/Users/vladi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti1
-0.pfb><C:/Users/vladi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts
-/cm/cmtt10.pfb>
-Output written on document.pdf (21 pages, 1698230 bytes).
+ata/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/vla
+di/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/
+Users/vladi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.
+pfb><C:/Users/vladi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/c
+m/cmti10.pfb><C:/Users/vladi/AppData/Local/Programs/MiKTeX/fonts/type1/public/a
+msfonts/cm/cmtt10.pfb>
+Output written on document.pdf (24 pages, 1888863 bytes).
 PDF statistics:
- 653 PDF objects out of 1000 (max. 8388607)
- 107 named destinations out of 1000 (max. 500000)
- 358 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 716 PDF objects out of 1000 (max. 8388607)
+ 120 named destinations out of 1000 (max. 500000)
+ 386 words of extra memory for PDF output out of 10000 (max. 10000000)
 

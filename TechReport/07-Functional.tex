@@ -110,8 +110,50 @@ I(t)=I_\infty+I(0)e^{-\tau_d/T_1}
 \subsection{\glsfmtshort{podmr}}
 As a descriptor \gls{podmr} is somewhat vague, which is why it has been used for a number of protocols. Different pulse schemes can result in radically different . Some researches use 
 
+\section{Quantum sensing setup}\label{chap:td:quantum_setup}
+Executing all of the aforementioned protocols requires a sensing setup with some specific capabilities. This section discusses the devices that make up the setup and the functionalities require by each protocol.
+
+A high-level diagram of the quantum sensing system can be seen in Figure \ref{fig:overview_high_lvl}. There are 2 input devices in the system, but most protocols exclusively use the function generator. On the other hand, only a single lock-in amplifier is used as an output device for all measurements. Microwave generation, when needed, is done by the 
+
+\begin{figure}[ht]
+	\centering
+	\begin{tikzpicture}[
+		% define box styles
+		boxr/.style={rectangle, thick, draw=red!50!black, fill=red!5, minimum size=5mm},
+		boxg/.style={rectangle, thick, draw=green!50!black, fill=green!5, minimum size=5mm},
+		boxb/.style={rectangle, thick, draw=blue!50!black, fill=blue!5, minimum size=5mm},
+		]
+		% draw MW nodes
+		\node[boxg] (fgen)							{Function generator};
+		\node[boxr] (mwsw)		[right=10 mm of fgen] 		{\glsfmtshort{mw} switch};
+		\node[boxr] (mwant)		[right=of mwsw]		{\glsfmtshort{mw} antenna};
+		\node[boxg] (mwsweep)	[above=of mwsw] 	{Frequency sweeper};
+		% draw main system nodes
+		\node[boxg] (lockin)	[right=of mwant]	{Lock-in amplifier};
+		\node[boxb] (driver) 	[below=of fgen]		{Current driver};
+		\node[boxb] (laser) 	[below=of mwsw]		{Laser};
+		\node[boxb] (nv) 		[below=of mwant] 	{NV sample};
+		\node[boxb] (detect) 	[below=of lockin]	{Photodetector};
+		
+
+		% draw MW lines
+		\draw[->, thick] 			(fgen.east) 		to node[midway, above]{\glsfmtshort{ttl}} 	(mwsw.west);
+		\draw[->, thick] 			(mwsw.east) 		to node[midway, above]{\glsfmtshort{ttl}} 	(mwant.west);
+		\draw[->, thick, dashed]	(mwsweep.south) 	to node[midway, left]{Sweep} 				(mwsw.north);
+		% draw main system lines
+		\draw[->, thick]			(fgen.south)		to node[midway, left]{\glsfmtshort{ttl}} 	(driver.north);
+		\draw[->, thick] 			(driver.east) 		to node[midway, above]{Current} 			(laser.west);
+		\draw[->, thick]			(laser.east) 		to node[midway, above]{Light} 				(nv.west);
+		\draw[->, thick]			(nv.east) 			to node[midway, above]{Light}				(detect.west);		
+		\draw[->, thick]			(detect.north) 		to node[midway, right]{Signal}				(lockin.south);	
+		% draw long line
+		\draw[->, thick] (fgen.south east) .. controls +(down:5mm) .. node[pos=.9, sloped, below]{Reference signal}(lockin.south west);
+	\end{tikzpicture}
+	\caption{High-level overview of the quantum sensing setup}
+	\label{fig:overview_high_lvl}
+\end{figure}
+
 \section{Lock-in amplification} \label{chap:lockin}
-\section{Quantum sensing setup}
 \section{Photodetection \glsfmtshort{pcb}}
 Photodetection is how the \gls{nv} photoluminescence is measured, effectively turning light into current using a photodiode. However, a bare photodiode cannot be connected to a lock-in amplifier, because it functions as a current generator. This is where the photodetection \gls {pcb} comes in. Its purpose is to transform the current into voltage and then amplify the resulting signal to the necessary voltage level. 
 

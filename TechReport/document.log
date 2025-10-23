@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.6.12)  22 OCT 2025 15:30
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.6.12)  23 OCT 2025 13:28
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1827,7 +1827,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.44 ...sline {chapter}{Glossary}{22}{section*.18}
+l.44 ...sline {chapter}{Glossary}{22}{section*.19}
                                                   % [1
 
 ])
@@ -1938,26 +1938,21 @@ Package pdftex.def Info: img/t1_result.png  used on input line 103.
 
  (08-Technical.tex
 Chapter 5.
-<img/photodetec_og.png, id=495, 729.47531pt x 532.23843pt>
+<img/photodetec_og.png, id=497, 729.47531pt x 532.23843pt>
 File: img/photodetec_og.png Graphic file (type png)
 <use img/photodetec_og.png>
 Package pdftex.def Info: img/photodetec_og.png  used on input line 12.
 (pdftex.def)             Requested size: 298.75264pt x 217.97552pt.
-<img/tina_AC_2probes.jpg, id=499, 548.0475pt x 336.25626pt>
+<img/tina_AC_2probes.jpg, id=501, 548.0475pt x 336.25626pt>
 File: img/tina_AC_2probes.jpg Graphic file (type jpg)
 <use img/tina_AC_2probes.jpg>
 Package pdftex.def Info: img/tina_AC_2probes.jpg  used on input line 24.
 (pdftex.def)             Requested size: 209.1301pt x 128.3123pt.
-<img/tina_DC_2probes.jpg, id=500, 531.9875pt x 320.19624pt>
+<img/tina_DC_2probes.jpg, id=502, 531.9875pt x 320.19624pt>
 File: img/tina_DC_2probes.jpg Graphic file (type jpg)
 <use img/tina_DC_2probes.jpg>
 Package pdftex.def Info: img/tina_DC_2probes.jpg  used on input line 30.
 (pdftex.def)             Requested size: 209.1301pt x 125.87273pt.
-<img/photodetec_og_pcb.png, id=501, 1189.44376pt x 567.62062pt>
-File: img/photodetec_og_pcb.png Graphic file (type png)
-<use img/photodetec_og_pcb.png>
-Package pdftex.def Info: img/photodetec_og_pcb.png  used on input line 43.
-(pdftex.def)             Requested size: 298.75264pt x 142.56305pt.
 
 
 [15
@@ -1965,7 +1960,13 @@ Package pdftex.def Info: img/photodetec_og_pcb.png  used on input line 43.
 
 
 
- <./img/photodetec_og.png>])
+ <./img/photodetec_og.png>]
+<img/photodetec_og_pcb.png, id=513, 1189.44376pt x 567.62062pt>
+File: img/photodetec_og_pcb.png Graphic file (type png)
+<use img/photodetec_og_pcb.png>
+Package pdftex.def Info: img/photodetec_og_pcb.png  used on input line 44.
+(pdftex.def)             Requested size: 298.75264pt x 142.56305pt.
+)
 
 [16 <./img/tina_AC_2probes.jpg> <./img/tina_DC_2probes.jpg> <./img/photodetec_o
 g_pcb.png (PNG copy)>]
@@ -2027,16 +2028,16 @@ LaTeX2e <2025-06-01>
 L3 programming layer <2025-05-26>
  ***********
 Package rerunfilecheck Info: File `document.out' has not changed.
-(rerunfilecheck)             Checksum: 25296E8E6857389D6B87D7EBE1A28370;5342.
+(rerunfilecheck)             Checksum: 14623882B0ACBA168A4097B858D91599;5342.
 Package logreq Info: Writing requests to 'document.run.xml'.
 \openout1 = `document.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 80848 strings out of 468224
- 2019579 string characters out of 5432952
- 3277220 words of memory out of 5000000
- 108358 multiletter control sequences out of 15000+600000
+ 80953 strings out of 468224
+ 2021561 string characters out of 5432952
+ 3267351 words of memory out of 5000000
+ 108462 multiletter control sequences out of 15000+600000
  639497 words of font info for 87 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  99i,17n,123p,2594b,2940s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -2065,9 +2066,9 @@ Users/vladi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.
 pfb><C:/Users/vladi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/c
 m/cmti10.pfb><C:/Users/vladi/AppData/Local/Programs/MiKTeX/fonts/type1/public/a
 msfonts/cm/cmtt10.pfb>
-Output written on document.pdf (24 pages, 1888863 bytes).
+Output written on document.pdf (24 pages, 1893913 bytes).
 PDF statistics:
- 716 PDF objects out of 1000 (max. 8388607)
- 120 named destinations out of 1000 (max. 500000)
+ 720 PDF objects out of 1000 (max. 8388607)
+ 121 named destinations out of 1000 (max. 500000)
  386 words of extra memory for PDF output out of 10000 (max. 10000000)
 

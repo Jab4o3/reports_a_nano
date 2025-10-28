@@ -21,24 +21,24 @@
 \contentsline {subsection}{\numberline {4.2.2}$T_1$ relaxometry}{10}{subsection.4.2.2}%
 \contentsline {subsection}{\numberline {4.2.3}\glsxtrtitleshort {podmr}}{12}{subsection.4.2.3}%
 \contentsline {section}{\numberline {4.3}Quantum sensing setup}{12}{section.4.3}%
-\contentsline {section}{\numberline {4.4}Lock-in amplification}{12}{section.4.4}%
-\contentsline {section}{\numberline {4.5}Photodetection \glsxtrtitleshort {pcb}}{12}{section.4.5}%
+\contentsline {section}{\numberline {4.4}Lock-in amplification}{13}{section.4.4}%
+\contentsline {section}{\numberline {4.5}Photodetection \glsxtrtitleshort {pcb}}{13}{section.4.5}%
 \contentsline {subsection}{\numberline {4.5.1}Design process}{13}{subsection.4.5.1}%
-\contentsline {section}{\numberline {4.6}\glsxtrtitleshort {olia} implementation}{14}{section.4.6}%
-\contentsline {chapter}{\numberline {5}Technical design}{15}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Quantum sensing setup}{15}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Photodetection PCB}{15}{section.5.2}%
-\contentsline {subsection}{\numberline {5.2.1}First iteration}{15}{subsection.5.2.1}%
-\contentsline {subsubsection}{Simulation}{15}{subsubsection*.12}%
-\contentsline {subsubsection}{Implementation}{16}{subsubsection*.14}%
-\contentsline {section}{\numberline {5.3}OLIA implementation}{16}{section.5.3}%
-\contentsline {chapter}{\numberline {6}Testing results}{17}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Test goals and performance metrics}{17}{section.6.1}%
-\contentsline {section}{\numberline {6.2}Test setup}{18}{section.6.2}%
-\contentsline {section}{\numberline {6.3}Results and discussion}{18}{section.6.3}%
-\contentsline {section}{\numberline {6.4}Known limitations}{18}{section.6.4}%
-\contentsline {chapter}{\numberline {7}Conclusion}{19}{chapter.7}%
-\contentsline {chapter}{\numberline {8}Recommendations}{20}{chapter.8}%
-\contentsline {chapter}{Appendices}{21}{section*.18}%
-\contentsline {chapter}{\numberline {A}Code}{21}{appendix.1.A}%
-\contentsline {chapter}{Glossary}{22}{section*.19}%
+\contentsline {section}{\numberline {4.6}\glsxtrtitleshort {olia} implementation}{15}{section.4.6}%
+\contentsline {chapter}{\numberline {5}Technical design}{16}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Quantum sensing setup}{16}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Photodetection PCB}{16}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}First iteration}{16}{subsection.5.2.1}%
+\contentsline {subsubsection}{Simulation}{16}{subsubsection*.13}%
+\contentsline {subsubsection}{Implementation}{17}{subsubsection*.15}%
+\contentsline {section}{\numberline {5.3}OLIA implementation}{17}{section.5.3}%
+\contentsline {chapter}{\numberline {6}Testing results}{18}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Test goals and performance metrics}{18}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Test setup}{19}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Results and discussion}{19}{section.6.3}%
+\contentsline {section}{\numberline {6.4}Known limitations}{19}{section.6.4}%
+\contentsline {chapter}{\numberline {7}Conclusion}{20}{chapter.7}%
+\contentsline {chapter}{\numberline {8}Recommendations}{21}{chapter.8}%
+\contentsline {chapter}{Appendices}{22}{section*.19}%
+\contentsline {chapter}{\numberline {A}Code}{22}{appendix.1.A}%
+\contentsline {chapter}{Glossary}{23}{section*.20}%

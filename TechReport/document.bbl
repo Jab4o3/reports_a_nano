@@ -461,6 +461,31 @@
       \verb https://doi.org/10.53347/rID-25821
       \endverb
     \endentry
+    \entry{instruments2018principles}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=9cebc9843b50f5cad28f73ad8a263c14}{%
+           family={Instruments},
+           familyi={I\bibinitperiod},
+           given={Zurich},
+           giveni={Z\bibinitperiod}}}%
+      }
+      \strng{namehash}{9cebc9843b50f5cad28f73ad8a263c14}
+      \strng{fullhash}{9cebc9843b50f5cad28f73ad8a263c14}
+      \strng{fullhashraw}{9cebc9843b50f5cad28f73ad8a263c14}
+      \strng{bibnamehash}{9cebc9843b50f5cad28f73ad8a263c14}
+      \strng{authorbibnamehash}{9cebc9843b50f5cad28f73ad8a263c14}
+      \strng{authornamehash}{9cebc9843b50f5cad28f73ad8a263c14}
+      \strng{authorfullhash}{9cebc9843b50f5cad28f73ad8a263c14}
+      \strng{authorfullhashraw}{9cebc9843b50f5cad28f73ad8a263c14}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Internetadresse: https://www. zhinst. com/sites/default/files/li\_primer/zi\_whitepaper\_principles\_of\_lock-in\_detection. pdf. Zuletzt aufgerufen am}
+      \field{title}{Principles of Lock-in Detection and the State of the Art. 2016}
+      \field{volume}{17}
+      \field{year}{2018}
+    \endentry
     \entry{semig24}{misc}{}{}
       \name{author}{1}{}{%
         {{hash=7faadf5632630d8d3e586eb33c023a9c}{%

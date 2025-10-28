@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.6.12)  23 OCT 2025 13:28
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.6.12)  27 OCT 2025 13:05
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1827,7 +1827,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.44 ...sline {chapter}{Glossary}{22}{section*.19}
+l.44 ...sline {chapter}{Glossary}{23}{section*.20}
                                                   % [1
 
 ])
@@ -1930,45 +1930,53 @@ Package pdftex.def Info: img/t1_result.png  used on input line 103.
 [11 <./img/cw_odmr.png>]
 
 [12 <./img/t1_result.png>]
+<img/lia_hl_schematic.png, id=460, 374.5995pt x 187.4202pt>
+File: img/lia_hl_schematic.png Graphic file (type png)
+<use img/lia_hl_schematic.png>
+Package pdftex.def Info: img/lia_hl_schematic.png  used on input line 165.
+(pdftex.def)             Requested size: 298.75264pt x 149.47307pt.
 
-[13])
 
-[14]
+[13 <./img/lia_hl_schematic.png>]
+
+[14])
+
+[15]
 \openout2 = `08-Technical.aux'.
 
  (08-Technical.tex
 Chapter 5.
-<img/photodetec_og.png, id=497, 729.47531pt x 532.23843pt>
+<img/photodetec_og.png, id=515, 729.47531pt x 532.23843pt>
 File: img/photodetec_og.png Graphic file (type png)
 <use img/photodetec_og.png>
 Package pdftex.def Info: img/photodetec_og.png  used on input line 12.
 (pdftex.def)             Requested size: 298.75264pt x 217.97552pt.
-<img/tina_AC_2probes.jpg, id=501, 548.0475pt x 336.25626pt>
+<img/tina_AC_2probes.jpg, id=519, 548.0475pt x 336.25626pt>
 File: img/tina_AC_2probes.jpg Graphic file (type jpg)
 <use img/tina_AC_2probes.jpg>
 Package pdftex.def Info: img/tina_AC_2probes.jpg  used on input line 24.
 (pdftex.def)             Requested size: 209.1301pt x 128.3123pt.
-<img/tina_DC_2probes.jpg, id=502, 531.9875pt x 320.19624pt>
+<img/tina_DC_2probes.jpg, id=520, 531.9875pt x 320.19624pt>
 File: img/tina_DC_2probes.jpg Graphic file (type jpg)
 <use img/tina_DC_2probes.jpg>
 Package pdftex.def Info: img/tina_DC_2probes.jpg  used on input line 30.
 (pdftex.def)             Requested size: 209.1301pt x 125.87273pt.
 
 
-[15
+[16
 
 
 
 
  <./img/photodetec_og.png>]
-<img/photodetec_og_pcb.png, id=513, 1189.44376pt x 567.62062pt>
+<img/photodetec_og_pcb.png, id=531, 1189.44376pt x 567.62062pt>
 File: img/photodetec_og_pcb.png Graphic file (type png)
 <use img/photodetec_og_pcb.png>
 Package pdftex.def Info: img/photodetec_og_pcb.png  used on input line 44.
 (pdftex.def)             Requested size: 298.75264pt x 142.56305pt.
 )
 
-[16 <./img/tina_AC_2probes.jpg> <./img/tina_DC_2probes.jpg> <./img/photodetec_o
+[17 <./img/tina_AC_2probes.jpg> <./img/tina_DC_2probes.jpg> <./img/photodetec_o
 g_pcb.png (PNG copy)>]
 \openout2 = `09-Conclusion.aux'.
 
@@ -1976,24 +1984,24 @@ g_pcb.png (PNG copy)>]
 Chapter 6.
 
 
-[17
+[18
 
 
 
 
 ]
 
-[18]
+[19]
 Chapter 7.
 
 
-[19
+[20
 
 ]
 Chapter 8.
 )
 
-[20
+[21
 
 ]
 \openout2 = `A-Appendices.aux'.
@@ -2002,7 +2010,7 @@ Chapter 8.
 Appendix A.
 )
 
-[21
+[22
 
 
 
@@ -2010,14 +2018,20 @@ Appendix A.
 
 ] (document.gls)
 
-[22
+[23
 
 
 
 
 ]
+Overfull \hbox (14.43997pt too wide) in paragraph at lines 234--234
+\OT1/cmr/m/it/10 tadresse: https://www. zhinst. com/sites/de-fault-/-files/li[]
+primer/zi[]whitepaper[]principles[]of[]lock-
+ []
 
-[23
+
+
+[24
 
 ] 
 enddocument/afterlastpage (AED): lastpage setting LastPage.
@@ -2028,16 +2042,16 @@ LaTeX2e <2025-06-01>
 L3 programming layer <2025-05-26>
  ***********
 Package rerunfilecheck Info: File `document.out' has not changed.
-(rerunfilecheck)             Checksum: 14623882B0ACBA168A4097B858D91599;5342.
+(rerunfilecheck)             Checksum: 0AE0112F3C4148107E9DDE2DE35A5097;5342.
 Package logreq Info: Writing requests to 'document.run.xml'.
 \openout1 = `document.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 80953 strings out of 468224
- 2021561 string characters out of 5432952
- 3267351 words of memory out of 5000000
- 108462 multiletter control sequences out of 15000+600000
+ 80980 strings out of 468224
+ 2022273 string characters out of 5432952
+ 3277779 words of memory out of 5000000
+ 108482 multiletter control sequences out of 15000+600000
  639497 words of font info for 87 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  99i,17n,123p,2594b,2940s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -2066,9 +2080,9 @@ Users/vladi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.
 pfb><C:/Users/vladi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/c
 m/cmti10.pfb><C:/Users/vladi/AppData/Local/Programs/MiKTeX/fonts/type1/public/a
 msfonts/cm/cmtt10.pfb>
-Output written on document.pdf (24 pages, 1893913 bytes).
+Output written on document.pdf (25 pages, 1984374 bytes).
 PDF statistics:
- 720 PDF objects out of 1000 (max. 8388607)
- 121 named destinations out of 1000 (max. 500000)
- 386 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 742 PDF objects out of 1000 (max. 8388607)
+ 128 named destinations out of 1000 (max. 500000)
+ 391 words of extra memory for PDF output out of 10000 (max. 10000000)
 

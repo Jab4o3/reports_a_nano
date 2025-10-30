@@ -19,10 +19,11 @@
 \glsgroupheading{O}\relax \glsresetentrylist %
 \glossentry{odmr}{\glossaryentrynumbers{\relax 
 		\setentrycounter[]{page}\glsnumberformat{5}\delimN 
-		\setentrycounter[]{page}\glsnumberformat{23}}}%
+		\setentrycounter[]{page}\glsnumberformat{24}}}%
 \subglossentry{1}{cwodmr}{\glossaryentrynumbers{\relax 
 		\setentrycounter[]{page}\glsnumberformat{5\delimN 6}\delimN 
-		\setentrycounter[]{page}\glsnumberformat{10\delimR 12}}}%
+		\setentrycounter[]{page}\glsnumberformat{10\delimR 12}\delimN 
+		\setentrycounter[]{page}\glsnumberformat{16}}}%
 \subglossentry{1}{podmr}{\glossaryentrynumbers{\relax 
 		\setentrycounter[]{page}\glsnumberformat{5}\delimN 
 		\setentrycounter[]{page}\glsnumberformat{10}\delimN 
@@ -39,7 +40,7 @@
 		\setentrycounter[]{page}\glsnumberformat{16}}}\glsgroupskip
 \glsgroupheading{T}\relax \glsresetentrylist %
 \glossentry{tia}{\glossaryentrynumbers{\relax 
-		\setentrycounter[]{page}\glsnumberformat{13\delimN 14}}}%
+		\setentrycounter[]{page}\glsnumberformat{13\delimR 16}}}%
 \glossentry{ttl}{\glossaryentrynumbers{\relax 
 		\setentrycounter[]{page}\glsnumberformat{5}\delimN 
 		\setentrycounter[]{page}\glsnumberformat{12}}}%

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.6.12)  27 OCT 2025 13:05
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.6.12)  30 OCT 2025 15:10
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1827,7 +1827,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.44 ...sline {chapter}{Glossary}{23}{section*.20}
+l.46 ...er}{\numberline {A}Code}{23}{appendix.1.A}
                                                   % [1
 
 ])
@@ -1853,7 +1853,7 @@ Chapter 2.
 
  (05-Introduction.tex
 Chapter 3.
-<img/nv_center.png, id=268, 2046.89719pt x 733.23938pt>
+<img/nv_center.png, id=283, 2046.89719pt x 733.23938pt>
 File: img/nv_center.png Graphic file (type png)
 <use img/nv_center.png>
 Package pdftex.def Info: img/nv_center.png  used on input line 13.
@@ -1868,7 +1868,7 @@ Package pdftex.def Info: img/nv_center.png  used on input line 13.
 [6]
 
 [7]
-<img/vmodel.png, id=358, 330.7557pt x 246.6816pt>
+<img/vmodel.png, id=373, 330.7557pt x 246.6816pt>
 File: img/vmodel.png Graphic file (type png)
 <use img/vmodel.png>
 Package pdftex.def Info: img/vmodel.png  used on input line 115.
@@ -1883,7 +1883,7 @@ Package pdftex.def Info: img/vmodel.png  used on input line 115.
 
  (07-Functional.tex
 Chapter 4.
-<img/energy_levels.png, id=369, 486.31688pt x 543.53062pt>
+<img/energy_levels.png, id=384, 486.31688pt x 543.53062pt>
 File: img/energy_levels.png Graphic file (type png)
 <use img/energy_levels.png>
 Package pdftex.def Info: img/energy_levels.png  used on input line 19.
@@ -1899,7 +1899,7 @@ Package pdftex.def Info: img/energy_levels.png  used on input line 19.
 
 
 ]
-<img/cw_odmr.png, id=402, 615.80063pt x 445.665pt>
+<img/cw_odmr.png, id=417, 615.80063pt x 445.665pt>
 File: img/cw_odmr.png Graphic file (type png)
 <use img/cw_odmr.png>
 Package pdftex.def Info: img/cw_odmr.png  used on input line 37.
@@ -1920,7 +1920,7 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 
 
 [10 <./img/energy_levels.png>]
-<img/t1_result.png, id=434, 372.64218pt x 333.49594pt>
+<img/t1_result.png, id=449, 372.64218pt x 333.49594pt>
 File: img/t1_result.png Graphic file (type png)
 <use img/t1_result.png>
 Package pdftex.def Info: img/t1_result.png  used on input line 103.
@@ -1930,37 +1930,27 @@ Package pdftex.def Info: img/t1_result.png  used on input line 103.
 [11 <./img/cw_odmr.png>]
 
 [12 <./img/t1_result.png>]
-<img/lia_hl_schematic.png, id=460, 374.5995pt x 187.4202pt>
+<img/lia_hl_schematic.png, id=475, 374.5995pt x 187.4202pt>
 File: img/lia_hl_schematic.png Graphic file (type png)
 <use img/lia_hl_schematic.png>
 Package pdftex.def Info: img/lia_hl_schematic.png  used on input line 165.
 (pdftex.def)             Requested size: 298.75264pt x 149.47307pt.
 
 
-[13 <./img/lia_hl_schematic.png>]
+[13 <./img/lia_hl_schematic.png>])
 
-[14])
+[14]
 
 [15]
 \openout2 = `08-Technical.aux'.
 
  (08-Technical.tex
 Chapter 5.
-<img/photodetec_og.png, id=515, 729.47531pt x 532.23843pt>
+<img/photodetec_og.png, id=538, 729.47531pt x 532.23843pt>
 File: img/photodetec_og.png Graphic file (type png)
 <use img/photodetec_og.png>
-Package pdftex.def Info: img/photodetec_og.png  used on input line 12.
+Package pdftex.def Info: img/photodetec_og.png  used on input line 85.
 (pdftex.def)             Requested size: 298.75264pt x 217.97552pt.
-<img/tina_AC_2probes.jpg, id=519, 548.0475pt x 336.25626pt>
-File: img/tina_AC_2probes.jpg Graphic file (type jpg)
-<use img/tina_AC_2probes.jpg>
-Package pdftex.def Info: img/tina_AC_2probes.jpg  used on input line 24.
-(pdftex.def)             Requested size: 209.1301pt x 128.3123pt.
-<img/tina_DC_2probes.jpg, id=520, 531.9875pt x 320.19624pt>
-File: img/tina_DC_2probes.jpg Graphic file (type jpg)
-<use img/tina_DC_2probes.jpg>
-Package pdftex.def Info: img/tina_DC_2probes.jpg  used on input line 30.
-(pdftex.def)             Requested size: 209.1301pt x 125.87273pt.
 
 
 [16
@@ -1968,40 +1958,52 @@ Package pdftex.def Info: img/tina_DC_2probes.jpg  used on input line 30.
 
 
 
- <./img/photodetec_og.png>]
-<img/photodetec_og_pcb.png, id=531, 1189.44376pt x 567.62062pt>
+]
+<img/tina_AC_2probes.jpg, id=548, 548.0475pt x 336.25626pt>
+File: img/tina_AC_2probes.jpg Graphic file (type jpg)
+<use img/tina_AC_2probes.jpg>
+Package pdftex.def Info: img/tina_AC_2probes.jpg  used on input line 97.
+(pdftex.def)             Requested size: 209.1301pt x 128.3123pt.
+<img/tina_DC_2probes.jpg, id=549, 531.9875pt x 320.19624pt>
+File: img/tina_DC_2probes.jpg Graphic file (type jpg)
+<use img/tina_DC_2probes.jpg>
+Package pdftex.def Info: img/tina_DC_2probes.jpg  used on input line 103.
+(pdftex.def)             Requested size: 209.1301pt x 125.87273pt.
+<img/photodetec_og_pcb.png, id=551, 1189.44376pt x 567.62062pt>
 File: img/photodetec_og_pcb.png Graphic file (type png)
 <use img/photodetec_og_pcb.png>
-Package pdftex.def Info: img/photodetec_og_pcb.png  used on input line 44.
+Package pdftex.def Info: img/photodetec_og_pcb.png  used on input line 117.
 (pdftex.def)             Requested size: 298.75264pt x 142.56305pt.
 )
 
-[17 <./img/tina_AC_2probes.jpg> <./img/tina_DC_2probes.jpg> <./img/photodetec_o
-g_pcb.png (PNG copy)>]
+[17 <./img/photodetec_og.png> <./img/tina_AC_2probes.jpg> <./img/tina_DC_2probe
+s.jpg>]
+
+[18 <./img/photodetec_og_pcb.png (PNG copy)>]
 \openout2 = `09-Conclusion.aux'.
 
  (09-Conclusion.tex
 Chapter 6.
 
 
-[18
+[19
 
 
 
 
 ]
 
-[19]
+[20]
 Chapter 7.
 
 
-[20
+[21
 
 ]
 Chapter 8.
 )
 
-[21
+[22
 
 ]
 \openout2 = `A-Appendices.aux'.
@@ -2010,7 +2012,7 @@ Chapter 8.
 Appendix A.
 )
 
-[22
+[23
 
 
 
@@ -2018,7 +2020,7 @@ Appendix A.
 
 ] (document.gls)
 
-[23
+[24
 
 
 
@@ -2031,7 +2033,7 @@ primer/zi[]whitepaper[]principles[]of[]lock-
 
 
 
-[24
+[25
 
 ] 
 enddocument/afterlastpage (AED): lastpage setting LastPage.
@@ -2042,16 +2044,16 @@ LaTeX2e <2025-06-01>
 L3 programming layer <2025-05-26>
  ***********
 Package rerunfilecheck Info: File `document.out' has not changed.
-(rerunfilecheck)             Checksum: 0AE0112F3C4148107E9DDE2DE35A5097;5342.
+(rerunfilecheck)             Checksum: 9532C8E91A176921955472FAFFD9E85A;5817.
 Package logreq Info: Writing requests to 'document.run.xml'.
 \openout1 = `document.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 80980 strings out of 468224
- 2022273 string characters out of 5432952
- 3277779 words of memory out of 5000000
- 108482 multiletter control sequences out of 15000+600000
+ 81746 strings out of 468224
+ 2046189 string characters out of 5432952
+ 3266856 words of memory out of 5000000
+ 109244 multiletter control sequences out of 15000+600000
  639497 words of font info for 87 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  99i,17n,123p,2594b,2940s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -2080,9 +2082,9 @@ Users/vladi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.
 pfb><C:/Users/vladi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/c
 m/cmti10.pfb><C:/Users/vladi/AppData/Local/Programs/MiKTeX/fonts/type1/public/a
 msfonts/cm/cmtt10.pfb>
-Output written on document.pdf (25 pages, 1984374 bytes).
+Output written on document.pdf (26 pages, 1995250 bytes).
 PDF statistics:
- 742 PDF objects out of 1000 (max. 8388607)
- 128 named destinations out of 1000 (max. 500000)
- 391 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 772 PDF objects out of 1000 (max. 8388607)
+ 132 named destinations out of 1000 (max. 500000)
+ 415 words of extra memory for PDF output out of 10000 (max. 10000000)
 

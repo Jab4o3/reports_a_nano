@@ -173,15 +173,19 @@ Figure \ref{fig:liahlschematic} shows an overview of how lock-in amplification w
 	V_s = R\cos{(\omega_st + \theta)} = \frac{R}{2}e^{i(\omega_st + \theta)} + \frac{R}{2}e^{-i(\omega_st + \theta)}
 \end{equation}
 
-Figure \ref{eq:voltage_sig} shows how a simple sine wave signal looks like, where $\omega_s$ is the frequency and $\theta$ is the phase of the signal.
+Equation \ref{eq:voltage_sig} shows how the mathematical expression of a sine wave signal, where $\omega_s$ is the frequency and $\theta$ is the phase of the signal. Using the trigonometric identity $\cos{x} = \frac{1}{2}(e^{ix} + e^{-ix})$, the signal can be represented in terms of complex numbers.
 
 \begin{equation}\label{eq:voltage_ref}
 	V_r = e^{-i\omega_rt}
 \end{equation}
 
+In Equation \ref{eq:voltage_ref}, a simplified reference signal is shown. Real applications might require more complex reference signals, but $V_r$ is perfect for demonstrating the lock-in principle.
+
 \begin{equation}\label{eq:voltage_mult}
 	V_m = V_sV_r = \frac{R}{2}e^{i(\omega_s -\omega_r)t  + \theta} + \frac{R}{2}e^{-i(\omega_s +\omega_r)t + \theta}
 \end{equation}
+
+Finally, Equation \ref{eq:voltage_mult} shows the product of the signal $V_s$ and the reference $V_r$. In the case of $\omega_s = \omega_r$, there is a signal at \num{0} \unit{\hertz} and another one at $2\omega_s$ \unit{\hertz}. The latter, however, should be attenuated to an undetectable level by the low-pass filters shown in Figure \ref{fig:liahlschematic}. This way, both the unwanted signal appearing at double the frequency and all of the noise at different frequencies is attenuated.
 
 % Thorlabs Photodiodes and Photoconductors Tutorial:
 % https://www.thorlabs.com/newgrouppage9.cfm?objectgroup_id=9020
@@ -251,7 +255,7 @@ Even though $f_{rc}$ provides an approximation for the cutoff frequency, the par
 
 In addition, a non-inverting amplifier can be added, to increase the gain of the circuit even more, without affecting the phase. Figure \ref{fig:tia_nia} shows how it can be connected to the output of the \gls{tia} from Figure \ref{fig:tia}.
 
-\begin{figure}[!ht]
+\begin{figure}[ht]
 	\centering
 	\resizebox{.9\textwidth}{!}{%
 		\begin{circuitikz}

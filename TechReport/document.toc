@@ -23,25 +23,25 @@
 \contentsline {section}{\numberline {4.3}Quantum sensing setup}{12}{section.4.3}%
 \contentsline {section}{\numberline {4.4}Lock-in amplification}{13}{section.4.4}%
 \contentsline {section}{\numberline {4.5}Photodetection}{13}{section.4.5}%
-\contentsline {subsection}{\numberline {4.5.1}Design process}{13}{subsection.4.5.1}%
-\contentsline {section}{\numberline {4.6}\glsxtrtitleshort {olia} implementation}{14}{section.4.6}%
+\contentsline {section}{\numberline {4.6}Photodiodes}{13}{section.4.6}%
+\contentsline {subsection}{\numberline {4.6.1}Design process}{14}{subsection.4.6.1}%
 \contentsline {chapter}{\numberline {5}Technical design}{16}{chapter.5}%
 \contentsline {section}{\numberline {5.1}Quantum sensing setup}{16}{section.5.1}%
 \contentsline {section}{\numberline {5.2}Photodetector design}{16}{section.5.2}%
 \contentsline {subsection}{\numberline {5.2.1}First iteration}{16}{subsection.5.2.1}%
 \contentsline {subsection}{\numberline {5.2.2}Second iteration}{16}{subsection.5.2.2}%
-\contentsline {section}{\numberline {5.3}Photodetection implementation}{16}{section.5.3}%
+\contentsline {section}{\numberline {5.3}Photodetection implementation}{17}{section.5.3}%
 \contentsline {subsection}{\numberline {5.3.1}First iteration}{17}{subsection.5.3.1}%
-\contentsline {subsubsection}{Simulation}{17}{subsubsection*.14}%
-\contentsline {subsubsection}{Implementation}{17}{subsubsection*.16}%
-\contentsline {section}{\numberline {5.4}OLIA implementation}{17}{section.5.4}%
-\contentsline {chapter}{\numberline {6}Testing results}{19}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Test goals and performance metrics}{19}{section.6.1}%
-\contentsline {section}{\numberline {6.2}Test setup}{20}{section.6.2}%
-\contentsline {section}{\numberline {6.3}Results and discussion}{20}{section.6.3}%
-\contentsline {section}{\numberline {6.4}Known limitations}{20}{section.6.4}%
-\contentsline {chapter}{\numberline {7}Conclusion}{21}{chapter.7}%
-\contentsline {chapter}{\numberline {8}Recommendations}{22}{chapter.8}%
-\contentsline {chapter}{Appendices}{23}{section*.20}%
-\contentsline {chapter}{\numberline {A}Code}{23}{appendix.1.A}%
-\contentsline {chapter}{Glossary}{24}{section*.21}%
+\contentsline {subsubsection}{Simulation}{18}{subsubsection*.14}%
+\contentsline {subsubsection}{Implementation}{18}{subsubsection*.16}%
+\contentsline {section}{\numberline {5.4}OLIA implementation}{18}{section.5.4}%
+\contentsline {chapter}{\numberline {6}Testing results}{20}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Test goals and performance metrics}{20}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Test setup}{21}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Results and discussion}{21}{section.6.3}%
+\contentsline {section}{\numberline {6.4}Known limitations}{21}{section.6.4}%
+\contentsline {chapter}{\numberline {7}Conclusion}{22}{chapter.7}%
+\contentsline {chapter}{\numberline {8}Recommendations}{23}{chapter.8}%
+\contentsline {chapter}{Appendices}{24}{section*.20}%
+\contentsline {chapter}{\numberline {A}Code}{24}{appendix.1.A}%
+\contentsline {chapter}{Glossary}{25}{section*.21}%

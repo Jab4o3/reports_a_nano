@@ -515,6 +515,168 @@
       \verb https://www.ti.com/lit/an/sboa268b/sboa268b.pdf
       \endverb
     \endentry
+    \entry{black2021tia}{misc}{}{}
+      \name{author}{2}{}{%
+        {{hash=a97f6422d6ff4f8df70967401d54424c}{%
+           family={Black},
+           familyi={B\bibinitperiod},
+           given={Brian},
+           giveni={B\bibinitperiod}}}%
+        {{hash=79b9f29ffabda5864b1d2490c3355105}{%
+           family={Brisebois},
+           familyi={B\bibinitperiod},
+           given={Glen},
+           giveni={G\bibinitperiod}}}%
+      }
+      \strng{namehash}{5a5e68a99d440e7213f6a767b46224ab}
+      \strng{fullhash}{5a5e68a99d440e7213f6a767b46224ab}
+      \strng{fullhashraw}{5a5e68a99d440e7213f6a767b46224ab}
+      \strng{bibnamehash}{5a5e68a99d440e7213f6a767b46224ab}
+      \strng{authorbibnamehash}{5a5e68a99d440e7213f6a767b46224ab}
+      \strng{authornamehash}{5a5e68a99d440e7213f6a767b46224ab}
+      \strng{authorfullhash}{5a5e68a99d440e7213f6a767b46224ab}
+      \strng{authorfullhashraw}{5a5e68a99d440e7213f6a767b46224ab}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Analog}
+      \field{title}{Transimpedance Amplifiers for Wide Range	Photodiodes	Have Challenging Requirements}
+      \field{year}{2021}
+    \endentry
+    \entry{acharya2025compact}{thesis}{}{}
+      \name{author}{1}{}{%
+        {{hash=935732fb16932f000b365d4f47c667ee}{%
+           family={Acharya},
+           familyi={A\bibinitperiod},
+           given={Bikram},
+           giveni={B\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {Wichita State University}%
+      }
+      \strng{namehash}{935732fb16932f000b365d4f47c667ee}
+      \strng{fullhash}{935732fb16932f000b365d4f47c667ee}
+      \strng{fullhashraw}{935732fb16932f000b365d4f47c667ee}
+      \strng{bibnamehash}{935732fb16932f000b365d4f47c667ee}
+      \strng{authorbibnamehash}{935732fb16932f000b365d4f47c667ee}
+      \strng{authornamehash}{935732fb16932f000b365d4f47c667ee}
+      \strng{authorfullhash}{935732fb16932f000b365d4f47c667ee}
+      \strng{authorfullhashraw}{935732fb16932f000b365d4f47c667ee}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Compact integration of NV-based diamond quantum sensors using a small-size photodiode and on-board transimpedance amplifier}
+      \field{type}{phdthesis}
+      \field{year}{2025}
+    \endentry
+    \entry{margan2012transimpedance}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=57e82070ad977e92f9accaac06b67c9a}{%
+           family={Margan},
+           familyi={M\bibinitperiod},
+           given={Erik},
+           giveni={E\bibinitperiod}}}%
+      }
+      \strng{namehash}{57e82070ad977e92f9accaac06b67c9a}
+      \strng{fullhash}{57e82070ad977e92f9accaac06b67c9a}
+      \strng{fullhashraw}{57e82070ad977e92f9accaac06b67c9a}
+      \strng{bibnamehash}{57e82070ad977e92f9accaac06b67c9a}
+      \strng{authorbibnamehash}{57e82070ad977e92f9accaac06b67c9a}
+      \strng{authornamehash}{57e82070ad977e92f9accaac06b67c9a}
+      \strng{authorfullhash}{57e82070ad977e92f9accaac06b67c9a}
+      \strng{authorfullhashraw}{57e82070ad977e92f9accaac06b67c9a}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{no}
+      \field{title}{Transimpedance amplifier analysis}
+      \field{volume}{1}
+      \field{year}{2012}
+      \field{pages}{1\bibrangedash 19}
+      \range{pages}{19}
+    \endentry
+    \entry{sackinger2017analysis}{book}{}{}
+      \name{author}{1}{}{%
+        {{hash=583a2b7e416b4f05572062faf222e09d}{%
+           family={Säckinger},
+           familyi={S\bibinitperiod},
+           given={Eduard},
+           giveni={E\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {John Wiley \& Sons}%
+      }
+      \strng{namehash}{583a2b7e416b4f05572062faf222e09d}
+      \strng{fullhash}{583a2b7e416b4f05572062faf222e09d}
+      \strng{fullhashraw}{583a2b7e416b4f05572062faf222e09d}
+      \strng{bibnamehash}{583a2b7e416b4f05572062faf222e09d}
+      \strng{authorbibnamehash}{583a2b7e416b4f05572062faf222e09d}
+      \strng{authornamehash}{583a2b7e416b4f05572062faf222e09d}
+      \strng{authorfullhash}{583a2b7e416b4f05572062faf222e09d}
+      \strng{authorfullhashraw}{583a2b7e416b4f05572062faf222e09d}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Analysis and design of transimpedance amplifiers for optical receivers}
+      \field{year}{2017}
+    \endentry
+    \entry{horsthemke2025all}{thesis}{}{}
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{1}{}{%
+        {{hash=824d4b71db5d7defdeb3993458d16b20}{%
+           family={Horsthemke},
+           familyi={H\bibinitperiod},
+           given={Ludwig},
+           giveni={L\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {Universidad de Granada}%
+      }
+      \strng{namehash}{6c5c50cc523c04a66a2c53242df571a2}
+      \strng{fullhash}{6c5c50cc523c04a66a2c53242df571a2}
+      \strng{fullhashraw}{6c5c50cc523c04a66a2c53242df571a2}
+      \strng{bibnamehash}{6c5c50cc523c04a66a2c53242df571a2}
+      \strng{authorbibnamehash}{6c5c50cc523c04a66a2c53242df571a2}
+      \strng{authornamehash}{6c5c50cc523c04a66a2c53242df571a2}
+      \strng{authorfullhash}{6c5c50cc523c04a66a2c53242df571a2}
+      \strng{authorfullhashraw}{6c5c50cc523c04a66a2c53242df571a2}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{All optical magnetometry with nitrogen vacancy centers in diamonds}
+      \field{type}{phdthesis}
+      \field{year}{2025}
+    \endentry
+    \entry{cherian2016you}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=a72afadad0075d5f9935e0957f752a71}{%
+           family={Cherian},
+           familyi={C\bibinitperiod},
+           given={S},
+           giveni={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{a72afadad0075d5f9935e0957f752a71}
+      \strng{fullhash}{a72afadad0075d5f9935e0957f752a71}
+      \strng{fullhashraw}{a72afadad0075d5f9935e0957f752a71}
+      \strng{bibnamehash}{a72afadad0075d5f9935e0957f752a71}
+      \strng{authorbibnamehash}{a72afadad0075d5f9935e0957f752a71}
+      \strng{authornamehash}{a72afadad0075d5f9935e0957f752a71}
+      \strng{authorfullhash}{a72afadad0075d5f9935e0957f752a71}
+      \strng{authorfullhashraw}{a72afadad0075d5f9935e0957f752a71}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Texas Instruments Incorporated}
+      \field{title}{What You Need to Know about Transimpedance Amplifiers--Part 1}
+      \field{year}{2016}
+    \endentry
   \enddatalist
 \endrefsection
 \endinput

@@ -7,7 +7,7 @@
 \usepackage{titlesec}
 
 % Useful packages
-\usepackage{amsmath} % math
+\usepackage{amsmath} % math alignment
 \usepackage{siunitx} % SI units in math environments
 \sisetup{output-decimal-marker={,}} % make it so that \num uses commas for decimals
 \usepackage{float}
@@ -147,6 +147,7 @@ pdftitle={V. Serafimov Bachelor Thesis EEE}
 \usepackage[
 backend=biber,
 style=ieee,
+citestyle=numeric-comp, % combine severa comma-separated entries
 ]{biblatex}
 \addbibresource{sources.bib}
 
@@ -177,6 +178,8 @@ style=ieee,
 \newacronym{tia}{TIA}{Transimpedance Amplifier}
 \newacronym{ttl}{TTL}{Transistor-Transistor Logic}
 \newacronym{snr}{SNR}{Signal-to-Noise Ratio}
+\newacronym{kcl}{KCL}{Kirchhoff's Current Law}
+\newacronym{dc}{DC}{Direct Current}
 \makeglossaries
 
 \title{Enabling photodetection electronics for 

@@ -192,6 +192,11 @@ Finally, Equation \ref{eq:voltage_mult} shows the product of the signal $V_s$ an
 \section{Photodetection}
 Photodetection is how the \gls{nv} photoluminescence is measured, effectively turning light into current using a photodiode. However, a bare photodiode cannot be connected to a lock-in amplifier, because it functions as a current generator. This is where the photodetection \gls {pcb} comes in. Its purpose is to transform the current into voltage and then amplify the resulting signal to the necessary voltage level. 
 
+\section{Photodiodes}\label{chap:fd:photodiodes}
+At the heart of the photodetector lies the photodiode. It is what turns light into current and drives the \gls{tia} that follows it. While the specifications of the diode are not the most important part of the photodetector circuit, they still need to be discussed, due to the impact the two ways of biasing can have on the circuit.
+
+An exceedingly common photodiode configuration, 
+
 \subsection{Design process} \label{chap:photodetection_design}
 Designing the photodetector is mostly about creating a \gls{tia}, which is a tool used for converting current to voltage, and specifically tuning its parameters so that it works with the selected photodiode under operating conditions. 
 
@@ -226,7 +231,7 @@ Designing the photodetector is mostly about creating a \gls{tia}, which is a too
 			\draw [ line width=0.5pt](3.75,10.75) to[short] (3.75,10.5);
 			\draw [line width=0.5pt](3.75,9) to (3.75,8.25) node[ground]{};
 			\draw [line width=0.5pt, ->, >=Stealth] (3.25,10.25) -- (3.25,9.25);
-			\node [font=\normalsize] at (3,9.75) {$I_f$};
+			\node [font=\normalsize] at (2.85,9.75) {$-I_f$};
 		\end{circuitikz}
 	}%
 	\caption{Basic \gls{tia} circuit}
@@ -239,7 +244,7 @@ The basic circuit, shown in Figure \ref{fig:tia}, is all that is required for ph
 	R_1 = \frac{V_{o\ max}}{I_{o\ max}}\ \text{assuming}\ V_{o\ min} = 0 \unit{\volt}
 \end{equation}
 
-The resistor $R_1$ determines the transimpedance gain of the amplifier. Equation \ref{eq:r1} shows how its value can be calculated by using the output voltage and input current. It should be noted that the minimum output voltage cannot be different from 0 in this use case.
+The resistor $R_1$ determines the transimpedance gain of the amplifier. Equation \ref{eq:r1} shows how its value can be calculated by using the output voltage and input current. It should be noted that the minimum output voltage is always 0 in this use case.
 
 \begin{equation}\label{eq:c1}
 	C_1 = \frac{1}{2 \pi R_1 f_{rc}}
@@ -247,11 +252,6 @@ The resistor $R_1$ determines the transimpedance gain of the amplifier. Equation
 
 The capacitance of $C_1$ can be calculated using the resistance of $R_1$ and the cutoff frequency $f_{rc}$, as shown in Equation \ref{eq:c1}. 
 
-\begin{equation}\label{eq:gbw}
-	f_{c} = (1 + \frac{C_d + C_{cm}}{C_1})f_{rc} \approx f_{rc}
-\end{equation}
-
-Even though $f_{rc}$ provides an approximation for the cutoff frequency, the parasitic capacitances in the system will cause it to be slightly bigger. Equation \ref{eq:gbw} shows how a more accurate cutoff frequency $f_c$ can be calculated by taking into account $C_d$ and $C_{cm}$ (differential and common-mode capacitance respectively). In this case, $f_c$ tells us the gain bandwidth or the frequency range in which DC gain is retained.
 
 In addition, a non-inverting amplifier can be added, to increase the gain of the circuit even more, without affecting the phase. Figure \ref{fig:tia_nia} shows how it can be connected to the output of the \gls{tia} from Figure \ref{fig:tia}.
 
@@ -285,7 +285,7 @@ In addition, a non-inverting amplifier can be added, to increase the gain of the
 			\draw [ line width=0.5pt](3.75,10.75) to[short] (3.75,10.5);
 			\draw [line width=0.5pt](3.75,9) to (3.75,8.25) node[ground]{};
 			\draw [line width=0.5pt, ->, >=Stealth] (3.25,10.25) -- (3.25,9.25);
-			\node [font=\normalsize] at (3,9.75) {$I_f$};
+			\node [font=\normalsize] at (2.85,9.75) {$-I_f$};
 			\draw (8,10.25) to[short] (10.25,10.25);
 			\draw (11.75,10.75) node[op amp,scale=1] (opamp2) {};
 			\draw (opamp2.+) to[short] (10.25,10.25);
@@ -320,4 +320,4 @@ Equation \ref{eq:nia} is used to calculate the gain of second amplification stag
 
 The design is based on circuits provided by the client. At their request, the first version of the PCB is an exact replica of the original circuit.  
 
-\section{\glsfmtshort{olia} implementation}
+%\section{\glsfmtshort{olia} implementation}

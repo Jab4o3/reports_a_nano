@@ -644,6 +644,7 @@
     <bcf:option datatype="boolean">related</bcf:option>
     <bcf:option datatype="boolean">subentry</bcf:option>
     <bcf:option datatype="boolean">dashed</bcf:option>
+    <bcf:option datatype="boolean">subentrycomp</bcf:option>
     <bcf:option datatype="boolean">bibtexcaseprotection</bcf:option>
     <bcf:option datatype="integer">mincrossrefs</bcf:option>
     <bcf:option datatype="integer">minxrefs</bcf:option>
@@ -726,6 +727,7 @@
     <bcf:option datatype="boolean">eprint</bcf:option>
     <bcf:option datatype="boolean">related</bcf:option>
     <bcf:option datatype="boolean">subentry</bcf:option>
+    <bcf:option datatype="boolean">subentrycomp</bcf:option>
     <bcf:option datatype="boolean">bibtexcaseprotection</bcf:option>
     <bcf:option datatype="xml">labelalphatemplate</bcf:option>
     <bcf:option datatype="xml">translit</bcf:option>
@@ -815,6 +817,7 @@
     <bcf:option datatype="boolean" backendout="1">eprint</bcf:option>
     <bcf:option datatype="boolean" backendout="1">related</bcf:option>
     <bcf:option datatype="boolean" backendout="1">subentry</bcf:option>
+    <bcf:option datatype="boolean" backendout="1">subentrycomp</bcf:option>
     <bcf:option datatype="boolean" backendout="1">bibtexcaseprotection</bcf:option>
     <bcf:option datatype="integer" backendin="maxcitenames,maxbibnames,maxsortnames">maxnames</bcf:option>
     <bcf:option datatype="integer" backendin="mincitenames,minbibnames,minsortnames">minnames</bcf:option>
@@ -2396,6 +2399,12 @@
     <bcf:citekey order="21" intorder="1">instruments2018principles</bcf:citekey>
     <bcf:citekey order="22" intorder="1">instruments2018principles</bcf:citekey>
     <bcf:citekey order="23" intorder="1">semig24</bcf:citekey>
+    <bcf:citekey order="24" intorder="1">black2021tia</bcf:citekey>
+    <bcf:citekey order="25" intorder="1">acharya2025compact</bcf:citekey>
+    <bcf:citekey order="26" intorder="1">margan2012transimpedance</bcf:citekey>
+    <bcf:citekey order="26" intorder="2">sackinger2017analysis</bcf:citekey>
+    <bcf:citekey order="26" intorder="3">horsthemke2025all</bcf:citekey>
+    <bcf:citekey order="27" intorder="1">cherian2016you</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="none">

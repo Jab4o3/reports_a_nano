@@ -87,7 +87,7 @@ Introducing the real-world parasitic capacitances to the ideal \gls{tia} shown i
 	C_i = C_{d} + C_{df} + C_{cm}
 \end{equation}
 
-The combined input capacitance (Equation \ref{eq:td:ci}) is needed when solving the equation arising from \gls{kcl} at the inverting input of the amplifier. $Z_1$ (Equation \ref{eq:td:z1}), or the combined impedance of $R_1$ and $C_1$, is another prerequisite for deriving the transimpedance $Z_t$ using \gls{kcl}. Additionally, the open-loop gain $A_{ol}$ is needed for the derivation of the transimpedance. Equation \ref{eq:td:aol} shows the open-loop gain, expressed with the \gls{dc} open-loop gain $A_o$ and the open-loop cutoff frequency $\omega_s$, which is equivalent to $\frac{v_{out}}{v_{in}}$.
+The combined input capacitance (Equation \ref{eq:td:ci}) is needed when solving the equation arising from \gls{kcl} at the inverting input of the amplifier. $Z_1$ (Equation \ref{eq:td:z1}), or the combined impedance of $R_1$ and $C_1$, is another prerequisite for deriving the transimpedance $Z_t$ using \gls{kcl}. Additionally, the open-loop gain $A_{ol}$ is needed for the derivation of the transimpedance. Equation \ref{eq:td:aol} shows the open-loop gain, expressed with the \gls{dc} open-loop gain $A_o$ and the open-loop cutoff frequency $\omega_o$, which is equivalent to $\frac{v_{out}}{v_{in}}$.
 
 \begin{equation}\label{eq:td:z1}
 	Z_1(s) = \frac{1}{\frac{1}{R_1} + sC_1}
@@ -105,29 +105,42 @@ Finally, the values in the \gls{kcl} equation (Equation \ref{eq:td:kcl}) can be 
 
 \begin{equation}\label{eq:td:zt}
 	\begin{aligned}
-	&Z_t(s) = \frac{v_{out}}{i_f}\\
-	&= \frac{A_o\omega_oR_1}{s^2R_f(C_i + C_f) + s(1 + \omega_oR_1C_1(1 + A_o) + \omega_oR_1C_i) + \omega_o(1 + A_o)}\\
-	&= A_{ol}(s)\frac{Z_f}{1 + A_{ol}(s) + sC_iZ_f}
+	&Z_t(s) = \frac{v_{out}}{i_f} = (R_1\frac{A_o}{1 + A_o})\frac{\frac{\omega_o(1 + A_o)}{(C_i + C_1)R_1}}{s^2 + s\frac{1 + \omega_o(C_i + (1 + A_o)C_1)R_1}{(C_i + C_1)R_1} + \frac{\omega_o(1 + A_o)}{(C_i + C_1)R_1}}
 	\end{aligned}
 \end{equation}
 
 Before moving on to the pole analysis, the impact of the quality factor $Q$ on the system response should be considered. Two system poles present when $Q > 0,5$. For $Q = \frac{\sqrt{3}}{3},$ the system has a Bessel response, which has the flattest group delay, however, if $Q = \frac{\sqrt{2}}{2}$, then the system has a Butterworth response, which means it has the flattest possible amplitude response. Although the group delay is not as important as the amplitude response, a Bessel response also results in smaller amount of overshoot and less jitter, which is why it is preferred. 
 
 \begin{equation}\label{eq:td:poles_general}
-	H(s) = H_0\frac{(-s_1)(-s_2)}{(s - s_1)(s - s_2)} = G_0\frac{s_1s_2}{s^2 + s(-s_1 - s_2) + s_1s_2}
+	H(s) = H_0\frac{(-s_1)(-s_2)}{(s - s_1)(s - s_2)} = H_0\frac{s_1s_2}{s^2 + s(-s_1 - s_2) + s_1s_2}
 \end{equation}
 
+Based on this consideration, the poles can be found using the general form of a second order transfer function, shown in Equation \ref{eq:td:poles_general}. The general form also makes it obvious that the \gls{dc} gain $H_0 \approx R_1$, assuming that $A_0$ is very big.
 
-Based on this consideration, the poles can be found using the general form of a second order transfer function, shown in Equation \ref{eq:td:poles}.
 
 \begin{equation}\label{eq:td:poles}
-	\begin{aligned}
-		&-s_1 - s_2 = \frac{1 + \omega_o(C_i + (1 + A_o)C_1)R_1}{(C_i + C_1)R_1} \\
-		&s_1s_2 = \frac{\omega_o(1 + A_o)}{(C_i + C_1)R_1}
-	\end{aligned}
+	\begin{cases}
+		-s_1 - s_2 = \frac{1 + \omega_o(C_i + (1 + A_o)C_1)R_1}{(C_i + C_1)R_1} \\
+		s_1s_2 = \frac{\omega_o(1 + A_o)}{(C_i + C_1)R_1}
+	\end{cases}
 \end{equation}
 
-At this point in the design process, the values of $R_1$ and $C_1$ need to be considered again. 
+Taking the general-equation poles and their counterparts from the $Z_t$ expression yields the system of equations shown in Equation \ref{eq:td:poles}. Solving for one pole first results in a quadratic equation with roots shown in Equation \ref{eq:td:pole_roots}.
+
+\begin{equation}\label{eq:td:pole_roots}
+	s_{1, 2} = -\frac{1 + \omega_o(C_i(1+A_o)C_1)R_1}{2(C_i + C_1)R_1}\left(1 \pm j\sqrt{\frac{4\omega_o(1 + A_o)(C_i + C_1)R_1}{(1 + \omega_o(C_i + (1 + A_o)C_1)R_1)^2} - 1}\right)
+\end{equation}
+
+\begin{equation}\label{eq:td:pole_roots_general}
+	s_{1, 2} = -\frac{3}{2}(1 \pm j\frac{\sqrt{3}}{3})
+\end{equation}
+
+Achieving a critically-damped system, can be done by getting the roots of the general form (as seen in Equation \ref{eq:td:pole_roots_general}) and using the imaginary parts to get Equation \ref{eq:td:cap_solve}. While the expression cannot be solved analytically, the best capacitor can be found by solving it while varying the capacitance.
+
+\begin{equation}\label{eq:td:cap_solve}
+	\frac{4\omega_o(1 + A_o)(C_i + C_1)R_1}{(1 + \omega_o(C_i + (1 + A_o)C_1)R_1)^2} = \frac{4}{3}
+\end{equation}
+
 
 \section{Photodetection implementation}
 Implementing the photodetectors is as much about the creation of a physical board, as it is about simulating the circuits that are presented in Chapter \ref{chap:td:tia_design}. 

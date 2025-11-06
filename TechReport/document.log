@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.6.12)  6 NOV 2025 09:33
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.6.12)  6 NOV 2025 15:32
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1954,33 +1954,33 @@ Chapter 5.
 
 
 ]
-<img/photodetec_og.png, id=567, 729.47531pt x 532.23843pt>
-File: img/photodetec_og.png Graphic file (type png)
-<use img/photodetec_og.png>
-Package pdftex.def Info: img/photodetec_og.png  used on input line 141.
-(pdftex.def)             Requested size: 298.75264pt x 217.97552pt.
-
 
 [17]
-<img/tina_AC_2probes.jpg, id=587, 548.0475pt x 336.25626pt>
+<img/photodetec_og.png, id=591, 729.47531pt x 532.23843pt>
+File: img/photodetec_og.png Graphic file (type png)
+<use img/photodetec_og.png>
+Package pdftex.def Info: img/photodetec_og.png  used on input line 154.
+(pdftex.def)             Requested size: 298.75264pt x 217.97552pt.
+<img/tina_AC_2probes.jpg, id=595, 548.0475pt x 336.25626pt>
 File: img/tina_AC_2probes.jpg Graphic file (type jpg)
 <use img/tina_AC_2probes.jpg>
-Package pdftex.def Info: img/tina_AC_2probes.jpg  used on input line 153.
+Package pdftex.def Info: img/tina_AC_2probes.jpg  used on input line 166.
 (pdftex.def)             Requested size: 209.1301pt x 128.3123pt.
-<img/tina_DC_2probes.jpg, id=588, 531.9875pt x 320.19624pt>
+<img/tina_DC_2probes.jpg, id=596, 531.9875pt x 320.19624pt>
 File: img/tina_DC_2probes.jpg Graphic file (type jpg)
 <use img/tina_DC_2probes.jpg>
-Package pdftex.def Info: img/tina_DC_2probes.jpg  used on input line 159.
+Package pdftex.def Info: img/tina_DC_2probes.jpg  used on input line 172.
 (pdftex.def)             Requested size: 209.1301pt x 125.87273pt.
-<img/photodetec_og_pcb.png, id=590, 1189.44376pt x 567.62062pt>
-File: img/photodetec_og_pcb.png Graphic file (type png)
-<use img/photodetec_og_pcb.png>
-Package pdftex.def Info: img/photodetec_og_pcb.png  used on input line 173.
-(pdftex.def)             Requested size: 298.75264pt x 142.56305pt.
-)
+
 
 [18 <./img/photodetec_og.png> <./img/tina_AC_2probes.jpg> <./img/tina_DC_2probe
 s.jpg>]
+<img/photodetec_og_pcb.png, id=611, 1189.44376pt x 567.62062pt>
+File: img/photodetec_og_pcb.png Graphic file (type png)
+<use img/photodetec_og_pcb.png>
+Package pdftex.def Info: img/photodetec_og_pcb.png  used on input line 186.
+(pdftex.def)             Requested size: 298.75264pt x 142.56305pt.
+)
 
 [19 <./img/photodetec_og_pcb.png (PNG copy)>]
 \openout2 = `09-Conclusion.aux'.
@@ -2053,10 +2053,10 @@ Package logreq Info: Writing requests to 'document.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 81925 strings out of 468224
- 2049863 string characters out of 5432952
- 3273171 words of memory out of 5000000
- 109411 multiletter control sequences out of 15000+600000
+ 81912 strings out of 468224
+ 2049377 string characters out of 5432952
+ 3273309 words of memory out of 5000000
+ 109395 multiletter control sequences out of 15000+600000
  639497 words of font info for 87 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  99i,17n,123p,2594b,2940s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -2065,29 +2065,30 @@ Here is how much of TeX's memory you used:
 ts/cm/cmbsy10.pfb><C:/Users/vladi/AppData/Local/Programs/MiKTeX/fonts/type1/pub
 lic/amsfonts/cm/cmbx10.pfb><C:/Users/vladi/AppData/Local/Programs/MiKTeX/fonts/
 type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/vladi/AppData/Local/Programs/MiKT
-eX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/vladi/AppData/Local/Prog
-rams/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/vladi/AppData/L
-ocal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/vladi/A
-ppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users
-/vladi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><
-C:/Users/vladi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmm
-i8.pfb><C:/Users/vladi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfont
-s/cm/cmr10.pfb><C:/Users/vladi/AppData/Local/Programs/MiKTeX/fonts/type1/public
-/amsfonts/cm/cmr12.pfb><C:/Users/vladi/AppData/Local/Programs/MiKTeX/fonts/type
-1/public/amsfonts/cm/cmr17.pfb><C:/Users/vladi/AppData/Local/Programs/MiKTeX/fo
-nts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/vladi/AppData/Local/Programs/Mi
-KTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/vladi/AppData/Local/Prog
-rams/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/vladi/AppData/Loc
-al/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/vladi/AppD
-ata/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/vla
-di/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/
-Users/vladi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.
-pfb><C:/Users/vladi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/c
-m/cmti10.pfb><C:/Users/vladi/AppData/Local/Programs/MiKTeX/fonts/type1/public/a
-msfonts/cm/cmtt10.pfb>
-Output written on document.pdf (27 pages, 2010932 bytes).
+eX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/vladi/AppData/Local/Prog
+rams/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/vladi/AppData/L
+ocal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/vladi/
+AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/User
+s/vladi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb>
+<C:/Users/vladi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cm
+mi7.pfb><C:/Users/vladi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfon
+ts/cm/cmmi8.pfb><C:/Users/vladi/AppData/Local/Programs/MiKTeX/fonts/type1/publi
+c/amsfonts/cm/cmr10.pfb><C:/Users/vladi/AppData/Local/Programs/MiKTeX/fonts/typ
+e1/public/amsfonts/cm/cmr12.pfb><C:/Users/vladi/AppData/Local/Programs/MiKTeX/f
+onts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/vladi/AppData/Local/Programs/
+MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/vladi/AppData/Local/Pr
+ograms/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/vladi/AppData/L
+ocal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/vladi/Ap
+pData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/v
+ladi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/
+Users/vladi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10
+.pfb><C:/Users/vladi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/
+cm/cmsy7.pfb><C:/Users/vladi/AppData/Local/Programs/MiKTeX/fonts/type1/public/a
+msfonts/cm/cmti10.pfb><C:/Users/vladi/AppData/Local/Programs/MiKTeX/fonts/type1
+/public/amsfonts/cm/cmtt10.pfb>
+Output written on document.pdf (27 pages, 2023281 bytes).
 PDF statistics:
- 817 PDF objects out of 1000 (max. 8388607)
- 147 named destinations out of 1000 (max. 500000)
+ 830 PDF objects out of 1000 (max. 8388607)
+ 150 named destinations out of 1000 (max. 500000)
  415 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -6,7 +6,7 @@ This chapter introduces the assignment and some foundational concepts of quantum
 
 The Applied Nanotechnology research group is working on a \gls{nv}-center-based sensor setup. There exist several quantum protocols, but the one this setup needs to support is called \gls{cwodmr}. At its core, \gls{odmr} is a set of protocols, which can detect magnetic fields based on the fluctuations in the fluorescence of \gls{nv} centers \cite{enwiki:1301371272}. \gls{cwodmr} in particular involves exposing the \gls{nv} center to a \gls{mw} sweep while illuminating it with a constant light source. This is in contrast with \gls{podmr} techniques, which use different \gls{ttl} pulse schemes \cite{sewani2020coherent} to modulate the \gls{mw} signal and the light source.
 
-Processing data from the setup requires working with weak signals that are hard to distinguish from the environmental noise. While this is a significant problem, it is also a very common one. Because of this, there is already widely-used system used to isolate signals in such cases: the lock-in amplifier.
+Acquiring and processing data from the setup requires working with weak signals that are hard to distinguish from the environmental noise. While this is a significant problem, it is also very common. Because of this, the industry has already adopted systems to detect weak light sources and measure their intensity. This project is mainly about developing a similar photodetection system for the \gls{nv} setup. 
 
 \begin{figure}[ht]
 	\centering
@@ -17,24 +17,24 @@ Processing data from the setup requires working with weak signals that are hard 
 
 
 \section{Purpose of the assignment}\label{purpose}
-Implementing a lock-in amplifier is the main purpose of the assignment. To create a complete solution, there are several different functionalities and systems that need to be developed. 
+Implementing a \gls{tia} is the main purpose of the assignment. To create a complete solution, there are also several additional functionalities and systems that need to be developed. 
 
-Before doing anything else, the raw sensor data needs to be extracted and then fed to a lock-in amplifier. This should be done in a standardized manner, in order to facilitate testing with different devices. After establishing connection, a control interface needs to be implemented. It needs to be programmed so that it can control all necessary features of the lock-in amplifier. Following the development of the program, a custom photodetection circuit needs to be designed. The circuit should accommodate the sensors and lock-in amplifier. Lastly, an \gls{olia} \footnote{\gls{olia} is an open-source microcontroller-based lock-in amplifier. It uses common components, which makes it easy to build \cite{harvie2023olia}} circuit needs to be tested and compared to conventional lock-in systems. 
+Firstly, a custom photodetector needs to be designed. The circuit should accommodate the sensors and output to a lock-in amplifier. After establishing connection, an \gls{olia} \footnote{\gls{olia} is an open-source microcontroller-based lock-in amplifier. It uses common components, which makes it easy to build \cite{harvie2023olia}} circuit needs to be tested and compared to conventional lock-in systems. Lastly, a control interface can be implemented, if there is enough time. It needs to be programmed so that it can control all necessary features of the lock-in amplifier. 
 
 
 \section{Assignment specifications}\label{specifications}
 As already explained, the assignment is quite broad and involves both hardware and software, causing the need for a number of different tools. 
 
-Most of the hardware tools are already available at the Applied Nanotechnology lab. The lock-in amplifiers which will be used for the tests are the most important pieces of hardware. Zurich Instruments HF2LI is the benchmark lock-in amplifier. The target amplification is at least 10dB. There are also several different photodetectors available and the one which fits the project best will be picked at a later date. Chapter \ref{chap:background} already discussed the basics of the \gls{cwodmr} protocol. In order to get an operational \gls{cwodmr} setup, an \gls{mw} generator and a laser will be used. \gls{mw} sweeping needs to be done in the range of \numrange{2,8}{2,9} \unit{\giga\hertz} and the lab already has a custom-built \gls{mw} generator that can output these frequencies. The laser is mostly outside the scope of the assignment, as it is almost entirely optical in nature. Setting it up, together with the \gls{nv} samples, is up to the client. However, it is important to note that the fluorescence wavelength should be in the range of \numrange{637}{800} \unit{\nano\meter}, as it plays an important part in reading the \gls{cwodmr} data.
+Most of the hardware tools are already available at the Applied Nanotechnology lab. The lock-in amplifiers which will be used for the tests are the most important pieces of hardware. Zurich Instruments HF2LI is the benchmark lock-in amplifier. The target amplification is at least 10dB. Chapter \ref{chap:background} already discussed the basics of the \gls{cwodmr} protocol. In order to get an operational \gls{cwodmr} setup, an \gls{mw} generator and a laser will be used. \gls{mw} sweeping needs to be done in the range of \numrange{2,8}{2,9} \unit{\giga\hertz} and the lab already has a custom-built \gls{mw} generator that can output these frequencies. The laser is mostly outside the scope of the assignment, as it is almost entirely optical in nature and the driving circuitry has been developed by a previous intern. Setting it up, together with the \gls{nv} samples, is up to the client. However, it is important to note that the fluorescence wavelength is in the range of \numrange{637}{800} \unit{\nano\meter}, as it plays an important part in photodetection.
 	
 In terms of software, there is more freedom of choice. Interfacing with the HF2LI is done through proprietary software, but this is the only required program. There are various \gls{ecad} software suites that offer the same base functionality. KiCad was selected because the client prefers open-source software. The program for retrieving data from the lock-in amplifiers can be written in both Python and MATLAB. Both languages have good integration with the main lock-in amplifier. They also offer \gls{gui} programming capabilities and are good for scientific computing overall.
 
 
 
 \section{Scope of work}
-%The scope of the project was extensively discussed with the company coach to ensure the wishes of AmI were feasible and clearly presented. The discussion resulted in the goals presented in this chapter and the MoSCoW prioritization list in Chapter \ref{analaysis_of_specs}
+The scope of the project was extensively discussed with the company coach. Chapter \ref{chap:project_boundaries} sets the scope and Chapter \ref{chap:goals} builds on it, providing more specific details.
 
-\subsection{Project boundaries}\label{project_boundaries}
+\subsection{Project boundaries}\label{chap:project_boundaries}
 % specify what moscow is and put it in front of the goals
 The project boundaries were initially based on the assignment form, but were later discussed with the client and refined further. 
 
@@ -59,13 +59,13 @@ The project boundaries were initially based on the assignment form, but were lat
 \textbf{Will not have}
 \begin{itemize}
 	\item Laser as a part of the hardware platform
-	\item Driver upgrade
+	\item Laser driver upgrade
 \end{itemize}
 
 
 \subsection{Goals} \label{chap:goals}
 % goals are tasks now, change to goals
-Based on the MoSCoW priorities from Chapter \ref{project_boundaries}, a set of goals was created to further specify all items from each prioritization category. Every goal was designed so that its outcome results in a tangible project milestone (e.g. a deliverable).
+Based on the MoSCoW priorities from Chapter \ref{chap:project_boundaries}, a set of goals was created to further specify all items from each prioritization category. Every goal was designed so that its outcome results in a tangible project milestone (e.g. a deliverable).
 
 \begin{itemize}
 	\item[Goal 1]: Create a hardware setup, which measures and amplifies photodiode signals
@@ -108,7 +108,7 @@ The description of the tasks already provided context for the deliverables, but 
 The only deliverable, which was not mentioned in Chapter \ref{chap:goals} is the technical documentation. This is because it should contain information about every task.
 
 \section{Methodology}\label{methodological_approach}
-The V-Model methodology was selected, as it is well-suited for low-level projects. Figure \ref{fig:vmodel} shows a diagram of the phases of the V-Model. Unlike some software-oriented models, the V-Model is very sequential. This can sometimes be seen as detrimental, but in this case it helps with structuring the project. Another benefit of this model is that there are multiple testing activities, which underpin the quality assurance. A contentious feature of the V-Model is the heavy reliance on the initial requirements. This need for deliberate project requirements can be hard to meet, especially if the client representative is not technically proficient. However, this is not the case in this project. The requirements were extensively discussed with the client representative, based on which the project boundaries in Chapter \ref{project_boundaries} were set up.
+The V-Model methodology was selected, as it is well-suited for low-level projects. Figure \ref{fig:vmodel} shows a diagram of the phases of the V-Model. Unlike some software-oriented models, the V-Model is very sequential. This can sometimes be seen as detrimental, but in this case it helps with structuring the project. Another benefit of this model is that there are multiple testing activities, which underpin the quality assurance. A contentious feature of the V-Model is the heavy reliance on the initial requirements. This need for deliberate project requirements can be hard to meet, especially if the client representative is not technically proficient. However, this is not the case in this project. The requirements were extensively discussed with the client representative, based on which the project boundaries in Chapter \ref{chap:project_boundaries} were set up.
 
 \begin{figure}[ht]
 	\centering
@@ -120,12 +120,10 @@ The V-Model methodology was selected, as it is well-suited for low-level project
 
 \section{Report outline}
 %TODO: add after everything else is done
-%After the introduction, the report can be split into three parts, each corresponding to one of the phases in the waterfall model from Figure \ref{fig:phases}. 
+The introduction is followed by the functional design chapter, which introduces background knowledge, needed to understand the \gls{nv} setup. After that, the high-level design of the system is presented. It explains the functionality of the various systems that make up the project without delving into specifics.
 
-%The functional design chapter introduces all the necessary prerequisite knowledge, which has been explored during the familiarization and research. It also describes the design process as the project moved from research to implementation. 
+After that, the technical design explores the low-level design of the systems of the project. It mentions all the necessary details, including calculations, simulations and implementation steps.
 
-%After that, the technical design discusses the most important implementation and integration details. It also discusses practical details that might be useful for future work.
+Following the design sections, the testing chapter describes the testing goals and what methods were used for measuring. The chapter then presents the test results.
 
-%The last three chapters, testing results, conclusion and recommendations, show the outcomes of the tests and present the explanation of those results. They also contain advice for future work, motivated by the test data interpretation and the conclusions drawn from them.
-
-%The appendices are not integral to the report, but might prove useful to people looking to expand on the project.
+Lastly, the conclusion and recommendation chapters summarize the outcomes of the project and offer proposals for further development. 

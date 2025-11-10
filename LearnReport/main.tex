@@ -1,0 +1,161 @@
+\documentclass{report}
+\usepackage[utf8]{inputenc}
+%easy styling
+\usepackage[a4paper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+%IEEE-style paper references
+\usepackage[style=ieee]{biblatex}
+%more math
+\usepackage{amsmath}
+\usepackage{amssymb}
+%better references
+\usepackage{hyperref}
+%images
+\usepackage{graphicx}
+
+\pagestyle{headings}
+
+
+\title{Learning report}
+\author{Vladislav Serafimov}
+%\date{June 2025}
+
+
+\begin{document}
+\maketitle
+
+\chapter{Introduction}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=.8\textwidth]{vmodel.png}
+    \caption{V-model}
+    \label{fig:vmodel}
+\end{figure}
+
+There are various reasons for using the V-model (Figure \ref{fig:vmodel}) for this project. My previous thesis was based on the waterfall model, but this lead to some outcomes which were not to my liking and which I believe the V-model addresses more than adequately. 
+
+As an extension of the waterfall methodology, the V-model offers a linear approach to problems, which suits hardware projects particularly well. Consequently, both models are reliant on well-established requirements and solid planning. Testing is also an important differentiating aspect of the models. Unlike more software-oriented methodologies, the two offer the more straightforward approach of sequential testing, instead of more convoluted alternatives like iterative testing. 
+
+While similar, there are differences that make the V-model more suitable for the project. One of its main advantages is the much more thorough testing system. In contrast with the waterfall model, which is entirely linear, the V-model provides verification and validation opportunities. The extra focus on testing is exactly what I previously found lacking in the waterfall model. Another benefit is the slightly less rigid structure of the methodology, as this gives more room for further refinement of the goals and the more involved participation of the client.
+
+Although the V-model is better suited to the project, I found my implementation of it lacked in some regards. For example, it asks for well-defined goals from the start, however I could not define the specifics of the assignment early on, in part due to my limited amount of knowledge I had in the field of quantum physics.
+
+%The waterfall model (see Figure \ref{fig:vmodel}) was used for this project. There are various reasons for that, but one of the main ones is that the sequential approach was more suited to the way I wanted to approach the project. Finishing each phase before moving to the next guaranteed the structure my work and gave me intermediate milestones to aim for. Another major reason for picking the waterfall model was the documentation structure. Having every phase flow makes it so that every following document is based on the previous. This aids in creating a more structured workflow. Alternatively, I could have used the Scrum model, which is much more focused on continuous, cyclical improvement. However, using it would mean spending much more time on planning and project management than with the waterfall model. Furthermore, using Scrum would suggest a project which involves implementing and improving a product in an iterative manner. I do not need to build upon already implemented features, which makes this aspect of the model unnecessary and maybe even counterproductive. 
+
+
+%In spite of how useful the waterfall model was, I did encounter some issues with the way I applied it. Because I have previously only worked on very low-level projects, I did not anticipate the amount of testing I needed to do alongside the implementation and integration phases of the project. If I work on high-level coding project like this one in the future, I will make sure to plan for more testing during the realization phase.
+
+
+\chapter{Self-evaluation}
+% structure: .1 - expectation, .2 - evidence, .3 - evaluation
+%This chapter discusses my performance in respect to the required competences for a graduation thesis. Overall, I think I did well during this internship, but there is always room for improvement.
+
+\section{Analyze}%done
+% The analysis of relationships between processes, products and data flows within the context of the environment
+\subsection{Expectation}
+%The analyze competence is mostly about investigating the different interconnected parts of a product. Applying this competence in a professional environment is done by contextualizing different aspects of the project, including the tools, products and data flows.
+
+\subsection{Evidence}
+%I was given freedom to explore different solutions to the core problem of the graduation assignment, so there was a lot of analysis on my part. For example, I was allowed to use any programming language to implement my tests, but, for the sake of making the best product, I had to pick the most suitable one. In that case, I went through the languages I am most familiar with and picked out 2 which had suitable features. For those two I read the documentation of the relevant features and libraries, which led me to selecting one over the other.
+
+\subsection{Evaluation}
+%I believe I made the right choices throughout the project, but in the future I would like to make the analysis process more structured. I have already started working on it, by creating spreadsheets with the specifications, strengths and weaknesses of different solutions, as suggested by my company coach. 
+
+\section{Design} \label{chap:design}%done
+%Design of an ICT system on the basis of set specifications, and within predefined frameworks.
+\subsection{Expectation}
+%There are set requirements at the start of the project and the design competence is used to address these requirements by creating a set of specifications and working on creating a system based on them.
+\subsection{Evidence}
+%Designing different parts of the final product thoroughly was one of my main focus points during this project. For some features, the design process was even more involved than the implementation. This was the case with, for example, the algorithm that calculates the photovoltaic power. I needed to design it based on my research and analysis of the problem, along with the energy usage of a home. Having a solid design planned beforehand significantly simplified the implementation.
+\subsection{Evaluation}
+%An important aspect of design I have overlooked in the past is that good design comes from clear specifications. During this assignment I did thoroughly discuss the specifications before starting to work on the implementation, but I still overlooked some details. To avoid having to rework parts of a product due to vague specifications, I will try to be even more proactive in the discussions with the client/internship company in the future.
+
+\section{Realize}%done
+%Build an ICT system on the basis of a specific design and within a predefined framework
+\subsection{Expectation}
+%Realization is what naturally follows after design. It constitutes the implementation and integration of the correlated subsystems.  
+
+\subsection{Evidence}
+%Most of the project involved my realization skills to some extent. The implementation and integration phases (see Figure \ref{fig:waterfall}) both consisted of mostly realization. I think this is one my most developed competences, because I have worked on the realization of every project I have participated in, even ones where I was a part of a team of several people. During this project, I realized all the ideas I analyzed and designed, which included the device management platform integration, the hardware setup and more.
+
+\subsection{Evaluation}
+%As previously mentioned, I am a practical person and realization is one of my stronger competences. This being said, I have also noticed some points I would like to improve on. The main way to improve this competence is, in my opinion, by working on technical skills. I probably would have realized a better product if I was more knowledgeable before starting the project. Because I will do other projects that are not exactly aligned with my expertise in the future, I will need to work on knowledge acquisition as a skill, as well. 
+
+\section{Control/Verify}%done
+%Management and control of all activities aimed at the process of development and deployment of ICT systems and of ICT service management.
+\subsection{Expectation}
+%This competence is, at its core, about ensuring the product and the development process are both systematically monitored and controlled. In practice, this might involve activities such as testing and structuring of the design and realization.
+
+\subsection{Evidence}
+%An integral part of this project was the verification of results. This was done by comparing the outcomes of all the tests to the expectations. The physical setup was also created to verify the legitimacy of the simulations. Creating testing scenarios to validate the expected results is something I have previous experience with, as I have taken part in projects that required extensive testing and verification.
+
+\subsection{Evaluation}
+%That being said, I still think there is room to improve. I will try to be more thorough with edge cases in the future. I also want to get better at automation in order to make verification easier, faster and more accurate. In terms of development process control, I want to create and adhere to a more methodical way of working in the future. However, I would say my skills in the area are sufficient for the time being.
+
+
+
+\section{Manage}%done
+%Monitoring and organising (time, money, quality, information, organisation), cooperating and communicating.
+\subsection{Expectation}
+%There are several skills that make up the manage competence. At its core, however, it is about maintaining an organized working routine and a productive professional environment.
+
+\subsection{Evidence}
+%My management skills were put to the test during this project. Most of the project was done individually, which meant I was the sole person in charge of organization and the only one who would be impacted by my choices. This meant I had a lot of freedom to tailor my work environment to myself by, for example, working earlier than most people and switching from technical work to writing documentation whenever I felt like I needed to. However, certain parts of the project required me to collaborate with people. This created situations that were a balancing act and where I needed to find compromises that would suit all of the parties involved. For example, because the project was done as a collaboration between a company and a Saxion research group, the requirements of both parties needed to be addressed. Some were accepted, others were either reworked or refused, because of the circumstances surrounding the project.
+
+\subsection{Evaluation}
+%Project management is a difficult skill to master, as it involves planning and organizing resources that differ from project to project. This is exactly why I feel the need to improve my problem solving consistency. Dealing with certain issues is harder for me, especially if it involves multiple people. In the example with the project requirements of this project, I did resolve the problem at the end, but the process was slower and less efficient than I would have liked it to be.  
+
+\section{Advise}%done
+%Advice regarding the reorganisation of processes and / or data flows. Advise on new ICT systems to be developed or purchased on the basis of an analysis and in consultation with stakeholders.
+\subsection{Expectation}
+%Giving advice is a key part of every graduation assignment. Students are expected to become experts and advise the company how the project can be continued. In case the company wants to further a project after the completion of a graduation thesis, the student will have already outlined what needs to be developed or reworked in the future.
+
+\subsection{Evidence}
+%The main purpose of the project is to answer the question that is asked in the introduction of the technical report and to advise the team on what to do after the end of my graduation period. The presentation also serves a similar purpose. Both are created in part to introduce the next student or researcher involved in the project and to inform their future work.
+
+\subsection{Evaluation}
+%One of my main points of improvement when it comes to giving advice is communicating complex topics. I still need to work on the way I relay information to people with different levels of technical skills. In past projects, I have struggled with the final presentation. Striking a balance between technical depth and accessibility is something I am always consciously trying to achieve with every presentation, but I will have to get better at it. 
+
+\section{Research}\label{chap:research}
+%Formulating / answering main- and sub-questions, using different sources (i.e. literature, web-pages, publications), validating sources.
+\subsection{Expectation}
+%Research is the foundation of the design and realization of the final product. A study of academic and professional literature, accompanied by good source selection and information filtering, is an almost universal prerequisite for any work to be scientifically viable.
+
+\subsection{Evidence}
+%While research was not the main focus of the project, it was still important for the proper completion of the final product. Devising a good design and implementing it is preceded by a solid research. The algorithm mentioned in Chapter \ref{chap:design} was based on data from studies on variables like solar radiation and solar energy based on the time of day.
+
+\subsection{Evaluation}
+%In terms of areas that need improvement, my company coach brought up the fact that I can overcomplicate research. I did this when researching the data simulation, but after discussing the issue with my coach I started working on fixing it.
+
+
+\section{Professionalize}
+%Developing and improving skills necessary for the other competences, communicating, reflecting.
+
+\subsection{Expectation}
+%The professionalization competence overlaps with many of the others. This is because, at its core, it is the ability to function in a professional context. While the scope of the competence is broad, communication and reflection are the most important aspects of it.   
+
+\subsection{Evidence}
+%Professionalization has been a big part of my studies so far. Having completed an internship in the past, I was prepared for a lot of the challenges of the professional environment when I started the project. In the last few months, I have had to navigate meetings with different stakeholders and to manage their expectations about the project.
+
+\subsection{Evaluation}
+%This competence is one of the harder to master for me. As previously mentioned in Chapter \ref{chap:design}, some of my soft skills have improved, but still need work. As professionalization is very reliant on communication, this proved to be an issue. I also feel like I need to work more on teamwork, because I worked on this project alone.  
+
+
+\chapter{Self-analysis}
+%The student should complete a written self-analysis of their own qualities and weaknesses in functioning in a professional context. This does not involve any subject-related aspects of the functioning but rather the professional aspects of the functioning.
+
+%This project was my second time working on an assignment outside of my studies. Because of the previous experience, going into the project I knew how to deal with professional matters. However, I still had some difficulties.
+
+%Overall, I believe all my competences were up to standard. In general, I am a more technical person, which was also the case during this project. In terms of soft skills, I also did better than before. My approach to tracking the progress of the project has been more structured than it was in previous projects, which has helped my coaches stay updated. 
+
+%As previously mentioned, one of my skills that needs the most improvement is communication. In particular, I still need to work on how to communicate technical information to people who have a technical background, but are not specialists on the topic. This issue I am having is the main manifestation of a bigger problem I have: overcomplicating. I have been made aware that, even though my technical functioning is good, I have the tendency to explain my work in a convoluted manner. This makes it harder for people who are not acquainted with the project to understand my work.
+
+\chapter{Personal development plan}
+%The student describes in what direction he/she wishes to develop and how, in a 2 years outlook. In this context the student uses the outcome of the self-reflection, using the subject-related competences and the self-analysis for functioning in a professional context.
+%Professionally, I want to develop in the field of embedded audio software/firmware. I based my personal development plan on points of improvement that will help me reach this main professional goal. Furthermore, I included skills that are generally useful and need to be refined further, no matter what specialization I choose. 
+
+%In the relatively short time interval of 2 years, I want to improve many of my professional and technical abilities. However, I will mainly focus on communication. As previously mentioned, I want to get better at communicating with other technical people outside of my field of expertise. Because I need to do a second graduation assignment, I will have another chance to improve during my study. Afterwards, I will work on this skill in the workforce, as a part of a team. I will also work on my technical skills then. As this project was very high-level, I want to improve my technical skills by working a job with a focus on low-level programming or even circuit design. Another possibility I am considering is enrolling in a master's degree in the filed of embedded systems, which will help me gain more knowledge and also some practical skills. Finally, I will also try to create a more structured workflow, to which I am able to adhere in my future projects. I have had some issues while trying to be more consistent and I believe an organized routine will help me with that. 
+
+%professional profile: what do I wanna be known/viewed as professionally
+
+
+\end{document}

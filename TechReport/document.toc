@@ -30,18 +30,20 @@
 \contentsline {section}{\numberline {5.2}Photodetector design}{16}{section.5.2}%
 \contentsline {subsection}{\numberline {5.2.1}First iteration}{16}{subsection.5.2.1}%
 \contentsline {subsection}{\numberline {5.2.2}Second iteration}{16}{subsection.5.2.2}%
-\contentsline {section}{\numberline {5.3}Photodetection implementation}{18}{section.5.3}%
-\contentsline {subsection}{\numberline {5.3.1}First iteration}{18}{subsection.5.3.1}%
-\contentsline {subsubsection}{Simulation}{18}{subsubsection*.14}%
-\contentsline {subsubsection}{Implementation}{18}{subsubsection*.16}%
-\contentsline {section}{\numberline {5.4}OLIA implementation}{19}{section.5.4}%
-\contentsline {chapter}{\numberline {6}Testing results}{20}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Test goals and performance metrics}{20}{section.6.1}%
-\contentsline {section}{\numberline {6.2}Test setup}{21}{section.6.2}%
-\contentsline {section}{\numberline {6.3}Results and discussion}{21}{section.6.3}%
-\contentsline {section}{\numberline {6.4}Known limitations}{21}{section.6.4}%
-\contentsline {chapter}{\numberline {7}Conclusion}{22}{chapter.7}%
-\contentsline {chapter}{\numberline {8}Recommendations}{23}{chapter.8}%
-\contentsline {chapter}{Appendices}{24}{section*.20}%
-\contentsline {chapter}{\numberline {A}Code}{24}{appendix.1.A}%
-\contentsline {chapter}{Glossary}{25}{section*.21}%
+\contentsline {section}{\numberline {5.3}Photodetection simulation}{19}{section.5.3}%
+\contentsline {subsection}{\numberline {5.3.1}First iteration}{19}{subsection.5.3.1}%
+\contentsline {subsection}{\numberline {5.3.2}Second iteration}{19}{subsection.5.3.2}%
+\contentsline {section}{\numberline {5.4}Photodetection implementation}{19}{section.5.4}%
+\contentsline {subsection}{\numberline {5.4.1}First iteration}{20}{subsection.5.4.1}%
+\contentsline {subsection}{\numberline {5.4.2}Second iteration}{20}{subsection.5.4.2}%
+\contentsline {section}{\numberline {5.5}OLIA implementation}{20}{section.5.5}%
+\contentsline {chapter}{\numberline {6}Testing results}{21}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Test goals and performance metrics}{21}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Test setup}{22}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Results and discussion}{22}{section.6.3}%
+\contentsline {section}{\numberline {6.4}Known limitations}{22}{section.6.4}%
+\contentsline {chapter}{\numberline {7}Conclusion}{23}{chapter.7}%
+\contentsline {chapter}{\numberline {8}Recommendations}{24}{chapter.8}%
+\contentsline {chapter}{Appendices}{25}{section*.19}%
+\contentsline {chapter}{\numberline {A}Code}{25}{appendix.1.A}%
+\contentsline {chapter}{Glossary}{26}{section*.20}%

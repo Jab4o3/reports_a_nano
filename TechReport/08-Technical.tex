@@ -16,8 +16,8 @@ As previously mentioned, the first iteration of the PCB uses component values pr
 %
 %Even though $f_{rc}$ provides an approximation for the cutoff frequency, the parasitic capacitances in the system will cause it to be slightly bigger. Equation \ref{eq:gbw} shows how a more accurate cutoff frequency $f_c$ can be calculated by taking into account $C_d$ and $C_{cm}$ (differential and common-mode capacitance respectively). In this case, $f_c$ tells us the gain bandwidth or the frequency range in which DC gain is retained.
 
-\subsection{Second iteration}
-Building on the time-domain analysis in the previous chapters, a frequency-domain analysis can help fill in the gaps \cite{margan2012transimpedance, sackinger2017analysis, horsthemke2025all}. 
+\subsection{Second iteration} \label{chap:td:calc:v2}
+Due to time constraints, this iteration uses the same topology as the first one. That being said, it is still designed analytically, taking into account the general practices, but also considering more subtle factors that might hinder the performance of the system. This section uses the mathematical principles presented in \cite{margan2012transimpedance, sackinger2017analysis, horsthemke2025all} to optimize the design of the existing amplifier. 
 
 \begin{figure}[!ht]
 	\centering
@@ -109,7 +109,7 @@ Finally, the values in the \gls{kcl} equation (Equation \ref{eq:td:kcl}) can be 
 	\end{aligned}
 \end{equation}
 
-Before moving on to the pole analysis, the impact of the quality factor $Q$ on the system response should be considered. Two system poles present when $Q > 0,5$. For $Q = \frac{\sqrt{3}}{3},$ the system has a Bessel response, which has the flattest group delay, however, if $Q = \frac{\sqrt{2}}{2}$, then the system has a Butterworth response, which means it has the flattest possible amplitude response. Although the group delay is not as important as the amplitude response, a Bessel response also results in smaller amount of overshoot and less jitter, which is why it is preferred. 
+Before moving on to the pole analysis, the impact of the quality factor $Q$ on the system response should be considered (see Equation \ref{eq:td:f_c_q}). Two system poles present when $Q > 0,5$. For $Q = \frac{\sqrt{3}}{3},$ the system has a Bessel response, which has the flattest group delay, however, if $Q = \frac{\sqrt{2}}{2}$, then the system has a Butterworth response, which means it has the flattest possible amplitude response. Although the group delay is not as important as the amplitude response, a Bessel response also results in smaller amount of overshoot and less jitter, which is why it is preferred. 
 
 \begin{equation}\label{eq:td:poles_general}
 	H(s) = H_0\frac{(-s_1)(-s_2)}{(s - s_1)(s - s_2)} = H_0\frac{s_1s_2}{s^2 + s(-s_1 - s_2) + s_1s_2}
@@ -135,15 +135,112 @@ Taking the general-equation poles and their counterparts from the $Z_t$ expressi
 	s_{1, 2} = -\frac{3}{2}(1 \pm j\frac{\sqrt{3}}{3})
 \end{equation}
 
-Achieving a critically-damped system, can be done by getting the roots of the general form (as seen in Equation \ref{eq:td:pole_roots_general}) and using the imaginary parts to get Equation \ref{eq:td:cap_solve}. While the expression cannot be solved analytically, the best capacitor can be found by solving it while varying the capacitance.
+Achieving a critically-damped system, can be done by getting the roots of the general form of a Bessel filter (as seen in Equation \ref{eq:td:pole_roots_general}) and using the imaginary parts to get Equation \ref{eq:td:cap_solve}. This expression can be solved with the quadratic formula again, finally resulting in an answer for the compensating capacitor. 
 
 \begin{equation}\label{eq:td:cap_solve}
 	\frac{4\omega_o(1 + A_o)(C_i + C_1)R_1}{(1 + \omega_o(C_i + (1 + A_o)C_1)R_1)^2} = \frac{4}{3}
 \end{equation}
 
+\begin{equation}\label{eq:td:cap_roots}
+	C_1 = \frac{-2\omega_oR_1C_i \pm \sqrt{12A_oC_iR_1\omega_o - 3}}{2\omega_oR_1(1 + A_o)}
+\end{equation}
 
-\section{Photodetection implementation}
-Implementing the photodetectors is as much about the creation of a physical board, as it is about simulating the circuits that are presented in Chapter \ref{chap:td:tia_design}. 
+Although Equation \ref{eq:td:cap_roots} says there are two solutions for the capacitor, the term under the square root will always be much bigger than the rest of the numerator\footnote{Assuming real-world amplifier and diode specifications, and realistic transimpedance gain requirements}, effectively determining the sign of the roots. Simply put, this leaves only one root possible, as capacitors cannot have negative capacitance values.
+
+To further characterize the system, the cutoff frequency $\omega_c$ and damping factor $Q$ can be calculated, because the system adheres to the general form, shown in Equation \ref{eq:td:f_c_q}. Substituting in the pole expressions from Equations \ref{eq:td:poles_general} and \ref{eq:td:poles}.
+
+\begin{equation}\label{eq:td:f_c_q}
+	H(s) = H_o\frac{\omega_c^2}{s^2 + s\frac{\omega_c}{Q} + \omega_c^2}
+\end{equation}
+
+\begin{equation}
+	\begin{cases}
+		\omega_c = \sqrt{\frac{\omega_o(1 + A_o)}{(C_i + C_1)R_1}}\\
+		Q = \omega_c\frac{(C_i + C_1)R_1}{1 + \omega_o(C_i + (1 + A_o)C_1)R_1}
+	\end{cases}
+\end{equation}
+
+
+In the process of designing the \gls{tia} circuit, the noise should be considered. Figure \ref{fig:td:design:tia_noise} shows the thermal noise generated by the resistor (modeled as the current source $i_{nR}$) and the differential noise of the amplifier (modeled as the current source $i_{nA}$)\footnote{Other noise generators, like the gate shot noise, channel noise and induced gate noise can also be calculated, but because they largely depend on the underlying technology of the \gls{fet} op amp, they have not been investigated}.
+
+\begin{figure}[!ht]
+	\centering
+	\resizebox{.7\textwidth}{!}{%
+		\begin{circuitikz}
+			\tikzstyle{every node}=[font=\normalsize]
+			\draw [ line width=0.5pt](1.5,10.75) to[empty photodiode,l={ \normalsize $D_1$}] (1.5,9);
+			\draw [ line width=0.5pt](1.5,10.75) to[empty photodiode,l={ \normalsize $D_1$}] (1.5,9);
+			\draw [ line width=0.5pt](6.5,10.25) node[op amp,scale=1] (opamp2) {};
+			\draw [ line width=0.5pt](opamp2.+) to[short] (5,9.75);
+			\draw [ line width=0.5pt] (opamp2.-) to[short] (5,10.75);
+			\draw [ line width=0.5pt](7.7,10.25) to[short](8,10.25);
+			\draw [line width=0.5pt](5,9) to (5,8.25) node[ground]{};
+			\draw [ line width=0.5pt](5,8.5) to[short] (5,9.75);
+			\draw [ line width=0.5pt](1.5,10.5) to[short] (1.5,10.75);
+			\draw [ line width=0.5pt](1.5,10.75) to[short] (2.75,10.75);
+			\node at (4.5,10.75) [circ] {};
+			\draw [ line width=0.5pt](4.5,10.75) to[short] (4.5,13.5);
+			\draw [ line width=0.5pt](4.5,12.25) to[short] (5,12.25);
+			\draw [ line width=0.5pt](4.5,13.5) to[short] (5,13.5);
+			\draw [ line width=0.5pt](5,12.25) to[european resistor,l={ \normalsize $R_1$}] (7,12.25);
+			\node at (4.5,12.25) [circ] {};
+			\draw [ line width=0.5pt](7,12.25) to[short] (7.5,12.25);
+			\draw [ line width=0.5pt](7.5,12.25) to[short] (7.5,11);
+			\draw [ line width=0.5pt](7.5,12.25) to[short] (7.5,13.5);
+			\draw [line width=0.5pt](5,13.5) to[C,l={ \normalsize $C_1$}] (7,13.5);
+			\node at (7.5,12.25) [circ] {};
+			\draw [ line width=0.5pt](7,13.5) to[short] (7.5,13.5);
+			\draw [ line width=0.5pt](1.5,10.75) to[short] (1.5,10.5);
+			\draw [line width=0.5pt](1.5,9) to (1.5,8.25) node[ground]{};
+			\draw [line width=0.5pt, ->, >=Stealth] (1,10.25) -- (1,9.25);
+			\node [font=\normalsize] at (0.75,9.75) {$I_f$};
+			\draw [ line width=0.5pt](6.5,10.25) node[op amp,scale=1] (opamp2) {};
+			\draw [ line width=0.5pt](opamp2.+) to[short] (5,9.75);
+			\draw [ line width=0.5pt] (opamp2.-) to[short] (5,10.75);
+			\draw [ line width=0.5pt](7.7,10.25) to[short](8,10.25);
+			\draw (8,10.25) to[short, -o] (8.25,10.25) node[] {$\ \ \ \ \ \ \ \ \ V_{out}$};
+			\draw (7.5,11) to[short] (7.5,10.25);
+			\draw (3.75,10.75) to[short] (5,10.75);
+			\draw [ line width=0.5pt](6.5,10.25) node[op amp,scale=1] (opamp2) {};
+			\draw [ line width=0.5pt](opamp2.+) to[short] (5,9.75);
+			\draw [ line width=0.5pt] (opamp2.-) to[short] (5,10.75);
+			\draw [ line width=0.5pt](7.7,10.25) to[short](8,10.25);
+			\node at (7.5,10.25) [circ] {};
+			\draw (2.75,10.75) to[short] (3.75,10.75);
+			\draw [ line width=0.7pt](4.5,15) to[american current source,l={ \normalsize $i_{nR}$}] (7.5,15);
+			\draw (4.5,13.5) to[short] (4.5,15);
+			\draw (7.5,15) to[short] (7.5,13.5);
+			\node at (4.5,13.5) [circ] {};
+			\node at (7.5,13.5) [circ] {};
+			\draw [ line width=0.7pt](3.75,10.75) to[american current source,l={ \normalsize $i_{nA}$}] (3.75,8.75);
+			\draw (3.75,8.75) to (3.75,8.25) node[ground]{};
+		\end{circuitikz}
+	}%
+	\caption{Noise sources in a \gls{tia} circuit}
+	\label{fig:td:design:tia_noise}
+\end{figure}
+
+Calculating $i_{nR}$ can be done using the Johnson-Nyquist formula, as shown in Equation \ref{eq:td:noise_res}. Given the fact that the temperature $T$ and noise cutoff frequency $\delta{f}$ cannot be modified in this case, $R_1$ is  the only variable that can be used to lower the thermal noise current.
+
+\begin{equation}\label{eq:td:noise_res}
+	i_{nR} = \sqrt{\frac{4kT\Delta{f}}{R_1}}
+\end{equation}
+
+Combining the noise sources leads to Equation \ref{eq:td:noise_sources}, which also shows that the noise can be modeled as voltage sources.  
+
+\begin{equation}\label{eq:td:noise_sources}
+		i_n(f) = \sqrt{i_{nR}^2 + i_{nA}^2} \Leftrightarrow
+		v_n(f) = \sqrt{v_{nR}^2 + v_{nA}^2}
+\end{equation}
+
+In order to get a better understanding of the noise, its transfer function can be calculated in much the same way as the transimpedance (Equations \ref{eq:td:aol} - \ref{eq:td:zt}), leading to Equation \ref{eq:td:noise_tf}. While it might not be immediately obvious from the mathematical expression, the noise gain is \num{0} \unit{\decibel} at low frequencies, but it peaks when $f \approx f_c$. Chapter \ref{chap:td:v2} shows the noise frequency response obtained from the system equation.
+
+\begin{equation}\label{eq:td:noise_tf}
+	H_n(s) = \frac{v_o}{v_n} = \frac{A_o\omega_o(s + \frac{1}{(C_i + C_1)R_1})}{s^2 + s(\frac{1}{(C_i + C_1)R_1} + \omega_o(1 + A_o\frac{C_1}{C_i + C_1})) + \frac{\omega_o(1 + A_o)}{(C_i + C_1)R_1}}
+\end{equation}
+
+\section{Photodetection simulation}
+Simulation is an important part of the designing process, as digital models of devices can be more detailed than the mathematical models presented thus far. Using different simulation programs, the real-world performance can be approximated and the math can be validated.
 
 
 \subsection{First iteration}
@@ -157,7 +254,6 @@ Figure \ref{fig:photodetecog} shows the LTSpice design. $C_1$ and $R_2$, as well
 \end{figure}
 
 
-\subsubsection{Simulation}
 Tina-TI was used to simulate and visualize the DC gain and frequency response of the system, as seen in Figure \ref{fig:tina2probes}. The signals $V_{ot}$ and $V_{out}$ correspond to the output of the transimpedance and non-inverting amplification stage respectively. The AC plot (Figure \ref{fig:tinaac2probes}) shows the cutoff, at \num{10,77} \unit{\kilo \hertz}, and the gain inside the gain bandwidth, which is \num{160,82} \unit{\decibel}. The DC plot (Figure \ref{fig:tinadc2probes}) shows the voltage with respect to the current and demonstrates the linearity of the system in the range of \numrange{0}{46,31} \unit{\nano \ampere}. After $V_{out}$ reaches \num{5} \unit{V}, the output remains fixed, because it cannot exceed the voltage provided to the amplifier. 
 
 \begin{figure}[ht]
@@ -178,7 +274,16 @@ Tina-TI was used to simulate and visualize the DC gain and frequency response of
 \end{figure}
 
 
-\subsubsection{Implementation} 
+
+
+\subsection{Second iteration}\label{chap:td:v2}
+A MATLAB script was written to calculate the component values based on the calculations in Chapter \ref{chap:td:calc:v2}. 
+
+
+\section{Photodetection implementation}
+Creating the physical \gls{pcb} is a more straightforward process than the design and simulation, but it still needs to be discussed. 
+
+\subsection{First iteration}
 Figure \ref{fig:photodetecogpcb} shows the back side of the PCB. It hosts all components, except for the photodiode, which sits unobstructed on the front side. Requirements for the physical dimensions were also set by the client. The PCB needs to fit the Thorlabs mount standard, since the rest of the setup also uses it. 
 
 \begin{figure}[ht]
@@ -187,6 +292,8 @@ Figure \ref{fig:photodetecogpcb} shows the back side of the PCB. It hosts all co
 	\caption{First iteration of the photodetection PCB}
 	\label{fig:photodetecogpcb}
 \end{figure}
+
+\subsection{Second iteration}
 
 
 \section{OLIA implementation}

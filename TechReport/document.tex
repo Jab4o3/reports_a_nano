@@ -22,6 +22,7 @@ linkcolor=purple,
 citecolor=red,
 pdftitle={V. Serafimov Bachelor Thesis EEE}
 ]{hyperref}
+%\usepackage{cleveref} % better refs, always load after hyperref
 \usepackage[toc]{appendix}
 \usepackage{markdown}
 \usepackage[table,xcdraw]{xcolor}
@@ -180,6 +181,8 @@ citestyle=numeric-comp, % combine severa comma-separated entries
 \newacronym{snr}{SNR}{Signal-to-Noise Ratio}
 \newacronym{kcl}{KCL}{Kirchhoff's Current Law}
 \newacronym{dc}{DC}{Direct Current}
+\newacronym{fet}{FET}{Field-Effect Transistor}
+\newacronym[parent=fet]{mosfet}{MOSFET}{Metal-Oxide-Semiconductor \glstext{fet}}
 \makeglossaries
 
 \title{Enabling photodetection electronics for 

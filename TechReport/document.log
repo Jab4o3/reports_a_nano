@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.6.12)  14 NOV 2025 15:24
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.6.12)  26 NOV 2025 14:37
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1666,7 +1666,7 @@ o)...executed safely (allowed).
 \glo@main@file=\write9
 \openout9 = `document.glo'.
 
-Package glossaries Info: Writing glossary file document.glo on input line 187.
+Package glossaries Info: Writing glossary file document.glo on input line 190.
 Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... found 'babel' package.
 Package csquotes Info: Adjusting default style.
@@ -1676,24 +1676,24 @@ Package csquotes Info: Redefining alias 'default' -> 'english'.
 (09-Conclusion.aux) (A-Appendices.aux))
 \openout1 = `document.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 192.
-LaTeX Font Info:    ... okay on input line 192.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 192.
-LaTeX Font Info:    ... okay on input line 192.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 192.
-LaTeX Font Info:    ... okay on input line 192.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 192.
-LaTeX Font Info:    ... okay on input line 192.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 192.
-LaTeX Font Info:    ... okay on input line 192.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 192.
-LaTeX Font Info:    ... okay on input line 192.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 192.
-LaTeX Font Info:    ... okay on input line 192.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 192.
-LaTeX Font Info:    ... okay on input line 192.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 192.
-LaTeX Font Info:    ... okay on input line 192.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 195.
+LaTeX Font Info:    ... okay on input line 195.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 195.
+LaTeX Font Info:    ... okay on input line 195.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 195.
+LaTeX Font Info:    ... okay on input line 195.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 195.
+LaTeX Font Info:    ... okay on input line 195.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 195.
+LaTeX Font Info:    ... okay on input line 195.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 195.
+LaTeX Font Info:    ... okay on input line 195.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 195.
+LaTeX Font Info:    ... okay on input line 195.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 195.
+LaTeX Font Info:    ... okay on input line 195.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 195.
+LaTeX Font Info:    ... okay on input line 195.
 
 (C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/latex/translations/dicts\tran
 slations-basic-dictionary-english.trsl
@@ -1701,7 +1701,7 @@ File: translations-basic-dictionary-english.trsl (english translation file `tra
 nslations-basic-dictionary')
 )
 Package translations Info: loading dictionary `translations-basic-dictionary' f
-or `english'. on input line 192.
+or `english'. on input line 195.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: hyperref package is loaded.
 Package caption Info: listings package is loaded.
@@ -1738,7 +1738,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 fg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
-Package hyperref Info: Link coloring ON on input line 192.
+Package hyperref Info: Link coloring ON on input line 195.
  (document.out) (document.out)
 \@outlinefile=\write10
 \openout10 = `document.out'.
@@ -1782,7 +1782,7 @@ Package hyperref Info: Link coloring ON on input line 192.
 Package pgfplots Warning: running in backwards compatibility mode (unsuitable t
 ick labels; missing features). Consider writing \pgfplotsset{compat=1.18} into 
 your preamble.
- on input line 192.
+ on input line 195.
 
 \c@lstlisting=\count592
 Package biblatex Info: Trying to load language 'english'...
@@ -1800,15 +1800,15 @@ Package biblatex Info: Automatic encoding selection.
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'document.bbl' found.
  (document.bbl)
-Package biblatex Info: Reference section=0 on input line 192.
-Package biblatex Info: Reference segment=0 on input line 192.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 194
+Package biblatex Info: Reference section=0 on input line 195.
+Package biblatex Info: Reference segment=0 on input line 195.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 197
 .
 
 (C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 194
+LaTeX Font Info:    Trying to load font information for U+msb on input line 197
 .
 
 (C:\Users\vladi\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
@@ -1827,7 +1827,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.46 ...berline {8}Recommendations}{24}{chapter.8}
+l.46 ...berline {8}Recommendations}{27}{chapter.8}
                                                   % [1
 
 ])
@@ -1962,57 +1962,93 @@ Chapter 5.
 [17]
 
 [18]
-<img/photodetec_og.png, id=652, 729.47531pt x 532.23843pt>
-File: img/photodetec_og.png Graphic file (type png)
-<use img/photodetec_og.png>
-Package pdftex.def Info: img/photodetec_og.png  used on input line 251.
-(pdftex.def)             Requested size: 298.75264pt x 217.97552pt.
-<img/tina_AC_2probes.jpg, id=656, 548.0475pt x 336.25626pt>
+<img/adafruit_split_rail_boost.png, id=653, 284.56313pt x 219.82124pt>
+File: img/adafruit_split_rail_boost.png Graphic file (type png)
+<use img/adafruit_split_rail_boost.png>
+Package pdftex.def Info: img/adafruit_split_rail_boost.png  used on input line 
+250.
+(pdftex.def)             Requested size: 170.71393pt x 131.88034pt.
+<img/virt_ground.png, id=659, 170.13562pt x 130.98938pt>
+File: img/virt_ground.png Graphic file (type png)
+<use img/virt_ground.png>
+Package pdftex.def Info: img/virt_ground.png  used on input line 261.
+(pdftex.def)             Requested size: 128.0387pt x 98.58356pt.
+<img/chrg_pump.png, id=663, 720.44156pt x 304.13625pt>
+File: img/chrg_pump.png Graphic file (type png)
+<use img/chrg_pump.png>
+Package pdftex.def Info: img/chrg_pump.png  used on input line 271.
+(pdftex.def)             Requested size: 213.39568pt x 90.08139pt.
+
+
+[19 <./img/adafruit_split_rail_boost.png> <./img/virt_ground.png>]
+<img/TIA_TINA_SIM_1P6.jpg, id=683, 690.58pt x 253.94875pt>
+File: img/TIA_TINA_SIM_1P6.jpg Graphic file (type jpg)
+<use img/TIA_TINA_SIM_1P6.jpg>
+Package pdftex.def Info: img/TIA_TINA_SIM_1P6.jpg  used on input line 309.
+(pdftex.def)             Requested size: 298.75264pt x 109.86232pt.
+<img/tina_AC_2probes.jpg, id=688, 548.0475pt x 336.25626pt>
 File: img/tina_AC_2probes.jpg Graphic file (type jpg)
 <use img/tina_AC_2probes.jpg>
-Package pdftex.def Info: img/tina_AC_2probes.jpg  used on input line 262.
+Package pdftex.def Info: img/tina_AC_2probes.jpg  used on input line 322.
 (pdftex.def)             Requested size: 209.1301pt x 128.3123pt.
-<img/tina_DC_2probes.jpg, id=657, 531.9875pt x 320.19624pt>
+<img/tina_DC_2probes.jpg, id=689, 531.9875pt x 320.19624pt>
 File: img/tina_DC_2probes.jpg Graphic file (type jpg)
 <use img/tina_DC_2probes.jpg>
-Package pdftex.def Info: img/tina_DC_2probes.jpg  used on input line 268.
+Package pdftex.def Info: img/tina_DC_2probes.jpg  used on input line 328.
 (pdftex.def)             Requested size: 209.1301pt x 125.87273pt.
 
 
-[19 <./img/photodetec_og.png>]
-<img/photodetec_og_pcb.png, id=670, 1189.44376pt x 567.62062pt>
+[20 <./img/chrg_pump.png> <./img/TIA_TINA_SIM_1P6.jpg>]
+<matlab/bode_v1_v2_comparison.png, id=706, 526.96875pt x 395.22656pt>
+File: matlab/bode_v1_v2_comparison.png Graphic file (type png)
+<use matlab/bode_v1_v2_comparison.png>
+Package pdftex.def Info: matlab/bode_v1_v2_comparison.png  used on input line 3
+70.
+(pdftex.def)             Requested size: 298.75264pt x 224.07533pt.
+<img/photodetec_og_pcb.png, id=709, 1189.44376pt x 567.62062pt>
 File: img/photodetec_og_pcb.png Graphic file (type png)
 <use img/photodetec_og_pcb.png>
-Package pdftex.def Info: img/photodetec_og_pcb.png  used on input line 291.
+Package pdftex.def Info: img/photodetec_og_pcb.png  used on input line 387.
 (pdftex.def)             Requested size: 298.75264pt x 142.56305pt.
+
+
+[21 <./img/tina_AC_2probes.jpg> <./img/tina_DC_2probes.jpg>]
+<img/photodetec_v2_gp_pcb2.png, id=724, 1393.205pt x 784.9325pt>
+File: img/photodetec_v2_gp_pcb2.png Graphic file (type png)
+<use img/photodetec_v2_gp_pcb2.png>
+Package pdftex.def Info: img/photodetec_v2_gp_pcb2.png  used on input line 397.
+
+(pdftex.def)             Requested size: 298.75264pt x 168.31404pt.
 )
 
-[20 <./img/tina_AC_2probes.jpg> <./img/tina_DC_2probes.jpg> <./img/photodetec_o
-g_pcb.png (PNG copy)>]
+[22 <./matlab/bode_v1_v2_comparison.png (PNG copy)> <./img/photodetec_og_pcb.pn
+g (PNG copy)>]
+
+[23 <./img/photodetec_v2_gp_pcb2.png>]
 \openout2 = `09-Conclusion.aux'.
 
  (09-Conclusion.tex
 Chapter 6.
 
 
-[21
+[24
 
 
 
 
 ]
 
-[22]
+[25]
 Chapter 7.
 
 
-[23
+[26
 
 ]
 Chapter 8.
 )
 
-[24
+[27
 
 ]
 \openout2 = `A-Appendices.aux'.
@@ -2021,7 +2057,7 @@ Chapter 8.
 Appendix A.
 )
 
-[25
+[28
 
 
 
@@ -2029,22 +2065,24 @@ Appendix A.
 
 ] (document.gls)
 
-[26
+[29
 
 
 
 
 ]
-Overfull \hbox (14.43997pt too wide) in paragraph at lines 240--240
+Overfull \hbox (14.43997pt too wide) in paragraph at lines 243--243
 \OT1/cmr/m/it/10 tadresse: https://www. zhinst. com/sites/de-fault-/-files/li[]
 primer/zi[]whitepaper[]principles[]of[]lock-
  []
 
 
 
-[27
+[30
 
-] 
+]
+
+[31] 
 enddocument/afterlastpage (AED): lastpage setting LastPage.
 (document.aux (05-Introduction.aux) (06-Analysis_of_specifications.aux)
 (07-Functional.aux) (08-Technical.aux) (09-Conclusion.aux) (A-Appendices.aux))
@@ -2057,48 +2095,50 @@ L3 programming layer <2025-05-26>
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `document.out' has not changed.
-(rerunfilecheck)             Checksum: 4AC0656484B3633C8C216F4E96D566F1;6387.
+(rerunfilecheck)             Checksum: FB5D34CDA788C3DB926900138690DDB7;6354.
 Package logreq Info: Writing requests to 'document.run.xml'.
 \openout1 = `document.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 82786 strings out of 468224
- 2075169 string characters out of 5432952
- 3279998 words of memory out of 5000000
- 110256 multiletter control sequences out of 15000+600000
- 639497 words of font info for 87 fonts, out of 8000000 for 9000
+ 82996 strings out of 468224
+ 2079711 string characters out of 5432952
+ 3281759 words of memory out of 5000000
+ 110447 multiletter control sequences out of 15000+600000
+ 639874 words of font info for 88 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  99i,17n,123p,2594b,2940s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <C:\Users\vladi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm
-1000.pk><C:/Users/vladi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfon
-ts/cm/cmbsy10.pfb><C:/Users/vladi/AppData/Local/Programs/MiKTeX/fonts/type1/pub
-lic/amsfonts/cm/cmbx10.pfb><C:/Users/vladi/AppData/Local/Programs/MiKTeX/fonts/
-type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/vladi/AppData/Local/Programs/MiKT
-eX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/vladi/AppData/Local/Prog
-rams/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/vladi/AppData/L
-ocal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/vladi/
-AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/User
-s/vladi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb>
-<C:/Users/vladi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cm
-mi7.pfb><C:/Users/vladi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfon
-ts/cm/cmmi8.pfb><C:/Users/vladi/AppData/Local/Programs/MiKTeX/fonts/type1/publi
-c/amsfonts/cm/cmr10.pfb><C:/Users/vladi/AppData/Local/Programs/MiKTeX/fonts/typ
-e1/public/amsfonts/cm/cmr12.pfb><C:/Users/vladi/AppData/Local/Programs/MiKTeX/f
-onts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/vladi/AppData/Local/Programs/
-MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/vladi/AppData/Local/Pr
-ograms/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/vladi/AppData/L
-ocal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/vladi/Ap
-pData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/v
-ladi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/
-Users/vladi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10
-.pfb><C:/Users/vladi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/
-cm/cmsy7.pfb><C:/Users/vladi/AppData/Local/Programs/MiKTeX/fonts/type1/public/a
-msfonts/cm/cmti10.pfb><C:/Users/vladi/AppData/Local/Programs/MiKTeX/fonts/type1
-/public/amsfonts/cm/cmtt10.pfb>
-Output written on document.pdf (28 pages, 2046194 bytes).
+ <C:\Users\vladi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcti
+1000.pk> <C:\Users\vladi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi60
+0\tcrm1000.pk><C:/Users/vladi/AppData/Local/Programs/MiKTeX/fonts/type1/public/
+amsfonts/cm/cmbsy10.pfb><C:/Users/vladi/AppData/Local/Programs/MiKTeX/fonts/typ
+e1/public/amsfonts/cm/cmbx10.pfb><C:/Users/vladi/AppData/Local/Programs/MiKTeX/
+fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/vladi/AppData/Local/Program
+s/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/vladi/AppData/Loca
+l/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/vladi/App
+Data/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/
+vladi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C
+:/Users/vladi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi
+6.pfb><C:/Users/vladi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts
+/cm/cmmi7.pfb><C:/Users/vladi/AppData/Local/Programs/MiKTeX/fonts/type1/public/
+amsfonts/cm/cmmi8.pfb><C:/Users/vladi/AppData/Local/Programs/MiKTeX/fonts/type1
+/public/amsfonts/cm/cmr10.pfb><C:/Users/vladi/AppData/Local/Programs/MiKTeX/fon
+ts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/vladi/AppData/Local/Programs/Mi
+KTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/vladi/AppData/Local/Pro
+grams/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/vladi/AppData/Lo
+cal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/vladi/App
+Data/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/vl
+adi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/U
+sers/vladi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pf
+b><C:/Users/vladi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
+cmsy10.pfb><C:/Users/vladi/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
+fonts/cm/cmsy7.pfb><C:/Users/vladi/AppData/Local/Programs/MiKTeX/fonts/type1/pu
+blic/amsfonts/cm/cmsy8.pfb><C:/Users/vladi/AppData/Local/Programs/MiKTeX/fonts/
+type1/public/amsfonts/cm/cmti10.pfb><C:/Users/vladi/AppData/Local/Programs/MiKT
+eX/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
+Output written on document.pdf (32 pages, 2239850 bytes).
 PDF statistics:
- 899 PDF objects out of 1000 (max. 8388607)
- 163 named destinations out of 1000 (max. 500000)
- 447 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 988 PDF objects out of 1000 (max. 8388607)
+ 181 named destinations out of 1000 (max. 500000)
+ 472 words of extra memory for PDF output out of 10000 (max. 10000000)
 

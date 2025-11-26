@@ -92,6 +92,12 @@
 \glossaryentry{TIA?\glossentry{tia}|setentrycounter[]{page}"\glsnumberformat}{18}
 \glossaryentry{TIA?\glossentry{tia}|setentrycounter[]{page}"\glsnumberformat}{18}
 \glossaryentry{FET?\glossentry{fet}|setentrycounter[]{page}"\glsnumberformat}{18}
+\glossaryentry{IC?\glossentry{ic}|setentrycounter[]{page}"\glsnumberformat}{19}
 \glossaryentry{PCB?\glossentry{pcb}|setentrycounter[]{page}"\glsnumberformat}{19}
-\glossaryentry{ODMR?\glossentry{odmr}|setentrycounter[]{page}"\glsnumberformat}{26}
-\glossaryentry{ODMR?\glossentry{odmr}|setentrycounter[]{page}"\glsnumberformat}{26}
+\glossaryentry{USB?\glossentry{usb}|setentrycounter[]{page}"\glsnumberformat}{19}
+\glossaryentry{DC?\glossentry{dc}|setentrycounter[]{page}"\glsnumberformat}{21}
+\glossaryentry{PCB?\glossentry{pcb}|setentrycounter[]{page}"\glsnumberformat}{21}
+\glossaryentry{PCB?\glossentry{pcb}|setentrycounter[]{page}"\glsnumberformat}{21}
+\glossaryentry{ODMR?\glossentry{odmr}!CW-ODMR?\subglossentry{1}{cwodmr}|setentrycounter[]{page}"\glsnumberformat}{22}
+\glossaryentry{ODMR?\glossentry{odmr}|setentrycounter[]{page}"\glsnumberformat}{29}
+\glossaryentry{ODMR?\glossentry{odmr}|setentrycounter[]{page}"\glsnumberformat}{29}

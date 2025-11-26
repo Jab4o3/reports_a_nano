@@ -239,20 +239,82 @@ In order to get a better understanding of the noise, its transfer function can b
 	H_n(s) = \frac{v_o}{v_n} = \frac{A_o\omega_o(s + \frac{1}{(C_i + C_1)R_1})}{s^2 + s(\frac{1}{(C_i + C_1)R_1} + \omega_o(1 + A_o\frac{C_1}{C_i + C_1})) + \frac{\omega_o(1 + A_o)}{(C_i + C_1)R_1}}
 \end{equation}
 
+
+\subsection{Third iteration}
+While the second version of the photodetector focuses on improving the TIA performance, the third iteration is more about adapting the design for the setup. The most important considerations for the setup are function and size. Form factor constraints arise from the fact that the setup needs to be as small and adhere to the Thorlabs mounting standard. Photodetection also needs to not require many external connections or ideally be standalone. This is feasible for the data flow, as the photodetection PCB only needs light and an output to work. Unlike the data connections, version two of the design has a suboptimal power delivery system, as it uses three pins for the supply of power. 
+
+Three alternatives methods for power delivery were considered, all of which only need power and ground to work. The first one is an onboard split-rail power supply, which would take the power input and would output a fixed positive and negative voltage. Figure \ref{fig:td:des:adafruitsplitrailboost} shows an example of what a split-rail supply implementation might look like. There are also external option \cite{clark2025boost}, which might be necessary in the future, if the setup size needs to be reduced even more.  
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.4\linewidth]{img/adafruit_split_rail_boost}
+	\caption{Example of a split-rail power supply implementation using the TPS65133 \glsfmtshort{ic} (image credit to \cite{ti2015tps65133})}
+	\label{fig:td:des:adafruitsplitrailboost}
+\end{figure}
+
+
+A simpler solution would be to use a virtual ground driver \gls{ic}, as it would provide a reference point at half of the supply voltage. Such a supply would also be good for decreasing the size, as the \gls{pcb} needs minimal additions to satisfy the power needs of the photodetector. Additionally, a virtual ground circuit, which behaves similarly, can be made using two voltage regulators. The example in Figure \ref{fig:td:des:virtground} is a slightly more stable implementation
+
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.3\linewidth]{img/virt_ground}
+	\caption{Example of a virtual ground driver using the TLE2426 \glsfmtshort{ic} (image credit to \cite{ts2022ground})}
+	\label{fig:td:des:virtground}
+\end{figure}
+
+
+Another possibility is to implement a charge pump, which inverts the input voltage. This setup would only need half of the input voltage required for the virtual ground solution, effectively enabling it to be powered via a standard \gls{usb} connector.
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.5\linewidth]{img/chrg_pump}
+	\caption{Example of a charge pump inverter using a TPS6040x family \glsfmtshort{ic} (image credit to \cite{instruments2015tps6040x}}
+	\label{fig:td:des:chrgpump}
+\end{figure}
+
+
+
+\begin{table}
+\begin{tabular}{|c||c|c|c|}
+	\hline
+										& Split-rail power supply 	& Virtual ground & Charge pump  \\
+	\hline
+	\glsfmtshort{ic}					& TPS65133		 			& TLE2426 	     & TPS60400 	\\
+	\hline
+	$V_{in}$ (\unit{\volt}) 			& 5  			 			& 10 	   		 & 5  			\\
+	\hline
+	$V_{out}$ (\unit{\volt})			& \textpm 5 				& \textpm 5 	 & -5 			\\
+	\hline
+	$I_{out}$ (\unit{\m\A})				& 250  						& 40 			 & 60 			\\
+	\hline
+	Current draw (\unit{\mu\A})			& 15						& 300 	 		 & 210  \\
+	\hline
+\end{tabular}
+\caption{Comparison of power supply options}
+\label{tab:power_supply}
+\end{table}
+
+The specifications of the different power supply solutions are shown in Table \ref{tab:power_supply}, from which can be deduced that there is a correlation between complexity and performance. The split-rail power supply, as the most complex solution, has the biggest current output range and lowest current consumption, but as illustrated in Figure \ref{fig:td:des:adafruitsplitrailboost}, there are a number of other components that are required for proper implementation. In contrast, the virtual ground supply concept has relatively poor specifications compared to the other options, but it is the only solution that does not employ a switching mechanism, thus avoiding any possible noise. Lastly, the charge pump inverter offers reasonable performance, while not needing as many extra components as the split-rail supply. Furthermore, it addresses the stability concerns that might arise when using a virtual ground \gls{ic}. 
+
+Ultimately, the decision 
+
+
+
 \section{Photodetection simulation}
 Simulation is an important part of the designing process, as digital models of devices can be more detailed than the mathematical models presented thus far. Using different simulation programs, the real-world performance can be approximated and the math can be validated.
 
 
 \subsection{First iteration}
-Figure \ref{fig:photodetecog} shows the LTSpice design. $C_1$ and $R_2$, as well as the current source $I_1$ are used to simulate the behavior of a photodiode.
-
-\begin{figure} [ht]
+\begin{figure} [!ht]
 	\centering
-	\includegraphics[width=0.7\linewidth]{img/photodetec_og}
-	\caption{Provided photodetector design}
+	\includegraphics[width=0.7\linewidth]{img/TIA_TINA_SIM_1P6}
+	\caption{First iteration of the photodetector circuit}
 	\label{fig:photodetecog}
 \end{figure}
 
+
+Figure \ref{fig:photodetecog} shows the schematic of the circuit. The capacitor $C_4$, as well as the current source $I_1$ are used to simulate the behavior of a photodiode.
 
 Tina-TI was used to simulate and visualize the DC gain and frequency response of the system, as seen in Figure \ref{fig:tina2probes}. The signals $V_{ot}$ and $V_{out}$ correspond to the output of the transimpedance and non-inverting amplification stage respectively. The AC plot (Figure \ref{fig:tinaac2probes}) shows the cutoff, at \num{10,77} \unit{\kilo \hertz}, and the gain inside the gain bandwidth, which is \num{160,82} \unit{\decibel}. The DC plot (Figure \ref{fig:tinadc2probes}) shows the voltage with respect to the current and demonstrates the linearity of the system in the range of \numrange{0}{46,31} \unit{\nano \ampere}. After $V_{out}$ reaches \num{5} \unit{V}, the output remains fixed, because it cannot exceed the voltage provided to the amplifier. 
 
@@ -277,7 +339,43 @@ Tina-TI was used to simulate and visualize the DC gain and frequency response of
 
 
 \subsection{Second iteration}\label{chap:td:v2}
+
 A MATLAB script was written to calculate the component values based on the calculations in Chapter \ref{chap:td:calc:v2}. 
+
+MATLAB calculates the component values with high precision and sourcing components with the exact values is not feasible, which is why components with standard values will be used in the setup. Simulations with standardized components were also done to compare the mathematically-ideal setup to the one in practice. 
+
+\begin{table}[!ht]
+	\centering
+	\begin{tabular}{|c||c|c|c|}
+		\hline
+		\glsfmtshort{tia} version & v2 (Ideal) & v2 (Real.)	    & v1 		\\
+		\hline
+		$C_1$ (\unit{\pico \farad}) & \num{0,96904} & \num{1}	    & \num{1,6} 		\\
+		\hline
+		$f_c$ (\unit{\kilo \hertz}) & \num{22,0768} & \num{21,167}  &  \num{11,2422}	\\
+		\hline
+		
+		$Q$  					    & \num{0,57735} & \num{0,55996} &  \num{0,35487}   \\
+		\hline
+	\end{tabular}
+	\caption{Photodetector parameters with a \num{10} \unit{\mega \ohm} feedback resistor $R_1$}
+	\label{tab:td:params}
+\end{table}
+
+Table \ref{tab:td:params} contains the MATLAB calculation results and shows the values of $f_c$ and $Q$ when only $C_1$ changes. $R_1$ is kept the same, as it is equivalent the \gls{dc} transimpedance $Z_{tDC}$\footnote{For realistic op-amps, $\frac{A_o}{A_o + 1} \to 1$, which means $Z_{tDC} \equiv R_1$ can be assumed to simplify explanations}. Importantly, the results show that the previous iteration had an overdamped response. Although the quality factor with realistic component values is also lower than the ideal $Q = \frac{\sqrt{3}}{3}$, the system sill behaves approximately like a Bessel filter.
+
+
+Using these values, the system model was calculated and plotted in Figure \ref{fig:td:bodev1v2comparison}. Certain differences can be seen between the two iterations. Most notably, the cutoff frequency $f_c$ of the first iteration is somewhat smaller than that of the second iteration. Furthermore, it can be observed that both the ideal and realistic versions of the system behave similarly. 
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.7\linewidth]{matlab/bode_v1_v2_comparison}
+	\caption{Bode plot of the system with different capacitors}
+	\label{fig:td:bodev1v2comparison}
+\end{figure}
+
+
+
 
 
 \section{Photodetection implementation}
@@ -294,6 +392,15 @@ Figure \ref{fig:photodetecogpcb} shows the back side of the PCB. It hosts all co
 \end{figure}
 
 \subsection{Second iteration}
+Due to the fact that the topology of the first iteration was kept, the \gls{pcb} does not need any modifications in order to work with the circuit parameters. However, after a discussion with the client, a ground plane was added. Usually such an addition would be needed in high-speed and/or high-power use cases, but the circuit only deals with low-speed, very-low-power signals. The reason for the ground plane in the updated design is broader quantum protocol support. While \gls{cwodmr} operates at low frequencies, future expansion of the sensing setup might require support for different high-speed pulsing sequences. In that case, the component values can be modified again, without the need for making a new board. Figure \ref{fig:td:imp:photodetecv2gppcb2} shows the new board design. The updated board also has better routing than the previous version, which was done to optimize the noise performance.
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.7\linewidth]{img/photodetec_v2_gp_pcb2}
+	\caption{Second iteration of the photodetection PCB}
+	\label{fig:td:imp:photodetecv2gppcb2}
+\end{figure}
 
 
-\section{OLIA implementation}
+
+%\section{OLIA implementation}

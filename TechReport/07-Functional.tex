@@ -192,12 +192,12 @@ Finally, Equation \ref{eq:voltage_mult} shows the product of the signal $V_s$ an
 \section{Photodetection}
 Photodetection is how the \gls{nv} photoluminescence is measured, effectively turning light into current using a photodiode. However, a bare photodiode cannot be connected to a lock-in amplifier, because it functions as a current generator. This is where the photodetection \gls {pcb} comes in. Its purpose is to transform the current into voltage and then amplify the resulting signal to the necessary voltage level. 
 
-\section{Photodiodes}\label{chap:fd:photodiodes}
+\subsection{Photodiodes}\label{chap:fd:photodiodes}
 At the heart of the photodetector lies the photodiode. It is what turns light into current and drives the \gls{tia} that follows it. While the specifications of the diode are not the most important part of the photodetector circuit, they still need to be discussed, due to the impact the two ways of biasing can have on the circuit.
 
 An exceedingly common photodiode configuration, 
 
-\subsection{Design process} \label{chap:photodetection_design}
+\subsection{\glsfmtshort{tia} design} \label{chap:photodetection_design}
 Designing the photodetector is mostly about creating a \gls{tia}, which is a tool used for converting current to voltage, and specifically tuning its parameters so that it works with the selected photodiode under operating conditions. 
 
 \begin{figure}[ht]
@@ -319,5 +319,8 @@ Equation \ref{eq:nia} is used to calculate the gain of second amplification stag
 \end{equation}
 
 The design is based on circuits provided by the client. At their request, the first version of the PCB is an exact replica of the original circuit.  
+
+\subsection{Power requirements}
+Calculating the power needs of the photodetector is important for decreasing the size of the quantum setup. As bench power supplies take up a lot of space and exceed the photodetector requirements by orders of magnitude, an on-board supply or a breakout board will better fit the project.
 
 %\section{\glsfmtshort{olia} implementation}

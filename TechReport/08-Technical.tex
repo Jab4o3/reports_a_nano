@@ -14,7 +14,7 @@ As previously mentioned, the first iteration of the PCB uses component values pr
 %	f_{c} = (1 + \frac{C_d + C_{cm} + C_{df}}{C_1})f_{rc} \approx f_{rc}
 %\end{equation}
 %
-%Even though $f_{rc}$ provides an approximation for the cutoff frequency, the parasitic capacitances in the system will cause it to be slightly bigger. Equation \ref{eq:gbw} shows how a more accurate cutoff frequency $f_c$ can be calculated by taking into account $C_d$ and $C_{cm}$ (differential and common-mode capacitance respectively). In this case, $f_c$ tells us the gain bandwidth or the frequency range in which DC gain is retained.
+%Even though $f_{rc}$ provides an approximation for the cutoff frequency, the parasitic capacitances in the system will cause it to be slightly bigger. Equation \eqref{eq:gbw} shows how a more accurate cutoff frequency $f_c$ can be calculated by taking into account $C_d$ and $C_{cm}$ (differential and common-mode capacitance respectively). In this case, $f_c$ tells us the gain bandwidth or the frequency range in which DC gain is retained.
 
 \subsection{Second iteration} \label{chap:td:calc:v2}
 Due to time constraints, this iteration uses the same topology as the first one. That being said, it is still designed analytically, taking into account the general practices, but also considering more subtle factors that might hinder the performance of the system. This section uses the mathematical principles presented in \cite{margan2012transimpedance, sackinger2017analysis, horsthemke2025all} to optimize the design of the existing amplifier. 
@@ -87,7 +87,7 @@ Introducing the real-world parasitic capacitances to the ideal \gls{tia} shown i
 	C_i = C_{d} + C_{df} + C_{cm}
 \end{equation}
 
-The combined input capacitance (Equation \ref{eq:td:ci}) is needed when solving the equation arising from \gls{kcl} at the inverting input of the amplifier. $Z_1$ (Equation \ref{eq:td:z1}), or the combined impedance of $R_1$ and $C_1$, is another prerequisite for deriving the transimpedance $Z_t$ using \gls{kcl}. Additionally, the open-loop gain $A_{ol}$ is needed for the derivation of the transimpedance. Equation \ref{eq:td:aol} shows the open-loop gain, expressed with the \gls{dc} open-loop gain $A_o$ and the open-loop cutoff frequency $\omega_o$, which is equivalent to $\frac{v_{out}}{v_{in}}$.
+The combined input capacitance (Equation \eqref{eq:td:ci}) is needed when solving the equation arising from \gls{kcl} at the inverting input of the amplifier. $Z_1$ (Equation \eqref{eq:td:z1}), or the combined impedance of $R_1$ and $C_1$, is another prerequisite for deriving the transimpedance $Z_t$ using \gls{kcl}. Additionally, the open-loop gain $A_{ol}$ is needed for the derivation of the transimpedance. Equation \eqref{eq:td:aol} shows the open-loop gain, expressed with the \gls{dc} open-loop gain $A_o$ and the open-loop cutoff frequency $\omega_o$, which is equivalent to $\frac{v_{out}}{v_{in}}$.
 
 \begin{equation}\label{eq:td:z1}
 	Z_1(s) = \frac{1}{\frac{1}{R_1} + sC_1}
@@ -97,7 +97,7 @@ The combined input capacitance (Equation \ref{eq:td:ci}) is needed when solving 
 	A_{ol}(s) = A_o\frac{\omega_0}{s + \omega_0} = \frac{v_{out}}{v_{in}}
 \end{equation}
 
-Finally, the values in the \gls{kcl} equation (Equation \ref{eq:td:kcl}) can be substituted, from which $Z_t$ can be derived, as seen in Equation \ref{eq:td:zt}. 
+Finally, the values in the \gls{kcl} equation (Equation \eqref{eq:td:kcl}) can be substituted, from which $Z_t$ can be derived, as seen in Equation \eqref{eq:td:zt}. 
 
 \begin{equation}\label{eq:td:kcl}
 	i_f = \frac{v_i}{\frac{1}{sC_i}} + \frac{v_{in} - v_{out}}{Z_1(s)}
@@ -109,13 +109,13 @@ Finally, the values in the \gls{kcl} equation (Equation \ref{eq:td:kcl}) can be 
 	\end{aligned}
 \end{equation}
 
-Before moving on to the pole analysis, the impact of the quality factor $Q$ on the system response should be considered (see Equation \ref{eq:td:f_c_q}). Two system poles present when $Q > 0,5$. For $Q = \frac{\sqrt{3}}{3},$ the system has a Bessel response, which has the flattest group delay, however, if $Q = \frac{\sqrt{2}}{2}$, then the system has a Butterworth response, which means it has the flattest possible amplitude response. Although the group delay is not as important as the amplitude response, a Bessel response also results in smaller amount of overshoot and less jitter, which is why it is preferred. 
+Before moving on to the pole analysis, the impact of the quality factor $Q$ on the system response should be considered (see Equation \eqref{eq:td:f_c_q}). Two system poles present when $Q > 0,5$. For $Q = \frac{\sqrt{3}}{3},$ the system has a Bessel response, which has the flattest group delay, however, if $Q = \frac{\sqrt{2}}{2}$, then the system has a Butterworth response, which means it has the flattest possible amplitude response. Although the group delay is not as important as the amplitude response, a Bessel response also results in smaller amount of overshoot and less jitter, which is why it is preferred. 
 
 \begin{equation}\label{eq:td:poles_general}
 	H(s) = H_0\frac{(-s_1)(-s_2)}{(s - s_1)(s - s_2)} = H_0\frac{s_1s_2}{s^2 + s(-s_1 - s_2) + s_1s_2}
 \end{equation}
 
-Based on this consideration, the poles can be found using the general form of a second order transfer function, shown in Equation \ref{eq:td:poles_general}. The general form also makes it obvious that the \gls{dc} gain $H_0 \approx R_1$, assuming that $A_0$ is very big.
+Based on this consideration, the poles can be found using the general form of a second order transfer function, shown in Equation \eqref{eq:td:poles_general}. The general form also makes it obvious that the \gls{dc} gain $H_0 \approx R_1$, assuming that $A_0$ is very big.
 
 
 \begin{equation}\label{eq:td:poles}
@@ -125,7 +125,7 @@ Based on this consideration, the poles can be found using the general form of a 
 	\end{cases}
 \end{equation}
 
-Taking the general-equation poles and their counterparts from the $Z_t$ expression yields the system of equations shown in Equation \ref{eq:td:poles}. Solving for one pole first results in a quadratic equation with roots shown in Equation \ref{eq:td:pole_roots}.
+Taking the general-equation poles and their counterparts from the $Z_t$ expression yields the system of equations shown in Equation \eqref{eq:td:poles}. Solving for one pole first results in a quadratic equation with roots shown in Equation \eqref{eq:td:pole_roots}.
 
 \begin{equation}\label{eq:td:pole_roots}
 	s_{1, 2} = -\frac{1 + \omega_o(C_i(1+A_o)C_1)R_1}{2(C_i + C_1)R_1}\left(1 \pm j\sqrt{\frac{4\omega_o(1 + A_o)(C_i + C_1)R_1}{(1 + \omega_o(C_i + (1 + A_o)C_1)R_1)^2} - 1}\right)
@@ -135,7 +135,7 @@ Taking the general-equation poles and their counterparts from the $Z_t$ expressi
 	s_{1, 2} = -\frac{3}{2}(1 \pm j\frac{\sqrt{3}}{3})
 \end{equation}
 
-Achieving a critically-damped system, can be done by getting the roots of the general form of a Bessel filter (as seen in Equation \ref{eq:td:pole_roots_general}) and using the imaginary parts to get Equation \ref{eq:td:cap_solve}. This expression can be solved with the quadratic formula again, finally resulting in an answer for the compensating capacitor. 
+Achieving a critically-damped system, can be done by getting the roots of the general form of a Bessel filter (as seen in Equation \eqref{eq:td:pole_roots_general}) and using the imaginary parts to get Equation \eqref{eq:td:cap_solve}. This expression can be solved with the quadratic formula again, finally resulting in an answer for the compensating capacitor. 
 
 \begin{equation}\label{eq:td:cap_solve}
 	\frac{4\omega_o(1 + A_o)(C_i + C_1)R_1}{(1 + \omega_o(C_i + (1 + A_o)C_1)R_1)^2} = \frac{4}{3}
@@ -145,9 +145,9 @@ Achieving a critically-damped system, can be done by getting the roots of the ge
 	C_1 = \frac{-2\omega_oR_1C_i \pm \sqrt{12A_oC_iR_1\omega_o - 3}}{2\omega_oR_1(1 + A_o)}
 \end{equation}
 
-Although Equation \ref{eq:td:cap_roots} says there are two solutions for the capacitor, the term under the square root will always be much bigger than the rest of the numerator\footnote{Assuming real-world amplifier and diode specifications, and realistic transimpedance gain requirements}, effectively determining the sign of the roots. Simply put, this leaves only one root possible, as capacitors cannot have negative capacitance values.
+Although Equation \eqref{eq:td:cap_roots} says there are two solutions for the capacitor, the term under the square root will always be much bigger than the rest of the numerator\footnote{Assuming real-world amplifier and diode specifications, and realistic transimpedance gain requirements}, effectively determining the sign of the roots. Simply put, this leaves only one root possible, as capacitors cannot have negative capacitance values.
 
-To further characterize the system, the cutoff frequency $\omega_c$ and damping factor $Q$ can be calculated, because the system adheres to the general form, shown in Equation \ref{eq:td:f_c_q}. Substituting in the pole expressions from Equations \ref{eq:td:poles_general} and \ref{eq:td:poles}.
+To further characterize the system, the cutoff frequency $\omega_c$ and damping factor $Q$ can be calculated, because the system adheres to the general form, shown in Equation \eqref{eq:td:f_c_q}. Substituting in the pole expressions from Equations \eqref{eq:td:poles_general} and \eqref{eq:td:poles}.
 
 \begin{equation}\label{eq:td:f_c_q}
 	H(s) = H_o\frac{\omega_c^2}{s^2 + s\frac{\omega_c}{Q} + \omega_c^2}
@@ -220,20 +220,20 @@ In the process of designing the \gls{tia} circuit, the noise should be considere
 	\label{fig:td:design:tia_noise}
 \end{figure}
 
-Calculating $i_{nR}$ can be done using the Johnson-Nyquist formula, as shown in Equation \ref{eq:td:noise_res}. Given the fact that the temperature $T$ and noise cutoff frequency $\delta{f}$ cannot be modified in this case, $R_1$ is  the only variable that can be used to lower the thermal noise current.
+Calculating $i_{nR}$ can be done using the Johnson-Nyquist formula, as shown in Equation \eqref{eq:td:noise_res}. Given the fact that the temperature $T$ and noise cutoff frequency $\delta{f}$ cannot be modified in this case, $R_1$ is  the only variable that can be used to lower the thermal noise current.
 
 \begin{equation}\label{eq:td:noise_res}
 	i_{nR} = \sqrt{\frac{4kT\Delta{f}}{R_1}}
 \end{equation}
 
-Combining the noise sources leads to Equation \ref{eq:td:noise_sources}, which also shows that the noise can be modeled as voltage sources.  
+Combining the noise sources leads to Equation \eqref{eq:td:noise_sources}, which also shows that the noise can be modeled as voltage sources.  
 
 \begin{equation}\label{eq:td:noise_sources}
 		i_n(f) = \sqrt{i_{nR}^2 + i_{nA}^2} \Leftrightarrow
 		v_n(f) = \sqrt{v_{nR}^2 + v_{nA}^2}
 \end{equation}
 
-In order to get a better understanding of the noise, its transfer function can be calculated in much the same way as the transimpedance (Equations \ref{eq:td:aol} - \ref{eq:td:zt}), leading to Equation \ref{eq:td:noise_tf}. While it might not be immediately obvious from the mathematical expression, the noise gain is \num{0} \unit{\decibel} at low frequencies, but it peaks when $f \approx f_c$. Chapter \ref{chap:td:v2} shows the noise frequency response obtained from the system equation.
+In order to get a better understanding of the noise, its transfer function can be calculated in much the same way as the transimpedance (Equations \ref{eq:td:aol} - \ref{eq:td:zt}), leading to Equation \eqref{eq:td:noise_tf}. While it might not be immediately obvious from the mathematical expression, the noise gain is \num{0} \unit{\decibel} at low frequencies, but it peaks when $f \approx f_c$. Chapter \ref{chap:td:v2} shows the noise frequency response obtained from the system equation.
 
 \begin{equation}\label{eq:td:noise_tf}
 	H_n(s) = \frac{v_o}{v_n} = \frac{A_o\omega_o(s + \frac{1}{(C_i + C_1)R_1})}{s^2 + s(\frac{1}{(C_i + C_1)R_1} + \omega_o(1 + A_o\frac{C_1}{C_i + C_1})) + \frac{\omega_o(1 + A_o)}{(C_i + C_1)R_1}}

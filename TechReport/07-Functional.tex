@@ -173,19 +173,19 @@ Figure \ref{fig:liahlschematic} shows an overview of how lock-in amplification w
 	V_s = R\cos{(\omega_st + \theta)} = \frac{R}{2}e^{i(\omega_st + \theta)} + \frac{R}{2}e^{-i(\omega_st + \theta)}
 \end{equation}
 
-Equation \ref{eq:voltage_sig} shows how the mathematical expression of a sine wave signal, where $\omega_s$ is the frequency and $\theta$ is the phase of the signal. Using the trigonometric identity $\cos{x} = \frac{1}{2}(e^{ix} + e^{-ix})$, the signal can be represented in terms of complex numbers.
+Equation \eqref{eq:voltage_sig} shows how the mathematical expression of a sine wave signal, where $\omega_s$ is the frequency and $\theta$ is the phase of the signal. Using the trigonometric identity $\cos{x} = \frac{1}{2}(e^{ix} + e^{-ix})$, the signal can be represented in terms of complex numbers.
 
 \begin{equation}\label{eq:voltage_ref}
 	V_r = e^{-i\omega_rt}
 \end{equation}
 
-In Equation \ref{eq:voltage_ref}, a simplified reference signal is shown. Real applications might require more complex reference signals, but $V_r$ is perfect for demonstrating the lock-in principle.
+In Equation \eqref{eq:voltage_ref}, a simplified reference signal is shown. Real applications might require more complex reference signals, but $V_r$ is perfect for demonstrating the lock-in principle.
 
 \begin{equation}\label{eq:voltage_mult}
 	V_m = V_sV_r = \frac{R}{2}e^{i(\omega_s -\omega_r)t  + \theta} + \frac{R}{2}e^{-i(\omega_s +\omega_r)t + \theta}
 \end{equation}
 
-Finally, Equation \ref{eq:voltage_mult} shows the product of the signal $V_s$ and the reference $V_r$. In the case of $\omega_s = \omega_r$, there is a signal at \num{0} \unit{\hertz} and another one at $2\omega_s$ \unit{\hertz}. The latter, however, should be attenuated to an undetectable level by the low-pass filters shown in Figure \ref{fig:liahlschematic}. This way, both the unwanted signal appearing at double the frequency and all of the noise at different frequencies is attenuated.
+Finally, Equation \eqref{eq:voltage_mult} shows the product of the signal $V_s$ and the reference $V_r$. In the case of $\omega_s = \omega_r$, there is a signal at \num{0} \unit{\hertz} and another one at $2\omega_s$ \unit{\hertz}. The latter, however, should be attenuated to an undetectable level by the low-pass filters shown in Figure \ref{fig:liahlschematic}. This way, both the unwanted signal appearing at double the frequency and all of the noise at different frequencies is attenuated.
 
 % Thorlabs Photodiodes and Photoconductors Tutorial:
 % https://www.thorlabs.com/newgrouppage9.cfm?objectgroup_id=9020
@@ -244,13 +244,13 @@ The basic circuit, shown in Figure \ref{fig:tia}, is all that is required for ph
 	R_1 = \frac{V_{o\ max}}{I_{o\ max}}\ \text{assuming}\ V_{o\ min} = 0 \unit{\volt}
 \end{equation}
 
-The resistor $R_1$ determines the transimpedance gain of the amplifier. Equation \ref{eq:r1} shows how its value can be calculated by using the output voltage and input current. It should be noted that the minimum output voltage is always 0 in this use case.
+The resistor $R_1$ determines the transimpedance gain of the amplifier. Equation \eqref{eq:r1} shows how its value can be calculated by using the output voltage and input current. It should be noted that the minimum output voltage is always 0 in this use case.
 
 \begin{equation}\label{eq:c1}
 	C_1 = \frac{1}{2 \pi R_1 f_{rc}}
 \end{equation}
 
-The capacitance of $C_1$ can be calculated using the resistance of $R_1$ and the cutoff frequency $f_{rc}$, as shown in Equation \ref{eq:c1}. 
+The capacitance of $C_1$ can be calculated using the resistance of $R_1$ and the cutoff frequency $f_{rc}$, as shown in Equation \eqref{eq:c1}. 
 
 
 In addition, a non-inverting amplifier can be added, to increase the gain of the circuit even more, without affecting the phase. Figure \ref{fig:tia_nia} shows how it can be connected to the output of the \gls{tia} from Figure \ref{fig:tia}.
@@ -312,7 +312,7 @@ In addition, a non-inverting amplifier can be added, to increase the gain of the
 	\label{fig:tia_nia}
 \end{figure}
 
-Equation \ref{eq:nia} is used to calculate the gain of second amplification stage. The formula is derived from the voltage divider formed by the two resistors and the fact that $V_{ot} = V_{-}$.
+Equation \eqref{eq:nia} is used to calculate the gain of second amplification stage. The formula is derived from the voltage divider formed by the two resistors and the fact that $V_{ot} = V_{-}$.
 
 \begin{equation}\label{eq:nia}
 	A_{nia} = \frac{V{out}}{V{ot}} = 1 + \frac{R_3}{R_2}
@@ -321,6 +321,62 @@ Equation \ref{eq:nia} is used to calculate the gain of second amplification stag
 The design is based on circuits provided by the client. At their request, the first version of the PCB is an exact replica of the original circuit.  
 
 \subsection{Power requirements}
-Calculating the power needs of the photodetector is important for decreasing the size of the quantum setup. As bench power supplies take up a lot of space and exceed the photodetector requirements by orders of magnitude, an on-board supply or a breakout board will better fit the project.
+Knowing the power needs of the photodetector is important for decreasing the size of the quantum setup. As bench power supplies take up a lot of space and exceed the photodetector requirements by orders of magnitude, an on-board supply or a breakout board will better fit the project. To minimize overhead while still having a supply that can handle the circuit, the power usage of the photodetector needs to be calculated. 
+
+When calculating the power of the circuit in Figure \ref{fig:tia_nia}, the most important elements to consider are the op-amps. As the non-inverting amplifier has high input impedance, the system can be broken down into two op-amp circuits.
+
+The op-amp in the \gls{tia} circuit has an intrinsic power dissipation caused by its quiescent current, as well as a load power dissipation. Due to the very high input impedance of the non-inverting topology that follows the \gls{tia}, there is no load current. Nevertheless, the feedback loop still draws a current $I_{f\alpha}$ from the amplifier. Equation \eqref{eq:fd:power:tia:current:fb} shows how this current can be calculated, after which the feedback power dissipation $I_{f\alpha}$ can be determined using Equation \eqref{eq:fd:power:tia:fb}.
+
+\begin{equation}\label{eq:fd:power:tia:current:fb}
+	\begin{cases}
+		I_{f\alpha} = \frac{V_{ot}}{Z_1}\\
+		Z_1 = R_1||(\frac{1}{sC_1}) = \frac{R_1}{1 + sC_1R_1}
+	\end{cases}
+\end{equation}
+
+\begin{equation}\label{eq:fd:power:tia:fb}
+	P_{f\alpha} = (V_{cc} - V_{ot})I_{f\alpha}
+\end{equation}
+
+
+As a characteristic of the amplifier \gls{ic}, the quiescent current $I_{q\alpha}$ can be taken from the datasheet to calculate its power dissipation $P_{q\alpha}$ with the formula shown in Equation \eqref{eq:fd:power:tia:q}.
+
+\begin{equation}\label{eq:fd:power:tia:q}
+	P_{q\alpha} = (V_{cc} - V_{ee})I_{q\alpha}
+\end{equation}
+
+Ultimately, the total power dissipation $P_{\alpha}$ of the \gls{tia} can be calculated by summing the results of the previous equations (see Equation \eqref{eq:fd:power:tia:total}).
+
+\begin{equation}\label{eq:fd:power:tia:total}
+	P_{\alpha} = P_{f\alpha} + P_{q\alpha}
+\end{equation}
+
+Similarly to the amplifier that was just discussed, the non-inverting op-amp has a quiescent power dissipation $P_{q\beta}$ and a load power dissipation $P_{f\beta}$. It should be noted that even though $V_out$ is not connected to in Figure \ref{fig:tia_nia}, the output of the photodetector in the sensing setup needs to be connected to a lock-in amplifier. Even then, the load current that runs through it is imperceptibly low, which is why the power in Equations \eqref{eq:fd:power:nia:current:fb} and \eqref{eq:fd:power:nia:fb} is calculated in a similar way. 
+
+\begin{equation}\label{eq:fd:power:nia:current:fb}
+		I_{f\beta} = \frac{V_{out} - V_{ot}}{R_3}\\
+\end{equation}
+
+\begin{equation}\label{eq:fd:power:nia:fb}
+	P_{f\beta} = (V_{cc} - V_{out})I_{f\beta}
+\end{equation}
+
+
+Equation \eqref{eq:fd:power:nia:q} shows the quiescent power dissipation, which again is based on the intrinsic characteristics of the op-amp and combining all powers again yields the total power dissipation $P_\beta$ of the amplifier, shown in Equation \eqref{eq:fd:power:nia:total}.
+
+\begin{equation}\label{eq:fd:power:nia:q}
+	P_{q\beta} = (V_{cc} - V_{ee})I_{q\beta}
+\end{equation}
+
+
+\begin{equation}\label{eq:fd:power:nia:total}
+	P_{\beta} = P_{f\beta} + P_{q\beta}
+\end{equation}
+
+Additionally, the power dissipated by $R_2$ is given in Equation \eqref{eq:fd:power:r2}.
+
+\begin{equation}\label{eq:fd:power:r2}
+	P_{2} = V_{ot}I_{f\beta}
+\end{equation}
 
 %\section{\glsfmtshort{olia} implementation}

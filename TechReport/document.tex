@@ -12,7 +12,8 @@
 \sisetup{output-decimal-marker={,}} % make it so that \num uses commas for decimals
 \usepackage{float}
 \usepackage{caption}
-\usepackage[skip=0.5ex]{subcaption}
+\usepackage[skip=0.5ex]{subcaption} % using both subfigure and subcaption causes conflicts
+%\usepackage{subfigure}
 \usepackage{graphicx}
 \usepackage{xcolor}
 \usepackage[
@@ -29,6 +30,7 @@ pdftitle={V. Serafimov Bachelor Thesis EEE}
 \usepackage{adjustbox}
 \usepackage{braket} % package for ket (quantum) brackets
 \usepackage{csquotes} % quotes using \say{}
+\usepackage{matlab-prettifier}
 
 % Set page size and margins
 % Replace `letterpaper' with `a4paper' for UK/EU standard size
@@ -186,6 +188,7 @@ citestyle=numeric-comp, % combine severa comma-separated entries
 \newacronym{ti}{TI}{Texas Instruments}
 \newacronym{ic}{IC}{Integrated Circuit}
 \newacronym{usb}{USB}{Universal Serial Bus}
+\newacronym{spice}{SPICE}{Simulation Program with Integrated Circuit Emphasis}
 \makeglossaries
 
 \title{Enabling photodetection electronics for 

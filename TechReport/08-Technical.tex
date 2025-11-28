@@ -286,7 +286,7 @@ Another possibility is to implement a charge pump, which inverts the input volta
 	\hline
 	$V_{out}$ (\unit{\volt})			& \textpm 5 				& \textpm 5 	 & -5 			\\
 	\hline
-	$I_{out}$ (\unit{\m\A})				& 250  						& 40 			 & 60 			\\
+	$I_{out}$ (\unit{\milli\A})			& 250  						& 40 			 & 60 			\\
 	\hline
 	Current draw (\unit{\mu\A})			& 15						& 300 	 		 & 210  \\
 	\hline
@@ -297,7 +297,7 @@ Another possibility is to implement a charge pump, which inverts the input volta
 
 The specifications of the different power supply solutions are shown in Table \ref{tab:power_supply}, from which can be deduced that there is a correlation between complexity and performance. The split-rail power supply, as the most complex solution, has the biggest current output range and lowest current consumption, but as illustrated in Figure \ref{fig:td:des:adafruitsplitrailboost}, there are a number of other components that are required for proper implementation. In contrast, the virtual ground supply concept has relatively poor specifications compared to the other options, but it is the only solution that does not employ a switching mechanism, thus avoiding any possible noise. Lastly, the charge pump inverter offers reasonable performance, while not needing as many extra components as the split-rail supply. Furthermore, it addresses the stability concerns that might arise when using a virtual ground \gls{ic}. 
 
-Ultimately, the decision 
+Ultimately, the charge pump is the most fit for this project, because it is relatively simple, while also offering excellent stability. The decision was reached only after taking into account the power calculations from Chapter \ref{chap:fd:power_req}. according to which all devices can handle the power requirements of the circuit. 
 
 
 
@@ -364,9 +364,6 @@ MATLAB calculates the component values with high precision and sourcing componen
 
 Table \ref{tab:td:params} contains the MATLAB calculation results and shows the values of $f_c$ and $Q$ when only $C_1$ changes. $R_1$ is kept the same, as it is equivalent the \gls{dc} transimpedance $Z_{tDC}$\footnote{For realistic op-amps, $\frac{A_o}{A_o + 1} \to 1$, which means $Z_{tDC} \equiv R_1$ can be assumed to simplify explanations}. Importantly, the results show that the previous iteration had an overdamped response. Although the quality factor with realistic component values is also lower than the ideal $Q = \frac{\sqrt{3}}{3}$, the system sill behaves approximately like a Bessel filter.
 
-
-Using these values, the system model was calculated and plotted in Figure \ref{fig:td:bodev1v2comparison}. Certain differences can be seen between the two iterations. Most notably, the cutoff frequency $f_c$ of the first iteration is somewhat smaller than that of the second iteration. Furthermore, it can be observed that both the ideal and realistic versions of the system behave similarly. 
-
 \begin{figure}[ht]
 	\centering
 	\includegraphics[width=0.7\linewidth]{matlab/bode_v1_v2_comparison}
@@ -374,7 +371,32 @@ Using these values, the system model was calculated and plotted in Figure \ref{f
 	\label{fig:td:bodev1v2comparison}
 \end{figure}
 
+Using these values, the system model was calculated and plotted in Figure \ref{fig:td:bodev1v2comparison}. Certain differences can be seen between the two iterations. Most notably, the cutoff frequency $f_c$ of the first iteration is somewhat smaller than that of the second iteration. Furthermore, it can be observed that both the ideal and realistic versions of the system behave similarly. 
 
+
+\begin{figure}[ht]
+	\centering
+	\begin{subfigure}[1a]{.49\linewidth}
+		\includegraphics[width=\linewidth]{img/tina_AC_2probes_1p}
+		\caption{Frequency response}
+		\label{fig:tinaac2probes1p}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[1b]{.49\linewidth}
+		\includegraphics[width=\linewidth]{img/tina_DC_2probes_1p}
+		\caption{DC gain}
+		\label{fig:tinadc2probes1p}
+	\end{subfigure}
+	\caption{Simulation of the second iteration of the photodetector}
+	\label{fig:tina2probes1p}
+\end{figure}
+
+Figure \ref{fig:tina2probes1p} confirms the calculations, with some slight differences that can be attributed to the \gls{spice} models. As predicted, the frequency response of the circuit shows an increased cutoff frequency of \num{19,69} \unit{\kilo\hertz}, \num{8,92} \unit{\kilo\hertz} more than the previous iteration. Up to the cutoff frequency, the transimpedance gain is \num{160,83} \unit{\decibel}, which is almost the same as the former gain of \num{160,82} \unit{\decibel}. Furthermore, Figure \ref{fig:tinadc2probes1p} shows that, similarly to the first iteration, the system displays linearity in the range of \numrange{0}{45,86} \unit{\nano \ampere}. This is a reduction of \num{450} \unit{\pico\ampere} compared to the previous version and also \num{4,14} \unit{\nano \ampere} less than the ideal upper limit of the linear region.
+
+
+
+\subsection{Third iteration}
+Before deciding on a power supply system, the power requirements needed to be compared to the specifications listed in Table \ref{tab:power_supply}. A MATLAB script, which can be found in Appendix \ref{chap:appendix:code}, was written and used to calculate that, given a \textpm 5 \unit{\volt} supply, the system requires \num{2,3021} \unit{\milli\ampere} of current.  All solutions can provide that amount of current with reasonable overhead, which is why the choice was based on size, complexity and stability.
 
 
 

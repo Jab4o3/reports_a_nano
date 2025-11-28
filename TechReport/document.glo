@@ -101,8 +101,9 @@
 \glossaryentry{USB?\glossentry{usb}|setentrycounter[]{page}"\glsnumberformat}{21}
 \glossaryentry{IC?\glossentry{ic}|setentrycounter[]{page}"\glsnumberformat}{21}
 \glossaryentry{DC?\glossentry{dc}|setentrycounter[]{page}"\glsnumberformat}{22}
-\glossaryentry{PCB?\glossentry{pcb}|setentrycounter[]{page}"\glsnumberformat}{22}
+\glossaryentry{SPICE?\glossentry{spice}|setentrycounter[]{page}"\glsnumberformat}{22}
 \glossaryentry{PCB?\glossentry{pcb}|setentrycounter[]{page}"\glsnumberformat}{23}
-\glossaryentry{ODMR?\glossentry{odmr}!CW-ODMR?\subglossentry{1}{cwodmr}|setentrycounter[]{page}"\glsnumberformat}{23}
-\glossaryentry{ODMR?\glossentry{odmr}|setentrycounter[]{page}"\glsnumberformat}{30}
-\glossaryentry{ODMR?\glossentry{odmr}|setentrycounter[]{page}"\glsnumberformat}{30}
+\glossaryentry{PCB?\glossentry{pcb}|setentrycounter[]{page}"\glsnumberformat}{23}
+\glossaryentry{ODMR?\glossentry{odmr}!CW-ODMR?\subglossentry{1}{cwodmr}|setentrycounter[]{page}"\glsnumberformat}{24}
+\glossaryentry{ODMR?\glossentry{odmr}|setentrycounter[]{page}"\glsnumberformat}{33}
+\glossaryentry{ODMR?\glossentry{odmr}|setentrycounter[]{page}"\glsnumberformat}{33}

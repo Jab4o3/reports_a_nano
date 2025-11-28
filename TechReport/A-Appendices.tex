@@ -1,6 +1,249 @@
 \begin{appendices}
 
-\chapter{Code}
+\chapter{Code}\label{chap:appendix:code}
 
+%\begin{figure}
+%	\centering
+%	\begin{subfigure}
+%		\begin{lstlisting}[frame=single,
+%			numbers=left,
+%			style=Matlab-Pyglike]
+%% requirements
+%V_o_tia = .5; % out voltage of tia
+%V_o = 5; % out voltage of non-inverting amp
+%
+%% OPA795 specs
+%GBW = 1.5*10^6;
+%A_o_dB = 100; % DC open-loop gain in dB
+%A_o = 10^(A_o_dB/20); % DC open-loop gain
+%f_o = GBW/A_o; % open-loop cutoff frequency
+%
+%% BPW34 specs
+%I_f = 50*10^-9; % max current from diode
+%C_d = 25*10^-12; % diode capacitance 
+%
+%% parasitic capacitances
+%C_cm = 2.2*10^-12; % common-mode capacitance
+%C_df = 2*10^-12; % differential capacitance
+%C_i = C_d + C_cm + C_df; % total parasitic capacitance
+%		\end{lstlisting}
+%		\subcaption{Requirements and given values}
+%		\label{code:tia:consts}
+%	\end{subfigure}
+%	\\
+%	\begin{subfigure}
+%		\begin{lstlisting}[frame=single,
+%			numbers=left,
+%			style=Matlab-Pyglike]
+%% R1 calculations
+%gain = V_o_tia/I_f;
+%gain_db = 20*log10(gain); % uncomment if you need gain in dB
+%R_1 = gain*(1 + A_o)/A_o;
+%%R_1 = 10e6; % realistic value for BPW34
+%
+%% C1 calculation
+%omega_o = 2*pi*f_o;
+%C_1_num = -2*omega_o*R_1*C_i + 1 + sqrt(12*A_o*C_i*R_1*omega_o - 3);
+%C_1_den = 2*omega_o*R_1*(1 + A_o);
+%C_1 = C_1_num/C_1_den;
+%
+%% system transfer function
+%divisor = (C_i + C_1)*R_1; % normalization coefficient
+%num = A_o*omega_o/divisor; % numerator
+%s1 = (1 + omega_o*R_1*(C_i + (1 + A_o)*C_1))/divisor; % first-order s
+%s0 = omega_o*(1 + A_o)/divisor; % zero-order s
+%den = [1, s1, s0];
+%tia = tf(num, den);
+%Q = sqrt(s0)/s1;
+%
+%% cutoff calculations
+%omega_c = bandwidth(tia);
+%f_c = omega_c/(2*pi);
+%
+%% noise transfer function
+%num = A_o*omega_o*[1 1/divisor];
+%s1 = 1/divisor + omega_o*(1 + A_o*C_1*(C_1 + C_i));
+%s0 = omega_o*(1 + A_o)/divisor; % 0th oreder term remains the same
+%den = [1 s1 s0];
+%tia_noise = tf(num, den);
+%tia_noise1 = tia_noise;
+%		\end{lstlisting}
+%		\subcaption{$R_1$, $C_1$, gain and noise calculations}
+%		\label{code:tia:calcs}
+%	\end{subfigure}
+%	\\
+%	\begin{subfigure}
+%		\begin{lstlisting}[frame=single,
+%			numbers=left,
+%			style=Matlab-Pyglike]
+%disp('Component values')
+%disp('R1: ' + R_1/10^6 + ' MOhm')
+%disp('C1: ' + C_1*10^12 + ' pF')
+%disp('System characteristics')
+%disp('fc = ' + f_c/10^3 + ' kHz = ' +  omega_c/10^3 + ' krad/s')
+%disp('Q (actual): ' + Q)
+%disp('Q (ideal) : ' + 1/sqrt(3) + ' = sqrt(3)/3')
+%% bode plot system
+%figure
+%opts = bodeoptions;
+%opts.FreqUnits = 'Hz';
+%opts.Title.String = 'Frequency response';
+%bodeplot(tia, {10, 10^6}, opts);
+%% impulse plot system
+%figure
+%ip = impulseplot(tia);
+%% bode plot noise
+%figure
+%opts_n = bodeoptions;
+%opts_n.FreqUnits = 'Hz';
+%opts_n.Title.String = 'Noise frequency response';
+%bodeplot(tia_noise, {10, 10^6}, opts_n);
+%grid on
+%		\end{lstlisting}
+%		\subcaption{Results and plots}
+%		\label{code:tia:plots}
+%	\end{subfigure}
+%	\caption{\glsfmtshort{tia} calculations}
+%	\label{code:tia}
+%\end{figure}
+
+\begin{figure}[ht]
+	\centering
+		\begin{lstlisting}[frame=single,
+numbers=left,
+style=Matlab-Pyglike]
+% requirements
+V_o_tia = .5; % out voltage of tia
+V_o = 5; % out voltage of non-inverting amp
+
+% OPA795 specs
+GBW = 1.5*10^6;
+A_o_dB = 100; % DC open-loop gain in dB
+A_o = 10^(A_o_dB/20); % DC open-loop gain
+f_o = GBW/A_o; % open-loop cutoff frequency
+
+% BPW34 specs
+I_f = 50*10^-9; % max current from diode
+C_d = 25*10^-12; % diode capacitance 
+
+% parasitic capacitances
+C_cm = 2.2*10^-12; % common-mode capacitance
+C_df = 2*10^-12; % differential capacitance
+C_i = C_d + C_cm + C_df; % total parasitic capacitance
+
+% R1 calculations
+gain = V_o_tia/I_f;
+gain_db = 20*log10(gain); % uncomment if you need gain in dB
+R_1 = gain*(1 + A_o)/A_o;
+%R_1 = 10e6; % realistic value for BPW34
+
+% C1 calculation
+omega_o = 2*pi*f_o;
+C_1_num = -2*omega_o*R_1*C_i + 1 + sqrt(12*A_o*C_i*R_1*omega_o - 3);
+C_1_den = 2*omega_o*R_1*(1 + A_o);
+C_1 = C_1_num/C_1_den;
+
+% system transfer function
+divisor = (C_i + C_1)*R_1; % normalization coefficient
+num = A_o*omega_o/divisor; % numerator
+s1 = (1 + omega_o*R_1*(C_i + (1 + A_o)*C_1))/divisor; % first-order s
+s0 = omega_o*(1 + A_o)/divisor; % zero-order s
+den = [1, s1, s0];
+tia = tf(num, den);
+Q = sqrt(s0)/s1;
+
+% cutoff calculations
+omega_c = bandwidth(tia);
+f_c = omega_c/(2*pi);
+
+% noise transfer function
+num = A_o*omega_o*[1 1/divisor];
+s1 = 1/divisor + omega_o*(1 + A_o*C_1*(C_1 + C_i));
+s0 = omega_o*(1 + A_o)/divisor; % 0th oreder term remains the same
+den = [1 s1 s0];
+tia_noise = tf(num, den);
+tia_noise1 = tia_noise;			
+		\end{lstlisting}
+	\caption{\glsfmtshort{tia} calculations}
+	\label{code:tia}
+\end{figure}
+
+\begin{figure}[ht]
+	\begin{lstlisting}[frame=single,
+			numbers=left,
+			style=Matlab-Pyglike]
+% results and plots
+disp('Component values')
+disp('R1: ' + R_1/10^6 + ' MOhm')
+disp('C1: ' + C_1*10^12 + ' pF')
+disp('System characteristics')
+disp('fc = ' + f_c/10^3 + ' kHz = ' +  omega_c/10^3 + ' krad/s')
+disp('Q (actual): ' + Q)
+disp('Q (ideal) : ' + 1/sqrt(3) + ' = sqrt(3)/3')
+% bode plot system
+figure
+opts = bodeoptions;
+opts.FreqUnits = 'Hz';
+opts.Title.String = 'Frequency response';
+bodeplot(tia, {10, 10^6}, opts);
+% impulse plot system
+figure
+ip = impulseplot(tia);
+% bode plot noise
+figure
+opts_n = bodeoptions;
+opts_n.FreqUnits = 'Hz';
+opts_n.Title.String = 'Noise frequency response';
+bodeplot(tia_noise, {10, 10^6}, opts_n);
+grid on
+	\end{lstlisting}
+	\caption{Plots of the \glsfmtshort{tia} calculations}
+	\label{code:tia:out}
+\end{figure}
+
+
+\begin{figure}[ht]
+	\begin{lstlisting}[frame=single,
+		numbers=left,
+		style=Matlab-Pyglike]
+% values from the TIA calculation script
+R_1 = 10e6; % transimpedance (DC component)
+V_o_tia = .5; % out voltage of tia
+V_o = 5; % out voltage of non-inverting amp
+
+V_cc = 5; % positive rail
+V_ee = -5; % negative rail
+I_q_a = 1.5e-3; % maximum quiescent current of AD795
+I_q_b = 0.8e-3; % maximum quiescent current of AD820
+R_2 = 11e3; % see report
+R_3 = 110e3; % see report
+	
+% TIA-stage power
+I_f_a = V_o_tia/R_1;
+P_l_a = (V_cc - V_o_tia)*I_f_a; % load power
+P_q_a = (V_cc - V_ee)*I_q_a; % quiescent power
+P_a = P_l_a + P_q_a; % total power
+		
+% NIA-stage power
+I_f_b = (V_o - V_o_tia)/R_3;
+P_l_b = (V_cc - V_o)*I_f_b; % load power
+P_q_b = (V_cc - V_ee)*I_q_b; % quiescent power
+P_b = P_l_b + P_q_b; % total power
+
+% R2 power
+P_R2 = V_o_tia*I_f_b;
+	
+% total power
+P = P_a + P_b + P_R2;
+I = P/(V_cc - V_ee);
+disp('TIA power     : ' + P_a*10^3 + ' mW')
+disp('NIA power     : ' + P_b*10^3 + ' mW')
+disp('R2 power      : ' + P_R2*10^3 + ' mW')
+disp('Total power   : ' + P*10^3 + ' mW')
+disp('Supply current: ' + I*10^3 + 'mA')
+	\end{lstlisting}
+	\caption{Power calculation}
+	\label{code:power}
+\end{figure}
 
 \end{appendices}

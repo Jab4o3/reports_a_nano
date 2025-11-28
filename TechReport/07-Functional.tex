@@ -320,12 +320,12 @@ Equation \eqref{eq:nia} is used to calculate the gain of second amplification st
 
 The design is based on circuits provided by the client. At their request, the first version of the PCB is an exact replica of the original circuit.  
 
-\subsection{Power requirements}
+\subsection{Power requirements}\label{chap:fd:power_req}
 Knowing the power needs of the photodetector is important for decreasing the size of the quantum setup. As bench power supplies take up a lot of space and exceed the photodetector requirements by orders of magnitude, an on-board supply or a breakout board will better fit the project. To minimize overhead while still having a supply that can handle the circuit, the power usage of the photodetector needs to be calculated. 
 
 When calculating the power of the circuit in Figure \ref{fig:tia_nia}, the most important elements to consider are the op-amps. As the non-inverting amplifier has high input impedance, the system can be broken down into two op-amp circuits.
 
-The op-amp in the \gls{tia} circuit has an intrinsic power dissipation caused by its quiescent current, as well as a load power dissipation. Due to the very high input impedance of the non-inverting topology that follows the \gls{tia}, there is no load current. Nevertheless, the feedback loop still draws a current $I_{f\alpha}$ from the amplifier. Equation \eqref{eq:fd:power:tia:current:fb} shows how this current can be calculated, after which the feedback power dissipation $I_{f\alpha}$ can be determined using Equation \eqref{eq:fd:power:tia:fb}.
+The op-amp in the \gls{tia} circuit has an intrinsic power dissipation caused by its quiescent current, as well as a load power dissipation. Due to the very high input impedance of the non-inverting topology that follows the \gls{tia}, there is no load current. Nevertheless, the feedback loop still draws a current $I_{f\alpha}$ from the amplifier. Equation \eqref{eq:fd:power:tia:current:fb} shows how this current can be calculated, after which the feedback power dissipation $I_{f\alpha}$ can be determined using Equation \eqref{eq:fd:power:tia:fb}. It should be noted that for $C_1R_1 \ll 1$ the equivalent impedance $Z_1$ is equivalent to the resistance $R_1$ at low frequencies.
 
 \begin{equation}\label{eq:fd:power:tia:current:fb}
 	\begin{cases}

@@ -461,31 +461,56 @@
       \verb https://doi.org/10.53347/rID-25821
       \endverb
     \endentry
-    \entry{instruments2018principles}{article}{}{}
+    \entry{sitnic2023}{misc}{}{}
       \name{author}{1}{}{%
-        {{hash=9cebc9843b50f5cad28f73ad8a263c14}{%
-           family={Instruments},
-           familyi={I\bibinitperiod},
-           given={Zurich},
-           giveni={Z\bibinitperiod}}}%
+        {{hash=05a7e888e6303f9f614344c3ea48f59c}{%
+           family={Sitnic},
+           familyi={S\bibinitperiod},
+           given={Demetra},
+           giveni={D\bibinitperiod}}}%
       }
-      \strng{namehash}{9cebc9843b50f5cad28f73ad8a263c14}
-      \strng{fullhash}{9cebc9843b50f5cad28f73ad8a263c14}
-      \strng{fullhashraw}{9cebc9843b50f5cad28f73ad8a263c14}
-      \strng{bibnamehash}{9cebc9843b50f5cad28f73ad8a263c14}
-      \strng{authorbibnamehash}{9cebc9843b50f5cad28f73ad8a263c14}
-      \strng{authornamehash}{9cebc9843b50f5cad28f73ad8a263c14}
-      \strng{authorfullhash}{9cebc9843b50f5cad28f73ad8a263c14}
-      \strng{authorfullhashraw}{9cebc9843b50f5cad28f73ad8a263c14}
-      \field{extraname}{1}
+      \list{organization}{1}{%
+        {Saxion Applied Nanotechnology research group}%
+      }
+      \strng{namehash}{05a7e888e6303f9f614344c3ea48f59c}
+      \strng{fullhash}{05a7e888e6303f9f614344c3ea48f59c}
+      \strng{fullhashraw}{05a7e888e6303f9f614344c3ea48f59c}
+      \strng{bibnamehash}{05a7e888e6303f9f614344c3ea48f59c}
+      \strng{authorbibnamehash}{05a7e888e6303f9f614344c3ea48f59c}
+      \strng{authornamehash}{05a7e888e6303f9f614344c3ea48f59c}
+      \strng{authorfullhash}{05a7e888e6303f9f614344c3ea48f59c}
+      \strng{authorfullhashraw}{05a7e888e6303f9f614344c3ea48f59c}
       \field{sortinit}{2}
       \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{Internetadresse: https://www. zhinst. com/sites/default/files/li\_primer/zi\_whitepaper\_principles\_of\_lock-in\_detection. pdf. Zuletzt aufgerufen am}
-      \field{title}{Principles of Lock-in Detection and the State of the Art. 2016}
-      \field{volume}{17}
-      \field{year}{2018}
+      \field{title}{Internship Technical Report: Nitrogen-vacancy center setup}
+      \field{year}{2024}
+    \endentry
+    \entry{photodiodephotodiode}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=dc9563129b1c8b3cc72b9d4f677b130d}{%
+           family={PHOTODIODE},
+           familyi={P\bibinitperiod},
+           given={PLANAR\bibnamedelimb DIFFUSED\bibnamedelima SILICON},
+           giveni={P\bibinitperiod\bibinitdelim D\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {unpublished}%
+      }
+      \strng{namehash}{dc9563129b1c8b3cc72b9d4f677b130d}
+      \strng{fullhash}{dc9563129b1c8b3cc72b9d4f677b130d}
+      \strng{fullhashraw}{dc9563129b1c8b3cc72b9d4f677b130d}
+      \strng{bibnamehash}{dc9563129b1c8b3cc72b9d4f677b130d}
+      \strng{authorbibnamehash}{dc9563129b1c8b3cc72b9d4f677b130d}
+      \strng{authornamehash}{dc9563129b1c8b3cc72b9d4f677b130d}
+      \strng{authorfullhash}{dc9563129b1c8b3cc72b9d4f677b130d}
+      \strng{authorfullhashraw}{dc9563129b1c8b3cc72b9d4f677b130d}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Photodiode Characteristics and Applications}
     \endentry
     \entry{semig24}{misc}{}{}
       \name{author}{1}{}{%
@@ -515,6 +540,32 @@
       \verb{url}
       \verb https://www.ti.com/lit/an/sboa268b/sboa268b.pdf
       \endverb
+    \endentry
+    \entry{instruments2018principles}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=9cebc9843b50f5cad28f73ad8a263c14}{%
+           family={Instruments},
+           familyi={I\bibinitperiod},
+           given={Zurich},
+           giveni={Z\bibinitperiod}}}%
+      }
+      \strng{namehash}{9cebc9843b50f5cad28f73ad8a263c14}
+      \strng{fullhash}{9cebc9843b50f5cad28f73ad8a263c14}
+      \strng{fullhashraw}{9cebc9843b50f5cad28f73ad8a263c14}
+      \strng{bibnamehash}{9cebc9843b50f5cad28f73ad8a263c14}
+      \strng{authorbibnamehash}{9cebc9843b50f5cad28f73ad8a263c14}
+      \strng{authornamehash}{9cebc9843b50f5cad28f73ad8a263c14}
+      \strng{authorfullhash}{9cebc9843b50f5cad28f73ad8a263c14}
+      \strng{authorfullhashraw}{9cebc9843b50f5cad28f73ad8a263c14}
+      \field{extraname}{1}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Internetadresse: https://www. zhinst. com/sites/default/files/li\_primer/zi\_whitepaper\_principles\_of\_lock-in\_detection. pdf. Zuletzt aufgerufen am}
+      \field{title}{Principles of Lock-in Detection and the State of the Art. 2016}
+      \field{volume}{17}
+      \field{year}{2018}
     \endentry
     \entry{black2021tia}{misc}{}{}
       \name{author}{2}{}{%
@@ -670,8 +721,8 @@
       \strng{authornamehash}{a72afadad0075d5f9935e0957f752a71}
       \strng{authorfullhash}{a72afadad0075d5f9935e0957f752a71}
       \strng{authorfullhashraw}{a72afadad0075d5f9935e0957f752a71}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Texas Instruments Incorporated}
@@ -694,8 +745,8 @@
       \strng{authornamehash}{7e86917f7c27a98510b1e5508c0624d0}
       \strng{authorfullhash}{7e86917f7c27a98510b1e5508c0624d0}
       \strng{authorfullhashraw}{7e86917f7c27a98510b1e5508c0624d0}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Adafruit}
@@ -712,8 +763,8 @@
       \list{organization}{1}{%
         {Texas Instruments}%
       }
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labeltitlesource}{title}
       \field{month}{6}
       \field{note}{Rev. A}

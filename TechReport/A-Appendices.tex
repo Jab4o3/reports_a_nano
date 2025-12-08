@@ -246,4 +246,27 @@ disp('Supply current: ' + I*10^3 + 'mA')
 	\label{code:power}
 \end{figure}
 
+\begin{figure}[ht]
+	\begin{lstlisting}[frame=single,
+		numbers=left,
+		style=Matlab-Pyglike]
+tp = 20e-6; % pulse duration
+scaling_f = 1500;
+td = 10; % normalized dark  time
+T = scaling_f * tp; % period
+t = 1:scaling_f; 
+y = zeros(1, length(t)); 
+y(1) = 1; % init pulse cancel
+y(scaling_f/2 + 1) = 1; % init pulse
+y(scaling_f/2 + td + 1) = 1; % readout pulse
+plot(t, y)
+writematrix(y, 'pulse_20usD.csv')
+disp('Pulse duration    : ' + tp*10^6 + ' us')
+disp('Dark time         : ' + td*10^6*tp + ' us')
+disp('Sequence period   : ' + T*10^3 + ' ms')
+	\end{lstlisting}
+	\caption{Power calculation}
+	\label{code:t1_pulse}
+\end{figure}
+
 \end{appendices}

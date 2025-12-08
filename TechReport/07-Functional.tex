@@ -1,5 +1,9 @@
 \chapter{Functional design} \label{chap:func_design}
+The functional design presents a high-level overview of the project and what explains what design choices were made on a system-level. Additionally, it provides tangential information that can be useful for understanding the working principle of the quantum sensing setup.
+
 \section{Background knowledge}
+Some background knowledge is required to understand the purpose of the projects, because the setup the project revolves around uses several non-trivial physics concepts. This section outlines the basic ideas behind the physics that enable the quantum sensing setup to work.
+
 \subsection{Spin states}
 Spin, at least in quantum mechanics, is the intrinsic angular momentum of a particle, which is described by the quantum number of the particle. Importantly, it differs from the angular momentum in classical mechanics, which is extrinsic. Spin characterizes systems of particles, usually electrons, using quantum entanglement. This phenomenon refers to the "entanglement", or spin correlation, of a set of particles.
 
@@ -13,7 +17,6 @@ Discovered by Pieter Zeeman in 1896, the Zeeman effect is another important phen
 
 \subsection{Energy levels}\label{chap:energy_levels}
 Figure \ref{fig:energylevels} shows the energy level diagram of an \gls{nv} center.
-
 \begin{figure}[ht]
 	\centering
 	\includegraphics[width=0.7\linewidth]{img/energy_levels}
@@ -40,7 +43,7 @@ There are a number of different quantum protocols, which differ in what they can
 \end{figure}
 
 
-\subsection{$T_1$ relaxometry}
+\subsection{$T_1$ relaxometry}\label{chap:fd:t1}
 $T_1$, $T_2$ and $T_2^*$ relaxation time measurements are commonly associated with radiometry \cite{ballinger23}, but they have other uses too. $T_1$ measurements, in particular, are useful in the realm of quantum sensing. Knowing the $T_1$ relaxation time, which refers to the time it takes for the spins in an \gls{nv} system to decay back to their original state, makes it possible to adjust the pulse sequences of more complex protocols and thus get better results.  %explain what relaxation is and the protcol
 
 % % alternative to tikz diagram
@@ -157,55 +160,63 @@ Microwave generation, when needed, starts with a \gls{ttl} signal from the funct
 	\label{fig:overview_high_lvl}
 \end{figure}
 
-\section{Lock-in amplification} \label{chap:lockin}
-As a means of retrieving data, lock-in amplification is the most suitable for the setup due to its relatively low cost, signal retrieval capabilities and the possibility of using one amplifier for several setups. 
-
-\begin{figure}[ht]
-	\centering
-	\includegraphics[width=0.7\linewidth]{img/lia_hl_schematic}
-	\caption{High-level diagram of a lock-in amplifier (image credit to Zurich Instruments \cite{instruments2018principles})}
-	\label{fig:liahlschematic}
-\end{figure}
-
-Figure \ref{fig:liahlschematic} shows an overview of how lock-in amplification works. Simply put, the amplifier receives a signal $V_s$ and extracts the data at the frequency of a reference signal $V_r$. To explain this more thoroughly, lock-in amplification utilizes the fact that every signal is made of periodic waves, which are equal to zero when averaged. 
-
-\begin{equation}\label{eq:voltage_sig}
-	V_s = R\cos{(\omega_st + \theta)} = \frac{R}{2}e^{i(\omega_st + \theta)} + \frac{R}{2}e^{-i(\omega_st + \theta)}
-\end{equation}
-
-Equation \eqref{eq:voltage_sig} shows how the mathematical expression of a sine wave signal, where $\omega_s$ is the frequency and $\theta$ is the phase of the signal. Using the trigonometric identity $\cos{x} = \frac{1}{2}(e^{ix} + e^{-ix})$, the signal can be represented in terms of complex numbers.
-
-\begin{equation}\label{eq:voltage_ref}
-	V_r = e^{-i\omega_rt}
-\end{equation}
-
-In Equation \eqref{eq:voltage_ref}, a simplified reference signal is shown. Real applications might require more complex reference signals, but $V_r$ is perfect for demonstrating the lock-in principle.
-
-\begin{equation}\label{eq:voltage_mult}
-	V_m = V_sV_r = \frac{R}{2}e^{i(\omega_s -\omega_r)t  + \theta} + \frac{R}{2}e^{-i(\omega_s +\omega_r)t + \theta}
-\end{equation}
-
-Finally, Equation \eqref{eq:voltage_mult} shows the product of the signal $V_s$ and the reference $V_r$. In the case of $\omega_s = \omega_r$, there is a signal at \num{0} \unit{\hertz} and another one at $2\omega_s$ \unit{\hertz}. The latter, however, should be attenuated to an undetectable level by the low-pass filters shown in Figure \ref{fig:liahlschematic}. This way, both the unwanted signal appearing at double the frequency and all of the noise at different frequencies is attenuated.
 
 % Thorlabs Photodiodes and Photoconductors Tutorial:
 % https://www.thorlabs.com/newgrouppage9.cfm?objectgroup_id=9020
+\section{Laser driver}
+As discussed in Chapter \ref{specifications}, the laser driver has already been designed and built. It gets \gls{ttl} signals from a waveform generator and outputs current to drive the connected laser.
+
+However, the designer explicitly states that tests were only done with frequencies of up to 100 \unit{\kilo\hertz} \cite{sitnic2023}. This is insufficient for the project, as for example, the pulsing sequence for $T_1$ measurements use pulses with duration of 5 \unit{\micro\second} and downtime of as little as 1 \unit{\micro\second}\footnote{These values are taken from Sewani et al \cite{sewani2020coherent}, but the clients wants to make the timings used by the quantum sensing setup even faster}.
+
+
 \section{Photodetection}
 Photodetection is how the \gls{nv} photoluminescence is measured, effectively turning light into current using a photodiode. However, a bare photodiode cannot be connected to a lock-in amplifier, because it functions as a current generator. This is where the photodetection \gls {pcb} comes in. Its purpose is to transform the current into voltage and then amplify the resulting signal to the necessary voltage level. 
 
 \subsection{Photodiodes}\label{chap:fd:photodiodes}
 At the heart of the photodetector lies the photodiode. It is what turns light into current and drives the \gls{tia} that follows it. While the specifications of the diode are not the most important part of the photodetector circuit, they still need to be discussed, due to the impact the two ways of biasing can have on the circuit.
 
-An exceedingly common photodiode configuration, 
-
-\subsection{\glsfmtshort{tia} design} \label{chap:photodetection_design}
-Designing the photodetector is mostly about creating a \gls{tia}, which is a tool used for converting current to voltage, and specifically tuning its parameters so that it works with the selected photodiode under operating conditions. 
+The two most common photodiode are shown in Figure \ref{fig:fd:biasing}. Reverse-biased circuits, similar to the one in Figure \ref{fig:fd:biasing:pc}, are used in optical receivers and other high-speed use cases. However, the drawback of biasing the diode using the negative supply voltage $V_{EE}$ is that it results in an increased dark current, which is current that, unlike photocurrent, runs through the diode without any light being present. Precise low-light measurements, such as those needed by the quantum setup, require the photodetector to have high linearity, which cannot be achieved when the dark current is comparable to the photocurrent. Photovoltaic-mode biasing reduces the dark current at the cost of signal strength and bandwidth \cite{photodiodephotodiode}. This configuration is much more common in low-illumination setups, where the signals can be in the nanoampere to picoampere range. As the photoluminescent \gls{nv} centers emit extremely low amounts of light, the photovoltaic configuration was chosen for the photodetector implementation for the quantum sensing setup.
 
 \begin{figure}[ht]
 	\centering
-	\resizebox{.5\textwidth}{!}{%
+	\begin{subfigure}[1a]{.49\linewidth}
 		\begin{circuitikz}
 			\tikzstyle{every node}=[font=\normalsize]
-			\draw [ line width=0.5pt](3.75,10.75) to[empty photodiode,l={ \normalsize $D_1$}] (3.75,9);
+			\draw [ line width=0.5pt](3.75,9) to[empty photodiode,l={ \normalsize $D_1$}] (3.75,10.75);
+			\draw [ line width=0.5pt](6.5,10.25) node[op amp,scale=1] (opamp2) {};
+			\draw [ line width=0.5pt](opamp2.+) to[short] (5,9.75);
+			\draw [ line width=0.5pt] (opamp2.-) to[short] (5,10.75);
+			\draw [ line width=0.5pt](7.7,10.25) to[short](8,10.25);
+			\draw [line width=0.5pt](5,9) to (5,8.25) node[ground]{};
+			\draw [ line width=0.5pt](5,8.5) to[short] (5,9.75);
+			\draw [ line width=0.5pt](3.75,10.5) to[short] (3.75,10.75);
+			\draw [ line width=0.5pt](3.75,10.75) to[short] (5,10.75);
+			\node at (4.5,10.75) [circ] {};
+			\draw [ line width=0.5pt](4.5,10.75) to[short] (4.5,13.5);
+			\draw [ line width=0.5pt](4.5,12.25) to[short] (5,12.25);
+			\draw [ line width=0.5pt](4.5,13.5) to[short] (5,13.5);
+			\draw [ line width=0.5pt](7.5,10.25) to[short] (7.5,11);
+			\draw [ line width=0.5pt](5,12.25) to[european resistor,l={ \normalsize $R_1$}] (7,12.25);
+			\node at (4.5,12.25) [circ] {};
+			\draw [ line width=0.5pt](7,12.25) to[short] (7.5,12.25);
+			\draw [ line width=0.5pt](7.5,12.25) to[short] (7.5,11);
+			\draw [ line width=0.5pt](7.5,12.25) to[short] (7.5,13.5);
+			\draw [line width=0.5pt](5,13.5) to[C,l={ \normalsize $C_1$}] (7,13.5);
+			\node at (7.5,12.25) [circ] {};
+			\draw [ line width=0.5pt](7,13.5) to[short] (7.5,13.5);
+			\draw [ line width=0.5pt](8,10.25) to[short, -o] (8.25,10.25) node {$\ \ \ \ \ \ \ \ \ V_{out}$};
+			\draw [ line width=0.5pt](3.75,10.75) to[short] (3.75,10.5);
+			\draw [line width=0.5pt](3.75,9) to [short, -o] (3.75,8.25) node{$\ \ \ \ \ \ \ \ \ V_{EE}$};
+			\draw [ dashed] (3,8) rectangle  (4.75,11);
+		\end{circuitikz}
+		\caption{Photoconductive mode}
+		\label{fig:fd:biasing:pc}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[1b]{.49\linewidth}
+		\begin{circuitikz}
+			\tikzstyle{every node}=[font=\normalsize]
+			\draw [ line width=0.5pt](3.75,9) to[empty photodiode,l={ \normalsize $D_1$}] (3.75,10.75);
 			\draw [ line width=0.5pt](6.5,10.25) node[op amp,scale=1] (opamp2) {};
 			\draw [ line width=0.5pt](opamp2.+) to[short] (5,9.75);
 			\draw [ line width=0.5pt] (opamp2.-) to[short] (5,10.75);
@@ -230,18 +241,60 @@ Designing the photodetector is mostly about creating a \gls{tia}, which is a too
 			\draw [ line width=0.5pt](8,10.25) to[short, -o] (8.25,10.25) node {$\ \ \ \ \ \ \ \ \ V_{out}$};
 			\draw [ line width=0.5pt](3.75,10.75) to[short] (3.75,10.5);
 			\draw [line width=0.5pt](3.75,9) to (3.75,8.25) node[ground]{};
-			\draw [line width=0.5pt, ->, >=Stealth] (3.25,10.25) -- (3.25,9.25);
-			\node [font=\normalsize] at (2.85,9.75) {$-I_f$};
+			\draw [ dashed] (3,7.5) rectangle  (4.25,11);
+		\end{circuitikz}
+		\caption{Photovoltaic mode}
+		\label{fig:fd:biasing:pv}
+	\end{subfigure}
+	\caption{Reverse-bias photodiode configurations}
+	\label{fig:fd:biasing}
+\end{figure}
+
+\subsection{\glsfmtshort{tia} design} \label{chap:photodetection_design}
+Designing the photodetector is mostly about creating a \gls{tia}, which is a tool used for converting current to voltage, and specifically tuning its parameters so that it works with the selected photodiode under operating conditions. 
+
+\begin{figure}[ht]
+	\centering
+	\resizebox{.5\textwidth}{!}{%
+		\begin{circuitikz}
+			\tikzstyle{every node}=[font=\normalsize]
+			\draw [ line width=0.5pt](3.75,9) to[empty photodiode,l={ \normalsize $D_1$}] (3.75,10.75);
+			\draw [ line width=0.5pt](6.5,10.25) node[op amp,scale=1] (opamp2) {};
+			\draw [ line width=0.5pt](opamp2.+) to[short] (5,9.75);
+			\draw [ line width=0.5pt] (opamp2.-) to[short] (5,10.75);
+			\draw [ line width=0.5pt](7.7,10.25) to[short](8,10.25);
+			\draw [line width=0.5pt](5,9) to (5,8.25) node[ground]{};
+			\draw [ line width=0.5pt](5,8.5) to[short] (5,9.75);
+			\draw [ line width=0.5pt](3.75,10.5) to[short] (3.75,10.75);
+			\draw [ line width=0.5pt](3.75,10.75) to[short] (5,10.75);
+			\node at (4.5,10.75) [circ] {};
+			\draw [ line width=0.5pt](4.5,10.75) to[short] (4.5,13.5);
+			\draw [ line width=0.5pt](4.5,12.25) to[short] (5,12.25);
+			\draw [ line width=0.5pt](4.5,13.5) to[short] (5,13.5);
+			\draw [ line width=0.5pt](7.5,10.25) to[short] (7.5,11);
+			\draw [ line width=0.5pt](5,12.25) to[european resistor,l={ \normalsize $R_1$}] (7,12.25);
+			\node at (4.5,12.25) [circ] {};
+			\draw [ line width=0.5pt](7,12.25) to[short] (7.5,12.25);
+			\draw [ line width=0.5pt](7.5,12.25) to[short] (7.5,11);
+			\draw [ line width=0.5pt](7.5,12.25) to[short] (7.5,13.5);
+			\draw [line width=0.5pt](5,13.5) to[C,l={ \normalsize $C_1$}] (7,13.5);
+			\node at (7.5,12.25) [circ] {};
+			\draw [ line width=0.5pt](7,13.5) to[short] (7.5,13.5);
+			\draw [ line width=0.5pt](8,10.25) to[short, -o] (8.25,10.25) node {$\ \ \ \ \ \ \ \ \ V_{out}$};
+			\draw [ line width=0.5pt](3.75,10.75) to[short] (3.75,10.5);
+			\draw [line width=0.5pt](3.75,9) to (3.75,8.25) node[ground]{};
+			\draw [line width=0.5pt, ->, >=Stealth] (4.25,9.25) -- (4.25,10.25);
+			\node [font=\normalsize] at (4.60,9.75) {$I_f$};
 		\end{circuitikz}
 	}%
 	\caption{Basic \gls{tia} circuit}
 	\label{fig:tia}
 \end{figure}
 
-The basic circuit, shown in Figure \ref{fig:tia}, is all that is required for photodetection. Following the guidelines for making a \gls{tia} set by Texas Instruments \cite{semig24}, all the parameters of the circuit can be calculated.
+The basic circuit, shown in Figure \ref{fig:tia}, is all that is required for photodetection. Following the Texas Instruments guidelines for making a \gls{tia} \cite{semig24}, all the parameters of the circuit can be calculated.
 
 \begin{equation}\label{eq:r1}
-	R_1 = \frac{V_{o\ max}}{I_{o\ max}}\ \text{assuming}\ V_{o\ min} = 0 \unit{\volt}
+	R_1 = \frac{V_{o\ max}}{I_{f\ max}}\ \text{assuming}\ V_{o\ min} = 0 \unit{\volt}
 \end{equation}
 
 The resistor $R_1$ determines the transimpedance gain of the amplifier. Equation \eqref{eq:r1} shows how its value can be calculated by using the output voltage and input current. It should be noted that the minimum output voltage is always 0 in this use case.
@@ -260,7 +313,7 @@ In addition, a non-inverting amplifier can be added, to increase the gain of the
 	\resizebox{.9\textwidth}{!}{%
 		\begin{circuitikz}
 			\tikzstyle{every node}=[font=\normalsize]
-			\draw [ line width=0.5pt](3.75,10.75) to[empty photodiode,l={ \normalsize $D_1$}] (3.75,9);
+			\draw [ line width=0.5pt](3.75,9) to[empty photodiode,l={ \normalsize $D_1$}] (3.75,10.75);
 			\draw [ line width=0.5pt](6.5,10.25) node[op amp,scale=1] (opamp2) {};
 			\draw [ line width=0.5pt](opamp2.+) to[short] (5,9.75);
 			\draw [ line width=0.5pt] (opamp2.-) to[short] (5,10.75);
@@ -284,8 +337,8 @@ In addition, a non-inverting amplifier can be added, to increase the gain of the
 			\draw [ line width=0.5pt](7,13.5) to[short] (7.5,13.5);
 			\draw [ line width=0.5pt](3.75,10.75) to[short] (3.75,10.5);
 			\draw [line width=0.5pt](3.75,9) to (3.75,8.25) node[ground]{};
-			\draw [line width=0.5pt, ->, >=Stealth] (3.25,10.25) -- (3.25,9.25);
-			\node [font=\normalsize] at (2.85,9.75) {$-I_f$};
+			\draw [line width=0.5pt, ->, >=Stealth] (4.25,9.25) -- (4.25,10.25);
+			\node [font=\normalsize] at (4.60,9.75) {$I_f$};
 			\draw (8,10.25) to[short] (10.25,10.25);
 			\draw (11.75,10.75) node[op amp,scale=1] (opamp2) {};
 			\draw (opamp2.+) to[short] (10.25,10.25);
@@ -380,3 +433,35 @@ Additionally, the power dissipated by $R_2$ is given in Equation \eqref{eq:fd:po
 \end{equation}
 
 %\section{\glsfmtshort{olia} implementation}
+
+\section{Lock-in amplification} \label{chap:lockin}
+As a means of retrieving data, lock-in amplification is the most suitable for the setup due to its relatively low cost, signal retrieval capabilities and the possibility of using one amplifier for several setups. 
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.7\linewidth]{img/lia_hl_schematic}
+	\caption{High-level diagram of a lock-in amplifier (image credit to Zurich Instruments \cite{instruments2018principles})}
+	\label{fig:liahlschematic}
+\end{figure}
+
+Figure \ref{fig:liahlschematic} shows an overview of how lock-in amplification works. Simply put, the amplifier receives a signal $V_s$ and extracts the data at the frequency of a reference signal $V_r$. To explain this more thoroughly, lock-in amplification utilizes the fact that every signal is made of periodic waves, which are equal to zero when averaged. 
+
+\begin{equation}\label{eq:voltage_sig}
+	V_s = R\cos{(\omega_st + \theta)} = \frac{R}{2}e^{i(\omega_st + \theta)} + \frac{R}{2}e^{-i(\omega_st + \theta)}
+\end{equation}
+
+Equation \eqref{eq:voltage_sig} shows how the mathematical expression of a sine wave signal, where $\omega_s$ is the frequency and $\theta$ is the phase of the signal. Using the trigonometric identity $\cos{x} = \frac{1}{2}(e^{ix} + e^{-ix})$, the signal can be represented in terms of complex numbers.
+
+\begin{equation}\label{eq:voltage_ref}
+	V_r = e^{-i\omega_rt}
+\end{equation}
+
+In Equation \eqref{eq:voltage_ref}, a simplified reference signal is shown. Real applications might require more complex reference signals, but $V_r$ is perfect for demonstrating the lock-in principle.
+
+\begin{equation}\label{eq:voltage_mult}
+	V_m = V_sV_r = \frac{R}{2}e^{i(\omega_s -\omega_r)t  + \theta} + \frac{R}{2}e^{-i(\omega_s +\omega_r)t + \theta}
+\end{equation}
+
+Finally, Equation \eqref{eq:voltage_mult} shows the product of the signal $V_s$ and the reference $V_r$. In the case of $\omega_s = \omega_r$, there is a signal at \num{0} \unit{\hertz} and another one at $2\omega_s$ \unit{\hertz}. The latter, however, should be attenuated to an undetectable level by the low-pass filters shown in Figure \ref{fig:liahlschematic}. This way, both the unwanted signal appearing at double the frequency and all of the noise at different frequencies is attenuated.
+
+

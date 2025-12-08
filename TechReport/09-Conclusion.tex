@@ -1,54 +1,88 @@
-\chapter{Testing results}\label{chap:conclusion}
+\chapter{Testing and results}\label{chap:conclusion}
 %This chapter discusses the results of the tests and what conclusions could be gathered from them. All tests were based on real scenarios, but the performance tests push the platform to its limits by replicating rare and improbable edge cases.
 
-%Before the technical discussion of results can be started, the status of the goals needs to be presented. Table \ref{tab:goal_com} shows that, while most goals were completed, two are still left. The Prophet implementation could not be started, because, as of completing this report, the feature still has not been released. Disseminating the findings of the project is an activity that has been started already, but can only be completed after the results have been presented officially. This item will be changed from "Ongoing" to "Completed" soon after the completion and submission of this report.
+Table \ref{tab:test:tasks} shows all the tasks discussed in Chapter \ref{chap:goals} and their current status. While working on the project, the client decided that purchasing a lock-in amplifier is more worthwhile than implementing \gls{olia}, which is why tasks associated with its implementation are marked as canceled. The items with a reassigned status were given over to two students, who are also involved with the quantum sensing setup. The laser driver was reassigned, because a completely new design was needed, the making of which would require too much time. The pulse sequence script was finished and it was passed on to one of the other students for further refinement and possibly for the implementation of different protocols.
 
-\begin{table}[ht]
-\centering
-\begin{adjustbox}{angle=0}
-\begin{tabular}{|l|l|l|}
-	\hline
-	Number & Task                                                                                                                                                                                     & Status                              \\ \hline
-	1.1    & \begin{tabular}[c]{@{}l@{}}Deploy and configure at least \\ one OpenRemote instance\end{tabular}                                                                                         & \cellcolor[HTML]{34FF34}Completed   \\ \hline
-	1.2    & \begin{tabular}[c]{@{}l@{}}Establish communication to \\ the OpenRemote instance \\ using the HTTP and \\ MQTT protocols\end{tabular}                                                    & \cellcolor[HTML]{34FF34}Completed   \\ \hline
-	2.1    & \begin{tabular}[c]{@{}l@{}}Simulate IoT devices (smart homes)\\ that send and receive concurrent MQTT \\ data to OpenRemote and measure the \\ latency of the transmissions\end{tabular} & \cellcolor[HTML]{34FF34}Completed   \\ \hline
-	2.2    & \begin{tabular}[c]{@{}l@{}}Create a physical IoT device \\ setup using a platform like ESP32 \\ or Arduino and recreate the \\ tests from Goal 1.2\end{tabular}                          & \cellcolor[HTML]{34FF34}Completed   \\ \hline
-	2.3    & Integrate and test OpenRemote's Prophet project                                                                                                                                          & \cellcolor[HTML]{FE0000}Not started \\ \hline
-	2.4    & Test performance and create visualizations                                                                                                                                               & \cellcolor[HTML]{34FF34}Completed   \\ \hline
-	3.1    & Document technical progress                                                                                                                                                              & \cellcolor[HTML]{34FF34}Completed   \\ \hline
-	3.2    & Reflect on personal and professional development                                                                                                                                         & \cellcolor[HTML]{34FF34}Completed   \\ \hline
-	3.3    & Communicate project results                                                                                                                                                              & \cellcolor[HTML]{F8FF00}Ongoing     \\ \hline
-\end{tabular}
-\end{adjustbox}
-\caption{Goal completion}
-\label{tab:goal_com}
-\end{table}
-
-
-
-\section{Test goals and performance metrics}
-%Verifying the scalability of OpenRemote is the main goal of the project and consequently the tests. There are two factors that reflect the scalability of a platform. The first one is the speed or how fast can the user and OpenRemote communicate. The second important factor is how reliable this communication is. Reliability, in this case, means the consistency of the data reception and transmission functionalities.
-
-%Because the project uses 2 APIs for communication, there are 4 possible API parameters that can be tested: HTTP speed, HTTP reliability, MQTT speed and MQTT reliability. However, the MQTT transmission speed was not considered as important enough to investigate by the stakeholders, so it was omitted from the testing activities. There might be merit in testing it with a remote OpenRemote deployment, as this will provide some more useful insight than on the local deployment that is currently in use. Even then, there is little real-world insight to gain from MQTT speed data, because smart home management does not require low-latency communication.
-
-%There is one additional metric, which helps to contextualize the speed and reliability of the platform, but also has importance as a standalone test. This metric is the resource usage of the system. Out of all system resources, CPU and memory usage are the two most important ones.
-
-\begin{table}[ht]
+\begin{table}[!ht]
 	\centering
-		\begin{tabular}{|c|c|c|c|}
-			\hline
-			Metric                      & API  & Unit(s) of measurement                                                 & Explanation                                                                               \\ \hline
-			Device provisioning latency & HTTP & seconds (s)                                                            & \begin{tabular}[c]{@{}c@{}}Time between creation \\ request and confirmation\end{tabular} \\ \hline
-			Message loss percentage     & MQTT & percent (\%)                                                           & \begin{tabular}[c]{@{}c@{}}Percent of MQTT \\ messages which are lost\end{tabular}        \\ \hline
-			Resource usage              & -    & \begin{tabular}[c]{@{}c@{}}percent \\ (CPU \%, RAM \%)\end{tabular} & \begin{tabular}[c]{@{}c@{}}CPU and RAM usage \\ when running tests\end{tabular}           \\ \hline
-		\end{tabular}
-	\caption{Metrics of the OpenRemote scalability tests}
-	\label{tab:metrics}
+	\begin{tabular}{|c||c|c|}
+		\hline
+		Number 	& Task 									& Status 							\\
+		\hline
+		1.1 	& Design photodetector 					& Completed							\\
+		\hline
+		1.2 	& Build \glsfmtshort{olia} 				& Canceled	 						\\
+		\hline
+		1.3 	& Set up laser driver					& Partially completed; reassigned	\\
+		\hline
+		2.1 	& Develop data acquisition software 	& Canceled							\\
+		\hline
+		2.2 	& Program pulse sequences 				& Mostly completed; reassigned	 	\\
+		\hline
+		3.1 	& Compare lock-in amplifiers			& Canceled  						\\
+		\hline
+		3.2 	& Test quantum sensing setup 			& In-progress  						\\
+		\hline
+	\end{tabular}
+	\caption{List of tasks and their completion status}
+	\label{tab:test:tasks}
 \end{table}
+
+%\begin{table}[ht]
+%\centering
+%\begin{adjustbox}{angle=0}
+%\begin{tabular}{|l|l|l|}
+%	\hline
+%	Number &Task                                                                                                                                                                                     & Status  
+
+%                            \\ \hline
+%	1.1    & \begin{tabular}[c]{@{}l@{}}Deploy and configure at least \\ one OpenRemote instance\end{tabular}                                                                                         & \cellcolor[HTML]{34FF34}Completed   \\ \hline
+%	1.2    & \begin{tabular}[c]{@{}l@{}}Establish communication to \\ the OpenRemote instance \\ using the HTTP and \\ MQTT protocols\end{tabular}                                                    & \cellcolor[HTML]{34FF34}Completed   \\ \hline
+%	2.1    & \begin{tabular}[c]{@{}l@{}}Simulate IoT devices (smart homes)\\ that send and receive concurrent MQTT \\ data to OpenRemote and measure the \\ latency of the transmissions\end{tabular} & \cellcolor[HTML]{34FF34}Completed   \\ \hline
+%	2.2    & \begin{tabular}[c]{@{}l@{}}Create a physical IoT device \\ setup using a platform like ESP32 \\ or Arduino and recreate the \\ tests from Goal 1.2\end{tabular}                          & \cellcolor[HTML]{34FF34}Completed   \\ \hline
+%	2.3    & Integrate and test OpenRemote's Prophet project                                                                                                                                          & \cellcolor[HTML]{FE0000}Not started \\ \hline
+%	2.4    & Test performance and create visualizations                                                                                                                                               & \cellcolor[HTML]{34FF34}Completed   \\ \hline
+%	3.1    & Document technical progress                                                                                                                                                              & \cellcolor[HTML]{34FF34}Completed   \\ \hline
+%	3.2    & Reflect on personal and professional development                                                                                                                                         & \cellcolor[HTML]{34FF34}Completed   \\ \hline
+%	3.3    & Communicate project results                                                                                                                                                              & \cellcolor[HTML]{F8FF00}Ongoing     \\ \hline
+%\end{tabular}
+%\end{adjustbox}
+%\caption{Goal completion}
+%\label{tab:goal_com}
+%\end{table}
+
+
+
+%\section{Test goals and performance metrics}
+\section{Test goals}
+
+\subsection{\glsfmtshort{tia}}
+Two methods of characterizing the \gls{tia} were used. As the main point of interest is the linearity of the amplifier, the first characterization method is to simulate photodiode readings at different light intensities by using a current source. By varying the \gls{dc} current level, either by sweeps or manually, the performance of the physical device can be compared to the simulations.
+
+The second method supplements the results of the first one. It involves measuring the scattering parameters $S_{11}$ and $S_{21}$ and calculating the frequency response of the system. Equation \eqref{eq:test:s11s22} shows the formula used to approximate the transimpedance $Z_t$ for a load resistor $R_o$ \cite{sackinger2017analysis}. While this method offers insight into the \gls{ac} characteristics of the circuit, its accuracy is worse than that of the first method, due to the approximative nature of the test.
+
+\begin{equation}\label{eq:test:s11s22}
+	Z_t(f) \approx \frac{S_{21}(f)R_o}{1 - S_{11}(f)}
+\end{equation}
+
+
+%\begin{table}[ht]
+%	\centering
+%		\begin{tabular}{|c|c|c|c|}
+%			\hline
+%			Metric                      & API  & Unit(s) of measurement                                                 & Explanation                                                                               \\ \hline
+%			Device provisioning latency & HTTP & seconds (s)                                                            & \begin{tabular}[c]{@{}c@{}}Time between creation \\ request and confirmation\end{tabular} \\ \hline
+%			Message loss percentage     & MQTT & percent (\%)                                                           & \begin{tabular}[c]{@{}c@{}}Percent of MQTT \\ messages which are lost\end{tabular}        \\ \hline
+%			Resource usage              & -    & \begin{tabular}[c]{@{}c@{}}percent \\ (CPU \%, RAM \%)\end{tabular} & \begin{tabular}[c]{@{}c@{}}CPU and RAM usage \\ when running tests\end{tabular}           \\ \hline
+%		\end{tabular}
+%	\caption{Metrics of the OpenRemote scalability tests}
+%	\label{tab:metrics}
+%\end{table}
 
 
 
 \section{Test setup}
+Characterizing the system requires precision, due to the small currents at its input. As the diode detects ambient light and cannot be set to one current level reliably, a model needs to be used instead. 
 
 
 \section{Results and discussion}

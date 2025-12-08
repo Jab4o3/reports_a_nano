@@ -2396,22 +2396,28 @@
     <bcf:citekey order="18" intorder="1">sewani2020coherent</bcf:citekey>
     <bcf:citekey order="19" intorder="1">sewani2020coherent</bcf:citekey>
     <bcf:citekey order="20" intorder="1">sewani2020coherent</bcf:citekey>
-    <bcf:citekey order="21" intorder="1">instruments2018principles</bcf:citekey>
-    <bcf:citekey order="22" intorder="1">instruments2018principles</bcf:citekey>
-    <bcf:citekey order="23" intorder="1">semig24</bcf:citekey>
-    <bcf:citekey order="24" intorder="1">black2021tia</bcf:citekey>
-    <bcf:citekey order="25" intorder="1">acharya2025compact</bcf:citekey>
-    <bcf:citekey order="26" intorder="1">margan2012transimpedance</bcf:citekey>
-    <bcf:citekey order="26" intorder="2">sackinger2017analysis</bcf:citekey>
-    <bcf:citekey order="26" intorder="3">horsthemke2025all</bcf:citekey>
-    <bcf:citekey order="27" intorder="1">cherian2016you</bcf:citekey>
-    <bcf:citekey order="28" intorder="1">clark2025boost</bcf:citekey>
-    <bcf:citekey order="29" intorder="1">ti2015tps65133</bcf:citekey>
-    <bcf:citekey order="30" intorder="1">ti2015tps65133</bcf:citekey>
-    <bcf:citekey order="31" intorder="1">ts2022ground</bcf:citekey>
-    <bcf:citekey order="32" intorder="1">ts2022ground</bcf:citekey>
-    <bcf:citekey order="33" intorder="1">instruments2015tps6040x</bcf:citekey>
-    <bcf:citekey order="34" intorder="1">instruments2015tps6040x</bcf:citekey>
+    <bcf:citekey order="21" intorder="1">sitnic2023</bcf:citekey>
+    <bcf:citekey order="22" intorder="1">sewani2020coherent</bcf:citekey>
+    <bcf:citekey order="23" intorder="1">photodiodephotodiode</bcf:citekey>
+    <bcf:citekey order="24" intorder="1">semig24</bcf:citekey>
+    <bcf:citekey order="25" intorder="1">instruments2018principles</bcf:citekey>
+    <bcf:citekey order="26" intorder="1">instruments2018principles</bcf:citekey>
+    <bcf:citekey order="27" intorder="1">black2021tia</bcf:citekey>
+    <bcf:citekey order="28" intorder="1">acharya2025compact</bcf:citekey>
+    <bcf:citekey order="29" intorder="1">margan2012transimpedance</bcf:citekey>
+    <bcf:citekey order="29" intorder="2">sackinger2017analysis</bcf:citekey>
+    <bcf:citekey order="29" intorder="3">horsthemke2025all</bcf:citekey>
+    <bcf:citekey order="30" intorder="1">cherian2016you</bcf:citekey>
+    <bcf:citekey order="31" intorder="1">clark2025boost</bcf:citekey>
+    <bcf:citekey order="32" intorder="1">ti2015tps65133</bcf:citekey>
+    <bcf:citekey order="33" intorder="1">ti2015tps65133</bcf:citekey>
+    <bcf:citekey order="34" intorder="1">ts2022ground</bcf:citekey>
+    <bcf:citekey order="35" intorder="1">ts2022ground</bcf:citekey>
+    <bcf:citekey order="36" intorder="1">instruments2015tps6040x</bcf:citekey>
+    <bcf:citekey order="37" intorder="1">instruments2015tps6040x</bcf:citekey>
+    <bcf:citekey order="38" intorder="1">instruments2015tps6040x</bcf:citekey>
+    <bcf:citekey order="38" intorder="2">ti2015tps65133</bcf:citekey>
+    <bcf:citekey order="39" intorder="1">sackinger2017analysis</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="none">

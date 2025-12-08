@@ -1,5 +1,5 @@
 \chapter{Introduction}
-This chapter introduces the assignment and some foundational concepts of quantum sensing.
+This chapter introduces the assignment, along with some foundational concepts of quantum sensing. Furthermore, it covers the methodology, goals and boundaries, which all help outline the trajectory of the project.
 
 \section{Background}\label{chap:background}
 \gls{nv} centers \cite{enwiki:1301369588} are imperfections in the atomic structure of diamonds. The two types of \gls{nv} centers are \gls{nv}0 and \gls{nv}-, as seen in Figure \ref{fig:nvcenter}, but the \gls{nv}- structure is much more commonly used in quantum applications. These imperfections have the useful property of spin-dependent luminescence. This means that the spin of the \gls{nv} center affects the frequency of the light emitted by the structure\footnote{The \gls{nv} center only emits light after absorbing photons, a phenomenon called photoluminescence \cite{enwiki:1309081879}}. Using this quality of the \gls{nv} structure, different environmental metrics (e.g magnetic fields) can be measured. 
@@ -17,17 +17,17 @@ Acquiring and processing data from the setup requires working with weak signals 
 
 
 \section{Purpose of the assignment}\label{purpose}
-Implementing a \gls{tia} is the main purpose of the assignment. To create a complete solution, there are also several additional functionalities and systems that need to be developed. 
+The main purpose of the assignment is to implement a photodetector. The quantum sensing setup requires is made up of other systems as well, which is why there are also several additional functionalities and systems that need to be developed. 
 
-Firstly, a custom photodetector needs to be designed. The circuit should accommodate the sensors and output to a lock-in amplifier. After establishing connection, an \gls{olia} \footnote{\gls{olia} is an open-source microcontroller-based lock-in amplifier. It uses common components, which makes it easy to build \cite{harvie2023olia}} circuit needs to be tested and compared to conventional lock-in systems. Lastly, a control interface can be implemented, if there is enough time. It needs to be programmed so that it can control all necessary features of the lock-in amplifier. 
+Firstly, a custom photodetector needs to be designed. The circuit should accommodate the sensors and output to a lock-in amplifier. After establishing connection, an \gls{olia} \footnote{\gls{olia} is an open-source microcontroller-based lock-in amplifier. It uses common components, which makes it easy to build \cite{harvie2023olia}} circuit needs to be tested and compared to conventional lock-in systems. Additionally, a control interface can be implemented, if there is enough time. It needs to be programmed so that it can control all necessary features of the lock-in amplifier. Aside from the data acquisition system, work also needs to be done on the existing laser-driver, as it needs to be tested and the pulsing sequences for it need to be programmed.
 
 
 \section{Assignment specifications}\label{specifications}
 As already explained, the assignment is quite broad and involves both hardware and software, causing the need for a number of different tools. 
 
-Most of the hardware tools are already available at the Applied Nanotechnology lab. The lock-in amplifiers which will be used for the tests are the most important pieces of hardware. Zurich Instruments HF2LI is the benchmark lock-in amplifier. The target amplification is at least 10dB. Chapter \ref{chap:background} already discussed the basics of the \gls{cwodmr} protocol. In order to get an operational \gls{cwodmr} setup, an \gls{mw} generator and a laser will be used. \gls{mw} sweeping needs to be done in the range of \numrange{2,8}{2,9} \unit{\giga\hertz} and the lab already has a custom-built \gls{mw} generator that can output these frequencies. The laser is mostly outside the scope of the assignment, as it is almost entirely optical in nature and the driving circuitry has been developed by a previous intern. Setting it up, together with the \gls{nv} samples, is up to the client. However, it is important to note that the fluorescence wavelength is in the range of \numrange{637}{800} \unit{\nano\meter}, as it plays an important part in photodetection.
+Most of the hardware tools are already available at the Applied Nanotechnology lab. The lock-in amplifiers which will be used for the tests are the most important pieces of hardware. Zurich Instruments HF2LI is the benchmark lock-in amplifier. The target amplification is at least 10dB. Chapter \ref{chap:background} already discussed the basics of the \gls{cwodmr} protocol. In order to get an operational \gls{cwodmr} setup, an \gls{mw} generator and a laser will be used. \gls{mw} sweeping needs to be done in the range of \numrange{2,8}{2,9} \unit{\giga\hertz} and the lab already has a custom-built \gls{mw} generator that can output these frequencies. The laser is mostly outside the scope of the assignment, as it is almost entirely optical in nature. The driving circuitry for it has been developed by a previous intern, but the integration with the sensing setup will be carried out in this project. The driver will be fed \gls{ttl} pulse data from an Analog Discovery 2. It is important to note that the fluorescence wavelength is in the range of \numrange{637}{800} \unit{\nano\meter}, as it plays an important part in photodetection. It is different from the laser wavelength, which is filtered out and is not supposed to be detected by the photodetector.
 	
-In terms of software, there is more freedom of choice. Interfacing with the HF2LI is done through proprietary software, but this is the only required program. There are various \gls{ecad} software suites that offer the same base functionality. KiCad was selected because the client prefers open-source software. The program for retrieving data from the lock-in amplifiers can be written in both Python and MATLAB. Both languages have good integration with the main lock-in amplifier. They also offer \gls{gui} programming capabilities and are good for scientific computing overall.
+In terms of software, there is more freedom of choice. Interfacing with the HF2LI is done through proprietary software. Similarly, pulse generation is going to be done with Waveforms, the Analog Discovery 2 software, but those are the only programs that cannot be replaced. As for \gls{ecad} software, there are various suites that offer the same base functionality. KiCad was selected because the client prefers open-source software. The program for retrieving data from the lock-in amplifiers can be written in both Python and MATLAB. Both languages have good integration with the main lock-in amplifier. They also offer \gls{gui} programming capabilities and are good for scientific computing overall. 
 
 
 
@@ -42,16 +42,17 @@ The project boundaries were initially based on the assignment form, but were lat
 \begin{itemize}
 	\item Hardware platform for photodetection
 	\item Software for signal processing and visualization
+	\item Setup integration
 \end{itemize}
 
 \textbf{Should have}
 \begin{itemize}
+	\item Tests with different quantum protocols
 	\item Tests with different diamond samples
 \end{itemize}
 
 \textbf{Could have}
 \begin{itemize}
-	\item Tests with different quantum protocols
 	\item \gls{olia} implementation
 	\item Tests comparing \gls{olia} to market solutions
 \end{itemize}
@@ -69,29 +70,36 @@ Based on the MoSCoW priorities from Chapter \ref{chap:project_boundaries}, a set
 
 \begin{itemize}
 	\item[Goal 1]: Create a hardware setup, which measures and amplifies photodiode signals
-	\item[Goal 2]: Develop software to process and visualize lock-in amplifier signals
+	\item[Goal 2]: Develop software to drive the laser and process lock-in amplifier signals
 	\item[Goal 3]: Compare the performance of different lock-in amplifiers
 \end{itemize}
 
 While these goals are practical, they are still not specific enough. To eliminate the possibility of confusion, a set of tasks were created. All tasks contribute to one of the three goals.
 
 \begin{itemize}
-	\item[Task 1.1]: Design a photodiode \gls{pcb}, which can accommodate different lock-in amplifiers
+	\item[Task 1.1]: Design a photodetector \gls{pcb}
 	\item[Task 1.2]: Build an operable \gls{olia}
+	\item[Task 1.3]: Set up and test laser driver
 	\item[Task 2.1]: Develop software that acquires signals and is then able to visualize them
+	\item[Task 2.2]: Program quantum protocol pulse sequences for the laser driver
 	\item[Task 3.1]: Use key performance metrics to compare the \gls{olia} implementation to market solutions
-	\item[Task 3.2]: Measure \gls{olia} performance using different diamond samples and quantum protocols
+	\item[Task 3.2]: Measure test setup performance using different diamond samples and quantum protocols
 \end{itemize}
 
 \textbf{Task 1.1} involves the design and production of a photodiode \gls{pcb}. The \gls{pcb} has to output signals that are not only compatible with lock-in amplifiers that are available on the market, but also with the \gls{olia}. This part of the hardware design has the highest priority, which is why it will be done first. 
 
 \textbf{Task 1.2} is to build an \gls{olia} amplifier, which can be used at Applied Nanotechnology's laboratory. This will be done with the technical specifications and firmware provided by Harvie and de Mello \cite{harvie2023olia}. The necessity for an \gls{olia} is low, because the Applied Nanotechnology research group already has two lock-in amplifiers.
 
+
+\textbf{Task 1.3} is one of the more minor hardware tasks. As the driver is already designed and fabricated, it only needs to be tested and integrated with the rest of the setup. Tests should show that the driver can switch the laser at high speeds, which is necessary for several quantum protocols.
+
 \textbf{Task 2.1} is to write an application in Python or MATLAB. This can be done on a different setup, but ideally it will use the hardware setup from \textbf{Goal 1}. Because the \gls{olia} project uses open-source firmware that differs from proprietary solutions, there might need to be two separate applications. This task can only be completed once a measurement setup is built, so its execution will follow the first two tasks.
+
+\textbf{Task 2.2} makes sense only as a continuation of \textbf{Task 1.3}. Proper integration testing requires pulsing sequences, which will also be used when the setup is functional. These sequences are vital for the second stage of testing of the laser driver, so they need to be developed while the driver is still being tested with simple periodic signals.
 
 \textbf{Task 3.1} requires all previous tasks to be finished. The completed setup needs to be used to measure the performance of lock-in amplifiers available on the market and the \gls{olia} implementation. \gls{snr}, bandwidth and stability are the main metrics that need to be compared.
 
-\textbf{Task 3.2} is similar to \textbf{Task 3.1}, but it is a much broader exploration of the performance of the lock-in amplifiers. Using different diamond samples and quantum protocols will show how the amplifier performs and how different conditions affect it. Because the task can be used to verify the setup from \textbf{Goal 1}, it can also be done before \textbf{Task 3.1}. Tests with varying diamond samples are more important to the client, which is why they will take precedence over tests with different quantum protocols.
+\textbf{Task 3.2} is similar to \textbf{Task 3.1}, but it is a much broader in scope. Using different diamond samples and quantum protocols will show how the sensing setup performs and how different conditions affect it. Because the task can be used to verify the photodetector from \textbf{Goal 1}, it can also be done before \textbf{Task 3.1}. Tests with varying diamond samples are more important to the client, which is why they will take precedence over tests with different quantum protocols.
 
 
 \subsection{Deliverables}
@@ -100,8 +108,8 @@ The description of the tasks already provided context for the deliverables, but 
 \begin{enumerate}
 	\item Photodetection \gls{pcb} 
 	\item \gls{olia} implementation
-	\item Software application
-	\item Comparison visualization
+	\item Data acquisition application
+	\item Pulsing sequences
 	\item Technical documentation
 \end{enumerate}
 

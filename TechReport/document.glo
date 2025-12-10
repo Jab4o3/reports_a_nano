@@ -85,15 +85,15 @@
 \glossaryentry{TIA?\glossentry{tia}|setentrycounter[]{page}"\glsnumberformat}{16}
 \glossaryentry{TTL?\glossentry{ttl}|setentrycounter[]{page}"\glsnumberformat}{18}
 \glossaryentry{ODMR?\glossentry{odmr}!P-ODMR?\subglossentry{1}{podmr}|setentrycounter[]{page}"\glsnumberformat}{18}
-\glossaryentry{TTL?\glossentry{ttl}|setentrycounter[]{page}"\glsnumberformat}{19}
+\glossaryentry{TTL?\glossentry{ttl}|setentrycounter[]{page}"\glsnumberformat}{18}
 \glossaryentry{SNR?\glossentry{snr}|setentrycounter[]{page}"\glsnumberformat}{19}
 \glossaryentry{ODMR?\glossentry{odmr}!CW-ODMR?\subglossentry{1}{cwodmr}|setentrycounter[]{page}"\glsnumberformat}{19}
 \glossaryentry{ODMR?\glossentry{odmr}!CW-ODMR?\subglossentry{1}{cwodmr}|setentrycounter[]{page}"\glsnumberformat}{19}
 \glossaryentry{TIA?\glossentry{tia}|setentrycounter[]{page}"\glsnumberformat}{19}
 \glossaryentry{KCL?\glossentry{kcl}|setentrycounter[]{page}"\glsnumberformat}{19}
-\glossaryentry{KCL?\glossentry{kcl}|setentrycounter[]{page}"\glsnumberformat}{19}
-\glossaryentry{DC?\glossentry{dc}|setentrycounter[]{page}"\glsnumberformat}{19}
 \glossaryentry{TIA?\glossentry{tia}|setentrycounter[]{page}"\glsnumberformat}{20}
+\glossaryentry{KCL?\glossentry{kcl}|setentrycounter[]{page}"\glsnumberformat}{20}
+\glossaryentry{DC?\glossentry{dc}|setentrycounter[]{page}"\glsnumberformat}{20}
 \glossaryentry{KCL?\glossentry{kcl}|setentrycounter[]{page}"\glsnumberformat}{20}
 \glossaryentry{DC?\glossentry{dc}|setentrycounter[]{page}"\glsnumberformat}{20}
 \glossaryentry{TIA?\glossentry{tia}|setentrycounter[]{page}"\glsnumberformat}{21}
@@ -104,7 +104,7 @@
 \glossaryentry{USB?\glossentry{usb}|setentrycounter[]{page}"\glsnumberformat}{22}
 \glossaryentry{IC?\glossentry{ic}|setentrycounter[]{page}"\glsnumberformat}{23}
 \glossaryentry{DC?\glossentry{dc}|setentrycounter[]{page}"\glsnumberformat}{24}
-\glossaryentry{SPICE?\glossentry{spice}|setentrycounter[]{page}"\glsnumberformat}{24}
+\glossaryentry{SPICE?\glossentry{spice}|setentrycounter[]{page}"\glsnumberformat}{25}
 \glossaryentry{PCB?\glossentry{pcb}|setentrycounter[]{page}"\glsnumberformat}{25}
 \glossaryentry{PCB?\glossentry{pcb}|setentrycounter[]{page}"\glsnumberformat}{26}
 \glossaryentry{ODMR?\glossentry{odmr}!CW-ODMR?\subglossentry{1}{cwodmr}|setentrycounter[]{page}"\glsnumberformat}{26}

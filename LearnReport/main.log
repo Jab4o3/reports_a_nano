@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.6.12)  9 DEC 2025 15:10
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.6.12)  10 DEC 2025 14:45
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -709,16 +709,18 @@ Chapter 2.
 [3]
 
 [4]
+
+[5]
 Chapter 3.
 
 
-[5
+[6
 
 ]
 Chapter 4.
 
 
-[6
+[7
 
 ] (main.aux)
  ***********
@@ -732,22 +734,22 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 17412 strings out of 468224
- 302406 string characters out of 5432952
+ 17413 strings out of 468224
+ 302412 string characters out of 5432952
  1134956 words of memory out of 5000000
  45718 multiletter control sequences out of 15000+600000
  633947 words of font info for 66 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 63i,6n,67p,1100b,807s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 63i,6n,67p,1301b,807s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/vladi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
 cmbx12.pfb><C:/Users/vladi/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
 fonts/cm/cmr10.pfb><C:/Users/vladi/AppData/Local/Programs/MiKTeX/fonts/type1/pu
 blic/amsfonts/cm/cmr12.pfb><C:/Users/vladi/AppData/Local/Programs/MiKTeX/fonts/
 type1/public/amsfonts/cm/cmr17.pfb><C:/Users/vladi/AppData/Local/Programs/MiKTe
 X/fonts/type1/public/amsfonts/cm/cmsl10.pfb>
-Output written on main.pdf (7 pages, 169515 bytes).
+Output written on main.pdf (8 pages, 177257 bytes).
 PDF statistics:
- 222 PDF objects out of 1000 (max. 8388607)
- 44 named destinations out of 1000 (max. 500000)
+ 226 PDF objects out of 1000 (max. 8388607)
+ 45 named destinations out of 1000 (max. 500000)
  294 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.6.12)  8 DEC 2025 15:15
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.6.12)  10 DEC 2025 11:31
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1975,10 +1975,10 @@ Chapter 5.
 
 
 ]
-<img/waveforms_sequence.png, id=656, 1442.38875pt x 336.50719pt>
+<img/waveforms_sequence.png, id=657, 1442.38875pt x 336.50719pt>
 File: img/waveforms_sequence.png Graphic file (type png)
 <use img/waveforms_sequence.png>
-Package pdftex.def Info: img/waveforms_sequence.png  used on input line 67.
+Package pdftex.def Info: img/waveforms_sequence.png  used on input line 69.
 (pdftex.def)             Requested size: 426.79135pt x 99.56656pt.
 
 
@@ -1991,25 +1991,25 @@ Package pdftex.def Info: img/waveforms_sequence.png  used on input line 67.
 File: img/adafruit_split_rail_boost.png Graphic file (type png)
 <use img/adafruit_split_rail_boost.png>
 Package pdftex.def Info: img/adafruit_split_rail_boost.png  used on input line 
-318.
+320.
 (pdftex.def)             Requested size: 170.71393pt x 131.88034pt.
 <img/virt_ground.png, id=758, 170.13562pt x 130.98938pt>
 File: img/virt_ground.png Graphic file (type png)
 <use img/virt_ground.png>
-Package pdftex.def Info: img/virt_ground.png  used on input line 329.
+Package pdftex.def Info: img/virt_ground.png  used on input line 331.
 (pdftex.def)             Requested size: 128.0387pt x 98.58356pt.
 <img/chrg_pump.png, id=762, 720.44156pt x 304.13625pt>
 File: img/chrg_pump.png Graphic file (type png)
 <use img/chrg_pump.png>
-Package pdftex.def Info: img/chrg_pump.png  used on input line 339.
+Package pdftex.def Info: img/chrg_pump.png  used on input line 341.
 (pdftex.def)             Requested size: 213.39568pt x 90.08139pt.
 
 
 [22 <./img/adafruit_split_rail_boost.png>]
-<img/TIA_TINA_SIM_1P6.jpg, id=785, 690.58pt x 253.94875pt>
+<img/TIA_TINA_SIM_1P6.jpg, id=786, 690.58pt x 253.94875pt>
 File: img/TIA_TINA_SIM_1P6.jpg Graphic file (type jpg)
 <use img/TIA_TINA_SIM_1P6.jpg>
-Package pdftex.def Info: img/TIA_TINA_SIM_1P6.jpg  used on input line 380.
+Package pdftex.def Info: img/TIA_TINA_SIM_1P6.jpg  used on input line 382.
 (pdftex.def)             Requested size: 298.75264pt x 109.86232pt.
 
 
@@ -2017,51 +2017,50 @@ Package pdftex.def Info: img/TIA_TINA_SIM_1P6.jpg  used on input line 380.
 <img/tina_AC_2probes.jpg, id=802, 548.0475pt x 336.25626pt>
 File: img/tina_AC_2probes.jpg Graphic file (type jpg)
 <use img/tina_AC_2probes.jpg>
-Package pdftex.def Info: img/tina_AC_2probes.jpg  used on input line 393.
+Package pdftex.def Info: img/tina_AC_2probes.jpg  used on input line 395.
 (pdftex.def)             Requested size: 209.1301pt x 128.3123pt.
 <img/tina_DC_2probes.jpg, id=803, 531.9875pt x 320.19624pt>
 File: img/tina_DC_2probes.jpg Graphic file (type jpg)
 <use img/tina_DC_2probes.jpg>
-Package pdftex.def Info: img/tina_DC_2probes.jpg  used on input line 399.
+Package pdftex.def Info: img/tina_DC_2probes.jpg  used on input line 401.
 (pdftex.def)             Requested size: 209.1301pt x 125.87273pt.
 <matlab/bode_v1_v2_comparison.png, id=808, 526.96875pt x 395.22656pt>
 File: matlab/bode_v1_v2_comparison.png Graphic file (type png)
 <use matlab/bode_v1_v2_comparison.png>
 Package pdftex.def Info: matlab/bode_v1_v2_comparison.png  used on input line 4
-38.
+40.
 (pdftex.def)             Requested size: 298.75264pt x 224.07533pt.
 <img/tina_AC_2probes_1p.jpg, id=810, 548.0475pt x 336.25626pt>
 File: img/tina_AC_2probes_1p.jpg Graphic file (type jpg)
 <use img/tina_AC_2probes_1p.jpg>
-Package pdftex.def Info: img/tina_AC_2probes_1p.jpg  used on input line 449.
+Package pdftex.def Info: img/tina_AC_2probes_1p.jpg  used on input line 451.
 (pdftex.def)             Requested size: 209.1301pt x 128.3123pt.
 <img/tina_DC_2probes_1p.jpg, id=811, 548.0475pt x 336.25626pt>
 File: img/tina_DC_2probes_1p.jpg Graphic file (type jpg)
 <use img/tina_DC_2probes_1p.jpg>
-Package pdftex.def Info: img/tina_DC_2probes_1p.jpg  used on input line 455.
+Package pdftex.def Info: img/tina_DC_2probes_1p.jpg  used on input line 457.
 (pdftex.def)             Requested size: 209.1301pt x 128.3123pt.
 
 
 [24 <./img/tina_AC_2probes.jpg> <./img/tina_DC_2probes.jpg>]
-<img/photodetec_og_pcb.png, id=831, 1189.44376pt x 567.62062pt>
-File: img/photodetec_og_pcb.png Graphic file (type png)
-<use img/photodetec_og_pcb.png>
-Package pdftex.def Info: img/photodetec_og_pcb.png  used on input line 480.
-(pdftex.def)             Requested size: 298.75264pt x 142.56305pt.
-
 
 [25 <./matlab/bode_v1_v2_comparison.png (PNG copy)> <./img/tina_AC_2probes_1p.j
 pg> <./img/tina_DC_2probes_1p.jpg>]
+<img/photodetec_og_pcb.png, id=837, 1189.44376pt x 567.62062pt>
+File: img/photodetec_og_pcb.png Graphic file (type png)
+<use img/photodetec_og_pcb.png>
+Package pdftex.def Info: img/photodetec_og_pcb.png  used on input line 482.
+(pdftex.def)             Requested size: 298.75264pt x 142.56305pt.
 <img/photodetec_v2_gp_pcb2.png, id=841, 1393.205pt x 784.9325pt>
 File: img/photodetec_v2_gp_pcb2.png Graphic file (type png)
 <use img/photodetec_v2_gp_pcb2.png>
-Package pdftex.def Info: img/photodetec_v2_gp_pcb2.png  used on input line 490.
+Package pdftex.def Info: img/photodetec_v2_gp_pcb2.png  used on input line 492.
 
 (pdftex.def)             Requested size: 298.75264pt x 168.31404pt.
 <img/photodetec_v3.png, id=844, 1393.205pt x 784.9325pt>
 File: img/photodetec_v3.png Graphic file (type png)
 <use img/photodetec_v3.png>
-Package pdftex.def Info: img/photodetec_v3.png  used on input line 500.
+Package pdftex.def Info: img/photodetec_v3.png  used on input line 502.
 (pdftex.def)             Requested size: 298.75264pt x 168.31404pt.
 )
 
@@ -2151,10 +2150,10 @@ Package logreq Info: Writing requests to 'document.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 84845 strings out of 468224
- 2120700 string characters out of 5432952
+ 84803 strings out of 468224
+ 2119424 string characters out of 5432952
  3969055 words of memory out of 5000000
- 112118 multiletter control sequences out of 15000+600000
+ 112076 multiletter control sequences out of 15000+600000
  641017 words of font info for 92 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  99i,13n,125p,2594b,2915s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -2189,9 +2188,9 @@ X/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/vladi/AppData/Local/Progra
 ms/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/vladi/AppData/Loc
 al/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Users/vladi/Ap
 pData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on document.pdf (39 pages, 2550011 bytes).
+Output written on document.pdf (39 pages, 2550122 bytes).
 PDF statistics:
- 1331 PDF objects out of 1440 (max. 8388607)
+ 1330 PDF objects out of 1440 (max. 8388607)
  348 named destinations out of 1000 (max. 500000)
  548 words of extra memory for PDF output out of 10000 (max. 10000000)
 

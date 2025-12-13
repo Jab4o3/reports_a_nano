@@ -2418,6 +2418,8 @@
     <bcf:citekey order="38" intorder="1">instruments2015tps6040x</bcf:citekey>
     <bcf:citekey order="38" intorder="2">ti2015tps65133</bcf:citekey>
     <bcf:citekey order="39" intorder="1">sackinger2017analysis</bcf:citekey>
+    <bcf:citekey order="40" intorder="1">razavi2019transimpedance</bcf:citekey>
+    <bcf:citekey order="41" intorder="1">acharya2025compact</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="none">

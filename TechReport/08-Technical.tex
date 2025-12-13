@@ -6,36 +6,7 @@ This chapter discusses the implementation and integration of the various parts o
 As was previously discussed, the existing driver does not need any hardware changes, but there are some notable details that play a role when configuring the driver.
  
 
-\subsection{Testing configuration}
-The existing current driver is important not only for the quantum setup as a whole, but testing with it also provides valuable information about the photodetector (see Chapter \ref{chap:conclusion}). 
-%todo3: move to testing chapter
-To run test on the current driver, the setup shown in Figure \ref{fig:td:driver:setup} was used. The Analog Discovery is used as a function generator and its signal is fed to the driver. Current from the driver is then ran through a resistive load and the resulting voltage is measured by the oscilloscope. Additionally, the \gls{ttl} signal from the Analog Discovery might need to be measured as well, because its stability starts to deteriorate at around 1 \unit{\mega\hertz}.
 
-\begin{figure}[ht]
-	\centering
-	\begin{tikzpicture}[
-		% define box styles
-		boxr/.style={rectangle, thick, draw=red!50!black, fill=red!5, minimum size=5mm},
-		boxg/.style={rectangle, thick, draw=green!50!black, fill=green!5, minimum size=5mm},
-		boxb/.style={rectangle, thick, draw=blue!50!black, fill=blue!5, minimum size=5mm},
-		]
-		% draw source/scope nodes
-		\node[boxg] (fgen)								{Function generator};
-		\node[boxg] (scope)		[right=10 mm of fgen] 	{Oscilloscope};
-		% draw main system nodes
-		\node[boxb] (driver) 	[below=of fgen]			{Current driver};
-		\node[boxb] (load) 		[below=of scope]		{Load};
-		
-		
-		% draw lines
-		\draw[->, thick, dashed] 	(fgen.east) 		to node[midway, above]{\glsfmtshort{ttl}} 	(scope.west);
-		\draw[->, thick]			(fgen.south)		to node[midway, left]{\glsfmtshort{ttl}} 	(driver.north);
-		\draw[->, thick] 			(driver.east) 		to node[midway, above]{Current} 			(load.west);
-		\draw[->, thick]			(load.north) 		to node[midway, right]{Signal} 				(scope.south);
-	\end{tikzpicture}
-	\caption{Current driver testing setup}
-	\label{fig:td:driver:setup}
-\end{figure}
 
 \subsection{Pulsing sequences}
 Previously, $T_1$ and \gls{podmr} were mentioned when discussing pulsed protocols. However, due to the high-frequency instability of the Analog Discovery signals, only sequences for $T_1$ measurements were made. Chapter \ref{chap:fd:t1} presented an overview of the $T_1$ pulsing scheme. 

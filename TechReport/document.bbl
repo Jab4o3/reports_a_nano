@@ -827,6 +827,37 @@
       \field{title}{TPS6040x Unregulated 60-mA Charge Pump Voltage Inverter}
       \field{year}{2015}
     \endentry
+    \entry{razavi2019transimpedance}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=c7a8cbdc611fb566c84f257674d0a44f}{%
+           family={Razavi},
+           familyi={R\bibinitperiod},
+           given={Behzad},
+           giveni={B\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {IEEE}%
+      }
+      \strng{namehash}{c7a8cbdc611fb566c84f257674d0a44f}
+      \strng{fullhash}{c7a8cbdc611fb566c84f257674d0a44f}
+      \strng{fullhashraw}{c7a8cbdc611fb566c84f257674d0a44f}
+      \strng{bibnamehash}{c7a8cbdc611fb566c84f257674d0a44f}
+      \strng{authorbibnamehash}{c7a8cbdc611fb566c84f257674d0a44f}
+      \strng{authornamehash}{c7a8cbdc611fb566c84f257674d0a44f}
+      \strng{authorfullhash}{c7a8cbdc611fb566c84f257674d0a44f}
+      \strng{authorfullhashraw}{c7a8cbdc611fb566c84f257674d0a44f}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Solid-State Circuits Magazine}
+      \field{number}{1}
+      \field{title}{The transimpedance amplifier [a circuit for all seasons]}
+      \field{volume}{11}
+      \field{year}{2019}
+      \field{pages}{10\bibrangedash 97}
+      \range{pages}{88}
+    \endentry
   \enddatalist
 \endrefsection
 \endinput

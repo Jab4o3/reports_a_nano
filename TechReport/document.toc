@@ -34,28 +34,29 @@
 \contentsline {subsection}{\numberline {5.2.1}First iteration}{19}{subsection.5.2.1}%
 \contentsline {subsection}{\numberline {5.2.2}Second iteration}{19}{subsection.5.2.2}%
 \contentsline {subsection}{\numberline {5.2.3}Third iteration}{22}{subsection.5.2.3}%
-\contentsline {section}{\numberline {5.3}Photodetection simulation}{23}{section.5.3}%
-\contentsline {subsection}{\numberline {5.3.1}First iteration}{23}{subsection.5.3.1}%
-\contentsline {subsection}{\numberline {5.3.2}Second iteration}{24}{subsection.5.3.2}%
-\contentsline {subsection}{\numberline {5.3.3}Third iteration}{24}{subsection.5.3.3}%
-\contentsline {section}{\numberline {5.4}Photodetection implementation}{25}{section.5.4}%
-\contentsline {subsection}{\numberline {5.4.1}First iteration}{25}{subsection.5.4.1}%
-\contentsline {subsection}{\numberline {5.4.2}Second iteration}{25}{subsection.5.4.2}%
-\contentsline {subsection}{\numberline {5.4.3}Third iteration}{26}{subsection.5.4.3}%
-\contentsline {chapter}{\numberline {6}Testing and results}{28}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Test goals}{28}{section.6.1}%
-\contentsline {section}{\numberline {6.2}Test setup}{29}{section.6.2}%
-\contentsline {subsection}{\numberline {6.2.1}Photodiode-model characterization}{29}{subsection.6.2.1}%
-\contentsline {subsection}{\numberline {6.2.2}S-parameter characterization}{29}{subsection.6.2.2}%
-\contentsline {subsection}{\numberline {6.2.3}Integration test}{29}{subsection.6.2.3}%
-\contentsline {section}{\numberline {6.3}Results}{30}{section.6.3}%
-\contentsline {subsection}{\numberline {6.3.1}Photodiode-model characterization}{30}{subsection.6.3.1}%
-\contentsline {subsection}{\numberline {6.3.2}S-parameter characterization}{30}{subsection.6.3.2}%
-\contentsline {subsection}{\numberline {6.3.3}\glsxtrtitleshort {tia} integration test}{30}{subsection.6.3.3}%
-\contentsline {section}{\numberline {6.4}Discussion}{31}{section.6.4}%
-\contentsline {section}{\numberline {6.5}Known limitations}{31}{section.6.5}%
-\contentsline {chapter}{\numberline {7}Conclusion}{32}{chapter.7}%
-\contentsline {chapter}{\numberline {8}Recommendations}{33}{chapter.8}%
-\contentsline {chapter}{Appendices}{34}{section*.36}%
-\contentsline {chapter}{\numberline {A}Code}{34}{appendix.1.A}%
-\contentsline {chapter}{Glossary}{38}{section*.41}%
+\contentsline {subsection}{\numberline {5.2.4}Fourth iteration}{23}{subsection.5.2.4}%
+\contentsline {section}{\numberline {5.3}Photodetection simulation}{24}{section.5.3}%
+\contentsline {subsection}{\numberline {5.3.1}First iteration}{24}{subsection.5.3.1}%
+\contentsline {subsection}{\numberline {5.3.2}Second iteration}{25}{subsection.5.3.2}%
+\contentsline {subsection}{\numberline {5.3.3}Third iteration}{26}{subsection.5.3.3}%
+\contentsline {section}{\numberline {5.4}Photodetection implementation}{26}{section.5.4}%
+\contentsline {subsection}{\numberline {5.4.1}First iteration}{26}{subsection.5.4.1}%
+\contentsline {subsection}{\numberline {5.4.2}Second iteration}{27}{subsection.5.4.2}%
+\contentsline {subsection}{\numberline {5.4.3}Third iteration}{27}{subsection.5.4.3}%
+\contentsline {chapter}{\numberline {6}Testing and results}{29}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Test goals}{29}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Test setup}{30}{section.6.2}%
+\contentsline {subsection}{\numberline {6.2.1}Photodiode-model characterization}{30}{subsection.6.2.1}%
+\contentsline {subsection}{\numberline {6.2.2}S-parameter characterization}{30}{subsection.6.2.2}%
+\contentsline {subsection}{\numberline {6.2.3}Integration test}{30}{subsection.6.2.3}%
+\contentsline {section}{\numberline {6.3}Results}{31}{section.6.3}%
+\contentsline {subsection}{\numberline {6.3.1}Photodiode-model characterization}{31}{subsection.6.3.1}%
+\contentsline {subsection}{\numberline {6.3.2}S-parameter characterization}{31}{subsection.6.3.2}%
+\contentsline {subsection}{\numberline {6.3.3}\glsxtrtitleshort {tia} integration test}{31}{subsection.6.3.3}%
+\contentsline {section}{\numberline {6.4}Discussion}{32}{section.6.4}%
+\contentsline {section}{\numberline {6.5}Known limitations}{32}{section.6.5}%
+\contentsline {chapter}{\numberline {7}Conclusion}{33}{chapter.7}%
+\contentsline {chapter}{\numberline {8}Recommendations}{34}{chapter.8}%
+\contentsline {chapter}{Appendices}{35}{section*.38}%
+\contentsline {chapter}{\numberline {A}Code}{35}{appendix.1.A}%
+\contentsline {chapter}{Glossary}{39}{section*.43}%

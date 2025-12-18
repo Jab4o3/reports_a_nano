@@ -567,6 +567,33 @@
       \field{volume}{17}
       \field{year}{2018}
     \endentry
+    \entry{acharya2025compact}{thesis}{}{}
+      \name{author}{1}{}{%
+        {{hash=935732fb16932f000b365d4f47c667ee}{%
+           family={Acharya},
+           familyi={A\bibinitperiod},
+           given={Bikram},
+           giveni={B\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {Wichita State University}%
+      }
+      \strng{namehash}{935732fb16932f000b365d4f47c667ee}
+      \strng{fullhash}{935732fb16932f000b365d4f47c667ee}
+      \strng{fullhashraw}{935732fb16932f000b365d4f47c667ee}
+      \strng{bibnamehash}{935732fb16932f000b365d4f47c667ee}
+      \strng{authorbibnamehash}{935732fb16932f000b365d4f47c667ee}
+      \strng{authornamehash}{935732fb16932f000b365d4f47c667ee}
+      \strng{authorfullhash}{935732fb16932f000b365d4f47c667ee}
+      \strng{authorfullhashraw}{935732fb16932f000b365d4f47c667ee}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Compact integration of NV-based diamond quantum sensors using a small-size photodiode and on-board transimpedance amplifier}
+      \field{type}{phdthesis}
+      \field{year}{2025}
+    \endentry
     \entry{black2021tia}{misc}{}{}
       \name{author}{2}{}{%
         {{hash=a97f6422d6ff4f8df70967401d54424c}{%
@@ -596,33 +623,6 @@
       \field{title}{Transimpedance Amplifiers for Wide Range	Photodiodes	Have Challenging Requirements}
       \field{year}{2021}
     \endentry
-    \entry{acharya2025compact}{thesis}{}{}
-      \name{author}{1}{}{%
-        {{hash=935732fb16932f000b365d4f47c667ee}{%
-           family={Acharya},
-           familyi={A\bibinitperiod},
-           given={Bikram},
-           giveni={B\bibinitperiod}}}%
-      }
-      \list{institution}{1}{%
-        {Wichita State University}%
-      }
-      \strng{namehash}{935732fb16932f000b365d4f47c667ee}
-      \strng{fullhash}{935732fb16932f000b365d4f47c667ee}
-      \strng{fullhashraw}{935732fb16932f000b365d4f47c667ee}
-      \strng{bibnamehash}{935732fb16932f000b365d4f47c667ee}
-      \strng{authorbibnamehash}{935732fb16932f000b365d4f47c667ee}
-      \strng{authornamehash}{935732fb16932f000b365d4f47c667ee}
-      \strng{authorfullhash}{935732fb16932f000b365d4f47c667ee}
-      \strng{authorfullhashraw}{935732fb16932f000b365d4f47c667ee}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{title}{Compact integration of NV-based diamond quantum sensors using a small-size photodiode and on-board transimpedance amplifier}
-      \field{type}{phdthesis}
-      \field{year}{2025}
-    \endentry
     \entry{margan2012transimpedance}{article}{}{}
       \name{author}{1}{}{%
         {{hash=57e82070ad977e92f9accaac06b67c9a}{%
@@ -639,8 +639,8 @@
       \strng{authornamehash}{57e82070ad977e92f9accaac06b67c9a}
       \strng{authorfullhash}{57e82070ad977e92f9accaac06b67c9a}
       \strng{authorfullhashraw}{57e82070ad977e92f9accaac06b67c9a}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{no}
@@ -669,8 +669,8 @@
       \strng{authornamehash}{583a2b7e416b4f05572062faf222e09d}
       \strng{authorfullhash}{583a2b7e416b4f05572062faf222e09d}
       \strng{authorfullhashraw}{583a2b7e416b4f05572062faf222e09d}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Analysis and design of transimpedance amplifiers for optical receivers}
@@ -697,8 +697,8 @@
       \strng{authornamehash}{6c5c50cc523c04a66a2c53242df571a2}
       \strng{authorfullhash}{6c5c50cc523c04a66a2c53242df571a2}
       \strng{authorfullhashraw}{6c5c50cc523c04a66a2c53242df571a2}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{All optical magnetometry with nitrogen vacancy centers in diamonds}
@@ -826,6 +826,122 @@
       \field{labeltitlesource}{title}
       \field{title}{TPS6040x Unregulated 60-mA Charge Pump Voltage Inverter}
       \field{year}{2015}
+    \endentry
+    \entry{hoyle1998bootstrapping}{inproceedings}{}{}
+      \name{author}{2}{}{%
+        {{hash=71be53e8dca6f113c0dcfe3a49c33cf0}{%
+           family={Hoyle},
+           familyi={H\bibinitperiod},
+           given={Chris},
+           giveni={C\bibinitperiod}}}%
+        {{hash=1fdee7c3368f267639d12825448c50d1}{%
+           family={Peyton},
+           familyi={P\bibinitperiod},
+           given={A},
+           giveni={A\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {IET}%
+      }
+      \strng{namehash}{52494ecafb3b9d053e2ee30248533112}
+      \strng{fullhash}{52494ecafb3b9d053e2ee30248533112}
+      \strng{fullhashraw}{52494ecafb3b9d053e2ee30248533112}
+      \strng{bibnamehash}{52494ecafb3b9d053e2ee30248533112}
+      \strng{authorbibnamehash}{52494ecafb3b9d053e2ee30248533112}
+      \strng{authornamehash}{52494ecafb3b9d053e2ee30248533112}
+      \strng{authorfullhash}{52494ecafb3b9d053e2ee30248533112}
+      \strng{authorfullhashraw}{52494ecafb3b9d053e2ee30248533112}
+      \field{extraname}{1}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{IEE Colloquium on Analog Signal Processing (Ref. No. 1998/472)}
+      \field{title}{Bootstrapping techniques to improve the bandwidth of transimpedance amplifiers}
+      \field{year}{1998}
+      \field{pages}{7\bibrangedash 1}
+      \range{pages}{-5}
+    \endentry
+    \entry{hoyle1999shunt}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=6699ce3a944246e181c8162f14f9b7cf}{%
+           family={Hoyle},
+           familyi={H\bibinitperiod},
+           given={C},
+           giveni={C\bibinitperiod}}}%
+        {{hash=1fdee7c3368f267639d12825448c50d1}{%
+           family={Peyton},
+           familyi={P\bibinitperiod},
+           given={A},
+           giveni={A\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {IET}%
+      }
+      \strng{namehash}{4c960fcf27a7f98297221e5f976ef373}
+      \strng{fullhash}{4c960fcf27a7f98297221e5f976ef373}
+      \strng{fullhashraw}{4c960fcf27a7f98297221e5f976ef373}
+      \strng{bibnamehash}{4c960fcf27a7f98297221e5f976ef373}
+      \strng{authorbibnamehash}{4c960fcf27a7f98297221e5f976ef373}
+      \strng{authornamehash}{4c960fcf27a7f98297221e5f976ef373}
+      \strng{authorfullhash}{4c960fcf27a7f98297221e5f976ef373}
+      \strng{authorfullhashraw}{4c960fcf27a7f98297221e5f976ef373}
+      \field{extraname}{2}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Electronics Letters}
+      \field{number}{5}
+      \field{title}{Shunt bootstrapping technique to improve bandwidth of transimpedance amplifiers}
+      \field{volume}{35}
+      \field{year}{1999}
+      \field{pages}{369\bibrangedash 370}
+      \range{pages}{2}
+    \endentry
+    \entry{idrus2006performance}{inproceedings}{}{}
+      \name{author}{4}{}{%
+        {{hash=daeefe6263c2a7658c7a26728ed6f55e}{%
+           family={Idrus},
+           familyi={I\bibinitperiod},
+           given={SM},
+           giveni={S\bibinitperiod}}}%
+        {{hash=167367af69cd14b48a01dd64e119f5c7}{%
+           family={Ngajikin},
+           familyi={N\bibinitperiod},
+           given={N},
+           giveni={N\bibinitperiod}}}%
+        {{hash=5073ff78c9758e2f79bba92ed4f4defa}{%
+           family={Malik},
+           familyi={M\bibinitperiod},
+           given={NNNA},
+           giveni={N\bibinitperiod}}}%
+        {{hash=364b2087695d05bcaf778a39c4990726}{%
+           family={Aziz},
+           familyi={A\bibinitperiod},
+           given={SIA},
+           giveni={S\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {IEEE}%
+      }
+      \strng{namehash}{55d30a2d9ac39501801e7c9c98043429}
+      \strng{fullhash}{7624f31663ea6a4dec49f1578f5ea5b9}
+      \strng{fullhashraw}{7624f31663ea6a4dec49f1578f5ea5b9}
+      \strng{bibnamehash}{7624f31663ea6a4dec49f1578f5ea5b9}
+      \strng{authorbibnamehash}{7624f31663ea6a4dec49f1578f5ea5b9}
+      \strng{authornamehash}{55d30a2d9ac39501801e7c9c98043429}
+      \strng{authorfullhash}{7624f31663ea6a4dec49f1578f5ea5b9}
+      \strng{authorfullhashraw}{7624f31663ea6a4dec49f1578f5ea5b9}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{2006 International RF and Microwave Conference}
+      \field{title}{Performance analysis of bootstrap transimpedance amplifier for large windows optical wireless receiver}
+      \field{year}{2006}
+      \field{pages}{416\bibrangedash 420}
+      \range{pages}{5}
     \endentry
     \entry{razavi2019transimpedance}{article}{}{}
       \name{author}{1}{}{%

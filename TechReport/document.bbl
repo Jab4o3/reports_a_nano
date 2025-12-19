@@ -943,6 +943,18 @@
       \field{pages}{416\bibrangedash 420}
       \range{pages}{5}
     \endentry
+    \entry{ti2020cascading}{manual}{}{}
+      \list{organization}{1}{%
+        {Texas Instruments}%
+      }
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labeltitlesource}{title}
+      \field{month}{8}
+      \field{number}{SBOA356}
+      \field{title}{Cascading Precision Op Amp Stages for Optimal AC and DC Performance}
+      \field{year}{2020}
+    \endentry
     \entry{razavi2019transimpedance}{article}{}{}
       \name{author}{1}{}{%
         {{hash=c7a8cbdc611fb566c84f257674d0a44f}{%

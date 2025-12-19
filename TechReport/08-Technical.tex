@@ -341,7 +341,7 @@ The specifications of the different power supply solutions are shown in Table \r
 
 Ultimately, the charge pump is the most fit for this project, because it is relatively simple, while also offering excellent stability. The decision was reached only after taking into account the power calculations from Chapter \ref{chap:fd:power_req}, according to which all devices can handle the power requirements of the circuit. Another important factor when making the decision was the efficiency of the switching solutions. Based on slight fluctuations in the amount of current drawn, the charge pump can have as much as twice the efficiency of the split-rail power supply \cite{instruments2015tps6040x, ti2015tps65133}, due to its high efficiency at low currents.
 
-\subsection{Fourth iteration}
+\subsection{Fourth iteration}\label{chap:td:v4_design}
 Although the previous iterations provided a cheap and reliable photodetector for \gls{cwodmr}, the narrow bandwidth prevents them from measuring pulsed protocols. This iteration is specifically designed for $T_1$ measurements.
 
 \begin{figure}[ht]
@@ -351,10 +351,10 @@ Although the previous iterations provided a cheap and reliable photodetector for
 	\label{fig:td:bodev410mohm1mohm}
 \end{figure}
 
-The simplest way to increase the bandwidth of the \gls{tia} is to decrease its transimpedance gain. Additionally, an op-amp with a higher \gls{gbp} will also contribute to a substantial increase in gain. Figure \ref{fig:td:bodev410mohm1mohm} shows the ideal version of the \gls{tia}, used in the second and third iteration of the system (in blue). It uses an AD795 amplifier, which has a 1,6 \unit{\mega\hertz} \gls{gbp}. The resulting cutoff frequency is \num{19,69} \unit{\kilo\hertz}. Only swapping the AD795 for an ADA4637, which has a 79 \unit{\mega\hertz} \gls{gbp}, results in the system response in orange. Its cutoff frequency is \num{162,48} \unit{\kilo\hertz}. Both lines show a system with the same transimpedance gain and consequently $R_1$ value. On the other hand, the yellow line shows the increase in bandwidth with a 10 times smaller gain\footnote{The plot shows normalized gain of each system, which is why the first two systems (140 \unit{\decibel}) have the same gain as the last system (120 \unit{\decibel})}. The ADA4637 system with 1 \unit{\mega\ohm} $R_1$ has a cutoff frequency of \num{511,31} \unit{\kilo\hertz}.
+The simplest way to increase the bandwidth of the \gls{tia} is to decrease its transimpedance gain. Additionally, an op-amp with a higher \gls{gbp} will also contribute to a substantial increase in gain. Figure \ref{fig:td:bodev410mohm1mohm} shows the ideal version of the \gls{tia}, used in the second and third iteration of the system (in blue). It uses an AD795 amplifier, which has a 1,6 \unit{\mega\hertz} \gls{gbp}. The resulting cutoff frequency is \num{19,69} \unit{\kilo\hertz}. Only swapping the AD795 for an ADA4637, which has a 79 \unit{\mega\hertz} \gls{gbp}, results in the system response in orange. Its cutoff frequency is \num{138,87} \unit{\kilo\hertz}. Both lines show a system with the same transimpedance gain and consequently $R_1$ value. On the other hand, the yellow line shows the increase in bandwidth with a 10 times smaller gain\footnote{The plot shows normalized gain of each system, which is why the first two systems (140 \unit{\decibel}) have the same gain as the last system (120 \unit{\decibel})}. The ADA4637 system with 1 \unit{\mega\ohm} $R_1$ has a cutoff frequency of \num{437,32} \unit{\kilo\hertz}.
 
 
-While these changes contribute to an improved bandwidth, they are limited by the compensation capacitor $C_1$. Its purpose is to counteract the negative effects of the diode capacitance $C_d$ and stabilize the frequency response of the system. In doing so, however, it also reduces the bandwidth of the system. Decreasing the capacitance of $C_1$ outright can lead to unwanted resonance, but it is possible to stabilize $C_d$ and consequently reduce the value of $C_1$ by using bootstrapping. The design discussed in this section is based on \cite{sackinger2017analysis, hoyle1998bootstrapping, hoyle1999shunt, idrus2006performance}
+While these changes contribute to an improved bandwidth, they are limited by the compensation capacitor $C_1$. Its purpose is to counteract the negative effects of the diode capacitance $C_d$ and stabilize the frequency response of the system. In doing so, however, it also reduces the bandwidth of the system. Decreasing the capacitance of $C_1$ outright can lead to unwanted resonance, but it is possible to stabilize $C_d$ and consequently reduce the value of $C_1$ by using bootstrapping. The design discussed in this section is based on \cite{sackinger2017analysis, hoyle1998bootstrapping, hoyle1999shunt, idrus2006performance}.
 
 
 
@@ -409,11 +409,25 @@ While these changes contribute to an improved bandwidth, they are limited by the
 	\label{fig:td:tia_bootstrap}
 \end{figure}
 
+Figure \ref{fig:td:tia_bootstrap} shows the bootstrapped \gls{tia}. The same analysis as in Chapter \ref{chap:td:calc:v2} can be applied to the circuit, which leads to the transimpedance $Z_t$ in Equation \eqref{eq:td:v4:trans}. The additional op-amp buffer creates an extra pole and zero. In the expression, $C_i$ is the sum of the common-mode and differential capacitance of the amplifier, $C_d$ is the photodiode capacitance, $A_o$ is the intrinsic open-loop gain of the amplifier, $\omega_o$ is the open-loop cutoff frequency and all other parameters correspond to the ones in Figure \ref{fig:td:tia_bootstrap}.
+
 \begin{equation}\label{eq:td:v4:trans}
-	Z_t(s) = \frac{v_{out}}{i_f} = \frac{R_1}{s^2\frac{(C_i + C_1 + C_d)R_1}{\omega_oA_o} + s(\frac{(C_i + C_1 + C_d)R_1}{A_o} + C_1R_1 + \frac{1}{\omega_oA_o}) - \frac{s(s + \omega_o)C_dR_1}{s + \omega_o(1 + A_o)} + \frac{1}{A_o} + 1}
+	Z_t(s) = \frac{v_{out}}{i_f} = \frac{R_1}{s^2\frac{\left(C_i + C_1 + C_d\right)R_1}{\omega_oA_o} + s\left(\frac{\left(C_i + C_1 + C_d\right)R_1}{A_o} + C_1R_1 + \frac{1}{\omega_oA_o}\right) - \frac{s\left(s + \omega_o\right)C_dR_1}{s + \omega_o(1 + A_o)} + \frac{A_o + 1}{A_o}}
 \end{equation}
 
+Determining the ideal $C_1$ by solving the characteristic equation of the system analytically is even harder than in the previous designs, which is why the system equation was solved by trial and error, and with the use of MATLAB to plot the system response with different capacitor values. The solution is discussed in more detail in Chapter \ref{chap:td:v4_sim}.
 
+While the improvements to the \gls{tia} are crucial for broadening its bandwidth, the changes also affect the post-amplification stage. It needs to compensate for the gain reduction that was previously discussed. Despite, a simple gain increase being a viable solution, this will also reduce the bandwidth. Similarly to the \gls{tia}, the non-inverting amplifier is also affected by the gain-bandwidth relationship, as dictated by the \gls{gbp}, shown in Equation \eqref{eq:td:v4:gbp+gain}, where $A_v$ is the gain of the stage.
+
+\begin{equation}\label{eq:td:v4:gbp+gain}
+	f_c = \frac{GBP}{A_v}
+\end{equation}
+
+An alternative to increasing the gain is to add a second non-inverting stage with the same gain. By doing this, the bandwidth does not decrease as a result of the gain-bandwidth relationship, but the cutoff frequency $f_{c\alpha}$ of single-stage non-inverting amplifier even increases as shown in Equation \eqref{eq:td:v4:nia_cascading}\footnote{The formula assumes the non-inverting stages have the same parameters and use the same components as in the actual design} \cite{ti2020cascading}. In the equation, $A_{df}$ is the bandwidth increase due to the single-stage gain reduction.
+
+\begin{equation}\label{eq:td:v4:nia_cascading}
+	f_c \approx A_{df}\left(\frac{1}{f_{c\alpha}^2} + \frac{1}{f_{c\alpha}^2}\right)^{-\frac{1}{2}} = \frac{A_{df}}{\sqrt{2}}f_{c\alpha}
+\end{equation}
 
 %\begin{equation}\label{eq:td:v4:trans_re}
 %	\begin{split}
@@ -425,6 +439,16 @@ While these changes contribute to an improved bandwidth, they are limited by the
 %\begin{equation}\label{eq:td:v4:trans}
 %	Z_t(s) = \frac{v_{out}}{i_f} = \frac{R_1}{s^2\frac{(C_i + C_1 + C_d)R_1}{\omega_o} + s(\frac{(C_i + C_1 + C_d)R_1\omega_a}{\omega_o} + C_1R_1 + \frac{1}{\omega_o}) - \frac{s(s + \omega_a)C_dR_1}{s + \omega_o + \omega_a} + \frac{\omega_a}{\omega_o} + 1}
 %\end{equation}
+
+Finally, Figure \ref{fig:td:v4schematic} shows the schematic of the system after all the modifications.
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.7\linewidth]{img/v4_schematic}
+	\caption{Schematic of the fourth iteration of the \gls{tia}}
+	\label{fig:td:v4schematic}
+\end{figure}
+
 
 \section{Photodetection simulation}
 Simulation is an important part of the designing process, as digital models of devices can be more detailed than the mathematical models presented thus far. Using different simulation programs, the real-world performance can be approximated and the math can be validated.
@@ -483,7 +507,7 @@ MATLAB calculates the component values with high precision and sourcing componen
 		$Q$  					    & \num{0,57735} & \num{0,55996} &  \num{0,35487}   \\
 		\hline
 	\end{tabular}
-	\caption{Photodetector parameters with a \num{10} \unit{\mega \ohm} feedback resistor $R_1$}
+	\caption{\gls{tia} parameters with a \num{10} \unit{\mega \ohm} feedback resistor $R_1$}
 	\label{tab:td:params}
 \end{table}
 
@@ -523,7 +547,64 @@ Figure \ref{fig:tina2probes1p} confirms the calculations, with some slight diffe
 \subsection{Third iteration}
 Before deciding on a power supply system, the power requirements needed to be compared to the specifications listed in Table \ref{tab:power_supply}. A MATLAB script, which can be found in Appendix \ref{chap:appendix:code}, was written and used to calculate that, given a \textpm 5 \unit{\volt} supply, the system requires \num{2,3021} \unit{\milli\ampere} of current.  All solutions can provide that amount of current with reasonable overhead, which is why the choice was based on size, complexity and stability.
 
+\subsection{Fourth iteration}\label{chap:td:v4_sim}
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.7\linewidth]{matlab/bode_bootstrap_vs_nostrap}
+	\caption{Comparison of a bootstrapped \gls{tia} and a normal \gls{tia} with the same transimpedance gain}
+	\label{fig:td:bodebootstrapvsnostrap}
+\end{figure}
 
+As previously discussed, the value of the capacitor could not be determined analytically, however an approximate value was calculated using MATLAB simulations. Figure \ref{fig:td:bodebootstrapvsnostrap} shows that the bootstrapped system demonstrates a significantly increased bandwidth.
+
+
+According to Table \ref{tab:td:v4_params}, the bootstrapped amplifier still has a quality factor $Q$ close to the ideal \num{0,57735}, which is even better than the previous iterations of the system. Furthermore, the capacitor value is standard, meaning that the value can be used in the physical system without further approximations.
+
+\begin{table}[!ht]
+	\centering
+	\begin{tabular}{|c||c|c|c|}
+		\hline
+		\glsfmtshort{tia} version 	& v4 (Bootstrapped) & v4 (No bootstrap) & v2/v3 			\\
+		\hline
+		$C_1$ (\unit{\pico \farad}) & \num{0,3} 		& \num{0,49265}    	& \num{1}			\\
+		\hline
+		$R_1$ (\unit{\mega\ohm}) 	& \num{1} 			& \num{1}	    	& \num{10}			\\
+		\hline
+		$f_c$ (\unit{\kilo \hertz}) & \num{724,69}	 	& \num{437,32} 		&  \num{21,167}		\\
+		\hline
+		$Q$  					    & \num{0,57814} 	& \num{0,57735} 	&  \num{0,55996}   \\
+		\hline
+	\end{tabular}
+	\caption{Comparison of \gls{tia} parameters of the fourth and second/third iteration of the system}
+	\label{tab:td:v4_params}
+\end{table}
+
+
+
+\begin{figure}[!ht]
+	\centering
+	\begin{subfigure}[1a]{.7\linewidth}
+		\includegraphics[width=\linewidth]{img/LTSpice_sim_v4_1stage}
+		\caption{Bootstrapped \gls{tia} with a single output stage (40 \unit{\decibel} gain)}
+		\label{fig:td:v4_nia:one}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[2a]{.7\linewidth}
+		\includegraphics[width=\linewidth]{img/LTSpice_sim_v4_2stage}
+		\caption{Bootstrapped \gls{tia} with two cascaded output stages (20 \unit{\decibel} gain each)}
+		\label{fig:td:v4_nia:cascaded}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[3a]{.7\linewidth}
+		\includegraphics[width=\linewidth]{img/LTSpice_sim_v4_no_post}
+		\caption{Bootstrapped \gls{tia} without post-amplification}
+		\label{fig:td:v4_nia:none}
+	\end{subfigure}
+	\caption{Simulation of the second iteration of the photodetector}
+	\label{fig:td:v4_nia}
+\end{figure}
+
+Additionally, the post-amplification part of the system was simulated with and without the cascaded stages. Shown in Figure \ref{fig:td:v4_nia}, the results demonstrate a significant increase in bandwidth. The plot of the bootstrapped \gls{tia} discussed in the design section (Chapter \ref{chap:td:v4_design}) with a single 40 \unit{\decibel} non-inverting stage shows a flat response with a cutoff frequency of approximately 229 \unit{\kilo\hertz}. This is significantly lower than 721 \unit{\kilo\hertz}, which is the bandwidth of the \gls{tia} without any post-amplification (Figure \ref{fig:td:v4_nia:none}). Figure \ref{fig:td:v4_nia:cascaded} shows the increased bandwidth of \num{1,517} \unit{\mega\hertz} when two stages are used instead of one. In spite of the significantly bigger cutoff frequency, the response is not maximally flat, which means the linearity at high frequencies is subpar.
 
 \section{Photodetection implementation}
 Creating the physical \gls{pcb} is a more straightforward process than the design and simulation, but it still needs to be discussed. 

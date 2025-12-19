@@ -217,12 +217,12 @@ Testing with 1 and 500 \unit{\hertz} results in the readings shown in Figure \re
 		\caption{Integration test with the laser pulsing at 500 \unit{\hertz}}
 		\label{fig:test:integtest500hz}
 	\end{subfigure}
-	\caption{Integration test of the first iteration of the photodetector with a focused close-proximity laser}
+	\caption{Integration test of the first iteration of the photodetector (cutoff frequency $f_c$ = \num{10,77} \unit{\kilo\hertz}) with a focused close-proximity laser}
 	\label{fig:test:integ_v1}
 \end{figure}
 
 
-The previous tests were done with the laser placed less than 1 \unit{cm} away from the photodiode. Better measurements can be achieved by moving the laser further away and not aligning the center of the beam with the diode, both of which reduce the light intensity at the diode. Figure \ref{fig:test:v1_test} shows how the photodetector performs under the improved conditions. These measurements present a cleaner response at higher frequency, but the low-frequency measurement in Figure \ref{fig:test:v1_test_50} demonstrates the ambient light effect on the precision of the circuit. When there is no direct laser light present, the photocurrent still generated over 200 \unit{\milli\volt} of voltage. This effect is not noticeable in the higher-frequency measurements, however, they demonstrate a significant increase in signal fall time.
+The previous tests were done with the laser placed less than 1 \unit{cm} away from the photodiode. Better measurements can be achieved by moving the laser further away and not aligning the center of the beam with the diode, both of which reduce the light intensity at the diode. This happens because overexposure in photovoltaic mode severely lengthens the rise and fall time of the photodiode, and this effect is further exacerbated by the extremely high sensitivity of the circuit. Figure \ref{fig:test:v1_test} shows how the photodetector performs under the improved conditions. These measurements present a cleaner response at higher frequency, but the low-frequency measurement in Figure \ref{fig:test:v1_test_50} demonstrates the ambient light effect on the precision of the circuit. When there is no direct laser light present, the photocurrent still generated over 200 \unit{\milli\volt} of voltage. This effect is not noticeable in the higher-frequency measurements, however, they demonstrate a significant increase in signal fall time.
 
 \begin{figure}[ht]
 	\centering
@@ -254,7 +254,7 @@ The previous tests were done with the laser placed less than 1 \unit{cm} away fr
 		\label{fig:test:v1_test_20k}
 	\end{subfigure}
 	
-	\caption{Integration test of the first iteration of the photodetector with an unfocused medium-distance laser}
+	\caption{Integration test of the first iteration of the photodetector (cutoff frequency $f_c$ = \num{10,77} \unit{\kilo\hertz}) with an unfocused medium-distance laser}
 	\label{fig:test:v1_test}
 	
 \end{figure}

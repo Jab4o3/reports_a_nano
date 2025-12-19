@@ -2422,9 +2422,10 @@
     <bcf:citekey order="40" intorder="2">hoyle1998bootstrapping</bcf:citekey>
     <bcf:citekey order="40" intorder="3">hoyle1999shunt</bcf:citekey>
     <bcf:citekey order="40" intorder="4">idrus2006performance</bcf:citekey>
-    <bcf:citekey order="41" intorder="1">sackinger2017analysis</bcf:citekey>
-    <bcf:citekey order="42" intorder="1">razavi2019transimpedance</bcf:citekey>
-    <bcf:citekey order="43" intorder="1">acharya2025compact</bcf:citekey>
+    <bcf:citekey order="41" intorder="1">ti2020cascading</bcf:citekey>
+    <bcf:citekey order="42" intorder="1">sackinger2017analysis</bcf:citekey>
+    <bcf:citekey order="43" intorder="1">razavi2019transimpedance</bcf:citekey>
+    <bcf:citekey order="44" intorder="1">acharya2025compact</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="none">

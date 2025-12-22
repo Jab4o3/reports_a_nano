@@ -555,10 +555,7 @@ Before deciding on a power supply system, the power requirements needed to be co
 	\label{fig:td:bodebootstrapvsnostrap}
 \end{figure}
 
-As previously discussed, the value of the capacitor could not be determined analytically, however an approximate value was calculated using MATLAB simulations. Figure \ref{fig:td:bodebootstrapvsnostrap} shows that the bootstrapped system demonstrates a significantly increased bandwidth.
-
-
-According to Table \ref{tab:td:v4_params}, the bootstrapped amplifier still has a quality factor $Q$ close to the ideal \num{0,57735}, which is even better than the previous iterations of the system. Furthermore, the capacitor value is standard, meaning that the value can be used in the physical system without further approximations.
+As previously discussed, the value of the capacitor could not be determined analytically, however an approximate value was calculated using MATLAB simulations. Figure \ref{fig:td:bodebootstrapvsnostrap} shows that the bootstrapped system demonstrates a significantly increased bandwidth. According to Table \ref{tab:td:v4_params}, the bootstrapped amplifier still has a quality factor $Q$ close to the ideal \num{0,57735}, which is even better than the previous iterations of the system. Furthermore, the capacitor value is standard, meaning that the value can be used in the physical system without further approximations.
 
 \begin{table}[!ht]
 	\centering
@@ -607,10 +604,9 @@ According to Table \ref{tab:td:v4_params}, the bootstrapped amplifier still has 
 Additionally, the post-amplification part of the system was simulated with and without the cascaded stages. Shown in Figure \ref{fig:td:v4_nia}, the results demonstrate a significant increase in bandwidth. The plot of the bootstrapped \gls{tia} discussed in the design section (Chapter \ref{chap:td:v4_design}) with a single 40 \unit{\decibel} non-inverting stage shows a flat response with a cutoff frequency of approximately 229 \unit{\kilo\hertz}. This is significantly lower than 721 \unit{\kilo\hertz}, which is the bandwidth of the \gls{tia} without any post-amplification (Figure \ref{fig:td:v4_nia:none}). Figure \ref{fig:td:v4_nia:cascaded} shows the increased bandwidth of \num{1,517} \unit{\mega\hertz} when two stages are used instead of one. In spite of the significantly bigger cutoff frequency, the response is not maximally flat, which means the linearity at high frequencies is subpar.
 
 \section{Photodetection implementation}
-Creating the physical \gls{pcb} is a more straightforward process than the design and simulation, but it still needs to be discussed. 
+Creating the physical \gls{pcb} is a more straightforward process than the design and simulation, but it still needs to be discussed. Aside from the boards, this section also covers the essential components.
 
 \subsection{First iteration}
-Figure \ref{fig:photodetecogpcb} shows the back side of the PCB. It hosts all components, except for the photodiode, which sits unobstructed on the front side. Requirements for the physical dimensions were also set by the client. The PCB needs to fit the Thorlabs mount standard, since the rest of the setup also uses it. 
 
 \begin{figure}[ht]
 	\centering
@@ -619,8 +615,10 @@ Figure \ref{fig:photodetecogpcb} shows the back side of the PCB. It hosts all co
 	\label{fig:photodetecogpcb}
 \end{figure}
 
+
+Figure \ref{fig:photodetecogpcb} shows the back side of the PCB. It hosts all components, except for the photodiode, which sits unobstructed on the front side. Requirements for the physical dimensions were also set by the client. The PCB needs to fit the Thorlabs mount standard, since the rest of the setup also uses it. For photodetection, the system uses a BPW34 through-hole diode. Additionally, the \gls{tia} uses an AD795 op-amp and the post-amplifier uses an AD820.
+
 \subsection{Second iteration}
-Due to the fact that the topology of the first iteration was kept, the \gls{pcb} does not need any modifications in order to work with the circuit parameters. However, after a discussion with the client, a ground plane was added. Usually such an addition would be needed in high-speed and/or high-power use cases, but the circuit only deals with low-speed, very-low-power signals. The reason for the ground plane in the updated design is broader quantum protocol support. While \gls{cwodmr} operates at low frequencies, future expansion of the sensing setup might require support for different high-speed pulsing sequences. In that case, the component values can be modified again, without the need for making a new board. Figure \ref{fig:td:imp:photodetecv2gppcb2} shows the new board design. The updated board also has better routing than the previous version, which was done to optimize the noise performance.
 
 \begin{figure}[ht]
 	\centering
@@ -629,8 +627,10 @@ Due to the fact that the topology of the first iteration was kept, the \gls{pcb}
 	\label{fig:td:imp:photodetecv2gppcb2}
 \end{figure}
 
+Due to the fact that the topology of the first iteration was kept, the \gls{pcb} does not need any modifications in order to work with the circuit parameters. However, after a discussion with the client, a ground plane was added. Usually such an addition would be needed in high-speed and/or high-power use cases, but the circuit only deals with low-speed, very-low-power signals. The reason for the ground plane in the updated design is broader quantum protocol support. While \gls{cwodmr} operates at low frequencies, future expansion of the sensing setup might require support for different high-speed pulsing sequences. In that case, the component values can be modified again, without the need for making a new board. Figure \ref{fig:td:imp:photodetecv2gppcb2} shows the new board design. The updated board also has better routing than the previous version, which was done to optimize the noise performance.
+
+
 \subsection{Third iteration}
-The third version of the board has more components, which combined with the fixed board dimensions, made it more difficult to do the placing and routing. Additionally, the clearance of the power and ground nets was increased. Figure \ref{fig:td:imp:photodetecv3} shows the \gls{ecad} view of the third iteration of the photodetector. 
 
 \begin{figure}[ht]
 	\centering
@@ -638,5 +638,24 @@ The third version of the board has more components, which combined with the fixe
 	\caption{Third iteration of the photodetection PCB}
 	\label{fig:td:imp:photodetecv3}
 \end{figure}
+
+
+The third version has an optimized power system that employs a TPS60400 charge pump to invert the 5 \unit{\volt} power supplied to it. The charge pump, combined with the fixed board dimensions, made it more difficult to do the placing and routing. Additionally, the clearance of the power and ground nets was increased. Figure \ref{fig:td:imp:photodetecv3} shows the \gls{ecad} view of the third iteration of the photodetector. 
+
+
+
+\subsection{Fourth iteration}
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.7\linewidth]{img/photodetec_v4}
+	\caption{Third iteration of the photodetection PCB}
+	\label{fig:td:imp:photodetecv4}
+\end{figure}
+
+This iteration of the photodetector is less concerned with minor improvements and adaptations for the sensing setup than the previous iterations. In fact, the differences are so significant that the fourth photodetector version requires mostly new components. Instead of an AD795-based \gls{tia} and an AD820-based post-amplifier, the fourth iteration uses ADA4637 and ADA4627 op-amps. The ADA4637 offers significantly higher \gls{gbp} (79 \unit{\mega\hertz} in comparison to 1,6 \unit{\mega\hertz}) without a significant difference in the noise levels and this is why it was used for the \gls{tia}. The bootstrap buffer was also matched to use the same op-amp. An amplifier of the same family, namely the ADA4627, is employed by the output stages, because of its much better noise performance\footnote{The ADA4627 has 16 \unit[power-half-as-sqrt]{\nano\volt\per\hertz\tothe{0.5}} at 1 \unit{\hertz}, which steadily decreases to 5 \unit[power-half-as-sqrt]{\nano\volt\per\hertz\tothe{0.5}} at 10 \unit{\kilo\hertz}. The AD820 has 100 \unit[power-half-as-sqrt]{\nano\volt\per\hertz\tothe{0.5}} at 1 \unit{\hertz}, which, similar to the ADA4627, decreases to 15 \unit[power-half-as-sqrt]{\nano\volt\per\hertz\tothe{0.5}} at 10 \unit{\kilo\hertz}. The ADA4637 was also considered as an option for the non-inverting stages, but its noise is higher than the ADA4627}. Decreasing noise later in the signal chain is crucial to maintaining a clear output. With all these considerations in mind, the circuit was designed in a similar manner to the previous iterations (see Figure \ref{fig:td:imp:photodetecv4}).
+
+
+
 
 %\section{OLIA implementation}

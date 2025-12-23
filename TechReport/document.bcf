@@ -2426,6 +2426,12 @@
     <bcf:citekey order="42" intorder="1">sackinger2017analysis</bcf:citekey>
     <bcf:citekey order="43" intorder="1">razavi2019transimpedance</bcf:citekey>
     <bcf:citekey order="44" intorder="1">acharya2025compact</bcf:citekey>
+    <bcf:citekey order="45" intorder="1">sewani2020coherent</bcf:citekey>
+    <bcf:citekey order="46" intorder="1">photodiodephotodiode</bcf:citekey>
+    <bcf:citekey order="47" intorder="1">sackinger2017analysis</bcf:citekey>
+    <bcf:citekey order="47" intorder="2">santiago2021a</bcf:citekey>
+    <bcf:citekey order="47" intorder="3">karimi2017silicon</bcf:citekey>
+    <bcf:citekey order="47" intorder="4">analui2004bandwidth</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="none">

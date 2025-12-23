@@ -155,6 +155,32 @@ Using this model, the diode current $I_f$ can be approximated using Equation \eq
 \end{figure}
 
 \subsection{S-parameter characterization}
+Scattering parameters, also known S-parameters, are often used to characterize \gls{rf} circuits and antennas by using a \gls{vna}. For this particular test, the $S_{11}$ and $S_{21}$ parameters are needed to calculate the transimpedance using Equation \eqref{eq:test:s11s22}. In order to measure both, the \gls{vna} needs to be configured as shown in Figure \ref{fig:test:s_params:setup}. $S_{11}$ can be measured with only port 1 of the \gls{vna} being connected to the photodetector. However, port 2 is needed to measure $S_21$ at the output of the photodetector.
+
+\begin{figure}[ht]
+	\centering
+	\begin{tikzpicture}[
+		% define box styles
+		boxr/.style={rectangle, thick, draw=red!50!black, fill=red!5, minimum size=5mm},
+		boxg/.style={rectangle, thick, draw=green!50!black, fill=green!5, minimum size=5mm},
+		boxvna/.style={rectangle, thick, draw=green!50!black, fill=green!5, minimum size=10mm},
+		boxb/.style={rectangle, thick, draw=blue!50!black, fill=blue!5, minimum size=5mm},
+		]
+		% draw source/scope nodes
+		\node[boxg, minimum width=30mm] (vna) at (0, 0)							{\glsfmtshort{vna}};
+		\node[boxg, minimum width=15mm]	(vna-in)[below left=0mm and -15.25mm of vna]	{Port 1};
+		\node[boxg, minimum width=15mm] (vna-out)[below right=0mm and -15.25mm of vna]	{Port 2};
+		\node[boxb] (detec) 	[below=10mm of vna]		{Photodetector};
+		
+		% draw lines
+		\draw[thick] (vna-in.west) |- (-20mm, -5mm) |- (detec.west);
+		\draw[thick] (vna-out.east) |- (20mm, -5mm) |- (detec.east);
+		
+		
+	\end{tikzpicture}
+	\caption{Example of a filled sequence buffer}
+	\label{fig:test:s_params:setup}
+\end{figure}
 
 \subsection{Integration test}
 The integration test has a similar test setup to the complete quantum sensing setup. However, the light from the laser directly illuminates the photodiode instead of a diamond sample \gls{nv}. This was done on purpose, because the bigger laser signals provide more clear information on the functioning of the photodetector. When the tests were done, the new version of the laser driver was available and its \gls{pcb} included a laser, as seen in Figure \ref{fig:test:tia_integ:setup}. In addition to the diagram, Figure \ref{fig:test:setupinteg} shows what the physical measurement setup looks like. 
@@ -197,7 +223,10 @@ The integration test has a similar test setup to the complete quantum sensing se
 
 \section{Results}
 \subsection{Photodiode-model characterization}
+
 \subsection{S-parameter characterization}
+Unfortunately, the system could not be characterized by means of S-parameters. This is due to the lack of suitable equipment. The laboratory had a \gls{vna} that could only be used to measure S-parameters in the \gls{rf} range. There was another method which was tried, which involves using the waveform and oscilloscope channels of an Analog Discovery 2 as a \gls{vna}. While this method can cover the operating frequencies of the device, it can only measure the $S_{11}$ parameter of the device, because it functions as a network analyzer with a single port. Lastly, attempts at contacting researchers from the University of Twente for their equipment were made, but they did not respond.
+
 \subsection{\glsfmtshort{tia} integration test}
 Testing with 1 and 500 \unit{\hertz} results in the readings shown in Figure \ref{fig:test:integ_v1}. From the data, it can be seen that the photodetector exhibits a lower bandwidth than what was calculated for the \gls{tia}. This is caused by the photovoltaic-mode diode and the high intensity of the light, which lengthen the on time and fall time of the detector.
 
@@ -260,9 +289,13 @@ The previous tests were done with the laser placed less than 1 \unit{cm} away fr
 \end{figure}
 
 \section{Discussion}
-As a result of the tests, the first iteration of the photodetector can be used for \gls{cwodmr} measurements. The protocol can be executed with extremely low bandwidth photodetectors (e.g. 18 \unit{\hertz} \cite{acharya2025compact}). That being said, pulsed protocols cannot be achieved with the first iteration of the circuit due to their high frequency requirements. 
+As a result of the tests, the first iteration of the photodetector can be used for \gls{cwodmr} measurements. The protocol can be executed with extremely low bandwidth photodetectors (e.g. 18 \unit{\hertz} \cite{acharya2025compact}). That being said, pulsed protocols cannot be achieved with the first iteration of the circuit due to their high frequency requirements. Higher frequencies also exacerbate the issue of overexposure of the sensor, which leads to decreased performance. The effect of the laser on the sensor needs to be considered when integrating the complete setup, as it can affect the measurements. There are cancellation techniques to measure only the \gls{nv} luminescence \cite{sewani2020coherent}, but if the photodiode is overexposed or the signal is getting limited by the power rail, the output will not be usable.
+
+
 
 \section{Known limitations}
+The most obvious limitation is the lack of equipment for some tests, which lead to using less appropriate alternatives or having to cancel tests. For example, due to the lack of a suitable \gls{vna}, the only method for circuit characterization was using a diode model. The latter would also benefit from a real nanoamp current source instead of the makeshift source that had to be used.
+
 There are many factors that affect the measurements, but perhaps most prominent are the environmental lighting sources. This includes ambient sunlight, which gets through the blinds of the lab, and reflections from the laser. Both significantly affect the photodetector, especially when there is no focused light present. Reflections, in particular, also contributed to the long falling edges in the integration tests.
 
 Furthermore, the light source in the medium-distance integration tests had to be manually adjusted, meaning that the output signals do not represent the ideal performance. To achieve ideal readings, the laser would have to be affixed and the orientation adjusted, while the intensity at the given distance is measured.
@@ -277,9 +310,9 @@ According to the introduction in Chapter \ref{chap:intro}, the main purpose of t
 \chapter{Recommendations}\label{chap:recs}
 There are several recommendations that are important for future implementations, as they may contribute to the precision, noise-suppression and stability of the photodetector and the quantum sensing setup as a whole. 
 
-Firstly, increasing the bandwidth is the most important future addition. To do that, the amplifier configuration needs to be changed completely. The alternative would be to significantly decrease the transimpedance gain of the \gls{tia}, while increasing the gain of the non-inverting amplifier. This will introduce more noise earlier in the system, which will be amplified by the rest of the circuitry, resulting in a significant output noise increase. 
+Firstly, increasing the photodetector bandwidth should be the primary concern of the people working on the setup integration. Version four of the photodetector has a much wider bandwidth, but it is bottlenecked by the photodiode, which is only stable at up to 350 \unit{\kilo\hertz} in the photovoltaic configuration \cite{photodiodephotodiode}. However, biasing a BPW34 diode in photoconductive mode will result in \numrange{2}{30} \unit{\nano\ampere} of dark current, rendering the actual signal unreadable.
 
 Secondly, exploring avalanche photodiodes as an alternative to the p-i-n diodes currently in use, might contribute to better measurements. Although they are widely used in low-intensity applications, avalanche diodes are quite expensive. The client wanted to keep the cost low for this project, but in the future more precise pulsed protocol measurements might benefit from the internal amplification and increased precision that are offered by avalanche photodiodes.
 
-%Lastly, if in the future 
+Lastly, if even greater bandwidth is desired in the future, transistor \glspl{tia} should be investigated. Transistors offer finer control over the parameters of the amplifier they constitute. This is, in part, due to the control over the technology of each transistor, but also because they are lower-level components than op-amps, which allows for more intricate layouts. Several sources on the matter were consulted \cite{sackinger2017analysis, santiago2021a, karimi2017silicon, analui2004bandwidth}, but because of time constraints and equipment availability, an op-amp-based solution was chosen instead.
 

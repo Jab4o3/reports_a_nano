@@ -488,29 +488,16 @@
       \field{year}{2024}
     \endentry
     \entry{photodiodephotodiode}{misc}{}{}
-      \name{author}{1}{}{%
-        {{hash=dc9563129b1c8b3cc72b9d4f677b130d}{%
-           family={PHOTODIODE},
-           familyi={P\bibinitperiod},
-           given={PLANAR\bibnamedelimb DIFFUSED\bibnamedelima SILICON},
-           giveni={P\bibinitperiod\bibinitdelim D\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
-      }
-      \list{publisher}{1}{%
-        {unpublished}%
-      }
-      \strng{namehash}{dc9563129b1c8b3cc72b9d4f677b130d}
-      \strng{fullhash}{dc9563129b1c8b3cc72b9d4f677b130d}
-      \strng{fullhashraw}{dc9563129b1c8b3cc72b9d4f677b130d}
-      \strng{bibnamehash}{dc9563129b1c8b3cc72b9d4f677b130d}
-      \strng{authorbibnamehash}{dc9563129b1c8b3cc72b9d4f677b130d}
-      \strng{authornamehash}{dc9563129b1c8b3cc72b9d4f677b130d}
-      \strng{authorfullhash}{dc9563129b1c8b3cc72b9d4f677b130d}
-      \strng{authorfullhashraw}{dc9563129b1c8b3cc72b9d4f677b130d}
       \field{sortinit}{2}
       \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
-      \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Photodiode Characteristics and Applications}
+      \verb{urlraw}
+      \verb https://osioptoelectronics.com/media/pages/knowledgebase/b954012b64-1675100541/an-photodiode-parameters-and-characteristics.pdf
+      \endverb
+      \verb{url}
+      \verb https://osioptoelectronics.com/media/pages/knowledgebase/b954012b64-1675100541/an-photodiode-parameters-and-characteristics.pdf
+      \endverb
     \endentry
     \entry{semig24}{misc}{}{}
       \name{author}{1}{}{%
@@ -985,6 +972,117 @@
       \field{year}{2019}
       \field{pages}{10\bibrangedash 97}
       \range{pages}{88}
+    \endentry
+    \entry{santiago2021a}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=58d78f2ca3116234c6db3df106edb415}{%
+           family={Santiago},
+           familyi={S\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod}}}%
+      }
+      \strng{namehash}{58d78f2ca3116234c6db3df106edb415}
+      \strng{fullhash}{58d78f2ca3116234c6db3df106edb415}
+      \strng{fullhashraw}{58d78f2ca3116234c6db3df106edb415}
+      \strng{bibnamehash}{58d78f2ca3116234c6db3df106edb415}
+      \strng{authorbibnamehash}{58d78f2ca3116234c6db3df106edb415}
+      \strng{authornamehash}{58d78f2ca3116234c6db3df106edb415}
+      \strng{authorfullhash}{58d78f2ca3116234c6db3df106edb415}
+      \strng{authorfullhashraw}{58d78f2ca3116234c6db3df106edb415}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{A High-Speed Transimpedance Amplifier}
+      \field{year}{2021}
+      \verb{urlraw}
+      \verb https://cmosedu.com/jbaker/students/david/myStuff/LinkPages/Projects/ECG720_SANTIAGO_PROJECT_S21.pdf
+      \endverb
+      \verb{url}
+      \verb https://cmosedu.com/jbaker/students/david/myStuff/LinkPages/Projects/ECG720_SANTIAGO_PROJECT_S21.pdf
+      \endverb
+    \endentry
+    \entry{karimi2017silicon}{article}{}{}
+      \name{author}{4}{}{%
+        {{hash=4e484b0145e2f60fcf33f1d535c2d873}{%
+           family={Karimi-Bidhendi},
+           familyi={K\bibinithyphendelim B\bibinitperiod},
+           given={Alireza},
+           giveni={A\bibinitperiod}}}%
+        {{hash=9c4c1f37cc885494e1417d1203fc145c}{%
+           family={Mohammadnezhad},
+           familyi={M\bibinitperiod},
+           given={Hossein},
+           giveni={H\bibinitperiod}}}%
+        {{hash=6a08e747f0376523c6062260e9e09fd8}{%
+           family={Green},
+           familyi={G\bibinitperiod},
+           given={Michael\bibnamedelima M},
+           giveni={M\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=95e780749e0a41ac055f6dce65c33753}{%
+           family={Heydari},
+           familyi={H\bibinitperiod},
+           given={Payam},
+           giveni={P\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {IEEE}%
+      }
+      \strng{namehash}{451b86186722e0b00fb5cdc6d6f57c0f}
+      \strng{fullhash}{98331b1e044bd6272960fec1f535b707}
+      \strng{fullhashraw}{98331b1e044bd6272960fec1f535b707}
+      \strng{bibnamehash}{98331b1e044bd6272960fec1f535b707}
+      \strng{authorbibnamehash}{98331b1e044bd6272960fec1f535b707}
+      \strng{authornamehash}{451b86186722e0b00fb5cdc6d6f57c0f}
+      \strng{authorfullhash}{98331b1e044bd6272960fec1f535b707}
+      \strng{authorfullhashraw}{98331b1e044bd6272960fec1f535b707}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Transactions on Circuits and Systems I: Regular Papers}
+      \field{number}{2}
+      \field{title}{A silicon-based low-power broadband transimpedance amplifier}
+      \field{volume}{65}
+      \field{year}{2017}
+      \field{pages}{498\bibrangedash 509}
+      \range{pages}{12}
+    \endentry
+    \entry{analui2004bandwidth}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=5c1501e3640a780916f74342440e502b}{%
+           family={Analui},
+           familyi={A\bibinitperiod},
+           given={Behnam},
+           giveni={B\bibinitperiod}}}%
+        {{hash=e60eec9e126fbb0dd2a98b7a22cf3a4d}{%
+           family={Hajimiri},
+           familyi={H\bibinitperiod},
+           given={Ali},
+           giveni={A\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {IEEE}%
+      }
+      \strng{namehash}{c3639bce9592cfd17180da596b42eedb}
+      \strng{fullhash}{c3639bce9592cfd17180da596b42eedb}
+      \strng{fullhashraw}{c3639bce9592cfd17180da596b42eedb}
+      \strng{bibnamehash}{c3639bce9592cfd17180da596b42eedb}
+      \strng{authorbibnamehash}{c3639bce9592cfd17180da596b42eedb}
+      \strng{authornamehash}{c3639bce9592cfd17180da596b42eedb}
+      \strng{authorfullhash}{c3639bce9592cfd17180da596b42eedb}
+      \strng{authorfullhashraw}{c3639bce9592cfd17180da596b42eedb}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Journal of Solid-State Circuits}
+      \field{number}{8}
+      \field{title}{Bandwidth enhancement for transimpedance amplifiers}
+      \field{volume}{39}
+      \field{year}{2004}
+      \field{pages}{1263\bibrangedash 1270}
+      \range{pages}{8}
     \endentry
   \enddatalist
 \endrefsection

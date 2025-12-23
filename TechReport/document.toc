@@ -50,15 +50,15 @@
 \contentsline {section}{\numberline {6.2}Test setup}{33}{section.6.2}%
 \contentsline {subsection}{\numberline {6.2.1}Photodiode-model characterization}{33}{subsection.6.2.1}%
 \contentsline {subsection}{\numberline {6.2.2}S-parameter characterization}{33}{subsection.6.2.2}%
-\contentsline {subsection}{\numberline {6.2.3}Integration test}{33}{subsection.6.2.3}%
+\contentsline {subsection}{\numberline {6.2.3}Integration test}{34}{subsection.6.2.3}%
 \contentsline {section}{\numberline {6.3}Results}{34}{section.6.3}%
 \contentsline {subsection}{\numberline {6.3.1}Photodiode-model characterization}{34}{subsection.6.3.1}%
 \contentsline {subsection}{\numberline {6.3.2}S-parameter characterization}{34}{subsection.6.3.2}%
 \contentsline {subsection}{\numberline {6.3.3}\glsxtrtitleshort {tia} integration test}{34}{subsection.6.3.3}%
 \contentsline {section}{\numberline {6.4}Discussion}{35}{section.6.4}%
-\contentsline {section}{\numberline {6.5}Known limitations}{35}{section.6.5}%
-\contentsline {chapter}{\numberline {7}Conclusion}{36}{chapter.7}%
-\contentsline {chapter}{\numberline {8}Recommendations}{37}{chapter.8}%
-\contentsline {chapter}{Appendices}{38}{section*.43}%
-\contentsline {chapter}{\numberline {A}Code}{38}{appendix.1.A}%
-\contentsline {chapter}{Glossary}{42}{section*.48}%
+\contentsline {section}{\numberline {6.5}Known limitations}{36}{section.6.5}%
+\contentsline {chapter}{\numberline {7}Conclusion}{37}{chapter.7}%
+\contentsline {chapter}{\numberline {8}Recommendations}{38}{chapter.8}%
+\contentsline {chapter}{Appendices}{39}{section*.44}%
+\contentsline {chapter}{\numberline {A}Code}{39}{appendix.1.A}%
+\contentsline {chapter}{Glossary}{43}{section*.49}%

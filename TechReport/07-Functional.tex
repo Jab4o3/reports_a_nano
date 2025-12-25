@@ -122,44 +122,6 @@ The blue boxes show the components responsible for sending and receiving light s
 
 Microwave generation, when needed, starts with a \gls{ttl} signal from the function generator or a frequency sweep using a dedicated device. Out of all protocols, only \gls{cwodmr} requires a sweep. The antenna then broadcasts the signal, while the switch isolates the signal generator from it. 
 
-\begin{figure}[ht]
-	\centering
-	\begin{tikzpicture}[
-		% define box styles
-		boxr/.style={rectangle, thick, draw=red!50!black, fill=red!5, minimum size=5mm},
-		boxg/.style={rectangle, thick, draw=green!50!black, fill=green!5, minimum size=5mm},
-		boxb/.style={rectangle, thick, draw=blue!50!black, fill=blue!5, minimum size=5mm},
-		]
-		% draw MW nodes
-		\node[boxg] (fgen)							{Function generator};
-		\node[boxr] (mwsw)		[right=10 mm of fgen] 		{\glsfmtshort{mw} switch};
-		\node[boxr] (mwant)		[right=of mwsw]		{\glsfmtshort{mw} antenna};
-		\node[boxg] (mwsweep)	[above=of mwsw] 	{Frequency sweeper};
-		% draw main system nodes
-		\node[boxg] (lockin)	[right=of mwant]	{Lock-in amplifier};
-		\node[boxb] (driver) 	[below=of fgen]		{Current driver};
-		\node[boxb] (laser) 	[below=of mwsw]		{Laser};
-		\node[boxb] (nv) 		[below=of mwant] 	{NV sample};
-		\node[boxb] (detect) 	[below=of lockin]	{Photodetector};
-		
-
-		% draw MW lines
-		\draw[->, thick] 			(fgen.east) 		to node[midway, above]{\glsfmtshort{ttl}} 	(mwsw.west);
-		\draw[->, thick] 			(mwsw.east) 		to node[midway, above]{\glsfmtshort{ttl}} 	(mwant.west);
-		\draw[->, thick, dashed]	(mwsweep.south) 	to node[midway, left]{Sweep} 				(mwsw.north);
-		% draw main system lines
-		\draw[->, thick]			(fgen.south)		to node[midway, left]{\glsfmtshort{ttl}} 	(driver.north);
-		\draw[->, thick] 			(driver.east) 		to node[midway, above]{Current} 			(laser.west);
-		\draw[->, thick]			(laser.east) 		to node[midway, above]{Light} 				(nv.west);
-		\draw[->, thick]			(nv.east) 			to node[midway, above]{Light}				(detect.west);		
-		\draw[->, thick]			(detect.north) 		to node[midway, right]{Signal}				(lockin.south);	
-		% draw long line
-		\draw[->, thick] (fgen.south east) .. controls +(down:5mm) .. node[pos=.9, sloped, below]{Reference signal}(lockin.south west);
-	\end{tikzpicture}
-	\caption{High-level overview of the quantum sensing setup}
-	\label{fig:overview_high_lvl}
-\end{figure}
-
 
 % Thorlabs Photodiodes and Photoconductors Tutorial:
 % https://www.thorlabs.com/newgrouppage9.cfm?objectgroup_id=9020
@@ -173,9 +135,16 @@ However, the designer explicitly states that tests were only done with frequenci
 Photodetection is how the \gls{nv} photoluminescence is measured, effectively turning light into current using a photodiode. However, a bare photodiode cannot be connected to a lock-in amplifier, because it functions as a current generator. This is where the photodetection \gls {pcb} comes in. Its purpose is to transform the current into voltage and then amplify the resulting signal to the necessary voltage level. 
 
 \subsection{Photodiodes}\label{chap:fd:photodiodes}
-At the heart of the photodetector lies the photodiode. It is what turns light into current and drives the \gls{tia} that follows it. While the specifications of the diode are not the most important part of the photodetector circuit, they still need to be discussed, due to the impact the two ways of biasing can have on the circuit.
+At the heart of the photodetector lies the photodiode. It is what turns light into current and drives the \gls{tia} that follows it. The specifications of the diode are an important part of the photodetector circuit. Photodiode biasing is another vital aspect of the photodetector, as it dictates the noise levels and bandwidth, thus directly influencing the amplifier design.
 
-The two most common photodiode are shown in Figure \ref{fig:fd:biasing}. Reverse-biased circuits, similar to the one in Figure \ref{fig:fd:biasing:pc}, are used in optical receivers and other high-speed use cases. However, the drawback of biasing the diode using the negative supply voltage $V_{EE}$ is that it results in an increased dark current, which is current that, unlike photocurrent, runs through the diode without any light being present. Precise low-light measurements, such as those needed by the quantum setup, require the photodetector to have high linearity, which cannot be achieved when the dark current is comparable to the photocurrent. Photovoltaic-mode biasing reduces the dark current at the cost of signal strength and bandwidth \cite{photodiodephotodiode}. This configuration is much more common in low-illumination setups, where the signals can be in the nanoampere to picoampere range. As the photoluminescent \gls{nv} centers emit extremely low amounts of light, the photovoltaic configuration was chosen for the photodetector implementation for the quantum sensing setup.
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.5\linewidth]{img/bpw34_sens}
+	\caption{BPW34 sensitivity (image credit to the BPW34 documentation \cite{vishay2011bpw34})}
+	\label{fig:fd:bpw34sens}
+\end{figure}
+
+
 
 \begin{figure}[ht]
 	\centering
@@ -246,9 +215,17 @@ The two most common photodiode are shown in Figure \ref{fig:fd:biasing}. Reverse
 		\caption{Photovoltaic mode}
 		\label{fig:fd:biasing:pv}
 	\end{subfigure}
-	\caption{Reverse-bias photodiode configurations}
+	\caption{Photodiode modes in a photodetector circuit}
 	\label{fig:fd:biasing}
 \end{figure}
+
+Figure \ref{fig:fd:bpw34sens} shows the sensitivity of the BPW34, which is the diode used in the setup. The green laser that is used to excite the \gls{nv} centers has a wavelength of 550 \unit{\nano\meter}. On the other hand, the light emitted from the \gls{nv} centers has a wavelength of \numrange{637}{800} \unit{\nano\meter}, which is near the most sensitive wavelength range of the sensor. Although green light is not detected as well as red and infrared light, the much higher intensity of the laser means that there is an optical low-pass filter required to measure the \gls{nv} center luminescence. After filtering, the client said they expected less than 50 \unit{\nano\ampere} of photocurrent output, which they wanted to be translated to \numrange{0}{5} \unit{\volt}.
+
+
+
+The two most common photodiode modes when applied to photodetectors are shown in Figure \ref{fig:fd:biasing}. Reverse-biased circuits, similar to the one in Figure \ref{fig:fd:biasing:pc}, are used in optical receivers and other high-speed use cases. However, the drawback of biasing the diode using the negative supply voltage $V_{EE}$ is that it results in an increased dark current, which is current that, unlike photocurrent, runs through the diode without any light being present. In the case of the BPW34, that dark current can be up to 30 \unit{\nano\ampere}. That much current can render the amplified signal unreadable. Precise low-light measurements, such as those needed by the quantum setup, require the photodetector to have high linearity, which cannot be achieved when the dark current is comparable to the photocurrent. Photovoltaic-mode biasing reduces the dark current at the cost of signal strength and bandwidth \cite{photodiodephotodiode}. This configuration is much more common in low-illumination setups, where the signals can be in the nanoampere to picoampere range. As the photoluminescent \gls{nv} centers emit extremely low amounts of light, the photovoltaic configuration was chosen for the photodetector implementation for the quantum sensing setup. 
+
+
 
 \subsection{\glsfmtshort{tia} design} \label{chap:photodetection_design}
 Designing the photodetector is mostly about creating a \gls{tia}, which is a tool used for converting current to voltage, and specifically tuning its parameters so that it works with the selected photodiode under operating conditions. 
@@ -303,7 +280,7 @@ The resistor $R_1$ determines the transimpedance gain of the amplifier. Equation
 	C_1 = \frac{1}{2 \pi R_1 f_{rc}}
 \end{equation}
 
-The capacitance of $C_1$ can be calculated using the resistance of $R_1$ and the cutoff frequency $f_{rc}$, as shown in Equation \eqref{eq:c1}. 
+The ideal capacitance of $C_1$ can be calculated using the resistance of $R_1$ and the cutoff frequency $f_{rc}$, as shown in Equation \eqref{eq:c1}. To select a physical capacitor based on the calculated value, its capacitance should be less than or equal to the ideal value.
 
 
 In addition, a non-inverting amplifier can be added, to increase the gain of the circuit even more, without affecting the phase. Figure \ref{fig:tia_nia} shows how it can be connected to the output of the \gls{tia} from Figure \ref{fig:tia}.

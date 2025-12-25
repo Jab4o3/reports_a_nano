@@ -487,6 +487,19 @@
       \field{title}{Internship Technical Report: Nitrogen-vacancy center setup}
       \field{year}{2024}
     \endentry
+    \entry{vishay2011bpw34}{manual}{}{}
+      \list{organization}{1}{%
+        {Vishay}%
+      }
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labeltitlesource}{title}
+      \field{month}{8}
+      \field{note}{Rev. 2}
+      \field{number}{81521}
+      \field{title}{Silicon PIN Photodiode}
+      \field{year}{2011}
+    \endentry
     \entry{photodiodephotodiode}{misc}{}{}
       \field{sortinit}{2}
       \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
@@ -602,8 +615,8 @@
       \strng{authornamehash}{5a5e68a99d440e7213f6a767b46224ab}
       \strng{authorfullhash}{5a5e68a99d440e7213f6a767b46224ab}
       \strng{authorfullhashraw}{5a5e68a99d440e7213f6a767b46224ab}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Analog}

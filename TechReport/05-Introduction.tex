@@ -4,9 +4,47 @@ This chapter introduces the assignment, along with some foundational concepts of
 \section{Background}\label{chap:background}
 \gls{nv} centers \cite{enwiki:1301369588} are imperfections in the atomic structure of diamonds. The two types of \gls{nv} centers are \gls{nv}0 and \gls{nv}-, as seen in Figure \ref{fig:nvcenter}, but the \gls{nv}- structure is much more commonly used in quantum applications. These imperfections have the useful property of spin-dependent luminescence. This means that the spin of the \gls{nv} center affects the frequency of the light emitted by the structure\footnote{The \gls{nv} center only emits light after absorbing photons, a phenomenon called photoluminescence \cite{enwiki:1309081879}}. Using this quality of the \gls{nv} structure, different environmental metrics (e.g magnetic fields) can be measured. 
 
-The Applied Nanotechnology research group is working on a \gls{nv}-center-based sensor setup. There exist several quantum protocols, but the one this setup needs to support is called \gls{cwodmr}. At its core, \gls{odmr} is a set of protocols, which can detect magnetic fields based on the fluctuations in the fluorescence of \gls{nv} centers \cite{enwiki:1301371272}. \gls{cwodmr} in particular involves exposing the \gls{nv} center to a \gls{mw} sweep while illuminating it with a constant light source. This is in contrast with \gls{podmr} techniques, which use different \gls{ttl} pulse schemes \cite{sewani2020coherent} to modulate the \gls{mw} signal and the light source.
+The Applied Nanotechnology research group is working on a \gls{nv}-center-based sensor setup, a high-level block diagram of which can be seen in Figure \ref{fig:overview_high_lvl}. There exist several quantum protocols, but the one this setup needs to support is called \gls{cwodmr}. At its core, \gls{odmr} is a set of protocols, which can detect magnetic fields based on the fluctuations in the fluorescence of \gls{nv} centers \cite{enwiki:1301371272}. \gls{cwodmr} in particular involves exposing the \gls{nv} center to a \gls{mw} sweep while illuminating it with a constant light source. This is in contrast with \gls{podmr} techniques, which use different \gls{ttl} pulse schemes \cite{sewani2020coherent} to modulate the \gls{mw} signal and the light source. Although \gls{cwodmr} is the main focus of the research group at the moment, support for pulsed protocols is also desirable for future research.
 
-Acquiring and processing data from the setup requires working with weak signals that are hard to distinguish from the environmental noise. While this is a significant problem, it is also very common. Because of this, the industry has already adopted systems to detect weak light sources and measure their intensity. This project is mainly about developing a similar photodetection system for the \gls{nv} setup. 
+
+\begin{figure}[ht]
+	\centering
+	\begin{tikzpicture}[
+		% define box styles
+		boxr/.style={rectangle, thick, draw=red!50!black, fill=red!5, minimum size=5mm},
+		boxg/.style={rectangle, thick, draw=green!50!black, fill=green!5, minimum size=5mm},
+		boxb/.style={rectangle, thick, draw=blue!50!black, fill=blue!5, minimum size=5mm},
+		]
+		% draw MW nodes
+		\node[boxg] (fgen)							{Function generator};
+		\node[boxr] (mwsw)		[right=10 mm of fgen] 		{\glsfmtshort{mw} switch};
+		\node[boxr] (mwant)		[right=of mwsw]		{\glsfmtshort{mw} antenna};
+		\node[boxg] (mwsweep)	[above=of mwsw] 	{Frequency sweeper};
+		% draw main system nodes
+		\node[boxg] (lockin)	[right=of mwant]	{Lock-in amplifier};
+		\node[boxb] (driver) 	[below=of fgen]		{Current driver};
+		\node[boxb] (laser) 	[below=of mwsw]		{Laser};
+		\node[boxb] (nv) 		[below=of mwant] 	{NV sample};
+		\node[boxb] (detect) 	[below=of lockin]	{Photodetector};
+		
+		
+		% draw MW lines
+		\draw[->, thick] 			(fgen.east) 		to node[midway, above]{\glsfmtshort{ttl}} 	(mwsw.west);
+		\draw[->, thick] 			(mwsw.east) 		to node[midway, above]{\glsfmtshort{ttl}} 	(mwant.west);
+		\draw[->, thick, dashed]	(mwsweep.south) 	to node[midway, left]{Sweep} 				(mwsw.north);
+		% draw main system lines
+		\draw[->, thick]			(fgen.south)		to node[midway, left]{\glsfmtshort{ttl}} 	(driver.north);
+		\draw[->, thick] 			(driver.east) 		to node[midway, above]{Current} 			(laser.west);
+		\draw[->, thick]			(laser.east) 		to node[midway, above]{Light} 				(nv.west);
+		\draw[->, thick]			(nv.east) 			to node[midway, above]{Light}				(detect.west);		
+		\draw[->, thick]			(detect.north) 		to node[midway, right]{Signal}				(lockin.south);	
+		% draw long line
+		\draw[->, thick] (fgen.south east) .. controls +(down:5mm) .. node[pos=.9, sloped, below]{Reference signal}(lockin.south west);
+	\end{tikzpicture}
+	\caption{High-level overview of the quantum sensing setup}
+	\label{fig:overview_high_lvl}
+\end{figure}
+
 
 \begin{figure}[ht]
 	\centering
@@ -14,6 +52,10 @@ Acquiring and processing data from the setup requires working with weak signals 
 	\caption{\gls{nv}0 (a) and \gls{nv}- (b) structures in diamonds (image credit to Haque et al \cite{haque2017overview})}
 	\label{fig:nvcenter}
 \end{figure}
+
+
+Acquiring and processing data from the setup requires working with weak signals that are hard to distinguish from the environmental noise. While this is a significant problem, it is also very common. Because of this, the industry has already adopted systems to detect weak light sources and measure their intensity. This project is mainly about developing a similar photodetection system for the \gls{nv} setup. 
+
 
 
 \section{Purpose of the assignment}\label{purpose}

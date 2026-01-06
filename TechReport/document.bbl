@@ -623,6 +623,76 @@
       \field{title}{Transimpedance Amplifiers for Wide Range	Photodiodes	Have Challenging Requirements}
       \field{year}{2021}
     \endentry
+    \entry{ad2019ad795}{manual}{}{}
+      \list{organization}{1}{%
+        {Analog Devices}%
+      }
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labeltitlesource}{title}
+      \field{note}{Rev. D}
+      \field{title}{AD795; Low Power, Low Noise Precision FET Op Amp}
+      \field{year}{2019}
+    \endentry
+    \entry{ad2019ad820}{manual}{}{}
+      \list{organization}{1}{%
+        {Analog Devices}%
+      }
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labeltitlesource}{title}
+      \field{note}{Rev. H}
+      \field{title}{820; Single-Supply, Rail-to-Rail, Low Power, FET Input Op Ampp}
+      \field{year}{2011}
+    \endentry
+    \entry{ti2007noise}{manual}{}{}
+      \list{organization}{1}{%
+        {Texas Instruments}%
+      }
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labeltitlesource}{title}
+      \field{note}{Rev. 2}
+      \field{number}{SLVA043B}
+      \field{title}{Noise Analysis in Operational Amplifier Circuits}
+      \field{year}{2007}
+    \endentry
+    \entry{1490859}{inproceedings}{}{}
+      \name{author}{2}{}{%
+        {{hash=f2a71d2c2a63ba146482c786a7d2856e}{%
+           family={Asparuhova},
+           familyi={A\bibinitperiod},
+           given={K.K.},
+           giveni={K\bibinitperiod}}}%
+        {{hash=07dc0f4d1bdcca51355c8bb8c2639a7f}{%
+           family={Gadjeva},
+           familyi={G\bibinitperiod},
+           given={E.D.},
+           giveni={E\bibinitperiod}}}%
+      }
+      \strng{namehash}{4726ac8d65792adffe1ee7c8153a5ca8}
+      \strng{fullhash}{4726ac8d65792adffe1ee7c8153a5ca8}
+      \strng{fullhashraw}{4726ac8d65792adffe1ee7c8153a5ca8}
+      \strng{bibnamehash}{4726ac8d65792adffe1ee7c8153a5ca8}
+      \strng{authorbibnamehash}{4726ac8d65792adffe1ee7c8153a5ca8}
+      \strng{authornamehash}{4726ac8d65792adffe1ee7c8153a5ca8}
+      \strng{authorfullhash}{4726ac8d65792adffe1ee7c8153a5ca8}
+      \strng{authorfullhashraw}{4726ac8d65792adffe1ee7c8153a5ca8}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{27th International Spring Seminar on Electronics Technology: Meeting the Challenges of Electronics Technology Progress, 2004.}
+      \field{title}{Noise analysis of operational amplifier circuits using MATLAB}
+      \field{volume}{3}
+      \field{year}{2004}
+      \field{pages}{471\bibrangedash 475 vol.3}
+      \range{pages}{-1}
+      \verb{doi}
+      \verb 10.1109/ISSE.2004.1490859
+      \endverb
+      \keyw{Circuit noise;Operational amplifiers;MATLAB;Voltage;1f noise;Radio frequency;Resistors;Radiofrequency amplifiers;Output feedback;Springs}
+    \endentry
     \entry{margan2012transimpedance}{article}{}{}
       \name{author}{1}{}{%
         {{hash=57e82070ad977e92f9accaac06b67c9a}{%
@@ -745,8 +815,8 @@
       \strng{authornamehash}{7e86917f7c27a98510b1e5508c0624d0}
       \strng{authorfullhash}{7e86917f7c27a98510b1e5508c0624d0}
       \strng{authorfullhashraw}{7e86917f7c27a98510b1e5508c0624d0}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Adafruit}
@@ -763,8 +833,8 @@
       \list{organization}{1}{%
         {Texas Instruments}%
       }
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{labeltitlesource}{title}
       \field{month}{6}
       \field{note}{Rev. A}
@@ -786,8 +856,8 @@
       \strng{authornamehash}{7b381bc7a6069345cead1fade456301d}
       \strng{authorfullhash}{7b381bc7a6069345cead1fade456301d}
       \strng{authorfullhashraw}{7b381bc7a6069345cead1fade456301d}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{month}{12}
@@ -820,8 +890,8 @@
       \strng{authorfullhash}{98891ef37ae74f3a00ae9a7c9c316e78}
       \strng{authorfullhashraw}{98891ef37ae74f3a00ae9a7c9c316e78}
       \field{extraname}{2}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{TPS6040x Unregulated 60-mA Charge Pump Voltage Inverter}
@@ -974,8 +1044,8 @@
       \strng{authornamehash}{c7a8cbdc611fb566c84f257674d0a44f}
       \strng{authorfullhash}{c7a8cbdc611fb566c84f257674d0a44f}
       \strng{authorfullhashraw}{c7a8cbdc611fb566c84f257674d0a44f}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{IEEE Solid-State Circuits Magazine}
@@ -1002,8 +1072,8 @@
       \strng{authornamehash}{58d78f2ca3116234c6db3df106edb415}
       \strng{authorfullhash}{58d78f2ca3116234c6db3df106edb415}
       \strng{authorfullhashraw}{58d78f2ca3116234c6db3df106edb415}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{A High-Speed Transimpedance Amplifier}
@@ -1049,8 +1119,8 @@
       \strng{authornamehash}{451b86186722e0b00fb5cdc6d6f57c0f}
       \strng{authorfullhash}{98331b1e044bd6272960fec1f535b707}
       \strng{authorfullhashraw}{98331b1e044bd6272960fec1f535b707}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{IEEE Transactions on Circuits and Systems I: Regular Papers}
@@ -1085,8 +1155,8 @@
       \strng{authornamehash}{c3639bce9592cfd17180da596b42eedb}
       \strng{authorfullhash}{c3639bce9592cfd17180da596b42eedb}
       \strng{authorfullhashraw}{c3639bce9592cfd17180da596b42eedb}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{IEEE Journal of Solid-State Circuits}

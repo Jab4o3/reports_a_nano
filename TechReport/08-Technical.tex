@@ -46,11 +46,39 @@ A MATLAB script (see Figure \ref{code:t1_pulse} for full script) was written to 
 \section{Photodetector design}\label{chap:td:tia_design}
 As an integral part of the sensing setup, the photodetector needs a lot of attention. Good amplification is crucial to increasing the \gls{snr} of the quantum setup, however the materials used need to be accessible and cheap. Based on these considerations and the design ideas presented in the functional design (see Chapter \ref{chap:photodetection_design}), the photodetection circuit can be drawn up. The first three versions presented in this section of the report address the basic requirements of a \gls{cwodmr} detector, which can have a bandwidth as low as 18 \unit{\hertz} \cite{acharya2025compact}. In contrast, the fourth iteration of the photodetector design focuses mostly on providing an increase in bandwidth, which is necessary for pulsed protocols.
 
+To summarize the circuit requirements, the input signal of the diode can range from \numrange{0}{50} \unit{\milli\ampere}. This current needs to be amplified in the range from \numrange{0}{5} \unit{\volt}. In addition, the circuit should consider the quantum protocols that it will be used to detect. For \gls{cwodmr}, low noise levels at low frequencies is desired and a bandwidth of 20 \unit{\hertz} is sufficient. In terms of pulsed protocols, $T_1$ is the main one that is considered. Based on the pulsing sequences shown in Sewani et al. \cite{sewani2020coherent}, it was decided that the detector should be able to detect pulses of 5 \unit{\micro\second}. Noise is harder to minimize with the broader bandwidth, which is why it was decided to have separate detectors for $T_1$ and \gls{cwodmr}.
+
 \subsection{First iteration}
-As previously mentioned, the first iteration of the \gls{pcb} uses component values provided by the client. There is no specific information for the design process, aside from the fact that the original designer made the photodetector for input currents in the range of several nanoamperes. Such low inputs require high $R_1$ values, however increasing the resistor value results in more biasing current going to the amplifier and a more limited dynamic range \cite{black2021tia}. Furthermore, it is entirely possible that the original design did not thoroughly consider the bandwidth needed for different protocols, as \gls{cwodmr} setups do not require broad bandwidths \cite{acharya2025compact}. Biasing is another concern with this photodiode setup. The configuration shown in Figures \ref{fig:tia} and \ref{fig:td:tia_circuit_parasitic_v1} has the diode in the photovoltaic mode, which is suitable for low-frequency, low-light operation. In spite of this setup being suited to \gls{cwodmr}, pulsed protocols require micro to nanosecond precision
+As previously mentioned, the first iteration of the \gls{pcb} uses component values provided by the client. Although its main purpose is to enable the setup to do \gls{cwodmr} measurements, it also provides a reference for the following designs, which optimize the detector for the sensing setup and explore pulsing protocol support. In addition, the design was made so that the implementation price is as low as possible, at the request of the client.
+
+There is no specific information for the design process, aside from the fact that the original designer made the photodetector for input currents in the range of \numrange{0}{50} \unit{\nano\ampere}. Such low inputs require high $R_1$ values, however increasing the resistor value results in more biasing current going to the amplifier and a more limited dynamic range \cite{black2021tia}. Furthermore, it is entirely possible that the original design did not thoroughly consider the bandwidth needed for different protocols, as \gls{cwodmr} setups do not require broad bandwidths \cite{acharya2025compact}. Biasing is another concern with this photodiode setup. The configuration shown in Figures \ref{fig:tia} and \ref{fig:td:tia_circuit_parasitic_v1} has the diode in the photovoltaic mode, which is suitable for low-frequency, low-light operation. In spite of this setup being suited to \gls{cwodmr}, pulsed protocols require micro to nanosecond precision, which cannot be achieved with this version of the detector.
+
+As some of the components used in the provided circuit can be used in later redesigns, it is important to discuss their most impactful parameters, which were used to determine if a certain component needed replacing.
+
+Out of all of the components, the performance of the circuit is affected the most by the \gls{tia}-stage amplifier. This version of the photodetector uses an AD795 op-amp, which is suitable for low-frequency, low-noise applications like this one. Figure \ref{fig:td:ad795noise} shows the noise spectral density of the op-amp, which is low at low frequencies, but does not drop off much at higher frequencies. Another important consideration for the \gls{tia} op-amp is the supply current. At 5 \unit{\volt}, the supply current is 1,5 \unit{\milli\ampere}. Lastly, the \gls{gbp} of the AD795 is 1,6 \unit{\mega\hertz} and the open-loop gain is 100 \unit{\decibel}. These last two specifications are the most important for the frequency response of the whole circuit.
+
+After the \gls{tia} op-amp, the post amplifier op-amp is the second most important component. In the photodetector, the non-inverting post-amplification stage is based on an AD820. Its noise density is shown in Figure \ref{fig:td:ad820noise}. While it is significantly higher than the AD795, the AD820 has a much lower supply current of 0,8 \unit{\milli\ampere}.
 
 
+\begin{figure}[ht]
+	\centering
+	\begin{subfigure}[1a]{.49\linewidth}
+		\includegraphics[width=\linewidth]{img/ad795_noise}
+		\caption{Noise spectral density of the AD795 (image credit to the AD795 documentation \cite{ad2019ad795})}
+		\label{fig:td:ad795noise}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[1b]{.49\linewidth}
+		\includegraphics[width=\linewidth]{img/ad820_noise}
+		\caption{Noise spectral density of the AD820 (image credit to the AD820 documentation \cite{ad2019ad820})}
+		\label{fig:td:ad820noise}
+	\end{subfigure}
+	\caption{Noise spectral density of the amplifiers used in the pre and post-amplification stages of the photodetector}
+	\label{fig:td:opampnoise}
+\end{figure}
 
+
+Lastly, the resistor values of the non-inverting amplifier feedback loop were also considered, although their impact on the signal is minimal. In the post-amplifier in Figure \ref{fig:tia_nia}, the resistor $R_3$ affects the output noise the most \cite{ti2007noise, 1490859} and by reducing its value, the noise can be marginally decreased.
 
 %\begin{equation}\label{eq:gbw}
 %	f_{c} = (1 + \frac{C_d + C_{cm} + C_{df}}{C_1})f_{rc} \approx f_{rc}
@@ -59,7 +87,9 @@ As previously mentioned, the first iteration of the \gls{pcb} uses component val
 %Even though $f_{rc}$ provides an approximation for the cutoff frequency, the parasitic capacitances in the system will cause it to be slightly bigger. Equation \eqref{eq:gbw} shows how a more accurate cutoff frequency $f_c$ can be calculated by taking into account $C_d$ and $C_{cm}$ (differential and common-mode capacitance respectively). In this case, $f_c$ tells us the gain bandwidth or the frequency range in which DC gain is retained.
 
 \subsection{Second iteration} \label{chap:td:calc:v2}
-Due to time constraints, this iteration uses the same topology as the first one. That being said, it is still designed analytically, taking into account the general practices, but also considering more subtle factors that might hinder the performance of the system. This section uses the mathematical principles presented in \cite{margan2012transimpedance, sackinger2017analysis, horsthemke2025all} to optimize the design of the existing amplifier. 
+This photodetector iteration aims at redesigning the frequency response of the system for better stability. Due to time constraints, it uses the same topology as the first photodetector version. 
+
+That being said, it is still designed analytically, taking into account the general practices, but also considering more subtle factors that might hinder the performance of the system. This section uses the mathematical principles presented in \cite{margan2012transimpedance, sackinger2017analysis, horsthemke2025all} to optimize the design of the existing amplifier. 
 
 \begin{figure}[!ht]
 	\centering
@@ -261,7 +291,7 @@ In the process of designing the \gls{tia} circuit, the noise should be considere
 			\draw (3.75,8.75) to (3.75,8.25) node[ground]{};
 		\end{circuitikz}
 	}%
-	\caption{Noise sources in a \gls{tia} circuit}
+	\caption{Noise current sources in a \gls{tia} circuit}
 	\label{fig:td:design:tia_noise}
 \end{figure}
 
@@ -278,15 +308,48 @@ Combining the noise sources leads to Equation \eqref{eq:td:noise_sources}, which
 		v_n(f) = \sqrt{v_{nR}^2 + v_{nA}^2}
 \end{equation}
 
-The noise gain is the ratio of the output noise and the input noise. This ratio gives a better understanding of what frequencies of noise are the most problematic if they appear at the input of the \gls{tia}. In order to get a better understanding of the noise gain, its transfer function can be calculated in much the same way as the transimpedance (Equations \ref{eq:td:aol} - \ref{eq:td:zt}), leading to Equation \eqref{eq:td:noise_tf}. While it might not be immediately obvious from the mathematical expression, the noise gain is \num{0} \unit{\decibel} at low frequencies, but it peaks when $f \approx f_c$. Figure \ref{fig:td:noisev2} in Chapter \ref{chap:td:v2} shows the noise frequency response obtained from the system equation.
+The noise gain is the ratio of the output noise and the input noise. This ratio gives a better understanding of what frequencies of noise are the most problematic if they appear at the input of the \gls{tia}. In order to get a better understanding of the noise gain, its transfer function can be calculated in much the same way as the transimpedance (Equations \ref{eq:td:aol} - \ref{eq:td:zt}), leading to Equation \eqref{eq:td:noise_tf}. The transfer function shown in it can be broken down into two components: a low-pass and a band-pass component. In the numerator expression $sA_o\omega_o$ contributes the band-pass component and the expression $\frac{A_o\omega_o}{(C_i + C_1)R_1}$ is responsible for the low-pass component. Figure \ref{fig:td:noiseexample} shows an example of the frequency response of the noise transfer function.
 
 \begin{equation}\label{eq:td:noise_tf}
 	H_n(s) = \frac{v_o}{v_n} = \frac{A_o\omega_o(s + \frac{1}{(C_i + C_1)R_1})}{s^2 + s(\frac{1}{(C_i + C_1)R_1} + \omega_o(1 + A_o\frac{C_1}{C_i + C_1})) + \frac{\omega_o(1 + A_o)}{(C_i + C_1)R_1}}
 \end{equation}
 
 
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.7\linewidth]{matlab/noise_example}
+	\caption{Plot of the components of the noise and the total noise}
+	\label{fig:td:noiseexample}
+\end{figure}
+
+
+While it might not be immediately obvious from the mathematical expression, the noise gain is \num{0} \unit{\decibel} at low frequencies, but it peaks when $f \approx f_c$. 
+
+Firstly, the low-frequency response of the system can most easily be demonstrated by calculating it at a frequency $\omega$ = 0 \unit{\radian\per\second}. This gives us the \gls{dc} gain shown in Equation \eqref{eq:td:noise_dc}, which is close to 1 for real amplifiers, in which the gain is finite.
+
+\begin{equation}\label{eq:td:noise_dc}
+	H_n(0) = \frac{\frac{A_o\omega_o}{(C_i + C_1)R_1}}{\frac{\omega_o(1 + A_o)}{(C_i + C_1)R_1}} = \frac{A_o}{A_o + 1}
+\end{equation}
+
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.7\linewidth]{matlab/noise_example_vs_signal}
+	\caption{Comparison between the noise frequency response and the normalized signal frequency response}
+	\label{fig:td:noiseexamplevssignal}
+\end{figure}
+
+Secondly, the peak is caused by the combination of both components. The center frequency of the band-pass component corresponds to the cutoff frequency of the low-pass, which makes the gain at that frequency the highest. What is more, the peak-gain frequency of the noise matches the signal transfer function cutoff, which can be seen in Figure \ref{fig:td:noiseexamplevssignal}.
+
+
+
+
+
+
 \subsection{Third iteration}
-While the second version of the photodetector focuses on improving the TIA performance, the third iteration is more about adapting the design for the setup. The most important considerations for the setup are function and size. Form factor constraints arise from the fact that the setup needs to be as small and adhere to the Thorlabs mounting standard. Photodetection also needs to not require many external connections or ideally be standalone. This is feasible for the data flow, as the photodetection \gls{pcb} only needs light and an output to work. Unlike the data connections, version two of the design has a suboptimal power delivery system, as it uses three pins for the supply of power. 
+While the second version of the photodetector focuses on improving the TIA performance, the third iteration is more about adapting the design for the setup. In particular, this iteration tries to simplify the power delivery and optimize the size of the design. In spite of the added power management, this version of the system is made so that it still costs around the same as the previous ones.
+
+The most important considerations for the setup are function and size. Form factor constraints arise from the fact that the setup needs to be as small and adhere to the Thorlabs mounting standard. Photodetection also needs to not require many external connections or ideally be standalone. This is feasible for the data flow, as the photodetection \gls{pcb} only needs light and an output to work. Unlike the data connections, version two of the design has a suboptimal power delivery system, as it uses three pins for the supply of power. 
 
 Three alternatives methods for power delivery were considered, all of which only need power and ground to work. The first one is an onboard split-rail power supply, which would take the power input and would output a fixed positive and negative voltage. Figure \ref{fig:td:des:adafruitsplitrailboost} shows an example of what a split-rail supply implementation might look like. There are also external option \cite{clark2025boost}, which might be necessary in the future, if the setup size needs to be reduced even more.  
 
@@ -346,7 +409,7 @@ The specifications of the different power supply solutions are shown in Table \r
 Ultimately, the charge pump is the most fit for this project, because it is relatively simple, while also offering excellent stability. The decision was reached only after taking into account the power calculations from Chapter \ref{chap:fd:power_req}, according to which all devices can handle the power requirements of the circuit. Another important factor when making the decision was the efficiency of the switching solutions. Based on slight fluctuations in the amount of current drawn, the charge pump can have as much as twice the efficiency of the split-rail power supply \cite{instruments2015tps6040x, ti2015tps65133}, due to its high efficiency at low currents.
 
 \subsection{Fourth iteration}\label{chap:td:v4_design}
-Although the previous iterations provided a cheap and reliable photodetector for \gls{cwodmr}, the narrow bandwidth prevents them from measuring pulsed protocols. This iteration is specifically designed for $T_1$ measurements.
+Although the previous iterations provided a cheap and reliable photodetector for \gls{cwodmr}, the narrow bandwidth prevents them from measuring pulsed protocols. This iteration is specifically designed for $T_1$ measurement support. Although it is somewhat more expensive than the previous iteration, version four justifies the price by offering significant sensing performance gains.
 
 \begin{figure}[ht]
 	\centering
@@ -473,13 +536,13 @@ Tina-TI was used to simulate and visualize the DC gain and frequency response of
 
 \begin{figure}[ht]
 	\centering
-	\begin{subfigure}[1a]{.7\linewidth}
+	\begin{subfigure}[1a]{.6\linewidth}
 		\includegraphics[width=\linewidth]{img/tina_AC_2probes}
 		\caption{Frequency response}
 		\label{fig:tinaac2probes}
 	\end{subfigure}
 	\hfill
-	\begin{subfigure}[2a]{.7\linewidth}
+	\begin{subfigure}[2a]{.6\linewidth}
 		\includegraphics[width=\linewidth]{img/tina_DC_2probes}
 		\caption{DC gain}
 		\label{fig:tinadc2probes}
@@ -530,13 +593,13 @@ Using these values, the system model was calculated and plotted in Figure \ref{f
 
 \begin{figure}[ht]
 	\centering
-	\begin{subfigure}[1a]{.7\linewidth}
+	\begin{subfigure}[1a]{.6\linewidth}
 		\includegraphics[width=\linewidth]{img/tina_AC_2probes_1p}
 		\caption{Frequency response}
 		\label{fig:tinaac2probes1p}
 	\end{subfigure}
 	\hfill
-	\begin{subfigure}[2a]{.7\linewidth}
+	\begin{subfigure}[2a]{.6\linewidth}
 		\includegraphics[width=\linewidth]{img/tina_DC_2probes_1p}
 		\caption{DC gain}
 		\label{fig:tinadc2probes1p}
@@ -547,11 +610,11 @@ Using these values, the system model was calculated and plotted in Figure \ref{f
 
 Figure \ref{fig:tina2probes1p} confirms the calculations, with some slight differences that can be attributed to the \gls{spice} models. As predicted, the frequency response of the circuit shows an increased cutoff frequency of \num{19,69} \unit{\kilo\hertz}, \num{8,92} \unit{\kilo\hertz} more than the previous iteration. Up to the cutoff frequency, the transimpedance gain is \num{160,83} \unit{\decibel}, which is almost the same as the former gain of \num{160,82} \unit{\decibel}. Furthermore, Figure \ref{fig:tinadc2probes1p} shows that, similarly to the first iteration, the system displays linearity in the range of \numrange{0}{45,86} \unit{\nano \ampere}. This is a reduction of \num{450} \unit{\pico\ampere} compared to the previous version and also \num{4,14} \unit{\nano \ampere} less than the ideal upper limit of the linear region.
 
-Additionally, a MATLAB script was used to calculate the \gls{tia} noise transfer function, the output of which is shown in Figure \ref{fig:td:noisev2}. As discussed in Chapter \ref{chap:td:calc:v2}, the noise gain spikes around the cutoff of the \gls{tia}.
+Additionally, a MATLAB script was used to calculate the \gls{tia} noise transfer function, the output of which is shown in Figure \ref{fig:td:noisev2}. As discussed in Chapter \ref{chap:td:calc:v2}, the noise gain spikes at the cutoff of the signal transfer function.
 
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width=0.8\linewidth]{matlab/noise_v2}
+	\includegraphics[width=0.7\linewidth]{matlab/noise_v2}
 	\caption{Noise transfer function of the \gls{tia} using an AD795, 10 \unit{\mega\ohm} resistor and an ideal compensation capacitor}
 	\label{fig:td:noisev2}
 \end{figure}
@@ -562,7 +625,7 @@ Before deciding on a power supply system, the power requirements needed to be co
 \subsection{Fourth iteration}\label{chap:td:v4_sim}
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width=0.8\linewidth]{matlab/bode_bootstrap_vs_nostrap}
+	\includegraphics[width=0.7\linewidth]{matlab/bode_bootstrap_vs_nostrap}
 	\caption{Comparison of a bootstrapped \gls{tia} and a normal \gls{tia} with the same transimpedance gain}
 	\label{fig:td:bodebootstrapvsnostrap}
 \end{figure}
@@ -592,19 +655,19 @@ As previously discussed, the value of the capacitor could not be determined anal
 
 \begin{figure}[!ht]
 	\centering
-	\begin{subfigure}[1a]{.7\linewidth}
+	\begin{subfigure}[1a]{.6\linewidth}
 		\includegraphics[width=\linewidth]{img/LTSpice_sim_v4_1stage}
 		\caption{Bootstrapped \gls{tia} with a single output stage (40 \unit{\decibel} gain)}
 		\label{fig:td:v4_nia:one}
 	\end{subfigure}
 	\hfill
-	\begin{subfigure}[2a]{.7\linewidth}
+	\begin{subfigure}[2a]{.6\linewidth}
 		\includegraphics[width=\linewidth]{img/LTSpice_sim_v4_2stage}
 		\caption{Bootstrapped \gls{tia} with two cascaded output stages (20 \unit{\decibel} gain each)}
 		\label{fig:td:v4_nia:cascaded}
 	\end{subfigure}
 	\hfill
-	\begin{subfigure}[3a]{.7\linewidth}
+	\begin{subfigure}[3a]{.6\linewidth}
 		\includegraphics[width=\linewidth]{img/LTSpice_sim_v4_no_post}
 		\caption{Bootstrapped \gls{tia} without post-amplification}
 		\label{fig:td:v4_nia:none}

@@ -228,25 +228,13 @@ The integration test has a similar test setup to the complete quantum sensing se
 Unfortunately, the system could not be characterized by means of S-parameters. This is due to the lack of suitable equipment. The laboratory had a \gls{vna} that could only be used to measure S-parameters in the \gls{rf} range. There was another method which was tried, which involves using the waveform and oscilloscope channels of an Analog Discovery 2 as a \gls{vna}. While this method can cover the operating frequencies of the device, it can only measure the $S_{11}$ parameter of the device, because it functions as a network analyzer with a single port. Lastly, attempts at contacting researchers from the University of Twente for their equipment were made, but they did not respond.
 
 \subsection{\glsfmtshort{tia} integration test}
-Testing with 1 and 500 \unit{\hertz} results in the readings shown in Figure \ref{fig:test:integ_v1}. From the data, it can be seen that the photodetector exhibits a lower bandwidth than what was calculated for the \gls{tia}. This is caused by the photovoltaic-mode diode and the high intensity of the light, which lengthen the on time and fall time of the detector.
+Testing with 500 \unit{\hertz} results in the readings shown in Figure \ref{fig:test:integ_v1}. From the data, it can be seen that the photodetector exhibits a lower bandwidth than what was calculated for the \gls{tia}. This is caused by the photovoltaic-mode diode and the high intensity of the light, which lengthen the on time and fall time of the detector.
 
 
 \begin{figure}[ht]
 	\centering
-	\begin{subfigure}[1a]{.49\linewidth}
-		\centering
-		\includegraphics[width=\linewidth]{img/integ_test_1hz}
-		\caption{Integration test with the laser pulsing at 1 \unit{\hertz}}
-		\label{fig:test:integtest1hz}
-	\end{subfigure}
-	\hfill
-	\begin{subfigure}[1b]{.49\linewidth}
-		\centering
-		\includegraphics[width=\linewidth]{img/integ_test_500hz}
-		\caption{Integration test with the laser pulsing at 500 \unit{\hertz}}
-		\label{fig:test:integtest500hz}
-	\end{subfigure}
-	\caption{Integration test of the first iteration of the photodetector (cutoff frequency $f_c$ = \num{10,77} \unit{\kilo\hertz}) with a focused close-proximity laser}
+	\includegraphics[width=.5\linewidth]{img/integ_test_500hz}
+	\caption{Integration test of the first iteration of the photodetector (cutoff frequency $f_c$ = \num{10,77} \unit{\kilo\hertz}) with a focused close-proximity laser pulsing at 500 \unit{\hertz}}
 	\label{fig:test:integ_v1}
 \end{figure}
 
@@ -285,19 +273,63 @@ The previous tests were done with the laser placed less than 1 \unit{cm} away fr
 	
 	\caption{Integration test of the first iteration of the photodetector (cutoff frequency $f_c$ = \num{10,77} \unit{\kilo\hertz}) with an unfocused medium-distance laser}
 	\label{fig:test:v1_test}
+\end{figure}
+
+In Figure \ref{fig:test:v3_test}, the system demonstrates better high-frequency performance and slightly better low-frequency noise attenuation. That being said, there is a significant amount of noise present. Both its shape and frequency suggest the noise originates from the charge pump.
+
+\begin{figure}[ht]
+	\centering
+	\begin{subfigure}[1a]{.49\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{img/v3_diode_50}
+		\caption{Integration test with the laser pulsing at 50 \unit{\hertz}}
+		\label{fig:test:v3_test_50}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[1b]{.49\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{img/v3_diode_5k}
+		\caption{Integration test with the laser pulsing at 5 \unit{\kilo\hertz}}
+		\label{fig:test:v3_test_5k}
+	\end{subfigure}
 	
+	\begin{subfigure}[2a]{.49\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{img/v3_diode_10k}
+		\caption{Integration test with the laser pulsing at 10 \unit{\kilo\hertz}}
+		\label{fig:test:v3_test_10k}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[2b]{.49\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{img/v3_diode_20k}
+		\caption{Integration test with the laser pulsing at 20 \unit{\kilo\hertz}}
+		\label{fig:test:v3_test_20k}
+	\end{subfigure}
+	
+	\caption{Integration test of the third iteration of the photodetector (cutoff frequency $f_c$ = \num{21,167} \unit{\kilo\hertz}) with an unfocused medium-distance laser}
+	\label{fig:test:v3_test}
 \end{figure}
 
 \section{Discussion}
 As a result of the tests, the first iteration of the photodetector can be used for \gls{cwodmr} measurements. The protocol can be executed with extremely low bandwidth photodetectors (e.g. 18 \unit{\hertz} \cite{acharya2025compact}). That being said, pulsed protocols cannot be achieved with the first iteration of the circuit due to their high frequency requirements. Higher frequencies also exacerbate the issue of overexposure of the sensor, which leads to decreased performance. The effect of the laser on the sensor needs to be considered when integrating the complete setup, as it can affect the measurements. There are cancellation techniques to measure only the \gls{nv} luminescence \cite{sewani2020coherent}, but if the photodiode is overexposed or the signal is getting limited by the power rail, the output will not be usable. 
 
 
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.7\linewidth]{img/v3_ripple}
+	\caption{Noise measurements in minimal-lighting conditions of the third iteration of the photodetector}
+	\label{fig:test:v3ripple}
+\end{figure}
+
+The third iteration offers a solution that is more suitable for a compact setup. The frequency response is the same as the second version, but the onboard power supply inverter generates unwanted noise. As seen in Figure \ref{fig:test:v3ripple}, there is a large ripple, which is most likely the result of electromagnetic interference. It is also possible that the output filtering capacitor $C_O$ placed on the output of the charge pump does not match the design values, because it was found in a capacitor book in the FabLab. Due to the unknown manufacturer and model, the \gls{esr} of $C_O$ might be too big. Furthermore, there is a possibility that its capacitance is lower than 1 \unit{\micro\farad}, which would also explain the shape of the ripple.
+
 \section{Known limitations}
 The most obvious limitation is the lack of equipment for some tests, which lead to using less appropriate alternatives or having to cancel tests. For example, due to the lack of a suitable \gls{vna}, the only method for circuit characterization was using a diode model. The latter would also benefit from a real nanoamp current source instead of the makeshift source that had to be used.
 
 There are many factors that affect the measurements, but perhaps most prominent are the environmental lighting sources. This includes ambient sunlight, which gets through the blinds of the lab, and reflections from the laser. Both significantly affect the photodetector, especially when there is no focused light present. Reflections, in particular, also contributed to the long falling edges in the integration tests.
 
-Furthermore, the light source in the medium-distance integration tests had to be manually adjusted, meaning that the output signals do not represent the ideal performance. To achieve ideal readings, the laser would have to be affixed and the orientation adjusted, while the intensity at the given distance is measured.
+Furthermore, the light source in the medium-distance integration tests had to be manually adjusted, meaning that the output signals do not represent the ideal performance. In fact, the measurements present results with slight power rail clipping, which is unavoidable with the testing setup. To achieve ideal readings, the laser would have to be affixed and the orientation adjusted, while the intensity at the given distance is measured.
 
 
 \chapter{Conclusion}
@@ -305,7 +337,11 @@ In conclusion, the goal of the project, to enable detection of light signals for
 
 According to the introduction in Chapter \ref{chap:intro}, the main purpose of the project was create a photodetector, but integration of the sensing setup was also important. Both were tackled during this project, with the focus being on photodetection. While setup integration also holds importance for the research group, most of the tasks related to it were redistributed among other students. Further refinements to the photodetector and the setup as a whole are possible. Some of the most promising ones are discussed in the recommendations in Chapter \ref{chap:recs}. Complete integration of the whole setup necessitates more work, but is achievable in the near future.
 
-The first iteration of the photodetector is suitable for \gls{cwodmr} measurements with the quantum sensing setup. Despite its functionality, it also presents some minor integration problems, such the need for a dual-rail power supply. Version three of the device addresses the major integration concern of having a simple and small power supply solution. At the same time, it also incorporates the improved system response of the second iteration. Although the \gls{ac} characteristics of the circuit are irrelevant for \gls{cwodmr}, they become the most important aspect of the circuit when discussing pulsed protocols. The fourth photodetector iteration presents a solution specifically designed to handle pulsed protocols. Even though the exact frequency and gain requirements for the circuit are unknown\footnote{Different papers often present different pulsing specifications. In addition, the client wants to adjust the pulsing specifications, so the necessary photodetector bandwidth can only be estimated}, the fourth version should be able to do $T_1$ measurements. Whether higher-frequency pulsed protocols can be achieved is still unknown, as the setup has not been completely integrated.
+The first iteration of the photodetector is suitable for \gls{cwodmr} measurements with the quantum sensing setup. Despite its functionality, it also presents some minor integration problems, such the need for a dual-rail power supply. 
+
+Version three of the device addresses the major integration concern of having a simple and small power supply solution. At the same time, it also incorporates the improved system response of the second iteration. Although the \gls{ac} characteristics of the circuit are irrelevant for \gls{cwodmr}, they become the most important aspect of the circuit when discussing pulsed protocols. However, the third version of the photodetector suffers a significant noise problem, caused by the inverting charge pump. Although this is a significant problem, its source and possible causes are known, which means that, in the future, the issue can be fixed without much trouble.
+
+The fourth photodetector iteration presents a solution specifically designed to handle pulsed protocols. Even though the exact frequency and gain requirements for the circuit are unknown\footnote{Different papers often present different pulsing specifications. In addition, the client wants to adjust the pulsing specifications, so the necessary photodetector bandwidth can only be estimated}, the fourth version should be able to do $T_1$ measurements. Whether higher-frequency pulsed protocols can be achieved is still unknown, as the setup has not been completely integrated.
 
 
 \chapter{Recommendations}\label{chap:recs}

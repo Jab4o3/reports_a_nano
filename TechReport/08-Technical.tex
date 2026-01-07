@@ -317,7 +317,7 @@ The noise gain is the ratio of the output noise and the input noise. This ratio 
 
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width=0.7\linewidth]{matlab/noise_example}
+	\includegraphics[width=0.6\linewidth]{matlab/noise_example}
 	\caption{Plot of the components of the noise and the total noise}
 	\label{fig:td:noiseexample}
 \end{figure}
@@ -334,7 +334,7 @@ Firstly, the low-frequency response of the system can most easily be demonstrate
 
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width=0.7\linewidth]{matlab/noise_example_vs_signal}
+	\includegraphics[width=0.6\linewidth]{matlab/noise_example_vs_signal}
 	\caption{Comparison between the noise frequency response and the normalized signal frequency response}
 	\label{fig:td:noiseexamplevssignal}
 \end{figure}
@@ -344,10 +344,8 @@ Secondly, the peak is caused by the combination of both components. The center f
 
 
 
-
-
 \subsection{Third iteration}
-While the second version of the photodetector focuses on improving the TIA performance, the third iteration is more about adapting the design for the setup. In particular, this iteration tries to simplify the power delivery and optimize the size of the design. In spite of the added power management, this version of the system is made so that it still costs around the same as the previous ones.
+While the second version of the photodetector focuses on improving the TIA performance, the third iteration is more about adapting the design for the setup. In particular, this iteration tries to simplify the power delivery and optimize the size of the design, while keeping the amplifying circuit unchanged. In spite of the added power management, this version of the system is made so that it still costs around the same as the previous ones.
 
 The most important considerations for the setup are function and size. Form factor constraints arise from the fact that the setup needs to be as small and adhere to the Thorlabs mounting standard. Photodetection also needs to not require many external connections or ideally be standalone. This is feasible for the data flow, as the photodetection \gls{pcb} only needs light and an output to work. Unlike the data connections, version two of the design has a suboptimal power delivery system, as it uses three pins for the supply of power. 
 
@@ -372,7 +370,7 @@ A simpler solution would be to use a virtual ground driver \gls{ic}, as it would
 \end{figure}
 
 
-Another possibility is to implement a charge pump, which inverts the input voltage. This setup would only need half of the input voltage required for the virtual ground solution, effectively enabling it to be powered via a standard \gls{usb} connector.
+Another possibility is to implement a charge pump (see Figure \ref{fig:td:des:chrgpump}), which inverts the input voltage. This setup would only need half of the input voltage required for the virtual ground solution, effectively enabling it to be powered via a standard \gls{usb} connector.
 
 \begin{figure}[ht]
 	\centering
@@ -408,12 +406,18 @@ The specifications of the different power supply solutions are shown in Table \r
 
 Ultimately, the charge pump is the most fit for this project, because it is relatively simple, while also offering excellent stability. The decision was reached only after taking into account the power calculations from Chapter \ref{chap:fd:power_req}, according to which all devices can handle the power requirements of the circuit. Another important factor when making the decision was the efficiency of the switching solutions. Based on slight fluctuations in the amount of current drawn, the charge pump can have as much as twice the efficiency of the split-rail power supply \cite{instruments2015tps6040x, ti2015tps65133}, due to its high efficiency at low currents.
 
+The design in Figure \ref{fig:td:des:chrgpump} is recommended by the manufacturer. Unlike the flying capacitor $C_{fly}$, which does not affect the behavior of the \gls{ic}, both the input $C_I$ and output $C_O$ capacitors have to be chosen carefully. Too low of an input or output capacitance can cause an unwanted ripple. What is more, the \gls{esr} of $C_O$ also has a significant effect on the output ripple, as is evident from Equation \eqref{eq:td:v3:ripple}. In it, $I_O$ is the output current and $f_{osc}$ is the switching frequency of the pump.
+
+\begin{equation}\label{eq:td:v3:ripple}
+V_{Or} = \frac{I_O}{f_{osc}C_O} + 2I_O(ESR_{CO})
+\end{equation}
+
 \subsection{Fourth iteration}\label{chap:td:v4_design}
 Although the previous iterations provided a cheap and reliable photodetector for \gls{cwodmr}, the narrow bandwidth prevents them from measuring pulsed protocols. This iteration is specifically designed for $T_1$ measurement support. Although it is somewhat more expensive than the previous iteration, version four justifies the price by offering significant sensing performance gains.
 
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width=0.8\linewidth]{matlab/bode_v4_v3_10Mohm_1Mohm}
+	\includegraphics[width=0.6\linewidth]{matlab/bode_v4_v3_10Mohm_1Mohm}
 	\caption{Bandwidth comparison of the third iteration of the \gls{tia} (based on AD795) and one based on an ADA4637 op-amp with a 10 \unit{\mega\ohm} and a 1 \unit{\mega\ohm} $R_1$}
 	\label{fig:td:bodev410mohm1mohm}
 \end{figure}
@@ -507,7 +511,7 @@ An alternative to increasing the gain is to add a second non-inverting stage wit
 %	Z_t(s) = \frac{v_{out}}{i_f} = \frac{R_1}{s^2\frac{(C_i + C_1 + C_d)R_1}{\omega_o} + s(\frac{(C_i + C_1 + C_d)R_1\omega_a}{\omega_o} + C_1R_1 + \frac{1}{\omega_o}) - \frac{s(s + \omega_a)C_dR_1}{s + \omega_o + \omega_a} + \frac{\omega_a}{\omega_o} + 1}
 %\end{equation}
 
-Finally, Figure \ref{fig:td:v4schematic} shows the schematic of the system after all the modifications.
+Finally, Figure \ref{fig:td:v4schematic} shows the schematic of the system after all the modifications. Because of noise concerns, the resistor values were reduced significantly, which, as previously mentioned, contributes to lower noise in the post-amplification stage.
 
 \begin{figure}[ht]
 	\centering
@@ -536,13 +540,13 @@ Tina-TI was used to simulate and visualize the DC gain and frequency response of
 
 \begin{figure}[ht]
 	\centering
-	\begin{subfigure}[1a]{.6\linewidth}
+	\begin{subfigure}[1a]{.49\linewidth}
 		\includegraphics[width=\linewidth]{img/tina_AC_2probes}
 		\caption{Frequency response}
 		\label{fig:tinaac2probes}
 	\end{subfigure}
 	\hfill
-	\begin{subfigure}[2a]{.6\linewidth}
+	\begin{subfigure}[1b]{.49\linewidth}
 		\includegraphics[width=\linewidth]{img/tina_DC_2probes}
 		\caption{DC gain}
 		\label{fig:tinadc2probes}
@@ -583,7 +587,7 @@ Table \ref{tab:td:params} contains the MATLAB calculation results and shows the 
 
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width=0.8\linewidth]{matlab/bode_v1_v2_comparison}
+	\includegraphics[width=0.6\linewidth]{matlab/bode_v1_v2_comparison}
 	\caption{Bode plot of the system with different capacitors}
 	\label{fig:td:bodev1v2comparison}
 \end{figure}
@@ -593,13 +597,13 @@ Using these values, the system model was calculated and plotted in Figure \ref{f
 
 \begin{figure}[ht]
 	\centering
-	\begin{subfigure}[1a]{.6\linewidth}
+	\begin{subfigure}[1a]{.49\linewidth}
 		\includegraphics[width=\linewidth]{img/tina_AC_2probes_1p}
 		\caption{Frequency response}
 		\label{fig:tinaac2probes1p}
 	\end{subfigure}
 	\hfill
-	\begin{subfigure}[2a]{.6\linewidth}
+	\begin{subfigure}[1b]{.49\linewidth}
 		\includegraphics[width=\linewidth]{img/tina_DC_2probes_1p}
 		\caption{DC gain}
 		\label{fig:tinadc2probes1p}
@@ -614,8 +618,8 @@ Additionally, a MATLAB script was used to calculate the \gls{tia} noise transfer
 
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width=0.7\linewidth]{matlab/noise_v2}
-	\caption{Noise transfer function of the \gls{tia} using an AD795, 10 \unit{\mega\ohm} resistor and an ideal compensation capacitor}
+	\includegraphics[width=0.6\linewidth]{matlab/noise_v2}
+	\caption{Noise transfer function of the \gls{tia} using an AD795, 10 \unit{\mega\ohm} resistor and an ideal compensating capacitor}
 	\label{fig:td:noisev2}
 \end{figure}
 
@@ -625,7 +629,7 @@ Before deciding on a power supply system, the power requirements needed to be co
 \subsection{Fourth iteration}\label{chap:td:v4_sim}
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width=0.7\linewidth]{matlab/bode_bootstrap_vs_nostrap}
+	\includegraphics[width=0.6\linewidth]{matlab/bode_bootstrap_vs_nostrap}
 	\caption{Comparison of a bootstrapped \gls{tia} and a normal \gls{tia} with the same transimpedance gain}
 	\label{fig:td:bodebootstrapvsnostrap}
 \end{figure}
@@ -655,28 +659,49 @@ As previously discussed, the value of the capacitor could not be determined anal
 
 \begin{figure}[!ht]
 	\centering
-	\begin{subfigure}[1a]{.6\linewidth}
+	\begin{subfigure}[1a]{.9\linewidth}
 		\includegraphics[width=\linewidth]{img/LTSpice_sim_v4_1stage}
 		\caption{Bootstrapped \gls{tia} with a single output stage (40 \unit{\decibel} gain)}
 		\label{fig:td:v4_nia:one}
 	\end{subfigure}
 	\hfill
-	\begin{subfigure}[2a]{.6\linewidth}
+	\begin{subfigure}[2a]{.9\linewidth}
 		\includegraphics[width=\linewidth]{img/LTSpice_sim_v4_2stage}
 		\caption{Bootstrapped \gls{tia} with two cascaded output stages (20 \unit{\decibel} gain each)}
 		\label{fig:td:v4_nia:cascaded}
 	\end{subfigure}
 	\hfill
-	\begin{subfigure}[3a]{.6\linewidth}
+	\begin{subfigure}[3a]{.9\linewidth}
 		\includegraphics[width=\linewidth]{img/LTSpice_sim_v4_no_post}
 		\caption{Bootstrapped \gls{tia} without post-amplification}
 		\label{fig:td:v4_nia:none}
 	\end{subfigure}
-	\caption{Simulation of the second iteration of the photodetector}
+	\caption{Simulation of the effect of cascading on the bandwidth of the fourth iteration of the photodetector}
 	\label{fig:td:v4_nia}
 \end{figure}
 
-Additionally, the post-amplification part of the system was simulated with and without the cascaded stages. Shown in Figure \ref{fig:td:v4_nia}, the results demonstrate a significant increase in bandwidth. The plot of the bootstrapped \gls{tia} discussed in the design section (Chapter \ref{chap:td:v4_design}) with a single 40 \unit{\decibel} non-inverting stage shows a flat response with a cutoff frequency of approximately 229 \unit{\kilo\hertz}. This is significantly lower than 721 \unit{\kilo\hertz}, which is the bandwidth of the \gls{tia} without any post-amplification (Figure \ref{fig:td:v4_nia:none}). Figure \ref{fig:td:v4_nia:cascaded} shows the increased bandwidth of \num{1,517} \unit{\mega\hertz} when two stages are used instead of one. In spite of the significantly bigger cutoff frequency, the response is not maximally flat, which means the linearity at high frequencies is subpar.
+Additionally, the post-amplification part of the system was simulated with and without the cascaded stages. Shown in Figure \ref{fig:td:v4_nia}, the results demonstrate a significant increase in bandwidth. The plot of the bootstrapped \gls{tia} discussed in the design section (Chapter \ref{chap:td:v4_design}) with a single 40 \unit{\decibel} non-inverting stage shows a flat response with a cutoff frequency of approximately \num{194,45} \unit{\kilo\hertz}. This is significantly lower than \num{716,67} \unit{\kilo\hertz}, which is the bandwidth of the \gls{tia} without any post-amplification (Figure \ref{fig:td:v4_nia:none}). Figure \ref{fig:td:v4_nia:cascaded} shows the increased bandwidth of \num{638,08} \unit{\mega\hertz} when two stages are used instead of one. In spite of the significantly bigger cutoff frequency, the response is not maximally flat, which means the linearity at high frequencies is subpar.
+
+Here it is important to mention that while cascading increases the bandwidth of the system, it also results in more noise. Figure \ref{fig:td:v4_noise} shows the effect of cascading. Aside from the obvious increase around the cutoff frequency, the noise at 1 \unit{\hertz} also increases from 14,5 \unit[power-half-as-sqrt]{\nano\volt\per\hertz\tothe{0.5}} to 18 \unit[power-half-as-sqrt]{\nano\volt\per\hertz\tothe{0.5}}.
+
+\begin{figure}[!ht]
+	\centering
+	\begin{subfigure}[1a]{.8\linewidth}
+		\includegraphics[width=\linewidth]{img/LTSpice_sim_v4_1stage_noise}
+		\caption{Noise simulation of a bootstrapped \gls{tia} with a single output stage}
+		\label{fig:td:noise_1stage}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[2a]{.8\linewidth}
+		\includegraphics[width=\linewidth]{img/LTSpice_sim_v4_2stage_noise}
+		\caption{Noise simulation of a bootstrapped \gls{tia} with two cascaded output stage}
+		\label{fig:td:noise_2stage}
+	\end{subfigure}
+	\caption{Simulation of the effect of cascading on the noise of the fourth iteration of the photodetector}
+	\label{fig:td:v4_noise}
+\end{figure}
+
+
 
 \section{Photodetection implementation}
 Creating the physical \gls{pcb} is a more straightforward process than the design and simulation, but it still needs to be discussed. Aside from the boards, this section also covers the essential components.
@@ -685,7 +710,7 @@ Creating the physical \gls{pcb} is a more straightforward process than the desig
 
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width=0.7\linewidth]{img/photodetec_og_pcb}
+	\includegraphics[width=0.6\linewidth]{img/photodetec_og_pcb}
 	\caption{First iteration of the photodetection \gls{pcb}}
 	\label{fig:photodetecogpcb}
 \end{figure}
@@ -697,13 +722,13 @@ Figure \ref{fig:photodetecogpcb} shows the back side of the \gls{pcb}. It hosts 
 
 \begin{figure}[ht]
 	\centering
-	\begin{subfigure}[1a]{.7\linewidth}
+	\begin{subfigure}[1a]{.49\linewidth}
 		\includegraphics[width=\linewidth]{img/photodetec_v2_gp_pcb2}
 		\caption{\gls{ecad} model}
 		\label{fig:td:imp:photodetecv2gppcb2}
 	\end{subfigure}
 	\hfill
-	\begin{subfigure}[2a]{.7\linewidth}
+	\begin{subfigure}[1b]{.49\linewidth}
 		\includegraphics[width=\linewidth]{img/photodetec_v2_gp_sch}
 		\caption{Schematic}
 		\label{fig:td:imp:photodetecv2gppcb2sch}
@@ -722,13 +747,13 @@ Due to the fact that the topology of the first iteration was kept, the \gls{pcb}
 
 \begin{figure}[ht]
 	\centering
-	\begin{subfigure}[1a]{.7\linewidth}
+	\begin{subfigure}[1a]{.49\linewidth}
 		\includegraphics[width=\linewidth]{img/photodetec_v3}
 		\caption{\gls{ecad} model}
 		\label{fig:td:imp:photodetecv3pcb}
 	\end{subfigure}
 	\hfill
-	\begin{subfigure}[2a]{.7\linewidth}
+	\begin{subfigure}[1b]{.49\linewidth}
 		\includegraphics[width=\linewidth]{img/photodetec_v3sch}
 		\caption{Schematic}
 		\label{fig:td:imp:photodetecv3sch}
@@ -748,13 +773,13 @@ The third version has an optimized power system that employs a TPS60400 charge p
 
 \begin{figure}[ht]
 	\centering
-	\begin{subfigure}[1a]{.7\linewidth}
+	\begin{subfigure}[1a]{.49\linewidth}
 		\includegraphics[width=\linewidth]{img/photodetec_v4}
 		\caption{\gls{ecad} model}
 		\label{fig:td:imp:photodetecv4pcb}
 	\end{subfigure}
 	\hfill
-	\begin{subfigure}[2a]{.7\linewidth}
+	\begin{subfigure}[1b]{.49\linewidth}
 		\includegraphics[width=\linewidth]{img/photodetec_v4sch}
 		\caption{Schematic}
 		\label{fig:td:imp:photodetecv4sch}

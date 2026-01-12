@@ -375,7 +375,7 @@ Another possibility is to implement a charge pump (see Figure \ref{fig:td:des:ch
 \begin{figure}[ht]
 	\centering
 	\includegraphics[width=0.5\linewidth]{img/chrg_pump}
-	\caption{Example of a charge pump inverter using a TPS6040x family \glsfmtshort{ic} (image credit to \cite{instruments2015tps6040x}}
+	\caption{Example of a charge pump inverter using a TPS6040x family \glsfmtshort{ic} (image credit to \cite{instruments2015tps6040x})}
 	\label{fig:td:des:chrgpump}
 \end{figure}
 
@@ -406,7 +406,7 @@ The specifications of the different power supply solutions are shown in Table \r
 
 Ultimately, the charge pump is the most fit for this project, because it is relatively simple, while also offering excellent stability. The decision was reached only after taking into account the power calculations from Chapter \ref{chap:fd:power_req}, according to which all devices can handle the power requirements of the circuit. Another important factor when making the decision was the efficiency of the switching solutions. Based on slight fluctuations in the amount of current drawn, the charge pump can have as much as twice the efficiency of the split-rail power supply \cite{instruments2015tps6040x, ti2015tps65133}, due to its high efficiency at low currents.
 
-The design in Figure \ref{fig:td:des:chrgpump} is recommended by the manufacturer. Unlike the flying capacitor $C_{fly}$, which does not affect the behavior of the \gls{ic}, both the input $C_I$ and output $C_O$ capacitors have to be chosen carefully. Too low of an input or output capacitance can cause an unwanted ripple. What is more, the \gls{esr} of $C_O$ also has a significant effect on the output ripple, as is evident from Equation \eqref{eq:td:v3:ripple}. In it, $I_O$ is the output current and $f_{osc}$ is the switching frequency of the pump.
+The design in Figure \ref{fig:td:des:chrgpump} is recommended by the manufacturer. Unlike the flying capacitor $C_{fly}$, which does not affect the behavior of the \gls{ic}, both the input $C_I$ and output $C_O$ capacitors have to be chosen carefully. Too low of an input or output capacitance can cause an unwanted ripple. What is more, the \gls{esr} of $C_O$ also has a significant effect on the output ripple, as is evident from Equation \eqref{eq:td:v3:ripple} \cite{instruments2015tps6040x}. In it, $I_O$ is the output current and $f_{osc}$ is the switching frequency of the pump.
 
 \begin{equation}\label{eq:td:v3:ripple}
 V_{Or} = \frac{I_O}{f_{osc}C_O} + 2I_O(ESR_{CO})
@@ -498,6 +498,18 @@ An alternative to increasing the gain is to add a second non-inverting stage wit
 
 \begin{equation}\label{eq:td:v4:nia_cascading}
 	f_c \approx A_{df}\left(\frac{1}{f_{c\alpha}^2} + \frac{1}{f_{c\alpha}^2}\right)^{-\frac{1}{2}} = \frac{A_{df}}{\sqrt{2}}f_{c\alpha}
+\end{equation}
+
+It should also be noted that the equivalent resistance of the gain-setting resistors, combined with the parasitic capacitances of the op-amp, create a zero, the impact of which can be reduced by decreasing the value of the resistors. This can be observed from the relationship of the resistance to the phase margin, as seen in Equation \eqref{eq:td:v4:nia_cascading:r3r2}. In it, resistors $R_2$ and $R_3$ correspond to the ones in Figure \ref{fig:tia_nia}. $C_{cm}$ and $C_{df}$ denote the common-mode and differential capacitance of the op-amp.
+
+\begin{equation}\label{eq:td:v4:nia_cascading:r3r2}
+	\frac{1}{2\pi\left(C_{cm} + C_{df}\right)\frac{R_2R_3}{R_2 + R_3}} > \frac{GBP}{1 + \frac{R_3}{R_2}}
+\end{equation}
+
+It is possible to simplify the formula, because when designing the amplifier, the ratio of the resistors is fixed ($R_3 = A_rR_2$, where $A_r$ is the resistor ratio). Solving for $R_2$ then gives Equation \ref{eq:td:v4:nia_cascading:r2_simplified}.
+
+\begin{equation}\label{eq:td:v4:nia_cascading:r2_simplified}
+	R_2 < \frac{(1 + A_r)^2}{2\pi A_r\left(C_{cm} + C_{df}\right)GBP} 
 \end{equation}
 
 %\begin{equation}\label{eq:td:v4:trans_re}
@@ -630,7 +642,7 @@ Before deciding on a power supply system, the power requirements needed to be co
 \begin{figure}[ht]
 	\centering
 	\includegraphics[width=0.6\linewidth]{matlab/bode_bootstrap_vs_nostrap}
-	\caption{Comparison of a bootstrapped \gls{tia} and a normal \gls{tia} with the same transimpedance gain}
+	\caption{Comparison of a bootstrapped \gls{tia} and a \gls{tia} with only a compensating capacitor, both with the same transimpedance gain}
 	\label{fig:td:bodebootstrapvsnostrap}
 \end{figure}
 

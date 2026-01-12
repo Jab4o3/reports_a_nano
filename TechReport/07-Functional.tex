@@ -2,7 +2,7 @@
 The functional design presents a high-level overview of the project and what explains what design choices were made on a system-level. Additionally, it provides tangential information that can be useful for understanding the working principle of the quantum sensing setup.
 
 \section{Background knowledge}
-Some background knowledge is required to understand the purpose of the projects, because the setup the project revolves around uses several non-trivial physics concepts. This section outlines the basic ideas behind the physics that enable the quantum sensing setup to work.
+Some background knowledge is required to understand the purpose of the projects, because the setup the project revolves around several non-trivial physics concepts. This section outlines the basic ideas behind the physics that enable the quantum sensing setup to work, from the fundamental physics to how it is used by protocols to detect magnetism.
 
 \subsection{Spin states}
 Spin, at least in quantum mechanics, is the intrinsic angular momentum of a particle, which is described by the quantum number of the particle. Importantly, it differs from the angular momentum in classical mechanics, which is extrinsic. Spin characterizes systems of particles, usually electrons, using quantum entanglement. This phenomenon refers to the "entanglement", or spin correlation, of a set of particles.
@@ -28,7 +28,7 @@ After illuminating the \gls{nv} center with a green laser, electrons go from a g
 
 
 \section{Quantum protocols}
-There are a number of different quantum protocols, which differ in what they can measure, in how precisely they can measure it and in the complexity of the hardware they require to operate. \gls{cwodmr} is the main protocol this project is aimed at facilitating. As Saijo et al \cite{saijo2018ac} demonstrate, \gls{cwodmr} is relatively simple, while still detecting magnetic field with reasonable sensitivity. \gls{podmr} does outperform \gls{cwodmr} \cite{zhang2020high}, but because of the added complexity working with it is a "Could have" (see Chapter \ref{project_boundaries}). Before being able to run \gls{podmr} on the setup at the lab, several protocols need to be implemented first \cite{sewani2020coherent}. $T_1$ measurements, which are one of the fundamentals of \gls{mri}, should be conducted first. Afterwards, Rabi oscillations need to be observed and measured in order to calibrate the setup. Without these intermediate protocols, \gls{podmr} cannot be performed.
+There are a number of different quantum protocols, which differ in what they can measure, in how precisely they can measure it and in the complexity of the hardware they require to operate. \gls{cwodmr} is the main protocol this project is aimed at facilitating. As Saijo et al \cite{saijo2018ac} demonstrate, \gls{cwodmr} is relatively simple, while still detecting magnetic field with reasonable sensitivity. \gls{podmr} does outperform \gls{cwodmr} \cite{zhang2020high}, but because of the added complexity working with it is a "Could have" (see Chapter \ref{chap:project_boundaries}). Before being able to run \gls{podmr} on the setup at the lab, several protocols need to be implemented first \cite{sewani2020coherent}. $T_1$ measurements, which are one of the fundamentals of \gls{mri}, should be conducted first. Afterwards, Rabi oscillations need to be observed and measured in order to calibrate the setup. Without these intermediate protocols, \gls{podmr} cannot be performed.
 
 
 

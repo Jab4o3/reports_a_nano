@@ -52,8 +52,8 @@
 \newlabel{fig:td:des:adafruitsplitrailboost}{{5.8}{25}{Example of a split-rail power supply implementation using the TPS65133 \glsfmtshort {ic} (image credit to \cite {ti2015tps65133})}{figure.caption.21}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {5.9}{\ignorespaces Example of a virtual ground driver using the TLE2426 \glsxtrtitleshort {ic} (image credit to \blx@tocontentsinit {0}\cite {ts2022ground})}}{25}{figure.caption.22}\protected@file@percent }
 \newlabel{fig:td:des:virtground}{{5.9}{25}{Example of a virtual ground driver using the TLE2426 \glsfmtshort {ic} (image credit to \cite {ts2022ground})}{figure.caption.22}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.10}{\ignorespaces Example of a charge pump inverter using a TPS6040x family \glsxtrtitleshort {ic} (image credit to \blx@tocontentsinit {0}\cite {instruments2015tps6040x}}}{26}{figure.caption.23}\protected@file@percent }
-\newlabel{fig:td:des:chrgpump}{{5.10}{26}{Example of a charge pump inverter using a TPS6040x family \glsfmtshort {ic} (image credit to \cite {instruments2015tps6040x}}{figure.caption.23}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.10}{\ignorespaces Example of a charge pump inverter using a TPS6040x family \glsxtrtitleshort {ic} (image credit to \blx@tocontentsinit {0}\cite {instruments2015tps6040x})}}{26}{figure.caption.23}\protected@file@percent }
+\newlabel{fig:td:des:chrgpump}{{5.10}{26}{Example of a charge pump inverter using a TPS6040x family \glsfmtshort {ic} (image credit to \cite {instruments2015tps6040x})}{figure.caption.23}{}}
 \@writefile{lot}{\contentsline {table}{\numberline {5.1}{\ignorespaces Comparison of power supply options}}{26}{table.caption.24}\protected@file@percent }
 \newlabel{tab:power_supply}{{5.1}{26}{Comparison of power supply options}{table.caption.24}{}}
 \newlabel{eq:td:v3:ripple}{{5.19}{26}{Third iteration}{equation.5.19}{}}
@@ -66,12 +66,14 @@
 \newlabel{eq:td:v4:trans}{{5.20}{27}{Fourth iteration}{equation.5.20}{}}
 \newlabel{eq:td:v4:gbp+gain}{{5.21}{28}{Fourth iteration}{equation.5.21}{}}
 \newlabel{eq:td:v4:nia_cascading}{{5.22}{28}{Fourth iteration}{equation.5.22}{}}
+\newlabel{eq:td:v4:nia_cascading:r3r2}{{5.23}{28}{Fourth iteration}{equation.5.23}{}}
+\newlabel{eq:td:v4:nia_cascading:r2_simplified}{{5.24}{28}{Fourth iteration}{equation.5.24}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {5.13}{\ignorespaces Schematic of the fourth iteration of the \gls {tia}}}{28}{figure.caption.27}\protected@file@percent }
 \newlabel{fig:td:v4schematic}{{5.13}{28}{Schematic of the fourth iteration of the \gls {tia}}{figure.caption.27}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {5.3}Photodetection simulation}{28}{section.5.3}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.3.1}First iteration}{28}{subsection.5.3.1}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {5.14}{\ignorespaces First iteration of the photodetector circuit}}{28}{figure.caption.28}\protected@file@percent }
-\newlabel{fig:photodetecog}{{5.14}{28}{First iteration of the photodetector circuit}{figure.caption.28}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.14}{\ignorespaces First iteration of the photodetector circuit}}{29}{figure.caption.28}\protected@file@percent }
+\newlabel{fig:photodetecog}{{5.14}{29}{First iteration of the photodetector circuit}{figure.caption.28}{}}
 \newlabel{fig:tinaac2probes}{{5.15a}{29}{Frequency response}{figure.caption.29}{}}
 \newlabel{sub@fig:tinaac2probes}{{a}{29}{Frequency response}{figure.caption.29}{}}
 \newlabel{fig:tinadc2probes}{{5.15b}{29}{DC gain}{figure.caption.29}{}}
@@ -91,16 +93,14 @@
 \@writefile{lof}{\contentsline {figure}{\numberline {5.17}{\ignorespaces Simulation of the second iteration of the photodetector}}{30}{figure.caption.32}\protected@file@percent }
 \newlabel{fig:tina2probes1p}{{5.17}{30}{Simulation of the second iteration of the photodetector}{figure.caption.32}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.3.3}Third iteration}{30}{subsection.5.3.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.4}Fourth iteration}{30}{subsection.5.3.4}\protected@file@percent }
-\newlabel{chap:td:v4_sim}{{5.3.4}{30}{Fourth iteration}{subsection.5.3.4}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {5.3}{\ignorespaces Comparison of \gls {tia} parameters of the fourth and second/third iteration of the system}}{30}{table.caption.35}\protected@file@percent }
-\newlabel{tab:td:v4_params}{{5.3}{30}{Comparison of \gls {tia} parameters of the fourth and second/third iteration of the system}{table.caption.35}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {5.18}{\ignorespaces Noise transfer function of the \gls {tia} using an AD795, 10 \unit {\mega \ohm } resistor and an ideal compensating capacitor}}{31}{figure.caption.33}\protected@file@percent }
 \newlabel{fig:td:noisev2}{{5.18}{31}{Noise transfer function of the \gls {tia} using an AD795, 10 \unit {\mega \ohm } resistor and an ideal compensating capacitor}{figure.caption.33}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.19}{\ignorespaces Comparison of a bootstrapped \gls {tia} and a normal \gls {tia} with the same transimpedance gain}}{31}{figure.caption.34}\protected@file@percent }
-\newlabel{fig:td:bodebootstrapvsnostrap}{{5.19}{31}{Comparison of a bootstrapped \gls {tia} and a normal \gls {tia} with the same transimpedance gain}{figure.caption.34}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.4}Photodetection implementation}{31}{section.5.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.1}First iteration}{31}{subsection.5.4.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5.19}{\ignorespaces Comparison of a bootstrapped \gls {tia} and a \gls {tia} with only a compensating capacitor, both with the same transimpedance gain}}{31}{figure.caption.34}\protected@file@percent }
+\newlabel{fig:td:bodebootstrapvsnostrap}{{5.19}{31}{Comparison of a bootstrapped \gls {tia} and a \gls {tia} with only a compensating capacitor, both with the same transimpedance gain}{figure.caption.34}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.4}Fourth iteration}{31}{subsection.5.3.4}\protected@file@percent }
+\newlabel{chap:td:v4_sim}{{5.3.4}{31}{Fourth iteration}{subsection.5.3.4}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.3}{\ignorespaces Comparison of \gls {tia} parameters of the fourth and second/third iteration of the system}}{31}{table.caption.35}\protected@file@percent }
+\newlabel{tab:td:v4_params}{{5.3}{31}{Comparison of \gls {tia} parameters of the fourth and second/third iteration of the system}{table.caption.35}{}}
 \newlabel{fig:td:v4_nia:one}{{5.20a}{32}{Bootstrapped \gls {tia} with a single output stage (40 \unit {\decibel } gain)}{figure.caption.36}{}}
 \newlabel{sub@fig:td:v4_nia:one}{{a}{32}{Bootstrapped \gls {tia} with a single output stage (40 \unit {\decibel } gain)}{figure.caption.36}{}}
 \newlabel{fig:td:v4_nia:cascaded}{{5.20b}{32}{Bootstrapped \gls {tia} with two cascaded output stages (20 \unit {\decibel } gain each)}{figure.caption.36}{}}
@@ -109,38 +109,40 @@
 \newlabel{sub@fig:td:v4_nia:none}{{c}{32}{Bootstrapped \gls {tia} without post-amplification}{figure.caption.36}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {5.20}{\ignorespaces Simulation of the effect of cascading on the bandwidth of the fourth iteration of the photodetector}}{32}{figure.caption.36}\protected@file@percent }
 \newlabel{fig:td:v4_nia}{{5.20}{32}{Simulation of the effect of cascading on the bandwidth of the fourth iteration of the photodetector}{figure.caption.36}{}}
-\newlabel{fig:td:noise_1stage}{{5.21a}{32}{Noise simulation of a bootstrapped \gls {tia} with a single output stage}{figure.caption.37}{}}
-\newlabel{sub@fig:td:noise_1stage}{{a}{32}{Noise simulation of a bootstrapped \gls {tia} with a single output stage}{figure.caption.37}{}}
-\newlabel{fig:td:noise_2stage}{{5.21b}{32}{Noise simulation of a bootstrapped \gls {tia} with two cascaded output stage}{figure.caption.37}{}}
-\newlabel{sub@fig:td:noise_2stage}{{b}{32}{Noise simulation of a bootstrapped \gls {tia} with two cascaded output stage}{figure.caption.37}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.21}{\ignorespaces Simulation of the effect of cascading on the noise of the fourth iteration of the photodetector}}{32}{figure.caption.37}\protected@file@percent }
-\newlabel{fig:td:v4_noise}{{5.21}{32}{Simulation of the effect of cascading on the noise of the fourth iteration of the photodetector}{figure.caption.37}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.4}Photodetection implementation}{32}{section.5.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.1}First iteration}{32}{subsection.5.4.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.2}Second iteration}{32}{subsection.5.4.2}\protected@file@percent }
+\newlabel{fig:td:noise_1stage}{{5.21a}{33}{Noise simulation of a bootstrapped \gls {tia} with a single output stage}{figure.caption.37}{}}
+\newlabel{sub@fig:td:noise_1stage}{{a}{33}{Noise simulation of a bootstrapped \gls {tia} with a single output stage}{figure.caption.37}{}}
+\newlabel{fig:td:noise_2stage}{{5.21b}{33}{Noise simulation of a bootstrapped \gls {tia} with two cascaded output stage}{figure.caption.37}{}}
+\newlabel{sub@fig:td:noise_2stage}{{b}{33}{Noise simulation of a bootstrapped \gls {tia} with two cascaded output stage}{figure.caption.37}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.21}{\ignorespaces Simulation of the effect of cascading on the noise of the fourth iteration of the photodetector}}{33}{figure.caption.37}\protected@file@percent }
+\newlabel{fig:td:v4_noise}{{5.21}{33}{Simulation of the effect of cascading on the noise of the fourth iteration of the photodetector}{figure.caption.37}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {5.22}{\ignorespaces First iteration of the photodetection \gls {pcb}}}{33}{figure.caption.38}\protected@file@percent }
 \newlabel{fig:photodetecogpcb}{{5.22}{33}{First iteration of the photodetection \gls {pcb}}{figure.caption.38}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.2}Second iteration}{33}{subsection.5.4.2}\protected@file@percent }
-\newlabel{fig:td:imp:photodetecv2gppcb2}{{5.23a}{33}{\gls {ecad} model}{figure.caption.39}{}}
-\newlabel{sub@fig:td:imp:photodetecv2gppcb2}{{a}{33}{\gls {ecad} model}{figure.caption.39}{}}
-\newlabel{fig:td:imp:photodetecv2gppcb2sch}{{5.23b}{33}{Schematic}{figure.caption.39}{}}
-\newlabel{sub@fig:td:imp:photodetecv2gppcb2sch}{{b}{33}{Schematic}{figure.caption.39}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.23}{\ignorespaces Second iteration of the photodetection \gls {pcb}}}{33}{figure.caption.39}\protected@file@percent }
-\newlabel{fig:td:imp:photodetecv2}{{5.23}{33}{Second iteration of the photodetection \gls {pcb}}{figure.caption.39}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.4.3}Third iteration}{33}{subsection.5.4.3}\protected@file@percent }
-\newlabel{fig:td:imp:photodetecv3pcb}{{5.24a}{33}{\gls {ecad} model}{figure.caption.40}{}}
-\newlabel{sub@fig:td:imp:photodetecv3pcb}{{a}{33}{\gls {ecad} model}{figure.caption.40}{}}
-\newlabel{fig:td:imp:photodetecv3sch}{{5.24b}{33}{Schematic}{figure.caption.40}{}}
-\newlabel{sub@fig:td:imp:photodetecv3sch}{{b}{33}{Schematic}{figure.caption.40}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.24}{\ignorespaces Second iteration of the photodetection \gls {pcb}}}{33}{figure.caption.40}\protected@file@percent }
-\newlabel{fig:td:imp:photodetecv3}{{5.24}{33}{Second iteration of the photodetection \gls {pcb}}{figure.caption.40}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.4}Fourth iteration}{34}{subsection.5.4.4}\protected@file@percent }
-\newlabel{fig:td:imp:photodetecv4pcb}{{5.25a}{34}{\gls {ecad} model}{figure.caption.41}{}}
-\newlabel{sub@fig:td:imp:photodetecv4pcb}{{a}{34}{\gls {ecad} model}{figure.caption.41}{}}
-\newlabel{fig:td:imp:photodetecv4sch}{{5.25b}{34}{Schematic}{figure.caption.41}{}}
-\newlabel{sub@fig:td:imp:photodetecv4sch}{{b}{34}{Schematic}{figure.caption.41}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.25}{\ignorespaces Second iteration of the photodetection \gls {pcb}}}{34}{figure.caption.41}\protected@file@percent }
-\newlabel{fig:td:imp:photodetecv4}{{5.25}{34}{Second iteration of the photodetection \gls {pcb}}{figure.caption.41}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.4}Fourth iteration}{33}{subsection.5.4.4}\protected@file@percent }
+\newlabel{fig:td:imp:photodetecv2gppcb2}{{5.23a}{34}{\gls {ecad} model}{figure.caption.39}{}}
+\newlabel{sub@fig:td:imp:photodetecv2gppcb2}{{a}{34}{\gls {ecad} model}{figure.caption.39}{}}
+\newlabel{fig:td:imp:photodetecv2gppcb2sch}{{5.23b}{34}{Schematic}{figure.caption.39}{}}
+\newlabel{sub@fig:td:imp:photodetecv2gppcb2sch}{{b}{34}{Schematic}{figure.caption.39}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.23}{\ignorespaces Second iteration of the photodetection \gls {pcb}}}{34}{figure.caption.39}\protected@file@percent }
+\newlabel{fig:td:imp:photodetecv2}{{5.23}{34}{Second iteration of the photodetection \gls {pcb}}{figure.caption.39}{}}
+\newlabel{fig:td:imp:photodetecv3pcb}{{5.24a}{34}{\gls {ecad} model}{figure.caption.40}{}}
+\newlabel{sub@fig:td:imp:photodetecv3pcb}{{a}{34}{\gls {ecad} model}{figure.caption.40}{}}
+\newlabel{fig:td:imp:photodetecv3sch}{{5.24b}{34}{Schematic}{figure.caption.40}{}}
+\newlabel{sub@fig:td:imp:photodetecv3sch}{{b}{34}{Schematic}{figure.caption.40}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.24}{\ignorespaces Second iteration of the photodetection \gls {pcb}}}{34}{figure.caption.40}\protected@file@percent }
+\newlabel{fig:td:imp:photodetecv3}{{5.24}{34}{Second iteration of the photodetection \gls {pcb}}{figure.caption.40}{}}
+\newlabel{fig:td:imp:photodetecv4pcb}{{5.25a}{35}{\gls {ecad} model}{figure.caption.41}{}}
+\newlabel{sub@fig:td:imp:photodetecv4pcb}{{a}{35}{\gls {ecad} model}{figure.caption.41}{}}
+\newlabel{fig:td:imp:photodetecv4sch}{{5.25b}{35}{Schematic}{figure.caption.41}{}}
+\newlabel{sub@fig:td:imp:photodetecv4sch}{{b}{35}{Schematic}{figure.caption.41}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.25}{\ignorespaces Second iteration of the photodetection \gls {pcb}}}{35}{figure.caption.41}\protected@file@percent }
+\newlabel{fig:td:imp:photodetecv4}{{5.25}{35}{Second iteration of the photodetection \gls {pcb}}{figure.caption.41}{}}
 \@setckpt{08-Technical}{
-\setcounter{page}{35}
-\setcounter{equation}{22}
+\setcounter{page}{36}
+\setcounter{equation}{24}
 \setcounter{enumi}{5}
 \setcounter{enumii}{0}
 \setcounter{enumiii}{0}
@@ -195,7 +197,7 @@
 \setcounter{citetotal}{0}
 \setcounter{multicitecount}{0}
 \setcounter{multicitetotal}{0}
-\setcounter{instcount}{56}
+\setcounter{instcount}{57}
 \setcounter{maxnames}{2}
 \setcounter{minnames}{1}
 \setcounter{maxitems}{3}

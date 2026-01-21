@@ -801,7 +801,27 @@ The third version has an optimized power system that employs a TPS60400 charge p
 \end{figure}
 
 
-This iteration of the photodetector is less concerned with minor improvements and adaptations for the sensing setup than the previous iterations. In fact, the differences are so significant that the fourth photodetector version requires mostly new components. Instead of an AD795-based \gls{tia} and an AD820-based post-amplifier, the fourth iteration uses ADA4637 and ADA4627 op-amps. The ADA4637 offers significantly higher \gls{gbp} (79 \unit{\mega\hertz} in comparison to 1,6 \unit{\mega\hertz}) without a significant difference in the noise levels and this is why it was used for the \gls{tia}. The bootstrap buffer was also matched to use the same op-amp. An amplifier of the same family, namely the ADA4627, is employed by the output stages, because of its much better noise performance\footnote{The ADA4627 has 16 \unit[power-half-as-sqrt]{\nano\volt\per\hertz\tothe{0.5}} at 1 \unit{\hertz}, which steadily decreases to 5 \unit[power-half-as-sqrt]{\nano\volt\per\hertz\tothe{0.5}} at 10 \unit{\kilo\hertz}. The AD820 has 100 \unit[power-half-as-sqrt]{\nano\volt\per\hertz\tothe{0.5}} at 1 \unit{\hertz}, which, similar to the ADA4627, decreases to 15 \unit[power-half-as-sqrt]{\nano\volt\per\hertz\tothe{0.5}} at 10 \unit{\kilo\hertz}. The ADA4637 was also considered as an option for the non-inverting stages, but its noise is higher than the ADA4627}. Decreasing noise later in the signal chain is crucial to maintaining a clear output. With all these considerations in mind, the circuit was designed in a similar manner to the previous iterations (see Figure \ref{fig:td:imp:photodetecv4}).
+
+\begin{figure}[!ht]
+	\centering
+	\begin{subfigure}[1a]{.49\linewidth}
+		\includegraphics[width=\linewidth]{img/ad795_noise}
+		\caption{Noise spectral density of the AD795 (image credit to the AD795 documentation \cite{ad2019ad795})}
+		\label{fig:td:ad795noisesecond}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[1b]{.49\linewidth}
+		\includegraphics[width=\linewidth]{img/ad4637_noise}
+		\caption{Noise spectral density of the ADA4637 (image credit to the ADA4637 documentation \cite{ad2019ada4637})}
+		\label{fig:td:ada4637noise}
+	\end{subfigure}
+	\caption{Noise spectral density of the amplifiers used in the \gls{tia} circuit of the photodetector}
+	\label{fig:td:opampnoisev4}
+\end{figure}
+
+This iteration of the photodetector is less concerned with minor improvements and adaptations for the sensing setup than the previous iterations. In fact, the differences are so significant that the fourth photodetector version requires mostly new components. Instead of an AD795-based \gls{tia} and an AD820-based post-amplifier, the fourth iteration uses ADA4637 and ADA4627 op-amps. The ADA4637 offers significantly higher \gls{gbp} (79 \unit{\mega\hertz} in comparison to 1,6 \unit{\mega\hertz}), however there is an increase in the noise levels (see Figure \ref{fig:td:opampnoisev4}) and this is why it was used for the \gls{tia}. The bootstrap buffer was also matched to use the same op-amp. An amplifier of the same family, namely the ADA4627, is employed by the output stages, because of its much better noise performance\footnote{The ADA4627 has 16 \unit[power-half-as-sqrt]{\nano\volt\per\hertz\tothe{0.5}} at 1 \unit{\hertz}, which steadily decreases to 5 \unit[power-half-as-sqrt]{\nano\volt\per\hertz\tothe{0.5}} at 10 \unit{\kilo\hertz}. The AD820 has 100 \unit[power-half-as-sqrt]{\nano\volt\per\hertz\tothe{0.5}} at 1 \unit{\hertz}, which, similar to the ADA4627, decreases to 15 \unit[power-half-as-sqrt]{\nano\volt\per\hertz\tothe{0.5}} at 10 \unit{\kilo\hertz}. The ADA4637 was also considered as an option for the non-inverting stages, but its noise is higher than the ADA4627}. Decreasing noise later in the signal chain is crucial to maintaining a clear output. With all these considerations in mind, the circuit was designed in a similar manner to the previous iterations (see Figure \ref{fig:td:imp:photodetecv4}).
+
+
 
 
 

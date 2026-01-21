@@ -2433,16 +2433,24 @@
     <bcf:citekey order="49" intorder="3">hoyle1999shunt</bcf:citekey>
     <bcf:citekey order="49" intorder="4">idrus2006performance</bcf:citekey>
     <bcf:citekey order="50" intorder="1">ti2020cascading</bcf:citekey>
-    <bcf:citekey order="51" intorder="1">sackinger2017analysis</bcf:citekey>
-    <bcf:citekey order="52" intorder="1">sackinger2017analysis</bcf:citekey>
-    <bcf:citekey order="53" intorder="1">razavi2019transimpedance</bcf:citekey>
-    <bcf:citekey order="54" intorder="1">acharya2025compact</bcf:citekey>
-    <bcf:citekey order="55" intorder="1">sewani2020coherent</bcf:citekey>
-    <bcf:citekey order="56" intorder="1">photodiodephotodiode</bcf:citekey>
-    <bcf:citekey order="57" intorder="1">sackinger2017analysis</bcf:citekey>
-    <bcf:citekey order="57" intorder="2">santiago2021a</bcf:citekey>
-    <bcf:citekey order="57" intorder="3">karimi2017silicon</bcf:citekey>
-    <bcf:citekey order="57" intorder="4">analui2004bandwidth</bcf:citekey>
+    <bcf:citekey order="51" intorder="1">ad2019ad795</bcf:citekey>
+    <bcf:citekey order="52" intorder="1">ad2019ad795</bcf:citekey>
+    <bcf:citekey order="53" intorder="1">ad2019ada4637</bcf:citekey>
+    <bcf:citekey order="54" intorder="1">ad2019ada4637</bcf:citekey>
+    <bcf:citekey order="55" intorder="1">sackinger2017analysis</bcf:citekey>
+    <bcf:citekey order="56" intorder="1">sackinger2017analysis</bcf:citekey>
+    <bcf:citekey order="57" intorder="1">razavi2019transimpedance</bcf:citekey>
+    <bcf:citekey order="58" intorder="1">acharya2025compact</bcf:citekey>
+    <bcf:citekey order="59" intorder="1">sewani2020coherent</bcf:citekey>
+    <bcf:citekey order="60" intorder="1">photodiodephotodiode</bcf:citekey>
+    <bcf:citekey order="61" intorder="1">ad2019ada4637</bcf:citekey>
+    <bcf:citekey order="62" intorder="1">ad2019ada4637</bcf:citekey>
+    <bcf:citekey order="63" intorder="1">ti2019opa818</bcf:citekey>
+    <bcf:citekey order="64" intorder="1">ti2019opa818</bcf:citekey>
+    <bcf:citekey order="65" intorder="1">sackinger2017analysis</bcf:citekey>
+    <bcf:citekey order="65" intorder="2">santiago2021a</bcf:citekey>
+    <bcf:citekey order="65" intorder="3">karimi2017silicon</bcf:citekey>
+    <bcf:citekey order="65" intorder="4">analui2004bandwidth</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="none">

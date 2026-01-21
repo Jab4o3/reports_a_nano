@@ -230,7 +230,7 @@ In addition to the diagram, Figure \ref{fig:test:setupinteg} shows what the phys
 
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width=0.7\linewidth]{img/setup_integ_alt}
+	\includegraphics[width=0.6\linewidth]{img/setup_integ_alt}
 	\caption{Integration test setup}
 	\label{fig:test:setupinteg}
 \end{figure}
@@ -288,7 +288,8 @@ To gain a better understanding of the noise, it was measured with the diode mode
 \end{figure}
 
 
-Figure \ref{fig:test:v3_model} shows the 
+The tests of the third iteration of the photodetector, seen in Figure \ref{fig:test:v3_model}, show that the amplifier has a similar performance to the previous iteration. Although there is more noise, the signal is also less distorted. This is not caused by the intrinsic qualities of the two circuits, as they share the same amplification design, but instead is caused by the instability of the model and, more specifically, the connection to the \gls{tia}. Otherwise, both the second and the third version demonstrate the same amplification at all current levels.
+
 \begin{figure}[ht]
 	\centering
 	\begin{subfigure}[1a]{.49\linewidth}
@@ -323,6 +324,14 @@ Figure \ref{fig:test:v3_model} shows the
 	\label{fig:test:v3_model}
 \end{figure}
 
+What is more interesting about the tests of the third version of the photodetector is the noise. Figure \ref{fig:test:v3modelnoise} shows that compared to the previous version, which lacks a charge pump, this iteration has a periodic signal clearly present even when there is no input voltage from the Analog Discovery. Due to the shape and frequency, it can be determined that this is ripple noise from the power supply. Chapter \ref{chap:test:integ_res}
+
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=0.7\linewidth]{img/v3_model_noise}
+	\caption{Noise of the second iteration when connected to the diode model}
+	\label{fig:test:v3modelnoise}
+\end{figure}
 
 \subsection{S-parameter characterization}
 Unfortunately, the system could not be characterized by means of S-parameters. This is due to the lack of suitable equipment. The laboratory had a \gls{vna} that could only be used to measure S-parameters in the \gls{rf} range. There was another method which was tried, which involves using the waveform and oscilloscope channels of an Analog Discovery 2 as a \gls{vna}. While this method can cover the operating frequencies of the device, it can only measure the $S_{11}$ parameter of the device, because it functions as a network analyzer with a single port. Lastly, attempts at contacting researchers from the University of Twente for their equipment were made, but they did not respond.
@@ -563,18 +572,20 @@ Contrary to what was expected, the tests, shown in Figure \ref{fig:test:vdiode_f
 \end{figure}
 
 \section{Discussion}
-As a result of the tests, the first iteration of the photodetector can be used for \gls{cwodmr} measurements. The protocol can be executed with extremely-low-bandwidth photodetectors (e.g. 18 \unit{\hertz} \cite{acharya2025compact}). That being said, pulsed protocols cannot be achieved with the first iteration of the circuit due to their high frequency requirements. Higher frequencies also exacerbate the issue of overexposure of the sensor, which leads to decreased performance. The effect of the laser on the sensor needs to be considered when integrating the complete setup, as it can affect the measurements. There are cancellation techniques to measure only the \gls{nv} luminescence \cite{sewani2020coherent}, but if the photodiode is overexposed or the signal is getting limited by the power rail, the output will not be usable. 
+As a result of the tests, it was concluded that even the first iteration of the photodetector can be used for \gls{cwodmr} measurements. The protocol can be executed with extremely-low-bandwidth photodetectors (e.g. 18 \unit{\hertz} \cite{acharya2025compact}). That being said, pulsed protocols cannot be achieved with the first iteration of the circuit due to their high frequency requirements. Higher frequencies also exacerbate the issue of overexposure of the sensor, which leads to decreased performance. The effect of the laser on the sensor needs to be considered when integrating the complete setup, as it can affect the measurements. There are cancellation techniques to measure only the \gls{nv} luminescence \cite{sewani2020coherent}, but if the photodiode is overexposed or the signal is getting limited by the power rail, the output will not be usable. 
 
 
-The third iteration offers a solution that is more suitable for a compact setup. The frequency response is the same as the second version, but the onboard power supply inverter generates unwanted noise. As seen in Figure \ref{fig:test:v3ripple_both}, there is a large periodic signal, that looks like a supply ripple. It is also possible that the 1 \unit{\micro\farad} filtering capacitors $C_O$, $C_I$ and $C_{fly}$ do not match the design values, because they were found in a capacitor book in the FabLab. Due to the unknown manufacturer and model, the \gls{esr} of $C_O$ might be too big. Furthermore, there is a possibility that their capacitance is lower than 1 \unit{\micro\farad}, which would also explain the shape of the ripple in Figure \ref{fig:test:v3ripple}. The presence of 50 \unit{\kilo\hertz} noise after increasing the capacitance, in combination with the large noise amplitude, suggests there is interference with the input of the amplifier.
+Even though the first iteration has passable characteristics, it is worse than the second version in all regards. The improved \gls{tia} design presents a better frequency response. Across all frequencies, the device shows less attenuation of the harmonics of the square wave, as well as more defined rising and falling edges. In addition, there is less noise present in the signal. This can be attributed to the addition of the ground plane, as well as the better layout of the \gls{pcb}. 
+
+The third iteration offers a solution that is more suitable for a compact setup. The frequency response is the same as the second version, but the onboard power supply inverter generates unwanted noise. As seen in Figure \ref{fig:test:v3ripple_both}, there is a large periodic signal, that looks like a supply ripple. It is also possible that the 1 \unit{\micro\farad} filtering capacitors $C_O$, $C_I$ and $C_{fly}$ do not match the design values, because they were found in a capacitor book in the FabLab. Due to the unknown manufacturer and model, the \gls{esr} of $C_O$ might also be too big. Furthermore, there is a possibility that their capacitance is lower than 1 \unit{\micro\farad}, which would also explain the shape of the ripple in Figure \ref{fig:test:v3ripple}. The presence of 50 \unit{\kilo\hertz} noise after increasing the capacitance, in combination with the large noise amplitude, suggests there is interference with the output of the amplifier.
 
 
 
 
 \section{Known limitations}
-The most obvious limitation is the lack of equipment for some tests, which lead to using less appropriate alternatives or having to cancel tests. For example, due to the lack of a suitable \gls{vna}, the only method for circuit characterization was using a diode model. The latter would also benefit from a real nanoamp current source instead of the makeshift source that had to be used.
+The most obvious limitation is the lack of equipment for some tests, which lead to using less appropriate alternatives or having to cancel tests. For example, due to the lack of a suitable \gls{vna}, the only method for circuit characterization was using a diode model. The latter would also benefit from a real nanoampere current source instead of the makeshift source that had to be used. The diode model using the 1 \unit{\mega\ohm} resistor also contributed significant, which was amplified by the \gls{tia}.
 
-There are many factors that affect the measurements, but perhaps most prominent are the environmental lighting sources. This includes ambient sunlight, which gets through the blinds of the lab, and reflections from the laser. Both significantly affect the photodetector, especially when there is no focused light present. Reflections, in particular, majorly contributed to signal distortion at higher frequencies
+There are many factors that affect the measurements, but perhaps most prominent are the environmental lighting sources, at least when it comes to the integration tests. This includes ambient sunlight, which gets through the blinds of the lab, and reflections from the laser. Both significantly affect the photodetector, especially when there is no focused light present. Reflections, in particular, majorly contributed to signal distortion at higher frequencies.
 
 Furthermore, the light source in the medium-distance integration tests had to be manually adjusted, meaning that the output signals do not represent the ideal performance. In fact, the measurements present results with slight power rail clipping, which is unavoidable with the testing setup. To achieve ideal readings, the laser would have to be affixed and the orientation adjusted, while the intensity at the given distance is measured.
 
@@ -586,6 +597,8 @@ According to the introduction in Chapter \ref{chap:intro}, the main purpose of t
 
 The first iteration of the photodetector is suitable for \gls{cwodmr} measurements with the quantum sensing setup. Despite its functionality, it also presents some minor integration problems, such the need for a dual-rail power supply. 
 
+Perhaps most suitable of all for low-noise \gls{cwodmr} measurements, the second version showed promising results and is most suited for a lab setup. Out of all improvements, the noise reduction is the most significant. However, the need for a dual-rail power supply limits the usability in more compact and self-contained future implementations.
+
 Version three of the device addresses the major integration concern of having a simple and small power supply solution. At the same time, it also incorporates the improved system response of the second iteration. Although the \gls{ac} characteristics of the circuit are irrelevant for \gls{cwodmr}, they become the most important aspect of the circuit when discussing pulsed protocols. However, the third version of the photodetector suffers a significant noise problem, caused by the inverting charge pump. Although this is a significant problem, its source and possible causes are known, which means that, in the future, the issue can be fixed without much trouble.w
 
 The fourth photodetector iteration presents a solution specifically designed to handle pulsed protocols. Even though the exact frequency and gain requirements for the circuit are unknown\footnote{Different papers often present different pulsing specifications. In addition, the client wants to adjust the pulsing specifications, so the necessary photodetector bandwidth can only be estimated}, the fourth version should be able to do $T_1$ measurements. Whether higher-frequency pulsed protocols can be achieved is still unknown, as the setup has not been completely integrated.
@@ -594,14 +607,41 @@ The fourth photodetector iteration presents a solution specifically designed to 
 \chapter{Recommendations}\label{chap:recs}
 There are several recommendations that are important for future implementations, as they may contribute to the precision, noise-suppression and stability of the photodetector and the quantum sensing setup as a whole. 
 
-Firstly, increasing the photodetector bandwidth should be the primary concern of the people working on the setup integration, as no version of the detector can measure Rabi oscillations, which occur at over 3 \unit{\mega\hertz}. Version four of the photodetector has a much wider bandwidth, but it is bottlenecked by the photodiode, which is only stable at up to 350 \unit{\kilo\hertz} in the photovoltaic configuration \cite{photodiodephotodiode}. However, biasing a BPW34 diode in photoconductive mode will result in \numrange{2}{30} \unit{\nano\ampere} of dark current, rendering the actual signal unreadable. Alternatively, the gain can be increased by finding op-amps with bigger \gls{gbp}.
-%todo:explain opamp change
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=0.6\linewidth]{matlab/opa818_comparison}
+	\caption{Comparison of the Ad795, ADA4637 and OPA818 when configured for 140 \unit{\decibel} of transimpedance gain ($R_1$ = 10 \unit{\mega\ohm}) and a Bessel frequency response}
+	\label{fig:recs:opa818comparison}
+\end{figure}
 
+
+Firstly, increasing the photodetector bandwidth should be the primary concern of the people working on the setup, as no version of the detector can measure Rabi oscillations, which occur at over 3 \unit{\mega\hertz}. Version four of the photodetector has a much wider bandwidth, but it is bottlenecked by the photodiode, which is only stable at up to 350 \unit{\kilo\hertz} in the photovoltaic configuration \cite{photodiodephotodiode}. However, biasing a BPW34 diode in photoconductive mode will result in an increase in dark current, usually around \num{2} \unit{\nano\ampere}, but it can rise up to 30 \unit{\nano\ampere}, rendering the actual signal unreadable. Alternatively, the bandwidth can be increased by finding an op-amp with bigger \gls{gbp}. Out of all op-amps that were explored, the OPA818 shows the most promise, which is why its mathematical model was used to compare it to the AD795 and ADA4637. Figure \ref{fig:recs:opa818comparison} showcases the significant bandwidth increase from the ADA4637 to the OPA818. Using the former results in a \num{138,87} \unit{\kilo\hertz} bandwidth, while the latter results in a \num{982,44} \unit{\kilo\hertz} bandwidth. As is usually the case with bigger-\gls{gbp} op-amps, the OPA818 has worse noise parameters (25 \unit[power-half-as-sqrt]{\nano\volt\per\hertz\tothe{0.5}} at 100 \unit{\hertz} as compared to 7 \unit[power-half-as-sqrt]{\nano\volt\per\hertz\tothe{0.5}} at 100 \unit{\hertz}).
+
+
+\begin{figure}[!ht]
+	\centering
+	\begin{subfigure}[1a]{.49\linewidth}
+		\includegraphics[width=\linewidth]{img/ad4637_noise}
+		\caption{Noise spectral density of the ADA4637 (image credit to the ADA4637 documentation \cite{ad2019ada4637})}
+		\label{fig:recs:ada4637noise}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[1b]{.49\linewidth}
+		\includegraphics[width=\linewidth]{img/opa818_noise}
+		\caption{Noise spectral density of the OPA818 (image credit to the OPA818 documentation \cite{ti2019opa818})}
+		\label{fig:recs:opa818noise}
+	\end{subfigure}
+	\caption{Noise spectral density of the amplifiers used in the \gls{tia} circuit of the photodetector}
+	\label{fig:recs:opampnoisev4}
+\end{figure}
+
+
+In the future, if even greater bandwidth is desired, transistor \glspl{tia} should be investigated. Transistors offer finer control over the parameters of the amplifier they constitute. This is, in part, due to the control over the technology of each transistor, but also because they are lower-level components than op-amps, which allows for more intricate layouts. Several sources on the matter were consulted \cite{sackinger2017analysis, santiago2021a, karimi2017silicon, analui2004bandwidth}, but because of time constraints and equipment availability, an op-amp-based solution was chosen instead.
 
 Secondly, exploring avalanche photodiodes as an alternative to the p-i-n diode (BPW34) currently in use, might contribute to better measurements. Although they are widely used in low-intensity applications, avalanche diodes are quite expensive. The client wanted to keep the cost low for this project, but in the future more precise pulsed protocol measurements might benefit from the internal amplification and increased precision that are offered by avalanche photodiodes. There are also p-i-n alternatives that might provide better performance than the BPW34. InGaAs diodes are often used in telecommunication due to their stable, low-noise performance even at high frequencies. Their peak sensitivity is also usually in the red and infrared area of the light spectrum, which means the green light from the laser will be proportionally smaller than with the BPW34. Similar to avalanche photodiodes, the major drawback of InGaAs diodes is their price, which is much bigger than the BPW34. Some of the diode alternatives (InGaAs, avalanche and p-i-n) that were explored as possible replacements for the BPW34 were the Hamamatsu G6854-01, Hamamatsu G17190-003K, Luna PDU-V104, OSI FCI-InGaAs-1000 and Marktech MTAPD-06-009. A cheaper alternative is the OSRAM SFH 203 FA, which detects less green light, has a lower dark current and has better directional characteristics, possibly leading to less ambient light detection. In spite of the improved characteristics, their impact will most likely be marginal.
 
 Additionally there are ways to improve performance without modifying the circuit. The simplest way to increase the \gls{snr} is to move the setup to the dark room in the laboratory. Doing this will result in less ambient light being picked up by the photodiode. For future implementations that are interested in decreasing the size of the setup, an enclosure should be designed. This way, the main noise source will be the dark current.
 
 
-Lastly, if even greater bandwidth is desired in the future, transistor \glspl{tia} should be investigated. Transistors offer finer control over the parameters of the amplifier they constitute. This is, in part, due to the control over the technology of each transistor, but also because they are lower-level components than op-amps, which allows for more intricate layouts. Several sources on the matter were consulted \cite{sackinger2017analysis, santiago2021a, karimi2017silicon, analui2004bandwidth}, but because of time constraints and equipment availability, an op-amp-based solution was chosen instead.
+
 

@@ -642,7 +642,7 @@
       \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labeltitlesource}{title}
       \field{note}{Rev. H}
-      \field{title}{820; Single-Supply, Rail-to-Rail, Low Power, FET Input Op Ampp}
+      \field{title}{AD820; Single-Supply, Rail-to-Rail, Low Power, FET Input Op Amp}
       \field{year}{2011}
     \endentry
     \entry{ti2007noise}{manual}{}{}
@@ -1017,13 +1017,24 @@
       \list{organization}{1}{%
         {Texas Instruments}%
       }
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
       \field{labeltitlesource}{title}
       \field{month}{8}
       \field{number}{SBOA356}
       \field{title}{Cascading Precision Op Amp Stages for Optimal AC and DC Performance}
       \field{year}{2020}
+    \endentry
+    \entry{ad2019ada4637}{manual}{}{}
+      \list{organization}{1}{%
+        {Analog Devices}%
+      }
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labeltitlesource}{title}
+      \field{note}{Rev. F}
+      \field{title}{ADA4627-1/ADA4637-1; 30 V, High Speed, Low Noise, Low Bias Current, JFET Operational Amplifier}
+      \field{year}{2015}
     \endentry
     \entry{razavi2019transimpedance}{article}{}{}
       \name{author}{1}{}{%
@@ -1056,6 +1067,18 @@
       \field{pages}{10\bibrangedash 97}
       \range{pages}{88}
     \endentry
+    \entry{ti2019opa818}{manual}{}{}
+      \list{organization}{1}{%
+        {Texas Instruments}%
+      }
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labeltitlesource}{title}
+      \field{note}{Rev. B}
+      \field{number}{SBOS940B}
+      \field{title}{OPA818 2.7GHz, High-Voltage, FET-Input, Low-Noise, Operational Amplifier}
+      \field{year}{2019}
+    \endentry
     \entry{santiago2021a}{misc}{}{}
       \name{author}{1}{}{%
         {{hash=58d78f2ca3116234c6db3df106edb415}{%
@@ -1072,8 +1095,8 @@
       \strng{authornamehash}{58d78f2ca3116234c6db3df106edb415}
       \strng{authorfullhash}{58d78f2ca3116234c6db3df106edb415}
       \strng{authorfullhashraw}{58d78f2ca3116234c6db3df106edb415}
-      \field{sortinit}{5}
-      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{A High-Speed Transimpedance Amplifier}
@@ -1119,8 +1142,8 @@
       \strng{authornamehash}{451b86186722e0b00fb5cdc6d6f57c0f}
       \strng{authorfullhash}{98331b1e044bd6272960fec1f535b707}
       \strng{authorfullhashraw}{98331b1e044bd6272960fec1f535b707}
-      \field{sortinit}{5}
-      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{IEEE Transactions on Circuits and Systems I: Regular Papers}
@@ -1155,8 +1178,8 @@
       \strng{authornamehash}{c3639bce9592cfd17180da596b42eedb}
       \strng{authorfullhash}{c3639bce9592cfd17180da596b42eedb}
       \strng{authorfullhashraw}{c3639bce9592cfd17180da596b42eedb}
-      \field{sortinit}{5}
-      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{IEEE Journal of Solid-State Circuits}

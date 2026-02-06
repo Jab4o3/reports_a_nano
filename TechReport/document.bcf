@@ -2452,6 +2452,8 @@
     <bcf:citekey order="66" intorder="2">santiago2021a</bcf:citekey>
     <bcf:citekey order="66" intorder="3">karimi2017silicon</bcf:citekey>
     <bcf:citekey order="66" intorder="4">analui2004bandwidth</bcf:citekey>
+    <bcf:citekey order="67" intorder="1">hm2025si</bcf:citekey>
+    <bcf:citekey order="67" intorder="2">lt2006area</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="none">

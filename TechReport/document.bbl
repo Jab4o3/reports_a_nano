@@ -1190,6 +1190,30 @@
       \field{pages}{1263\bibrangedash 1270}
       \range{pages}{8}
     \endentry
+    \entry{hm2025si}{manual}{}{}
+      \list{organization}{1}{%
+        {Hammamatsu}%
+      }
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labeltitlesource}{title}
+      \field{month}{12}
+      \field{note}{Rev. B}
+      \field{number}{KSPD9001EO4}
+      \field{title}{Si photodiodes}
+      \field{year}{2025}
+    \endentry
+    \entry{lt2006area}{manual}{}{}
+      \list{organization}{1}{%
+        {Linear Technology}%
+      }
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labeltitlesource}{title}
+      \field{number}{Design Note 399}
+      \field{title}{Low Noise Amplifiers for Small and Large Area Photodiodes}
+      \field{year}{2006}
+    \endentry
   \enddatalist
 \endrefsection
 \endinput

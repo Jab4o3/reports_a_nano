@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.22.0 (MiKTeX 25.4) (format=lualatex 2025.12.22)  4 FEB 2026 14:09
+This is LuaHBTeX, Version 1.22.0 (MiKTeX 25.4) (format=lualatex 2025.12.22)  6 FEB 2026 12:14
  restricted system commands enabled.
 **document.tex
 (./document.tex
@@ -2209,486 +2209,500 @@ File: img/tina_DC_2probes.jpg Graphic file (type jpg)
 <use img/tina_DC_2probes.jpg>
 Package luatex.def Info: img/tina_DC_2probes.jpg  used on input line 583.
 (luatex.def)             Requested size: 209.1301pt x 125.87273pt.
-<matlab/bode_v1_v2_comparison.png, id=1057, 526.96875pt x 395.22656pt>
-File: matlab/bode_v1_v2_comparison.png Graphic file (type png)
-<use matlab/bode_v1_v2_comparison.png>
-Package luatex.def Info: matlab/bode_v1_v2_comparison.png  used on input line 6
-23.
-(luatex.def)             Requested size: 256.07741pt x 192.06458pt.
+<img/tina_noise_v1.jpg, id=1052, 548.0475pt x 336.25626pt>
+File: img/tina_noise_v1.jpg Graphic file (type jpg)
+<use img/tina_noise_v1.jpg>
+Package luatex.def Info: img/tina_noise_v1.jpg  used on input line 596.
+(luatex.def)             Requested size: 256.07741pt x 157.1169pt.
 
 
 [30<./img/TIA_TINA_SIM_1P6.jpg><./img/tina_AC_2probes.jpg><./img/tina_DC_2probes
-.jpg>]
-<img/tina_AC_2probes_1p.jpg, id=1070, 548.0475pt x 336.25626pt>
+.jpg><./img/tina_noise_v1.jpg>]
+<matlab/bode_v1_v2_comparison.png, id=1070, 526.96875pt x 395.22656pt>
+File: matlab/bode_v1_v2_comparison.png Graphic file (type png)
+<use matlab/bode_v1_v2_comparison.png>
+Package luatex.def Info: matlab/bode_v1_v2_comparison.png  used on input line 6
+31.
+(luatex.def)             Requested size: 256.07741pt x 192.06458pt.
+<img/tina_AC_2probes_1p.jpg, id=1072, 548.0475pt x 336.25626pt>
 File: img/tina_AC_2probes_1p.jpg Graphic file (type jpg)
 <use img/tina_AC_2probes_1p.jpg>
-Package luatex.def Info: img/tina_AC_2probes_1p.jpg  used on input line 634.
+Package luatex.def Info: img/tina_AC_2probes_1p.jpg  used on input line 642.
 (luatex.def)             Requested size: 209.1301pt x 128.3123pt.
-<img/tina_DC_2probes_1p.jpg, id=1071, 548.0475pt x 336.25626pt>
+<img/tina_DC_2probes_1p.jpg, id=1073, 548.0475pt x 336.25626pt>
 File: img/tina_DC_2probes_1p.jpg Graphic file (type jpg)
 <use img/tina_DC_2probes_1p.jpg>
-Package luatex.def Info: img/tina_DC_2probes_1p.jpg  used on input line 640.
+Package luatex.def Info: img/tina_DC_2probes_1p.jpg  used on input line 648.
 (luatex.def)             Requested size: 209.1301pt x 128.3123pt.
-<matlab/noise_v2.png, id=1078, 421.575pt x 316.18124pt>
-File: matlab/noise_v2.png Graphic file (type png)
-<use matlab/noise_v2.png>
-Package luatex.def Info: matlab/noise_v2.png  used on input line 654.
-(luatex.def)             Requested size: 256.07741pt x 192.05975pt.
-<matlab/bode_bootstrap_vs_nostrap.png, id=1083, 421.575pt x 316.18124pt>
-File: matlab/bode_bootstrap_vs_nostrap.png Graphic file (type png)
-<use matlab/bode_bootstrap_vs_nostrap.png>
-Package luatex.def Info: matlab/bode_bootstrap_vs_nostrap.png  used on input li
-ne 665.
-(luatex.def)             Requested size: 256.07741pt x 192.05975pt.
 
 
 [31<./matlab/bode_v1_v2_comparison.png><./img/tina_AC_2probes_1p.jpg><./img/tina
 _DC_2probes_1p.jpg>]
-<img/LTSpice_sim_v4_1stage.png, id=1102, 1427.3325pt x 311.66437pt>
+<matlab/noise_v2.png, id=1088, 421.575pt x 316.18124pt>
+File: matlab/noise_v2.png Graphic file (type png)
+<use matlab/noise_v2.png>
+Package luatex.def Info: matlab/noise_v2.png  used on input line 661.
+(luatex.def)             Requested size: 209.1301pt x 156.85033pt.
+<img/tina_noise_v2.jpg, id=1089, 548.0475pt x 336.25626pt>
+File: img/tina_noise_v2.jpg Graphic file (type jpg)
+<use img/tina_noise_v2.jpg>
+Package luatex.def Info: img/tina_noise_v2.jpg  used on input line 667.
+(luatex.def)             Requested size: 209.1301pt x 128.3123pt.
+<matlab/bode_bootstrap_vs_nostrap.png, id=1098, 421.575pt x 316.18124pt>
+File: matlab/bode_bootstrap_vs_nostrap.png Graphic file (type png)
+<use matlab/bode_bootstrap_vs_nostrap.png>
+Package luatex.def Info: matlab/bode_bootstrap_vs_nostrap.png  used on input li
+ne 685.
+(luatex.def)             Requested size: 256.07741pt x 192.05975pt.
+<img/LTSpice_sim_v4_1stage.png, id=1107, 1427.3325pt x 311.66437pt>
 File: img/LTSpice_sim_v4_1stage.png Graphic file (type png)
 <use img/LTSpice_sim_v4_1stage.png>
-Package luatex.def Info: img/LTSpice_sim_v4_1stage.png  used on input line 696.
+Package luatex.def Info: img/LTSpice_sim_v4_1stage.png  used on input line 716.
 
 (luatex.def)             Requested size: 384.1096pt x 83.86992pt.
-<img/LTSpice_sim_v4_2stage.png, id=1105, 1428.08531pt x 313.17pt>
+<img/LTSpice_sim_v4_2stage.png, id=1110, 1428.08531pt x 313.17pt>
 File: img/LTSpice_sim_v4_2stage.png Graphic file (type png)
 <use img/LTSpice_sim_v4_2stage.png>
-Package luatex.def Info: img/LTSpice_sim_v4_2stage.png  used on input line 702.
+Package luatex.def Info: img/LTSpice_sim_v4_2stage.png  used on input line 722.
 
 (luatex.def)             Requested size: 384.1096pt x 84.23207pt.
-<img/LTSpice_sim_v4_no_post.png, id=1108, 1425.07407pt x 313.17pt>
+<img/LTSpice_sim_v4_no_post.png, id=1113, 1425.07407pt x 313.17pt>
 File: img/LTSpice_sim_v4_no_post.png Graphic file (type png)
 <use img/LTSpice_sim_v4_no_post.png>
-Package luatex.def Info: img/LTSpice_sim_v4_no_post.png  used on input line 708
+Package luatex.def Info: img/LTSpice_sim_v4_no_post.png  used on input line 728
 .
 (luatex.def)             Requested size: 384.1096pt x 84.40889pt.
 
 
-[32<./matlab/noise_v2.png><./matlab/bode_bootstrap_vs_nostrap.png>]
-<img/LTSpice_sim_v4_1stage_noise.png, id=1127, 1427.3325pt x 313.17pt>
+[32<./matlab/noise_v2.png><./img/tina_noise_v2.jpg>]
+<img/LTSpice_sim_v4_1stage_noise.png, id=1134, 1427.3325pt x 313.17pt>
 File: img/LTSpice_sim_v4_1stage_noise.png Graphic file (type png)
 <use img/LTSpice_sim_v4_1stage_noise.png>
 Package luatex.def Info: img/LTSpice_sim_v4_1stage_noise.png  used on input lin
-e 723.
+e 743.
 (luatex.def)             Requested size: 341.43437pt x 74.91383pt.
-<img/LTSpice_sim_v4_2stage_noise.png, id=1130, 1427.3325pt x 313.17pt>
+<img/LTSpice_sim_v4_2stage_noise.png, id=1137, 1427.3325pt x 313.17pt>
 File: img/LTSpice_sim_v4_2stage_noise.png Graphic file (type png)
 <use img/LTSpice_sim_v4_2stage_noise.png>
 Package luatex.def Info: img/LTSpice_sim_v4_2stage_noise.png  used on input lin
-e 729.
+e 749.
 (luatex.def)             Requested size: 341.43437pt x 74.91383pt.
 
 
-[33<./img/LTSpice_sim_v4_1stage.png><./img/LTSpice_sim_v4_2stage.png><./img/LTSp
-ice_sim_v4_no_post.png><./img/LTSpice_sim_v4_1stage_noise.png><./img/LTSpice_sim
-_v4_2stage_noise.png>]
-<img/photodetec_v5_sim.png, id=1149, 352.31625pt x 207.02344pt>
+[33<./matlab/bode_bootstrap_vs_nostrap.png><./img/LTSpice_sim_v4_1stage.png><./i
+mg/LTSpice_sim_v4_2stage.png><./img/LTSpice_sim_v4_no_post.png>]
+<img/photodetec_v5_sim.png, id=1153, 352.31625pt x 207.02344pt>
 File: img/photodetec_v5_sim.png Graphic file (type png)
 <use img/photodetec_v5_sim.png>
-Package luatex.def Info: img/photodetec_v5_sim.png  used on input line 742.
+Package luatex.def Info: img/photodetec_v5_sim.png  used on input line 762.
 (luatex.def)             Requested size: 298.75264pt x 175.54744pt.
-<img/tina_noise_v5.jpg, id=1155, 548.0475pt x 336.25626pt>
+<img/tina_noise_v5.jpg, id=1161, 548.0475pt x 336.25626pt>
 File: img/tina_noise_v5.jpg Graphic file (type jpg)
 <use img/tina_noise_v5.jpg>
-Package luatex.def Info: img/tina_noise_v5.jpg  used on input line 752.
+Package luatex.def Info: img/tina_noise_v5.jpg  used on input line 772.
 (luatex.def)             Requested size: 209.1301pt x 128.3123pt.
-<img/LTSpice_sim_v5_noise_alt.png, id=1156, 574.39594pt x 312.41719pt>
+<img/LTSpice_sim_v5_noise_alt.png, id=1162, 574.39594pt x 312.41719pt>
 File: img/LTSpice_sim_v5_noise_alt.png Graphic file (type png)
 <use img/LTSpice_sim_v5_noise_alt.png>
 Package luatex.def Info: img/LTSpice_sim_v5_noise_alt.png  used on input line 7
-58.
+78.
 (luatex.def)             Requested size: 209.1301pt x 113.74768pt.
-<img/photodetec_og_pcb.png, id=1162, 1189.44376pt x 567.62062pt>
+File: img/tina_noise_v2.jpg Graphic file (type jpg)
+<use img/tina_noise_v2.jpg>
+Package luatex.def Info: img/tina_noise_v2.jpg  used on input line 784.
+(luatex.def)             Requested size: 209.1301pt x 128.3123pt.
+
+
+[34<./img/LTSpice_sim_v4_1stage_noise.png><./img/LTSpice_sim_v4_2stage_noise.png
+><./img/photodetec_v5_sim.png>]
+<img/photodetec_og_pcb.png, id=1178, 1189.44376pt x 567.62062pt>
 File: img/photodetec_og_pcb.png Graphic file (type png)
 <use img/photodetec_og_pcb.png>
-Package luatex.def Info: img/photodetec_og_pcb.png  used on input line 795.
+Package luatex.def Info: img/photodetec_og_pcb.png  used on input line 824.
 (luatex.def)             Requested size: 256.07741pt x 122.2006pt.
-
-
-[34<./img/photodetec_v5_sim.png><./img/tina_noise_v5.jpg><./img/LTSpice_sim_v5_n
-oise_alt.png>]
-<img/photodetec_v2_gp_pcb2.png, id=1180, 1393.205pt x 784.9325pt>
+<img/photodetec_v2_gp_pcb2.png, id=1185, 1393.205pt x 784.9325pt>
 File: img/photodetec_v2_gp_pcb2.png Graphic file (type png)
 <use img/photodetec_v2_gp_pcb2.png>
-Package luatex.def Info: img/photodetec_v2_gp_pcb2.png  used on input line 808.
+Package luatex.def Info: img/photodetec_v2_gp_pcb2.png  used on input line 837.
 
 (luatex.def)             Requested size: 209.1301pt x 117.81863pt.
-<img/photodetec_v2_gp_sch.png, id=1183, 565.36218pt x 351.56343pt>
+<img/photodetec_v2_gp_sch.png, id=1188, 565.36218pt x 351.56343pt>
 File: img/photodetec_v2_gp_sch.png Graphic file (type png)
 <use img/photodetec_v2_gp_sch.png>
-Package luatex.def Info: img/photodetec_v2_gp_sch.png  used on input line 814.
+Package luatex.def Info: img/photodetec_v2_gp_sch.png  used on input line 843.
 (luatex.def)             Requested size: 209.1301pt x 130.04424pt.
-<img/photodetec_v3.png, id=1189, 1393.205pt x 784.9325pt>
+
+
+[35<./img/tina_noise_v5.jpg><./img/LTSpice_sim_v5_noise_alt.png><./img/photodete
+c_og_pcb.png>]
+<img/photodetec_v3.png, id=1202, 1393.205pt x 784.9325pt>
 File: img/photodetec_v3.png Graphic file (type png)
 <use img/photodetec_v3.png>
-Package luatex.def Info: img/photodetec_v3.png  used on input line 833.
+Package luatex.def Info: img/photodetec_v3.png  used on input line 862.
 (luatex.def)             Requested size: 209.1301pt x 117.81863pt.
-<img/photodetec_v3sch.png, id=1192, 642.90187pt x 400.49625pt>
+<img/photodetec_v3sch.png, id=1205, 642.90187pt x 400.49625pt>
 File: img/photodetec_v3sch.png Graphic file (type png)
 <use img/photodetec_v3sch.png>
-Package luatex.def Info: img/photodetec_v3sch.png  used on input line 839.
+Package luatex.def Info: img/photodetec_v3sch.png  used on input line 868.
 (luatex.def)             Requested size: 209.1301pt x 130.27585pt.
-<img/photodetec_v4.png, id=1197, 1730.465pt x 941.5175pt>
+<img/photodetec_v4.png, id=1210, 1730.465pt x 941.5175pt>
 File: img/photodetec_v4.png Graphic file (type png)
 <use img/photodetec_v4.png>
-Package luatex.def Info: img/photodetec_v4.png  used on input line 859.
+Package luatex.def Info: img/photodetec_v4.png  used on input line 888.
 (luatex.def)             Requested size: 209.1301pt x 113.78174pt.
-<img/photodetec_v4sch.png, id=1200, 840.89156pt x 432.11438pt>
+<img/photodetec_v4sch.png, id=1213, 840.89156pt x 432.11438pt>
 File: img/photodetec_v4sch.png Graphic file (type png)
 <use img/photodetec_v4sch.png>
-Package luatex.def Info: img/photodetec_v4sch.png  used on input line 865.
+Package luatex.def Info: img/photodetec_v4sch.png  used on input line 894.
 (luatex.def)             Requested size: 209.1301pt x 107.46786pt.
 File: img/ad795_noise.png Graphic file (type png)
 <use img/ad795_noise.png>
-Package luatex.def Info: img/ad795_noise.png  used on input line 878.
+Package luatex.def Info: img/ad795_noise.png  used on input line 907.
 (luatex.def)             Requested size: 209.1301pt x 165.10045pt.
-<img/ad4637_noise.png, id=1205, 420.82219pt x 334.24875pt>
+<img/ad4637_noise.png, id=1218, 420.82219pt x 334.24875pt>
 File: img/ad4637_noise.png Graphic file (type png)
 <use img/ad4637_noise.png>
-Package luatex.def Info: img/ad4637_noise.png  used on input line 884.
+Package luatex.def Info: img/ad4637_noise.png  used on input line 913.
 (luatex.def)             Requested size: 209.1301pt x 166.10901pt.
+)
 
+[36<./img/photodetec_v2_gp_pcb2.png><./img/photodetec_v2_gp_sch.png><./img/photo
+detec_v3.png><./img/photodetec_v3sch.png>]
 
-[35<./img/photodetec_og_pcb.png><./img/photodetec_v2_gp_pcb2.png><./img/photodet
-ec_v2_gp_sch.png>])
-
-[36<./img/photodetec_v3.png><./img/photodetec_v3sch.png><./img/photodetec_v4.png
-><./img/photodetec_v4sch.png><./img/ad4637_noise.png>]
+[37<./img/photodetec_v4.png><./img/photodetec_v4sch.png><./img/ad4637_noise.png>
+]
 \openout2 = 09-Conclusion.aux
  (./09-Conclusion.tex
 Chapter 6.
 
 
-[37
+[38
 
 
 
 
 ]
-<img/setup_model_alt.png, id=1270, 689.57625pt x 454.69875pt>
+<img/setup_model_alt.png, id=1283, 689.57625pt x 454.69875pt>
 File: img/setup_model_alt.png Graphic file (type png)
 <use img/setup_model_alt.png>
 Package luatex.def Info: img/setup_model_alt.png  used on input line 163.
 (luatex.def)             Requested size: 256.07741pt x 168.8534pt.
 
 
-[38]
+[39]
 
-[39<./img/setup_model_alt.png>]
-<img/setup_integ_alt.png, id=1311, 693.34032pt x 584.93532pt>
+[40<./img/setup_model_alt.png>]
+<img/setup_integ_alt.png, id=1325, 693.34032pt x 584.93532pt>
 File: img/setup_integ_alt.png Graphic file (type png)
 <use img/setup_integ_alt.png>
 Package luatex.def Info: img/setup_integ_alt.png  used on input line 233.
 (luatex.def)             Requested size: 213.39568pt x 180.02496pt.
-<img/v1_model_5nA.png, id=1312, 803.0pt x 481.8pt>
+<img/v1_model_5nA.png, id=1326, 803.0pt x 481.8pt>
 File: img/v1_model_5nA.png Graphic file (type png)
 <use img/v1_model_5nA.png>
 Package luatex.def Info: img/v1_model_5nA.png  used on input line 248.
 (luatex.def)             Requested size: 209.1301pt x 125.47824pt.
-<img/v1_model_15nA.png, id=1313, 803.0pt x 481.8pt>
+<img/v1_model_15nA.png, id=1327, 803.0pt x 481.8pt>
 File: img/v1_model_15nA.png Graphic file (type png)
 <use img/v1_model_15nA.png>
 Package luatex.def Info: img/v1_model_15nA.png  used on input line 255.
 (luatex.def)             Requested size: 209.1301pt x 125.47824pt.
-<img/v1_model_25nA.png, id=1314, 803.0pt x 481.8pt>
+<img/v1_model_25nA.png, id=1328, 803.0pt x 481.8pt>
 File: img/v1_model_25nA.png Graphic file (type png)
 <use img/v1_model_25nA.png>
 Package luatex.def Info: img/v1_model_25nA.png  used on input line 262.
 (luatex.def)             Requested size: 209.1301pt x 125.47824pt.
-<img/v1_model_40nA.png, id=1315, 803.0pt x 481.8pt>
+<img/v1_model_40nA.png, id=1329, 803.0pt x 481.8pt>
 File: img/v1_model_40nA.png Graphic file (type png)
 <use img/v1_model_40nA.png>
 Package luatex.def Info: img/v1_model_40nA.png  used on input line 269.
 (luatex.def)             Requested size: 209.1301pt x 125.47824pt.
 
 
-[40<./img/setup_integ_alt.png><./img/v1_model_5nA.png><./img/v1_model_15nA.png><
+[41<./img/setup_integ_alt.png><./img/v1_model_5nA.png><./img/v1_model_15nA.png><
 ./img/v1_model_25nA.png><./img/v1_model_40nA.png>]
-<img/v1_model_noise.png, id=1332, 803.0pt x 481.8pt>
+<img/v1_model_noise.png, id=1345, 803.0pt x 481.8pt>
 File: img/v1_model_noise.png Graphic file (type png)
 <use img/v1_model_noise.png>
 Package luatex.def Info: img/v1_model_noise.png  used on input line 285.
 (luatex.def)             Requested size: 213.39568pt x 128.03662pt.
-<img/v1_model_5k.png, id=1334, 803.0pt x 481.8pt>
+<img/v1_model_5k.png, id=1347, 803.0pt x 481.8pt>
 File: img/v1_model_5k.png Graphic file (type png)
 <use img/v1_model_5k.png>
 Package luatex.def Info: img/v1_model_5k.png  used on input line 296.
 (luatex.def)             Requested size: 209.1301pt x 125.47824pt.
-<img/v1_model_10k.png, id=1335, 803.0pt x 481.8pt>
+<img/v1_model_10k.png, id=1348, 803.0pt x 481.8pt>
 File: img/v1_model_10k.png Graphic file (type png)
 <use img/v1_model_10k.png>
 Package luatex.def Info: img/v1_model_10k.png  used on input line 303.
 (luatex.def)             Requested size: 209.1301pt x 125.47824pt.
-<img/v1_model_20k.png, id=1336, 803.0pt x 481.8pt>
+<img/v1_model_20k.png, id=1349, 803.0pt x 481.8pt>
 File: img/v1_model_20k.png Graphic file (type png)
 <use img/v1_model_20k.png>
 Package luatex.def Info: img/v1_model_20k.png  used on input line 310.
 (luatex.def)             Requested size: 209.1301pt x 125.47824pt.
 
 
-[41<./img/v1_model_noise.png><./img/v1_model_5k.png><./img/v1_model_10k.png><./i
+[42<./img/v1_model_noise.png><./img/v1_model_5k.png><./img/v1_model_10k.png><./i
 mg/v1_model_20k.png>]
-<img/v2_model_5nА.png, id=1349, 803.0pt x 481.8pt>
+<img/v2_model_5nА.png, id=1362, 803.0pt x 481.8pt>
 File: img/v2_model_5nА.png Graphic file (type png)
 <use img/v2_model_5nА.png>
 Package luatex.def Info: img/v2_model_5nА.png  used on input line 325.
 (luatex.def)             Requested size: 209.1301pt x 125.47824pt.
-<img/v2_model_15nA.png, id=1350, 803.0pt x 481.8pt>
+<img/v2_model_15nA.png, id=1363, 803.0pt x 481.8pt>
 File: img/v2_model_15nA.png Graphic file (type png)
 <use img/v2_model_15nA.png>
 Package luatex.def Info: img/v2_model_15nA.png  used on input line 332.
 (luatex.def)             Requested size: 209.1301pt x 125.47824pt.
-<img/v2_model_25nА.png, id=1351, 803.0pt x 481.8pt>
+<img/v2_model_25nА.png, id=1364, 803.0pt x 481.8pt>
 File: img/v2_model_25nА.png Graphic file (type png)
 <use img/v2_model_25nА.png>
 Package luatex.def Info: img/v2_model_25nА.png  used on input line 339.
 (luatex.def)             Requested size: 209.1301pt x 125.47824pt.
-<img/v2_model_40nA.png, id=1352, 803.0pt x 481.8pt>
+<img/v2_model_40nA.png, id=1365, 803.0pt x 481.8pt>
 File: img/v2_model_40nA.png Graphic file (type png)
 <use img/v2_model_40nA.png>
 Package luatex.def Info: img/v2_model_40nA.png  used on input line 346.
 (luatex.def)             Requested size: 209.1301pt x 125.47824pt.
-<img/v2_model_noisе.png, id=1356, 803.0pt x 481.8pt>
+<img/v2_model_noisе.png, id=1369, 803.0pt x 481.8pt>
 File: img/v2_model_noisе.png Graphic file (type png)
 <use img/v2_model_noisе.png>
 Package luatex.def Info: img/v2_model_noisе.png  used on input line 361.
 (luatex.def)             Requested size: 213.39568pt x 128.03662pt.
-<img/v2_model_5k.png, id=1357, 803.0pt x 481.8pt>
+<img/v2_model_5k.png, id=1370, 803.0pt x 481.8pt>
 File: img/v2_model_5k.png Graphic file (type png)
 <use img/v2_model_5k.png>
 Package luatex.def Info: img/v2_model_5k.png  used on input line 372.
 (luatex.def)             Requested size: 209.1301pt x 125.47824pt.
-<img/v2_model_10k.png, id=1358, 803.0pt x 481.8pt>
+<img/v2_model_10k.png, id=1371, 803.0pt x 481.8pt>
 File: img/v2_model_10k.png Graphic file (type png)
 <use img/v2_model_10k.png>
 Package luatex.def Info: img/v2_model_10k.png  used on input line 379.
 (luatex.def)             Requested size: 209.1301pt x 125.47824pt.
-<img/v2_model_20k.png, id=1359, 803.0pt x 481.8pt>
+<img/v2_model_20k.png, id=1372, 803.0pt x 481.8pt>
 File: img/v2_model_20k.png Graphic file (type png)
 <use img/v2_model_20k.png>
 Package luatex.def Info: img/v2_model_20k.png  used on input line 386.
 (luatex.def)             Requested size: 209.1301pt x 125.47824pt.
-<img/v3_model_5nA.png, id=1361, 803.0pt x 481.8pt>
+<img/v3_model_5nA.png, id=1374, 803.0pt x 481.8pt>
 File: img/v3_model_5nA.png Graphic file (type png)
 <use img/v3_model_5nA.png>
 Package luatex.def Info: img/v3_model_5nA.png  used on input line 402.
 (luatex.def)             Requested size: 209.1301pt x 125.47824pt.
-<img/v3_model_15nA.png, id=1362, 803.0pt x 481.8pt>
+<img/v3_model_15nA.png, id=1375, 803.0pt x 481.8pt>
 File: img/v3_model_15nA.png Graphic file (type png)
 <use img/v3_model_15nA.png>
 Package luatex.def Info: img/v3_model_15nA.png  used on input line 409.
 (luatex.def)             Requested size: 209.1301pt x 125.47824pt.
-<img/v3_model_25nA.png, id=1363, 803.0pt x 481.8pt>
+<img/v3_model_25nA.png, id=1376, 803.0pt x 481.8pt>
 File: img/v3_model_25nA.png Graphic file (type png)
 <use img/v3_model_25nA.png>
 Package luatex.def Info: img/v3_model_25nA.png  used on input line 416.
 (luatex.def)             Requested size: 209.1301pt x 125.47824pt.
-<img/v3_model_40nA.png, id=1364, 803.0pt x 481.8pt>
+<img/v3_model_40nA.png, id=1377, 803.0pt x 481.8pt>
 File: img/v3_model_40nA.png Graphic file (type png)
 <use img/v3_model_40nA.png>
 Package luatex.def Info: img/v3_model_40nA.png  used on input line 423.
 (luatex.def)             Requested size: 209.1301pt x 125.47824pt.
 
 
-[42<./img/v2_model_5nА.png><./img/v2_model_15nA.png><./img/v2_model_25nА.png><
+[43<./img/v2_model_5nА.png><./img/v2_model_15nA.png><./img/v2_model_25nА.png><
 ./img/v2_model_40nA.png><./img/v2_model_noisе.png>]
-<img/v3_model_noise.png, id=1378, 803.0pt x 481.8pt>
+<img/v3_model_noise.png, id=1391, 803.0pt x 481.8pt>
 File: img/v3_model_noise.png Graphic file (type png)
 <use img/v3_model_noise.png>
 Package luatex.def Info: img/v3_model_noise.png  used on input line 436.
 (luatex.def)             Requested size: 213.39568pt x 128.03662pt.
-<img/v3_model_5k.png, id=1382, 803.0pt x 481.8pt>
+<img/v3_model_5k.png, id=1395, 803.0pt x 481.8pt>
 File: img/v3_model_5k.png Graphic file (type png)
 <use img/v3_model_5k.png>
 Package luatex.def Info: img/v3_model_5k.png  used on input line 447.
 (luatex.def)             Requested size: 209.1301pt x 125.47824pt.
-<img/v3_model_10k.png, id=1383, 803.0pt x 481.8pt>
+<img/v3_model_10k.png, id=1396, 803.0pt x 481.8pt>
 File: img/v3_model_10k.png Graphic file (type png)
 <use img/v3_model_10k.png>
 Package luatex.def Info: img/v3_model_10k.png  used on input line 454.
 (luatex.def)             Requested size: 209.1301pt x 125.47824pt.
-<img/v3_model_20k.png, id=1384, 803.0pt x 481.8pt>
+<img/v3_model_20k.png, id=1397, 803.0pt x 481.8pt>
 File: img/v3_model_20k.png Graphic file (type png)
 <use img/v3_model_20k.png>
 Package luatex.def Info: img/v3_model_20k.png  used on input line 461.
 (luatex.def)             Requested size: 209.1301pt x 125.47824pt.
-<img/v1_test_50.png, id=1390, 803.0pt x 481.8pt>
+<img/v1_test_50.png, id=1403, 803.0pt x 481.8pt>
 File: img/v1_test_50.png Graphic file (type png)
 <use img/v1_test_50.png>
 Package luatex.def Info: img/v1_test_50.png  used on input line 482.
 (luatex.def)             Requested size: 209.1301pt x 125.47824pt.
-<img/v1_test_5k.png, id=1391, 803.0pt x 481.8pt>
+<img/v1_test_5k.png, id=1404, 803.0pt x 481.8pt>
 File: img/v1_test_5k.png Graphic file (type png)
 <use img/v1_test_5k.png>
 Package luatex.def Info: img/v1_test_5k.png  used on input line 489.
 (luatex.def)             Requested size: 209.1301pt x 125.47824pt.
-<img/v1_test_10k.png, id=1392, 803.0pt x 481.8pt>
+<img/v1_test_10k.png, id=1405, 803.0pt x 481.8pt>
 File: img/v1_test_10k.png Graphic file (type png)
 <use img/v1_test_10k.png>
 Package luatex.def Info: img/v1_test_10k.png  used on input line 496.
 (luatex.def)             Requested size: 209.1301pt x 125.47824pt.
-<img/v1_test_20k.png, id=1393, 803.0pt x 481.8pt>
+<img/v1_test_20k.png, id=1406, 803.0pt x 481.8pt>
 File: img/v1_test_20k.png Graphic file (type png)
 <use img/v1_test_20k.png>
 Package luatex.def Info: img/v1_test_20k.png  used on input line 503.
 (luatex.def)             Requested size: 209.1301pt x 125.47824pt.
 
 
-[43<./img/v2_model_5k.png><./img/v2_model_10k.png><./img/v2_model_20k.png>]
-<img/v2_diode_50.png, id=1408, 803.0pt x 481.8pt>
+[44<./img/v2_model_5k.png><./img/v2_model_10k.png><./img/v2_model_20k.png>]
+<img/v2_diode_50.png, id=1421, 803.0pt x 481.8pt>
 File: img/v2_diode_50.png Graphic file (type png)
 <use img/v2_diode_50.png>
 Package luatex.def Info: img/v2_diode_50.png  used on input line 518.
 (luatex.def)             Requested size: 209.1301pt x 125.47824pt.
-<img/v2_diode_5k.png, id=1409, 803.0pt x 481.8pt>
+<img/v2_diode_5k.png, id=1422, 803.0pt x 481.8pt>
 File: img/v2_diode_5k.png Graphic file (type png)
 <use img/v2_diode_5k.png>
 Package luatex.def Info: img/v2_diode_5k.png  used on input line 525.
 (luatex.def)             Requested size: 209.1301pt x 125.47824pt.
-<img/v2_diode_10k.png, id=1410, 803.0pt x 481.8pt>
+<img/v2_diode_10k.png, id=1423, 803.0pt x 481.8pt>
 File: img/v2_diode_10k.png Graphic file (type png)
 <use img/v2_diode_10k.png>
 Package luatex.def Info: img/v2_diode_10k.png  used on input line 532.
 (luatex.def)             Requested size: 209.1301pt x 125.47824pt.
-<img/v2_diode_20k.png, id=1411, 803.0pt x 481.8pt>
+<img/v2_diode_20k.png, id=1424, 803.0pt x 481.8pt>
 File: img/v2_diode_20k.png Graphic file (type png)
 <use img/v2_diode_20k.png>
 Package luatex.def Info: img/v2_diode_20k.png  used on input line 539.
 (luatex.def)             Requested size: 209.1301pt x 125.47824pt.
 
 
-[44<./img/v3_model_5nA.png><./img/v3_model_15nA.png><./img/v3_model_25nA.png><./
+[45<./img/v3_model_5nA.png><./img/v3_model_15nA.png><./img/v3_model_25nA.png><./
 img/v3_model_40nA.png><./img/v3_model_noise.png>]
-<img/v3_diode_50.png, id=1425, 803.0pt x 481.8pt>
+<img/v3_diode_50.png, id=1438, 803.0pt x 481.8pt>
 File: img/v3_diode_50.png Graphic file (type png)
 <use img/v3_diode_50.png>
 Package luatex.def Info: img/v3_diode_50.png  used on input line 556.
 (luatex.def)             Requested size: 209.1301pt x 125.47824pt.
-<img/v3_diode_5k.png, id=1426, 803.0pt x 481.8pt>
+<img/v3_diode_5k.png, id=1439, 803.0pt x 481.8pt>
 File: img/v3_diode_5k.png Graphic file (type png)
 <use img/v3_diode_5k.png>
 Package luatex.def Info: img/v3_diode_5k.png  used on input line 563.
 (luatex.def)             Requested size: 209.1301pt x 125.47824pt.
-<img/v3_diode_10k.png, id=1427, 803.0pt x 481.8pt>
+<img/v3_diode_10k.png, id=1440, 803.0pt x 481.8pt>
 File: img/v3_diode_10k.png Graphic file (type png)
 <use img/v3_diode_10k.png>
 Package luatex.def Info: img/v3_diode_10k.png  used on input line 570.
 (luatex.def)             Requested size: 209.1301pt x 125.47824pt.
-<img/v3_diode_20k.png, id=1428, 803.0pt x 481.8pt>
+<img/v3_diode_20k.png, id=1441, 803.0pt x 481.8pt>
 File: img/v3_diode_20k.png Graphic file (type png)
 <use img/v3_diode_20k.png>
 Package luatex.def Info: img/v3_diode_20k.png  used on input line 577.
 (luatex.def)             Requested size: 209.1301pt x 125.47824pt.
-<img/v3_ripple.png, id=1432, 803.0pt x 481.8pt>
+<img/v3_ripple.png, id=1445, 803.0pt x 481.8pt>
 File: img/v3_ripple.png Graphic file (type png)
 <use img/v3_ripple.png>
 Package luatex.def Info: img/v3_ripple.png  used on input line 592.
 (luatex.def)             Requested size: 209.1301pt x 125.47824pt.
-<img/v3_ripple_new.png, id=1433, 803.0pt x 481.8pt>
+<img/v3_ripple_new.png, id=1446, 803.0pt x 481.8pt>
 File: img/v3_ripple_new.png Graphic file (type png)
 <use img/v3_ripple_new.png>
 Package luatex.def Info: img/v3_ripple_new.png  used on input line 599.
 (luatex.def)             Requested size: 209.1301pt x 125.47824pt.
-<img/v3_diode_50_new.png, id=1435, 803.0pt x 481.8pt>
+<img/v3_diode_50_new.png, id=1448, 803.0pt x 481.8pt>
 File: img/v3_diode_50_new.png Graphic file (type png)
 <use img/v3_diode_50_new.png>
 Package luatex.def Info: img/v3_diode_50_new.png  used on input line 613.
 (luatex.def)             Requested size: 209.1301pt x 125.47824pt.
-<img/v3_diode_5k_new.png, id=1436, 803.0pt x 481.8pt>
+<img/v3_diode_5k_new.png, id=1449, 803.0pt x 481.8pt>
 File: img/v3_diode_5k_new.png Graphic file (type png)
 <use img/v3_diode_5k_new.png>
 Package luatex.def Info: img/v3_diode_5k_new.png  used on input line 620.
 (luatex.def)             Requested size: 209.1301pt x 125.47824pt.
-<img/v3_diode_10k_new.png, id=1437, 803.0pt x 481.8pt>
+<img/v3_diode_10k_new.png, id=1450, 803.0pt x 481.8pt>
 File: img/v3_diode_10k_new.png Graphic file (type png)
 <use img/v3_diode_10k_new.png>
 Package luatex.def Info: img/v3_diode_10k_new.png  used on input line 627.
 (luatex.def)             Requested size: 209.1301pt x 125.47824pt.
-<img/v3_diode_20k_new.png, id=1438, 803.0pt x 481.8pt>
+<img/v3_diode_20k_new.png, id=1451, 803.0pt x 481.8pt>
 File: img/v3_diode_20k_new.png Graphic file (type png)
 <use img/v3_diode_20k_new.png>
 Package luatex.def Info: img/v3_diode_20k_new.png  used on input line 634.
 (luatex.def)             Requested size: 209.1301pt x 125.47824pt.
-<img/v4_diode_50.png, id=1442, 803.0pt x 481.8pt>
+<img/v4_diode_50.png, id=1455, 803.0pt x 481.8pt>
 File: img/v4_diode_50.png Graphic file (type png)
 <use img/v4_diode_50.png>
 Package luatex.def Info: img/v4_diode_50.png  used on input line 653.
 (luatex.def)             Requested size: 209.1301pt x 125.47824pt.
-<img/v4_diode_10k.png, id=1443, 803.0pt x 481.8pt>
+<img/v4_diode_10k.png, id=1456, 803.0pt x 481.8pt>
 File: img/v4_diode_10k.png Graphic file (type png)
 <use img/v4_diode_10k.png>
 Package luatex.def Info: img/v4_diode_10k.png  used on input line 660.
 (luatex.def)             Requested size: 209.1301pt x 125.47824pt.
 
 
-LaTeX Warning: Reference `' on page 45 undefined on input line 668.
-
-<img/v4_diode_biased_noise_lowf.png, id=1445, 803.0pt x 481.8pt>
+[46<./img/v3_model_5k.png><./img/v3_model_10k.png><./img/v3_model_20k.png>]
+<img/v4_diode_biased_noise_lowf.png, id=1473, 803.0pt x 481.8pt>
 File: img/v4_diode_biased_noise_lowf.png Graphic file (type png)
 <use img/v4_diode_biased_noise_lowf.png>
 Package luatex.def Info: img/v4_diode_biased_noise_lowf.png  used on input line
- 673.
+ 675.
 (luatex.def)             Requested size: 209.1301pt x 125.47824pt.
-<img/v4_diode_biased_noise_highf.png, id=1446, 803.0pt x 481.8pt>
+<img/v4_diode_biased_noise_highf.png, id=1474, 803.0pt x 481.8pt>
 File: img/v4_diode_biased_noise_highf.png Graphic file (type png)
 <use img/v4_diode_biased_noise_highf.png>
 Package luatex.def Info: img/v4_diode_biased_noise_highf.png  used on input lin
-e 679.
+e 681.
 (luatex.def)             Requested size: 209.1301pt x 125.47824pt.
-
-
-[45<./img/v3_model_5k.png><./img/v3_model_10k.png><./img/v3_model_20k.png>]
-<img/setup_integ_filter_alt.png, id=1457, 575.14874pt x 475.7775pt>
+<img/setup_integ_filter_alt.png, id=1476, 575.14874pt x 475.7775pt>
 File: img/setup_integ_filter_alt.png Graphic file (type png)
 <use img/setup_integ_filter_alt.png>
-Package luatex.def Info: img/setup_integ_filter_alt.png  used on input line 696
+Package luatex.def Info: img/setup_integ_filter_alt.png  used on input line 698
 .
 (luatex.def)             Requested size: 213.39568pt x 176.52132pt.
-<img/filter_spec.png, id=1460, 451.6875pt x 389.95688pt>
+<img/filter_spec.png, id=1479, 451.6875pt x 389.95688pt>
 File: img/filter_spec.png Graphic file (type png)
 <use img/filter_spec.png>
-Package luatex.def Info: img/filter_spec.png  used on input line 707.
+Package luatex.def Info: img/filter_spec.png  used on input line 709.
 (luatex.def)             Requested size: 209.1301pt x 180.55453pt.
-<img/laser_spectral.png, id=1461, 464.4853pt x 571.38469pt>
+<img/laser_spectral.png, id=1480, 464.4853pt x 571.38469pt>
 File: img/laser_spectral.png Graphic file (type png)
 <use img/laser_spectral.png>
-Package luatex.def Info: img/laser_spectral.png  used on input line 714.
+Package luatex.def Info: img/laser_spectral.png  used on input line 716.
 (luatex.def)             Requested size: 146.39043pt x 180.08302pt.
-<img/v2_diode_1filter.png, id=1466, 803.0pt x 481.8pt>
+
+
+[47<./img/v1_test_50.png><./img/v1_test_5k.png><./img/v1_test_10k.png><./img/v1_
+test_20k.png>]
+<img/v2_diode_1filter.png, id=1496, 803.0pt x 481.8pt>
 File: img/v2_diode_1filter.png Graphic file (type png)
 <use img/v2_diode_1filter.png>
-Package luatex.def Info: img/v2_diode_1filter.png  used on input line 728.
+Package luatex.def Info: img/v2_diode_1filter.png  used on input line 730.
 (luatex.def)             Requested size: 209.1301pt x 125.47824pt.
-<img/v2_diode_2filter.png, id=1467, 803.0pt x 481.8pt>
+<img/v2_diode_2filter.png, id=1497, 803.0pt x 481.8pt>
 File: img/v2_diode_2filter.png Graphic file (type png)
 <use img/v2_diode_2filter.png>
-Package luatex.def Info: img/v2_diode_2filter.png  used on input line 735.
+Package luatex.def Info: img/v2_diode_2filter.png  used on input line 737.
 (luatex.def)             Requested size: 209.1301pt x 125.47824pt.
 
 
-[46<./img/v1_test_50.png><./img/v1_test_5k.png><./img/v1_test_10k.png><./img/v1_
-test_20k.png>]
-
-[47<./img/v2_diode_50.png><./img/v2_diode_5k.png><./img/v2_diode_10k.png><./img/
+[48<./img/v2_diode_50.png><./img/v2_diode_5k.png><./img/v2_diode_10k.png><./img/
 v2_diode_20k.png>]
 
-[48<./img/v3_diode_50.png><./img/v3_diode_5k.png><./img/v3_diode_10k.png><./img/
+[49<./img/v3_diode_50.png><./img/v3_diode_5k.png><./img/v3_diode_10k.png><./img/
 v3_diode_20k.png><./img/v3_ripple.png><./img/v3_ripple_new.png>]
 
-[49<./img/v3_diode_50_new.png><./img/v3_diode_5k_new.png><./img/v3_diode_10k_new
+[50<./img/v3_diode_50_new.png><./img/v3_diode_5k_new.png><./img/v3_diode_10k_new
 .png><./img/v3_diode_20k_new.png><./img/v4_diode_50.png><./img/v4_diode_10k.png>
 <./img/v4_diode_biased_noise_lowf.png><./img/v4_diode_biased_noise_highf.png>]
 
-[50<./img/setup_integ_filter_alt.png><./img/filter_spec.png><./img/laser_spectra
+[51<./img/setup_integ_filter_alt.png><./img/filter_spec.png><./img/laser_spectra
 l.png><./img/v2_diode_1filter.png><./img/v2_diode_2filter.png>]
 Chapter 7.
 
 
-[51
+[52
 
 ]
 Chapter 8.
-<matlab/opa818_comparison.png, id=1533, 421.575pt x 316.18124pt>
+<matlab/opa818_comparison.png, id=1551, 421.575pt x 316.18124pt>
 File: matlab/opa818_comparison.png Graphic file (type png)
 <use matlab/opa818_comparison.png>
 Package luatex.def Info: matlab/opa818_comparison.png  used on input line 783.
@@ -2697,24 +2711,32 @@ File: img/ad4637_noise.png Graphic file (type png)
 <use img/ad4637_noise.png>
 Package luatex.def Info: img/ad4637_noise.png  used on input line 795.
 (luatex.def)             Requested size: 209.1301pt x 166.10901pt.
-<img/opa818_noise.png, id=1540, 435.87843pt x 310.91156pt>
+<img/opa818_noise.png, id=1558, 435.87843pt x 310.91156pt>
 File: img/opa818_noise.png Graphic file (type png)
 <use img/opa818_noise.png>
 Package luatex.def Info: img/opa818_noise.png  used on input line 801.
 (luatex.def)             Requested size: 209.1301pt x 149.16942pt.
 
 
-[52
+[53
 
-<./matlab/opa818_comparison.png>])
+<./matlab/opa818_comparison.png>]
+<matlab/diode_comparison.png, id=1579, 421.575pt x 316.18124pt>
+File: matlab/diode_comparison.png Graphic file (type png)
+<use matlab/diode_comparison.png>
+Package luatex.def Info: matlab/diode_comparison.png  used on input line 816.
+(luatex.def)             Requested size: 298.75264pt x 224.07051pt.
 
-[53<./img/opa818_noise.png>]
+
+[54<./img/opa818_noise.png><./matlab/diode_comparison.png>])
+
+[55]
 \openout2 = A-Appendices.aux
  (./A-Appendices.tex
 Appendix A.
 )
 
-[54
+[56
 
 
 
@@ -2722,13 +2744,13 @@ Appendix A.
 
 ]
 
-[55]
+[57]
 
-[56]
+[58]
 
-[57] (./document.gls)
+[59] (./document.gls)
 
-[58
+[60
 
 
 
@@ -2753,7 +2775,7 @@ mer/zi_whitepa-per_prin-ci-ples_of_lock-
 
 
 
-[59
+[61
 
 ]
 Overfull \hbox (3.01865pt too wide) in paragraph at lines 253--253
@@ -2762,7 +2784,7 @@ Overfull \hbox (3.01865pt too wide) in paragraph at lines 253--253
 
 
 
-[60] 
+[62] 
 enddocument/afterlastpage (AED): lastpage setting LastPage.
 (./document.aux (./05-Introduction.aux) (./06-Analysis_of_specifications.aux)
 (./07-Functional.aux) (./08-Technical.aux) (./09-Conclusion.aux)
@@ -2771,26 +2793,22 @@ enddocument/afterlastpage (AED): lastpage setting LastPage.
 LaTeX2e <2025-06-01>
 L3 programming layer <2025-05-26>
  ***********
-
-
-LaTeX Warning: There were undefined references.
-
 Package rerunfilecheck Info: File `document.out' has not changed.
-(rerunfilecheck)             Checksum: 7851A1DEECB7308D48D0278836959559;9194.
+(rerunfilecheck)             Checksum: 7C6B037E6123E33C056A6EFA8CE69CC1;9194.
 Package logreq Info: Writing requests to 'document.run.xml'.
 
 \openout1 = document.run.xml
 )
 
 Here is how much of LuaTeX's memory you used:
- 88212 strings out of 470209
- 1164363,4101490 words of node,token memory allocated
- 1743 words of node memory still in use:
-   6 hlist, 2 vlist, 2 rule, 30 glue, 4 kern, 1 glyph, 273 attribute, 84 glue_sp
-ec, 138 attribute_list, 2 write, 17 pdf_action nodes
-   avail lists: 1:7,2:25906,3:5309,4:6602,5:34386,6:215,7:27454,8:130,9:58100,10
+ 88280 strings out of 470209
+ 1164366,4101490 words of node,token memory allocated
+ 1768 words of node memory still in use:
+   6 hlist, 2 vlist, 2 rule, 31 glue, 4 kern, 1 glyph, 277 attribute, 84 glue_sp
+ec, 140 attribute_list, 2 write, 18 pdf_action nodes
+   avail lists: 1:8,2:25908,3:5311,4:6602,5:34386,6:215,7:27454,8:130,9:58100,10
 :40,11:2147
- 114287 multiletter control sequences out of 65536+600000
+ 114337 multiletter control sequences out of 65536+600000
  85 fonts using 6377639 bytes
  99i,14n,131p,2591b,2799s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/users/vladi/appdata/local/programs/miktex/fonts/opentype/public/lm/lmromanca
@@ -2831,9 +2849,9 @@ iKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/vladi/AppData/Local/Pro
 grams/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/vladi/AppData/Lo
 cal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/vladi/App
 Data/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on document.pdf (61 pages, 8170240 bytes).
+Output written on document.pdf (63 pages, 8322926 bytes).
 
-PDF statistics: 2029 PDF objects out of 2073 (max. 8388607)
- 462 named destinations out of 1000 (max. 131072)
+PDF statistics: 2062 PDF objects out of 2073 (max. 8388607)
+ 468 named destinations out of 1000 (max. 131072)
  544 words of extra memory for PDF output out of 10000 (max. 100000000)
 

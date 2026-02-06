@@ -588,7 +588,15 @@ Tina-TI was used to simulate and visualize the DC gain and frequency response of
 	\label{fig:tina2probes}
 \end{figure}
 
+In addition to simulating the signal parameters of the amplifier, the noise was also checked. Figure \ref{fig:td:tinanoisev1}, shows that at 1 \unit{\hertz} the noise is 4,63 \unit[power-half-as-sqrt]{\micro\volt\per\hertz\tothe{0.5}} and remains about the same in the whole bandwidth of the amplifier. At around 1 \unit{\mega\hertz}, the minimum noise of \num{240,92} \unit[power-half-as-sqrt]{\nano\volt\per\hertz\tothe{0.5}} is achieved. 
 
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.6\linewidth]{img/tina_noise_v1}
+	\caption{Spectral noise density of the \gls{tia}}
+	\label{fig:td:tinanoisev1}
+\end{figure}
 
 
 
@@ -647,14 +655,26 @@ Using these values, the system model was calculated and plotted in Figure \ref{f
 
 Figure \ref{fig:tina2probes1p} confirms the calculations, with some slight differences that can be attributed to the \gls{spice} models. As predicted, the frequency response of the circuit shows an increased cutoff frequency of \num{19,69} \unit{\kilo\hertz}, \num{8,92} \unit{\kilo\hertz} more than the previous iteration. Up to the cutoff frequency, the transimpedance gain is \num{160,83} \unit{\decibel}, which is almost the same as the former gain of \num{160,82} \unit{\decibel}. Furthermore, Figure \ref{fig:tinadc2probes1p} shows that, similarly to the first iteration, the system displays linearity in the range of \numrange{0}{45,86} \unit{\nano \ampere}. This is a reduction of \num{450} \unit{\pico\ampere} compared to the previous version and also \num{4,14} \unit{\nano \ampere} less than the ideal upper limit of the linear region.
 
-Additionally, a MATLAB script was used to calculate the \gls{tia} noise transfer function, the output of which is shown in Figure \ref{fig:td:noisev2}. As discussed in Chapter \ref{chap:td:calc:v2}, the noise gain spikes at the cutoff of the signal transfer function.
-
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width=0.6\linewidth]{matlab/noise_v2}
-	\caption{Noise transfer function of the \gls{tia} using an AD795, 10 \unit{\mega\ohm} resistor and an ideal compensating capacitor}
-	\label{fig:td:noisev2}
+	\begin{subfigure}[1a]{.49\linewidth}
+		\includegraphics[width=\linewidth]{matlab/noise_v2}
+		\caption{Calculated voltage noise gain}
+		\label{fig:td:v2_noise_calc}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[1b]{.49\linewidth}
+		\includegraphics[width=\linewidth]{img/tina_noise_v2}
+		\caption{Simulated spectral noise density}
+		\label{fig:td:v2_noise_sim}
+	\end{subfigure}
+	\caption{Noise of the \gls{tia} using an AD795, 10 \unit{\mega\ohm} resistor and an ideal compensating capacitor}
+	\label{fig:td:v2_noise_both}
 \end{figure}
+
+
+Additionally, a MATLAB script was used to calculate the \gls{tia} noise transfer function, the output of which is shown in Figure \ref{fig:td:v2_noise_calc}. As discussed in Chapter \ref{chap:td:calc:v2}, the noise gain spikes at the cutoff of the signal transfer function. The noise density was also plotted and is shown in Figure \ref{fig:td:v2_noise_sim}. At 1 \unit{\hertz}, the noise is 4,63 \unit[power-half-as-sqrt]{\micro\volt\per\hertz\tothe{0.5}} and it only settles at around 1 \unit{\mega\hertz}. The behavior is similar to the first iteration, but the increased bandwidth also results in an increase in noise in the extended bandwidth region.
+
 
 \subsection{Third iteration}
 Before deciding on a power supply system, the power requirements needed to be compared to the specifications listed in Table \ref{tab:power_supply}. A MATLAB script, which can be found in Appendix \ref{chap:appendix:code}, was written and used to calculate that, given a \textpm 5 \unit{\volt} supply, the system requires \num{2,3021} \unit{\milli\ampere} of current.  All solutions can provide that amount of current with reasonable overhead, which is why the choice was based on size, complexity and stability.
@@ -744,7 +764,7 @@ After implementing all the changes, the final version of the \gls{cwodmr}, the s
 	\label{fig:td:photodetecv5sim}
 \end{figure}
 
-Figure \ref{fig:td:v5_noise} shows a comparison of the noise of the OPA827-based \gls{tia} with the alternative ADA4627-based \gls{tia}. The results show the OPA827 has marginally better noise performance at higher frequency. However, it also performs marginally worse at lower frequencies.
+Figure \ref{fig:td:v5_noise} shows a comparison of the noise of the OPA827-based \gls{tia} with the alternative ADA4627-based \gls{tia}. The results show the OPA827 has marginally better noise performance at higher frequency. However, it also performs marginally worse at lower frequencies. In addition, the two possible implementations of the \gls{cwodmr} photodetector were compared to the simulations of the second iteration. Table \ref{tab:v2_v5_v5_alt} shows both new versions demonstrate major noise improvements over the old one in the frequency range of 1 \unit{\hertz} to 100 \unit{\kilo\hertz}.
 
 \begin{figure}[ht]
 	\centering
@@ -759,11 +779,15 @@ Figure \ref{fig:td:v5_noise} shows a comparison of the noise of the OPA827-based
 		\caption{Alternative (ADA4627) version}
 		\label{fig:td:v5_alt_noise}
 	\end{subfigure}
+	\hfill
+	\begin{subfigure}[1b]{.49\linewidth}
+		\includegraphics[width=\linewidth]{img/tina_noise_v2}
+		\caption{Old (second iteration; AD795) version}
+		\label{fig:td:v2_noise}
+	\end{subfigure}
 	\caption{Simulation of the noise of the photodetector with different op-amps}
 	\label{fig:td:v5_noise}
 \end{figure}
-
-In addition, the two possible implementations of the \gls{cwodmr} photodetector were compared to the simulations of the second iteration. Table \ref{tab:v2_v5_v5_alt} shows both new versions demonstrate major noise improvements over the old one in the whole frequency range.
 
 \begin{table}[ht]
 	\centering
@@ -783,6 +807,11 @@ In addition, the two possible implementations of the \gls{cwodmr} photodetector 
 	\caption{Comparison of the final \gls{cwodmr} photodetector with its alternatives}
 	\label{tab:v2_v5_v5_alt}
 \end{table}
+
+
+
+
+
 
 
 \section{Photodetection implementation}

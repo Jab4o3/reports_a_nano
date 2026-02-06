@@ -665,19 +665,21 @@ Lastly, Figure \ref{fig:test:v4_test_new} shows the results of the integration t
 	\label{fig:test:v4_test_new}
 \end{figure}
 
-The most likely explanation for the bad results is the photodiode biasing. While in theory there is not voltage drop over a photodiode when in photovoltaic mode, in practice there are several millivolts of voltage across the diode, which still set the bias of the photodiode. According to Säckinger \cite{sackinger2017analysis}, this voltage greatly diminishes when a bootstrap is implemented and as a result the output current diminishes. This would explain the decrease in amplitude and the distorted shapes of the waveforms. To remedy this, a. shown in Figure \ref{}
+The most likely explanation for the bad results is the photodiode biasing. While in theory there is not voltage drop over a photodiode when in photovoltaic mode, in practice there are several millivolts of voltage across the diode, which still set the bias of the photodiode. According to Säckinger \cite{sackinger2017analysis}, this voltage greatly diminishes when a bootstrap is implemented and as a result the output current diminishes. This would explain the decrease in amplitude and the distorted shapes of the waveforms. 
+
+To remedy the bias issue of the photodiode, a biasing circuit was implemented using an \gls{ac} coupling capacitor between the buffer output and the photodiode. When this did not work, one end of a resistor was connected to the anode of the diode and the other end was connected to a variable voltage source in order to test different bias voltages. The values that were tried ranged between -5 \unit{\milli\volt} and -5 \unit{\volt}, but none of them could bias the diode so that it would detect light. Instead, the signals shown in Figure \ref{fig:td:imp:v4biased} were output, no matter if the diode was illuminated or not. Changing the voltage of the source did affect the signal amplitude somewhat, but it remained mostly the same in shape. The low-frequency view of the noise, shown in Figure \ref{fig:td:v4biasedlowf}, exhibits an almost square-wave shape, but the high-frequency view in Figure \ref{fig:td:v4biasedhighf} shows a periodic pulse with a frequency of around 750 \unit{\kilo\hertz}.
 
 \begin{figure}[ht]
 	\centering
 	\begin{subfigure}[1a]{.49\linewidth}
 		\includegraphics[width=\linewidth]{img/v4_diode_biased_noise_lowf}
-		\caption{High-frequency view}
+		\caption{Low-frequency view}
 		\label{fig:td:v4biasedlowf}
 	\end{subfigure}
 	\hfill
 	\begin{subfigure}[1b]{.49\linewidth}
 		\includegraphics[width=\linewidth]{img/v4_diode_biased_noise_highf}
-		\caption{Low-frequency view}
+		\caption{High-frequency view}
 		\label{fig:td:v4biasedhighf}
 	\end{subfigure}
 	\caption{Output signal demonstrating photodiode biasing issues when the fourth iteration of the photodetector uses a biasing circuit}
@@ -770,10 +772,8 @@ Perhaps most suitable of all for low-noise \gls{cwodmr} measurements, the second
 
 Version three of the device addresses the major integration concern of having a simple and small power supply solution. At the same time, it also incorporates the improved system response of the second iteration. Although the \gls{ac} characteristics of the circuit are irrelevant for \gls{cwodmr}, they become the most important aspect of the circuit when discussing pulsed protocols. However, the third version of the photodetector suffers a significant noise problem, caused by the inverting charge pump. Although this is a significant problem, increasing the filtering capacitors showed a major improvement. Even if this version is not recommended for a desktop setup, microcontroller-based portable solutions will benefit from the simplified power supply and will not need an external module to supply -5 \unit{\volt} to the detector.
 
-The fourth photodetector iteration presents a solution specifically designed to handle pulsed protocols. Even though the exact frequency and gain requirements for the circuit are unknown\footnote{Different papers often present different pulsing specifications. In addition, the client wants to adjust the pulsing specifications, so the necessary photodetector bandwidth can only be estimated}, the fourth version should be able to do $T_1$ measurements. Whether higher-frequency pulsed protocols can be achieved is still unknown, as the setup has not been completely integrated.
+The fourth photodetector iteration presents a solution specifically designed to handle pulsed protocols. Even though the exact frequency and gain requirements for the circuit are unknown\footnote{Different papers often present different pulsing specifications. In addition, the client wants to adjust the pulsing specifications, so the necessary photodetector bandwidth can only be estimated}, the fourth version is able to do $T_1$ measurements according to the mathematical models, as well as the simulations, however, due to photodiode biasing issues, the circuit outputs smaller signals and also has a smaller bandwidth than previous iterations. As a result, $T_1$ measurements cannot be carried out with it.
 
-
-%todo:finish conclusion based on v4 tests
 
 \chapter{Recommendations}\label{chap:recs}
 There are several recommendations that are important for future implementations, as they may contribute to the precision, noise-suppression and stability of the photodetector and the quantum sensing setup as a whole. 
@@ -809,9 +809,16 @@ Firstly, increasing the photodetector bandwidth should be the primary concern of
 
 In the future, if even greater bandwidth is desired, transistor \glspl{tia} should be investigated. Transistors offer finer control over the parameters of the amplifier they constitute. This is, in part, due to the control over the technology of each transistor, but also because they are lower-level components than op-amps, which allows for more intricate layouts. Several sources on the matter were consulted \cite{sackinger2017analysis, santiago2021a, karimi2017silicon, analui2004bandwidth}, but because of time constraints and equipment availability, an op-amp-based solution was chosen instead.
 
-Secondly, exploring avalanche photodiodes as an alternative to the Si diode (BPW34) currently in use, might contribute to better measurements. Although they are widely used in low-intensity applications, avalanche diodes are quite expensive. The client wanted to keep the cost low for this project, but in the future more precise pulsed protocol measurements might benefit from the internal amplification and increased precision that are offered by avalanche photodiodes. There are also Si alternatives that might provide better performance than the BPW34. InGaAs diodes are often used in telecommunication due to their stable, low-noise performance even at high frequencies. Their peak sensitivity is also usually in the red and infrared area of the light spectrum, which means the green light from the laser will be proportionally smaller than with the BPW34. Similar to avalanche photodiodes, the major drawback of InGaAs diodes is their price, which is much bigger than the BPW34. Some of the diode alternatives (InGaAs, avalanche and Si) that were explored as possible replacements for the BPW34 were the Hamamatsu G6854-01, Hamamatsu G17190-003K, Luna PDU-V104, OSI FCI-InGaAs-1000 and Marktech MTAPD-06-009. A cheaper alternative is the OSRAM SFH 203 FA, which detects less green light, has a lower dark current and has better directional characteristics, possibly leading to less ambient light detection. In spite of the improved characteristics, their impact will most likely be marginal.
+Secondly, exploring avalanche photodiodes as an alternative to the Si diode (BPW34) currently in use, might contribute to better measurements. Although they are widely used in low-intensity applications, avalanche diodes are quite expensive. The client wanted to keep the cost low for this project, but in the future more precise pulsed protocol measurements might benefit from the internal amplification and increased precision that are offered by avalanche photodiodes. There are also p-i-n alternatives that might provide better performance than the BPW34. InGaAs diodes are often used in telecommunication due to their stable, low-noise performance even at high frequencies. Their peak sensitivity is also usually in the red and infrared area of the light spectrum, which means the noise resulting from the green laser will be proportionally smaller than with the BPW34. Similar to avalanche photodiodes, the major drawback of InGaAs diodes is their price, which is much bigger than the BPW34. Some of the diode alternatives (InGaAs, avalanche and Si) that were explored as possible replacements for the BPW34 were the Hamamatsu G6854-01, Hamamatsu G17190-003K, Luna PDU-V104, OSI FCI-InGaAs-1000 and Marktech MTAPD-06-009. Some of the better cheaper alternatives are the OSRAM SFH 203 FA and Vishay TEMD1000, which detect less green light, have a lower dark current and have better, more narrow, directional characteristics, possibly leading to less ambient light detection. However, they also have smaller photosensitive areas, which result in less photocurrent, but also in smaller junction capacitances \cite{hm2025si, lt2006area}. This drastic reduction in input capacitance, leads to significant increase in bandwidth (see Figure \ref{fig:recs:diodecomparison}) as it necessitates smaller compensation capacitors for the same frequency response.
 
-Additionally there are ways to improve performance without modifying the circuit. The simplest way to increase the \gls{snr} is to move the setup to the dark room in the laboratory. Doing this will result in less ambient light being picked up by the photodiode. For future implementations that are interested in decreasing the size of the setup, an enclosure should be designed. This way, the main noise source will be the dark current.
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.7\linewidth]{matlab/diode_comparison}
+	\caption{Cheap Si diode comparison with an AD795, equal transimpedance gain and ideal (for getting a Bessel response) compensation capacitor}
+	\label{fig:recs:diodecomparison}
+\end{figure}
+
+Additionally there are ways to improve performance without modifying the circuit. The simplest way to increase the \gls{snr} is to move the setup to the dark room in the laboratory. Doing this will result in less ambient light being picked up by the photodiode. For future implementations that are interested in decreasing the size of the setup, an enclosure should be designed. This way, the main noise source will be the dark current. It is also important to isolate the diode from noise sources as much as possible, because the tests demonstrate it is the most susceptible component.
 
 
 

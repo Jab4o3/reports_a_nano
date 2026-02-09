@@ -691,18 +691,16 @@ To remedy the bias issue of the photodiode, a biasing circuit was implemented us
 \subsection{Additional integration test}
 During the integration test it was observed that the green laser has such high intensity, that it easily lead to overexposure. Experiments continued to show high intensity, even after putting an optical filter before the detector. Ideally, no light from the laser should be present at the output when conducting quantum protocols, but real-world setups have small amounts of laser light present in the output signal. Because of this, it was decided that measurements of the laser levels with optical filters were needed for future reference when integrating the setup. 
 
-To simulate a compact integration of the setup, the laser was placed as shown in Figure \ref{fig:test:setupintegfilteralt}. However, as discussed previously, close proximity from the laser and direct illumination of the sensor result in overexposure. In a functional setup, the laser light will be filtered, as a result of which the intensity of the green light will be decreased. 
-
-\begin{figure}
+\begin{figure}[!ht]
 	\centering
 	\includegraphics[width=0.5\linewidth]{img/setup_integ_filter_alt}
 	\caption{Additional integration test setup}
 	\label{fig:test:setupintegfilteralt}
 \end{figure}
 
-Figure \ref{fig:test:laser_filter} shows the specifications of the laser used in the integration tests, as well as the optical filter. Because the laser emits light with an intensity of approximately 520 \unit{\nano\meter}, the filter should block the light from it almost completely. To best test the filters, it was decided that the most suitable frequency for the tests is 5 \unit{\kilo\hertz}. It is high enough for the unfiltered sensor to be so overexposed that it only outputs a \gls{dc} voltage, but it is not high enough for near-cutoff behavior to affect the results.
+To simulate a compact integration of the setup, the laser was placed as shown in Figure \ref{fig:test:setupintegfilteralt}. However, as discussed previously, close proximity from the laser and direct illumination of the sensor result in overexposure. In a functional setup, the laser light will be filtered, as a result of which the intensity of the green light will be decreased. 
 
-\begin{figure}[ht]
+\begin{figure}[!ht]
 	\centering
 	\begin{subfigure}[1a]{.49\linewidth}
 		\centering
@@ -717,13 +715,16 @@ Figure \ref{fig:test:laser_filter} shows the specifications of the laser used in
 		\caption{Spectral emission of the PLT5 520 laser}
 		\label{fig:test:laserspectral}
 	\end{subfigure}
-	\caption{Spectral characteristics of the components in the setup}
+	\caption{Spectral characteristics of the BPW34 photodiode and PLT5 520 laser}
 	\label{fig:test:laser_filter}
 \end{figure}
 
+Figure \ref{fig:test:laser_filter} shows the specifications of the laser used in the integration tests, as well as the optical filter. Because the laser emits light with an intensity of approximately 520 \unit{\nano\meter}, the filter should block the light from it almost completely. To best test the filters, it was decided that the most suitable frequency for the tests is 5 \unit{\kilo\hertz}. It is high enough for the unfiltered sensor to be so overexposed that it only outputs a \gls{dc} voltage, but it is not high enough for near-cutoff behavior to affect the results.
+
+
 Contrary to what was expected, the tests, shown in Figure \ref{fig:test:vdiode_filter} demonstrate poor filtering. When testing with a single filter, there is not only clipping, but also overexposure of the sensor. This is apparent from the signal in Figure \ref{fig:test:v2_diode_1filter}, as it resembles a \gls{pwm} signal with a duty cycle of over 60 \%. As a result, there is also a large overshoot after the falling edge. The results of the test with two stacked filters are better, but not enough for quantum sensing protocols. As can be seen in Figure \ref{fig:test:v2_diode_2filter}, the signal still clips. This makes it impossible to execute any quantum protocol, as no fluorescence can be measured when the amplifier output has hit the maximum. Even worse than the clipping is the fact the photodiode is still slightly overexposed. Despite the reasonable shape of the signal, the width of the pulses is still slightly wider than the ideal. Furthermore, there is a slight overshoot, which can be seen after the falling edge. Ultimately, both setups show suboptimal filtering, which causes signal clipping and overexposure of the sensor.
 
-\begin{figure}[ht]
+\begin{figure}[!ht]
 	\centering
 	\begin{subfigure}[1a]{.49\linewidth}
 		\centering
@@ -818,7 +819,7 @@ Secondly, exploring avalanche photodiodes as an alternative to the Si diode (BPW
 	\label{fig:recs:diodecomparison}
 \end{figure}
 
-Additionally there are ways to improve performance without modifying the circuit. The simplest way to increase the \gls{snr} is to move the setup to the dark room in the laboratory. Doing this will result in less ambient light being picked up by the photodiode. For future implementations that are interested in decreasing the size of the setup, an enclosure should be designed. This way, the main noise source will be the dark current. It is also important to isolate the diode from noise sources as much as possible, because the tests demonstrate it is the most susceptible component.
+Additionally there are ways to improve performance without modifying the circuit. The simplest way to increase the \gls{snr} is to move the setup to the dark room in the laboratory. Doing this will result in less ambient light being picked up by the photodiode. For future implementations that are interested in decreasing the size of the setup, an enclosure should be designed. This way, the main noise source will be the dark current. It is also important to isolate the diode from noise sources as much as possible, because the tests demonstrate it is the component that is most susceptible to outside noise.
 
 
 

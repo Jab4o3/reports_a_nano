@@ -533,26 +533,23 @@ Finally, Figure \ref{fig:td:v4schematic} shows the schematic of the system after
 \end{figure}
 
 \subsection{Final \glsfmtshort{cwodmr} iteration}\label{chap:td:v5_design}
-At the beginning of the project, the client wanted an all-encompassing solution for the detection of all protocols. Although this is possible, as is clear from the photodetectors on the market, such a solution can cost in the range of hundreds to thousands of euros. Bringing costs down is important for the client, which is why it was decided to have separate photodetectors for \gls{cwodmr} and for \gls{podmr}.
+At the beginning of the project, the client wanted an all-encompassing solution for the detection of all protocols. Although this is possible, as is clear from the photodetectors on the market, such a solution can cost in the range of hundreds to thousands of euros. Bringing costs down is important for the client, which is why it was decided that separate photodetectors for \gls{cwodmr} and \gls{podmr} were needed.
 
 Detecting \gls{cwodmr} is possible with a much lower bandwidth than pulsed protocols, which removes the need for post amplification and thus brings down the overall noise of the system, as well as its noise susceptibility. This is good, because the client is interested in having a portable \gls{cwodmr} demonstrator and reducing noise susceptibility in such a noisy environment is crucial. In the end, the design of this system seeks to minimize noise as much as possible, without necessarily considering the bandwidth.
 
 As the second iteration of the photodetector has a serviceable design, the final version of the photodetector is based on it. The first and most important change for reducing the overall noise of the system is the removal of the non-inverting stage, which necessarily results in an increase of the transimpedance gain. Removing the post amplifier contributes most of the noise reduction, but the transimpedance gain increase, which is equivalent to the value of the gain-setting resistor of the \gls{tia}, also reduces its thermal noise, according to Formula \eqref{eq:td:noise_res}.
 
-Furthermore, significant noise reduction can be brought about by making changes to the \gls{tia}. The op-amp choice is the most impactful of all. The OPA827 was chosen, due to its excellent noise characteristics. Other alternatives, like the OPA1656, AD743 and ADA4627 were briefly considered, because of their good noise characteristics, but their low-frequency spectral noise density is higher than the OPA827. \footnote{ADA4627: 4,8 \unit[power-half-as-sqrt]{\nano\volt\per\hertz\tothe{0.5}} at 10 \unit{\kilo\hertz}, but 16,5 \unit[power-half-as-sqrt]{\nano\volt\per\hertz\tothe{0.5}} at 10 \unit{\hertz}; OPA1656: 2,9 \unit[power-half-as-sqrt]{\nano\volt\per\hertz\tothe{0.5}} at 10 \unit{\kilo\hertz}, but 37 \unit[power-half-as-sqrt]{\nano\volt\per\hertz\tothe{0.5}} at 10 \unit{\hertz}; AD743: 2,9 \unit[power-half-as-sqrt]{\nano\volt\per\hertz\tothe{0.5}} at 10 \unit{\kilo\hertz}, but 22 \unit[power-half-as-sqrt]{\nano\volt\per\hertz\tothe{0.5}} at 1 \unit{\hertz}; OPA827: 3,8 \unit[power-half-as-sqrt]{\nano\volt\per\hertz\tothe{0.5}} at 10 \unit{\kilo\hertz} and 7,1 \unit[power-half-as-sqrt]{\nano\volt\per\hertz\tothe{0.5}} at 10 \unit{\hertz}}.
-In addition, the LT1128 was also explored as a possible alternative. However, it has a significantly higher input bias current\footnote{25 \unit{\nano\ampere} compared to the 10 \unit{\pico\ampere} of the OPA827}, which will affect the photoconductive-mode diode and thus substantially increase its noise. Lower input bias current is the reason why the ADA4627 is the best alternative to the OPA827, despite its somewhat worse noise characteristics.
+Furthermore, significant noise reduction can be brought about by making changes to the \gls{tia}. The op-amp choice is the most impactful of all. The OPA827 was chosen, due to its excellent noise characteristics. Other alternatives, like the OPA1656, AD743 and ADA4627 were considered as well, because of their good noise characteristics, but their low-frequency spectral noise density is higher than the OPA827. \footnote{ADA4627: 4,8 \unit[power-half-as-sqrt]{\nano\volt\per\hertz\tothe{0.5}} at 10 \unit{\kilo\hertz}, but 16,5 \unit[power-half-as-sqrt]{\nano\volt\per\hertz\tothe{0.5}} at 10 \unit{\hertz}; OPA1656: 2,9 \unit[power-half-as-sqrt]{\nano\volt\per\hertz\tothe{0.5}} at 10 \unit{\kilo\hertz}, but 37 \unit[power-half-as-sqrt]{\nano\volt\per\hertz\tothe{0.5}} at 10 \unit{\hertz}; AD743: 2,9 \unit[power-half-as-sqrt]{\nano\volt\per\hertz\tothe{0.5}} at 10 \unit{\kilo\hertz}, but 22 \unit[power-half-as-sqrt]{\nano\volt\per\hertz\tothe{0.5}} at 1 \unit{\hertz}; OPA827: 3,8 \unit[power-half-as-sqrt]{\nano\volt\per\hertz\tothe{0.5}} at 10 \unit{\kilo\hertz} and 7,1 \unit[power-half-as-sqrt]{\nano\volt\per\hertz\tothe{0.5}} at 10 \unit{\hertz}}.
+In addition, the LT1128 was also explored as a possible alternative, as its noise performance is even better than the OPA827. However, it has a significantly higher input bias current\footnote{25 \unit{\nano\ampere} compared to the 10 \unit{\pico\ampere} of the OPA827}, which will affect the photoconductive-mode diode and thus substantially increase its noise. Lower input bias current is the reason why the ADA4627 is the best alternative to the OPA827, despite its somewhat worse noise characteristics.
 
-Finally, the compensation capacitor of the \gls{tia} can also be adjusted to reduce unwanted noise. Figure \ref{fig:noisev5} shows the model of the voltage gain of the noise when the compensation capacitor is set so that the system has a Bessel response. The large spike created by the band-pass component can be filtered out by increasing the capacitance, thus substantially reducing the high-frequency noise of the system. For the final design, various standardized values of increasing capacitance were tested with simulation software, until a fitting value was found.
+Finally, the compensation capacitor of the \gls{tia} can also be adjusted to reduce unwanted noise. Figure \ref{fig:noisev5} shows the model of the voltage gain of the noise. The large spike created by the band-pass component can be filtered out by increasing the capacitance, thus substantially reducing the high-frequency noise of the system. For the final design, various standardized values of increasing capacitance were tested with simulation software, until a fitting value was found.
 
 \begin{figure}[ht]
 	\centering
 	\includegraphics[width=0.7\linewidth]{matlab/noise_v5}
-	\caption{Theoretical noise model of an OPA827-based \gls{tia} with a Bessel response}
+	\caption{Theoretical noise model of the OPA827-based \gls{tia}}
 	\label{fig:noisev5}
 \end{figure}
-
-After implementing all the aforementioned changes, the final version of the \gls{cwodmr}
-
 
 \section{Photodetection simulation}
 Simulation is an important part of the designing process, as digital models of devices can be more detailed than the mathematical models presented thus far. Using different simulation programs, the real-world performance can be approximated and the math can be validated.
@@ -755,7 +752,7 @@ Here it is important to mention that while cascading increases the bandwidth of 
 \end{figure}
 
 \subsection{Final \glsfmtshort{cwodmr} iteration}
-After implementing all the changes, the final version of the \gls{cwodmr}, the simulation circuit in Figure \ref{fig:td:photodetecv5sim} was used to verify the noise improvements. Additionally, the same circuit was tested with the ADA4627, because in the initial design stage it was seen as the second most promising op-amp.
+After implementing all the changes, the simulation circuit in Figure \ref{fig:td:photodetecv5sim} was used to verify the noise improvements. Additionally, the same circuit was tested with the ADA4627, because in the initial design stage it was seen as the second most promising op-amp.
 
 \begin{figure}[ht]
 	\centering
@@ -922,8 +919,26 @@ This iteration of the photodetector is less concerned with minor improvements an
 
 
 
+\subsection{Final \glsfmtshort{cwodmr} iteration}
+\begin{figure}[ht]
+	\centering
+	\begin{subfigure}[1a]{.49\linewidth}
+		\includegraphics[width=\linewidth]{img/photodetec_v5}
+		\caption{\gls{ecad} model}
+		\label{fig:td:imp:photodetecv5pcb}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[1b]{.49\linewidth}
+		\includegraphics[width=\linewidth]{img/photodetec_v5sch}
+		\caption{Schematic}
+		\label{fig:td:imp:photodetecv5sch}
+	\end{subfigure}
+	\caption{Final \gls{cwodmr} iteration of the photodetection \gls{pcb}}
+	\label{fig:td:imp:photodetecv5}
+\end{figure}
 
+Figure \ref{fig:td:imp:photodetecv5} shows the schematic and the \gls{ecad} model of the final \gls{cwodmr} detector. An additional version that did not have an inverting charge pump was developed as well. For the \gls{cwodmr} demonstrator, having an external split-rail power supply will greatly increase its size and decrease its portability, which is why having a charge pump, with the trade-off of increased noise, is preferred. This way, a microcontroller can power the photodetector. However, when using the lab setup, as little noise as possible is desired. What is more, supplying the circuit with \textpm 5 \unit{\volt} power is not a problem. Consequently, a version without a charge pump is preferred in this scenario.
 
-
+Aside from making the circuit itself less noisy, extra care was taken to reduce external noise susceptibility. Although having connection pins for the power supply is convenient for testing, it also increases noise, which is why a barrel connector was chosen instead. Moreover, additional vias were added to the ground plane as a means of reducing electromagnetic interference.
 
 %\section{OLIA implementation}

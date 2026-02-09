@@ -31,6 +31,21 @@ pdftitle={V. Serafimov Bachelor Thesis EEE}
 \usepackage{braket} % package for ket (quantum) brackets
 \usepackage{csquotes} % quotes using \say{}
 \usepackage{matlab-prettifier}
+\usepackage{wrapfig} % use for wrapping figures/tables
+%\usepackage[all]{nowidow} % remove widows/orhans
+
+% floats will not be placed in different subsections (control sequence is used for setting the float limit to subsections instead of sections)
+\usepackage{placeins} 
+\makeatletter
+\AtBeginDocument{%
+	\expandafter\renewcommand\expandafter\subsection\expandafter
+	{\expandafter\@fb@secFB\subsection}%
+	\newcommand\@fb@secFB{\FloatBarrier
+		\gdef\@fb@afterHHook{\@fb@topbarrier \gdef\@fb@afterHHook{}}}%
+	\g@addto@macro\@afterheading{\@fb@afterHHook}%
+	\gdef\@fb@afterHHook{}%
+}
+\makeatother
 
 % Set page size and margins
 % Replace `letterpaper' with `a4paper' for UK/EU standard size

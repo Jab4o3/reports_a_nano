@@ -50,24 +50,24 @@
 \contentsline {subsection}{\numberline {5.4.1}\glsxtrtitleshort {gui}}{39}{subsection.5.4.1}%
 \contentsline {subsection}{\numberline {5.4.2}Device connection}{40}{subsection.5.4.2}%
 \contentsline {subsection}{\numberline {5.4.3}Message logging}{40}{subsection.5.4.3}%
-\contentsline {subsection}{\numberline {5.4.4}Pulse generation}{40}{subsection.5.4.4}%
-\contentsline {subsection}{\numberline {5.4.5}Data acquisition}{40}{subsection.5.4.5}%
-\contentsline {subsection}{\numberline {5.4.6}Data processing and visualization}{40}{subsection.5.4.6}%
-\contentsline {chapter}{\numberline {6}Testing and results}{41}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Test goals}{41}{section.6.1}%
-\contentsline {section}{\numberline {6.2}Test setup}{42}{section.6.2}%
-\contentsline {subsection}{\numberline {6.2.1}Photodiode-model characterization}{42}{subsection.6.2.1}%
-\contentsline {subsection}{\numberline {6.2.2}S-parameter characterization}{43}{subsection.6.2.2}%
-\contentsline {subsection}{\numberline {6.2.3}Integration test}{43}{subsection.6.2.3}%
-\contentsline {section}{\numberline {6.3}Results}{44}{section.6.3}%
-\contentsline {subsection}{\numberline {6.3.1}Photodiode-model characterization}{44}{subsection.6.3.1}%
-\contentsline {subsection}{\numberline {6.3.2}S-parameter characterization}{50}{subsection.6.3.2}%
-\contentsline {subsection}{\numberline {6.3.3}Integration test}{50}{subsection.6.3.3}%
-\contentsline {subsection}{\numberline {6.3.4}Additional integration test}{54}{subsection.6.3.4}%
-\contentsline {section}{\numberline {6.4}Discussion}{55}{section.6.4}%
-\contentsline {section}{\numberline {6.5}Known limitations}{55}{section.6.5}%
-\contentsline {chapter}{\numberline {7}Conclusion}{57}{chapter.7}%
-\contentsline {chapter}{\numberline {8}Recommendations}{58}{chapter.8}%
-\contentsline {chapter}{Appendices}{61}{section*.81}%
-\contentsline {chapter}{\numberline {A}Code}{61}{appendix.1.A}%
-\contentsline {chapter}{Glossary}{65}{section*.86}%
+\contentsline {subsection}{\numberline {5.4.4}Pulse generation}{41}{subsection.5.4.4}%
+\contentsline {subsection}{\numberline {5.4.5}Data acquisition}{43}{subsection.5.4.5}%
+\contentsline {subsection}{\numberline {5.4.6}Data processing and visualization}{43}{subsection.5.4.6}%
+\contentsline {chapter}{\numberline {6}Testing and results}{44}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Test goals}{44}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Test setup}{45}{section.6.2}%
+\contentsline {subsection}{\numberline {6.2.1}Photodiode-model characterization}{45}{subsection.6.2.1}%
+\contentsline {subsection}{\numberline {6.2.2}S-parameter characterization}{46}{subsection.6.2.2}%
+\contentsline {subsection}{\numberline {6.2.3}Integration test}{46}{subsection.6.2.3}%
+\contentsline {section}{\numberline {6.3}Results}{47}{section.6.3}%
+\contentsline {subsection}{\numberline {6.3.1}Photodiode-model characterization}{47}{subsection.6.3.1}%
+\contentsline {subsection}{\numberline {6.3.2}S-parameter characterization}{53}{subsection.6.3.2}%
+\contentsline {subsection}{\numberline {6.3.3}Integration test}{53}{subsection.6.3.3}%
+\contentsline {subsection}{\numberline {6.3.4}Additional integration test}{57}{subsection.6.3.4}%
+\contentsline {section}{\numberline {6.4}Discussion}{58}{section.6.4}%
+\contentsline {section}{\numberline {6.5}Known limitations}{58}{section.6.5}%
+\contentsline {chapter}{\numberline {7}Conclusion}{60}{chapter.7}%
+\contentsline {chapter}{\numberline {8}Recommendations}{61}{chapter.8}%
+\contentsline {chapter}{Appendices}{64}{section*.86}%
+\contentsline {chapter}{\numberline {A}Code}{64}{appendix.1.A}%
+\contentsline {chapter}{Glossary}{68}{section*.91}%

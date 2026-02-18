@@ -955,7 +955,7 @@ Figure \ref{fig:td:appgui} shows what the front-end looks like when running the 
 
 The device panel is there to monitor the connection with the Analog Discovery 2. On startup, a scan is conducted to find a device, but devices can also be plugged in later and, after pressing scan, the test can be ran. If no device is connected, the tests cannot be ran.
 
-As Figure \ref{fig:td:appgui} shows, the status log contains messages pertaining to different subsystems. In addition to system statuses, it also tracks tests by reporting which data point is being executed at a given time. If there are any issues with the Analog Discovery while running $T_1$ measurements, they will be shown in the box.
+As Figure \ref{fig:td:appgui} shows, the status log contains messages pertaining to different subsystems. In addition to system statuses, it also tracks tests by reporting which data point is being executed at a given time. If there are any issues with the Analog Discovery while running $T_1$ measurements, they will be shown in the log as well.
 
 Perhaps most important is the $T_1$ parameter panel. It allows the user to set custom values for tests. The laser pulse width $\tau_{las}$ is set manually, but it also implicitly sets the sequence period $T_{seq}$ and the minimum dark time $\tau_{dmin}$ according to Equation \eqref{eq:td:tlas}. Setting the maximum dark time $\tau_{dmax}$ can also be done from this panel, however it should be noted that it cannot exceed $2000\tau_{dmin}$. The number of data points, or alternatively the number of dark times for which the test needs to be ran, can also be set. Based on the provided number, an array of dark times will be generated and then used when creating the sequences.
 
@@ -970,49 +970,156 @@ Additionally, it is important to keep in mind the whole \gls{gui} is an instance
 \subsection{Device connection}
 There are two events that call the function that connects to an Analog Discovery: startup and pressing the "Scan" button (see Figure \ref{fig:td:appgui}). It is important to verify the Analog Discovery connection before running $T_1$ measurements by scanning for devices, because there is no disconnection handler and even if the device was connected on startup, there is no guarantee it will be connected before running the test.
 
-Figure \ref{fig:td:find_device}
+A simplified version of the connection method that does not handle connection errors can be seen in Figure \ref{fig:td:find_device}. What the snippet of code shows is the required \gls{api} calls. After retrieving the library version, the device is configured so that, even if the program is exited, the inputs and outputs will finish executing and measuring the current $T_1$ sequence. Afterwards, the first device that is found is opened and its handle is passed to the instance of the application class. Finally, the last line of code disables automatic reconfiguration. It is important that it is turned off, otherwise the device will be reconfigured on every call to a \lstinline|FDwf*Set| function, which will significantly worsen the performance of the Analog Discovery.
 
-\begin{figure}
-	\begin{minted}[python3]
+\begin{figure}[ht]
+	\begin{lstlisting}[language=pythe]
 def find_device(self):
-		# version required for operation
-		version = create_string_buffer(16)
-		dwf.FDwfGetVersion(version)
-		print("DWF Version: " + str(version.value))
+	# version required for operation
+	version = create_string_buffer(16)
+	dwf.FDwfGetVersion(version)
 		
-		# define behavior on close (0 = run, 1 = stop, 2 = shutdown)
-		dwf.FDwfParamSet(DwfParamOnClose, c_int(0))
+	# define behavior on close (0 = run, 1 = idle, 2 = off)
+	dwf.FDwfParamSet(DwfParamOnClose, c_int(0))
 		
-		# open device and get interface reference
-		ret_code = dwf.FDwfDeviceOpen(c_int(-1), byref(self.hdwf))
+	# open device and get interface reference
+	dwf.FDwfDeviceOpen(c_int(-1), byref(self.hdwf))
 		
-		if ret_code:
-		self.log_message("AD2", "Connection", f"Connected to AD2, DWF Version {str(version.value)}")
-		self.status.set("Connected")
-		else:
-		szerr = create_string_buffer(512)
-		dwf.FDwfGetLastErrorMsg(szerr)
-		self.log_message("AD2", "Connection", szerr.value)
-		
-		# disable auto config for better performance
-		dwf.FDwfDeviceAutoConfigureSet(self.hdwf, c_int(0))
-		return ret_code
-	\end{minted}
+	# disable auto config for better performance
+	dwf.FDwfDeviceAutoConfigureSet(self.hdwf, c_int(0))
+	\end{lstlisting}
+	\caption{Simplified device discovery and connection function}
 	\label{fig:td:find_device}
 \end{figure}
 
 
 \subsection{Message logging}
+The message log is an important medium for communicating with the user. As previously mentioned, the log contains status messages from the different subsystems of the application, in addition to the $T_1$ measurement information.  Logging is done to a \lstinline|ttk.Treeview|\footnote{The code in Figure \ref{fig:td:treeview} uses a \lstinline|ttk| widget, which is not one of the standard \lstinline|tk| widgets. \lstinline|ttk|, aside from providing extra widgets, offers more modern versions of many \lstinline|tk| widgets, which is why it is used whenever possible.} widget, which is configured to function like a table. Figure \ref{fig:td:treeview} shows how the tree is created and assigned to the \lstinline|tree_running_log| attribute. After the \gls{gui} is created, a message is logged using the \lstinline|log_message| method to notify the user.
+
+\begin{figure}[ht]
+	\begin{lstlisting}[language=pythe]
+# create tree
+self.tree_running_log = ttk.Treeview(lf_status, columns=("Source", "Status", "Value"))
+
+# log first status message
+self.log_message("GUI", "Startup", "GUI created")
+	\end{lstlisting}
+	\caption{Simplified message log widget creation}
+	\label{fig:td:treeview}
+\end{figure}
+
+Figure \ref{fig:td:log_message_function} contains the code for logging a message. A call to the function should contain the source, status (also known as short message) and value (also known as long message). There are several log sources. \lstinline|GUI| indicates a message is about \lstinline|tkinter| or more broadly about the \gls{gui} application. If the source is \lstinline|AD2|, then the message is about the device status. Furthermore, if the Analog Discovery sends an error (e.g. data loss) during execution, it will be logged as \lstinline|AD2|. Messages about the status of the $T_1$ measurements are logged with the sources set to \lstinline|T1|.
+
+\begin{figure}[ht]
+	\begin{lstlisting}[language=pythe]
+def log_message(self, source, status, value):
+	timestamp = datetime.now().strftime("%H:%M:%S")
+	self.tree_running_log.insert('', tk.END, text=timestamp, values=(source, status, value))
+	\end{lstlisting}
+	\caption{Simplified message logging function}
+	\label{fig:td:log_message_function}
+\end{figure}
 
 
 \subsection{Pulse generation}
 The fundamentals of pulse generation using the Analog Discovery, which were laid out in Chapter \ref{chap:fd:laser_driver}, still hold true, even when using the WaveForms \gls{sdk} for Python.
 
-That being said, there is one major difference. The buffer size, which was limited to 100 when set through the WaveForms app, is actually 4096. This allows for pulse durations that fit the formula $\tau_{las} = x\frac{T_{seq}}{4096}$, for $x \in \mathbb{Z}^+$ and $x \leq 4096$.
+That being said, there is one major difference. The buffer size, which was limited to 100 when set through the WaveForms app, is actually 4096. This allows for pulse durations that fit the formula $\tau_{las} = t_{las}\frac{T_{seq}}{4096}$, for $t_{las} \in \mathbb{Z}^+$ and $t_{las} \leq 4096$.
 
-But before delving into implementation details, the working of pulse generation in Waveforms needs to be discussed. An example of a filled Waveforms buffer, is shown Figure \ref{fig:td:driver:working_principle}. A \gls{ttl} signal can be generated using the values from it by setting the period $T_{seq}$ of the sequence and the peak voltage $V_{max}$. Those two values are necessary, because the buffer contains normalized values. In the example, each element has a value of either 0 or 1, which translate to 0 or $V_{max}$ when entered into the function generator. Furthermore, each pulse has a value of $\tau_{las} = \frac{T_{seq}}{5}$.
+As a consequence of the similarities, the MATLAB code for pulse generation from Chapter \ref{chap:fd:laser_driver} (see Figure \ref{code:t1_pulse}) was rewritten in Python, with the calls to the WaveForms \gls{api} replacing the \gls{csv} file writer. 
 
-A MATLAB script (see Figure \ref{code:t1_pulse} for full script) was written to generate buffer values based on the pulse duration $\tau_{las}$, the scaling factor $\gamma = \frac{T_{seq}}{\tau_{las}}$ and the normalized dark time $t_d = \frac{\tau_{d}}{\tau_{las}0}$. Figure \ref{fig:fd:waveformssequence} shows a $T_1$ sequence where $\tau_{las}$ = 20 \unit{\micro\second}, $T_{seq}$ = 30 \unit{\milli\second} and $\tau_{d}$ = 200 \unit{\micro\second} (consequently $\gamma$ = 1500 and $t_d$ = 10). 
+Before doing anything else, the pulse generation function calls the function for determining the dark time for every data point. Ideally, this function would return many small values and some bigger ones. Such data point spacing can be achieved using \lstinline|numpy.logspace|, which provides logarithmically-spaced values, thus satisfying the aforementioned conditions. Despite its theoretical applicability, in actuality it cannot be used because it is designed with floating-point numbers in mind. In this case, the buffer slot count $t_d$ is a rounding of the actual dark time $\tau_d$, which makes them integers. Additionally, rounding functions cannot be used in combination with \lstinline|numpy.logspace|, because for a lot of data points, the function can return multiple of the same $t_d$, which is not desirable. To get around these problems, a function based on \lstinline|numpy.logspace| was implemented. 
+
+\begin{equation}\label{eq:logpspace_custom}
+	t_{d} = t_{dmin} + round(10^{x\frac{\log(t_{dmax})}{n - 1}})\ for\ x \in [1,n]\cap \mathbb{Z}
+\end{equation}
+
+\begin{figure}[ht]
+	\begin{lstlisting}[language=pythe]
+		def gen_log_space(self, td_min, td_max, n):
+		result = [td_min]
+		# return 1 if bad n
+		if n <= 1:
+		return result
+		
+		for i in range(1, n):
+		td_curr = td_min + round(10 ** (i * log10(td_max) / (n - 1)))
+		# exits prematurely if min and max are too close, otherwise replaces last value with td_max
+		if td_curr >= td_max:
+		result.append(td_max)
+		return result
+		
+		# check if dark time is repeating last value and increment if yes
+		if td_curr - result[-1] >= 1:
+		result.append(td_curr)
+		else:
+		result.append(result[-1] + 1)
+		return result
+	\end{lstlisting}
+	\caption{Custom \lstinline|logspace| function implementation}
+	\label{fig:td:logspace_gen_func}
+\end{figure}
+
+
+Equation \eqref{eq:logpspace_custom} shows that, provided with the minimum and maximum dark time $t_{dmin}$ and $t_{dmax}$, as well as the number of data points $n$, the function returns logarithmically-spaced values. To address the problem with repetitions, $t_d$ is incremented whenever it is equal to the $t_d$ of the previous data point. This increment, however, results in the final value being bigger than the $t_{dmax}$. In the worst case, this might result in writing data outside the buffer range, which is why the last value is manually set to $t_{dmax}$. 
+
+
+Figure \ref{fig:td:logspace_gen_func} shows the custom \lstinline|logspace| function. To compare its performance to the original function, the plots in Figure \ref{fig:td:logspace} were made. It is clear that both functions demonstrate similar behaviors for big values, but the custom function also presents linear behavior for low $t_d$ values, as can be seen in Figure \ref{fig:td:logspace_small}.
+
+
+\begin{figure}[!ht]
+	\centering
+	\begin{subfigure}[1a]{.49\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{matlab/logspace_large_td}
+		\caption{Plot of all data points}
+		\label{fig:td:logspace_whole}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[1b]{.49\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{matlab/logspace_small_td}
+		\caption{Plot of the first ten data points}
+		\label{fig:td:logspace_small}
+	\end{subfigure}
+	\caption{Generating buffer dark times $t_{d}$ using \lstinline|numpy.logspace| and a custom function from 1 to 1000 with 25 data points}
+	\label{fig:td:logspace}
+\end{figure}
+
+
+
+
+
+\begin{figure}[ht]
+	\begin{lstlisting}[language=pythe]		
+pattern = self.sequences[0]
+
+# enable
+dwf.FDwfAnalogOutNodeEnableSet(self.hdwf, self.laser_channel, AnalogOutNodeCarrier, c_int(1))
+
+# set function to custom
+dwf.FDwfAnalogOutNodeFunctionSet(self.hdwf, self.laser_channel, AnalogOutNodeCarrier, funcCustom)
+
+# set pattern of custom function
+dwf.FDwfAnalogOutNodeDataSet(self.hdwf, self.laser_channel, AnalogOutNodeCarrier, pattern,
+c_int(self.pattern_size))
+
+# set frequency of the whole pattern
+dwf.FDwfAnalogOutNodeFrequencySet(self.hdwf, self.laser_channel, AnalogOutNodeCarrier, c_double(f_pattern))
+
+# set amplitude of the whole pattern to 5V
+dwf.FDwfAnalogOutNodeAmplitudeSet(self.hdwf, self.laser_channel, AnalogOutNodeCarrier, amplitude)
+
+# set the run and wait time (in seconds)
+dwf.FDwfAnalogOutRunSet(self.hdwf, self.laser_channel, c_double(run_time / f_pattern))
+dwf.FDwfAnalogOutWaitSet(self.hdwf, self.laser_channel, c_double(wait_time / f_pattern))
+
+# start outputting
+dwf.FDwfAnalogOutConfigure(self.hdwf, self.laser_channel, c_int(1))
+	\end{lstlisting}
+	\caption{Outputting the first sequence from the \lstinline|sequences| attribute of the \gls{gui} object using the WaveForms \gls{api}}
+	\label{fig:td:pulsing_sequence}
+\end{figure}
 
 \subsection{Data acquisition}
 

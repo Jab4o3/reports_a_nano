@@ -939,7 +939,7 @@ Aside from making the circuit itself less noisy, extra care was taken to reduce 
 	\label{fig:td:ad2}
 \end{figure}
 
-A quick look at the goals laid out in Chapter \ref{chap:goals} makes it clear that they separate the pulsing sequence software from the \gls{daq} software. Despite this, during talks with the client it was decided that a \gls{gui} application that has both functions is desireable. The main reason for this is that an all-encompassing application will make it easier for physics students with little coding experience to interact with the setup. This is also the reason why a the application was implemented as a \gls{gui} instead of a \gls{cli}, which is easier to program, but can be harder to work with. Another reason for integrating pulse generation and data acquisition is that, instead of reading data directly from the lock-in amplifier, its output can be connected to the oscilloscope of the Analog Discovery. Because the application only needs to interact with one device, a single \gls{api} needs to be used and consequently coding separate applications will only result in a lot of copied code and a less user-friendly experience. 
+A quick look at the goals laid out in Chapter \ref{chap:goals} makes it clear that they separate the pulsing sequence software from the \gls{daq} software. Despite this, during talks with the client it was decided that a \gls{gui} application that has both functions is desirable. The main reason for this is that an all-encompassing application will make it easier for physics students with little coding experience to interact with the setup. This is also the reason why a the application was implemented as a \gls{gui} instead of a \gls{cli}, which is easier to program, but can be harder to work with. Another reason for integrating pulse generation and data acquisition is that, instead of reading data directly from the lock-in amplifier, its output can be connected to the oscilloscope of the Analog Discovery. Because the application only needs to interact with one device, a single \gls{api} needs to be used and consequently coding separate applications will only result in a lot of copied code and a less user-friendly experience. 
 
 While a single application for both functionalities is possible, it has also become clear at this point in the report that different quantum protocols require different physical setups. This makes it is difficult to foresee what hardware changes are implemented and as a result only one protocol can be implemented at a time. With this information in mind, the client requested a Python application based on the Tk \gls{gui} kit that combines $T_1$ measurements pulse generation and data acquisition using the Analog Discovery 2. A high-level diagram of the setup the application is written for can be seen in Figure \ref{fig:td:ad2}.
 
@@ -1087,40 +1087,49 @@ Figure \ref{fig:td:logspace_gen_func} shows the custom \lstinline|logspace| func
 \end{figure}
 
 
-
+After calculating the buffer space required for all dark times, the sequences can be generated. As previously mentioned, setting the pulse duration $\tau_{las}$ implicitly determines the minimum dark time $\tau_{dmin}$ and the period of the sequence $T_{seq}$ based on the ratio $\tau_{las}:\tau_{dmin}:T_{seq} = 5:1:4096$. With only these ratios, and the already computed dark times, the sequence can be generated as shown in the snippet of code in Figure \ref{fig:td:sequence_gen_loop}. In it, \lstinline|pw| is the pulse width (5 buffer slots), \lstinline|pattern_size| is the buffer size attribute (fixed to 4096 slots) and \lstinline|all_tds| is the array of dark times (smallest value is 1 buffer slot).
 
 
 \begin{figure}[ht]
 	\begin{lstlisting}[language=pythe]		
-pattern = self.sequences[0]
+# make pattern
+for curr_td in all_tds:
+	pattern = (c_double * self.pattern_size)(0)  # initialize C-style zero array
+	# make pulse duration equal to pw
+	for i in range(0, pw):
+		# cancellation pulse
+		pattern[i] = 1  
+		# initialization pulse
+		pattern[i + int(self.pattern_size / 2)] = 1  
+		# readout pulse
+		pattern[i + pw + curr_td + int(self.pattern_size / 2)] = 1 
+	# save sequence to attribute 
+	self.sequences.append(pattern)
+	\end{lstlisting}
+	\caption{Loop which generates an array of C-style arrays filled with binary buffer values}
+	\label{fig:td:sequence_gen_loop}
+\end{figure}
 
-# enable
-dwf.FDwfAnalogOutNodeEnableSet(self.hdwf, self.laser_channel, AnalogOutNodeCarrier, c_int(1))
+Following the sequence generation, the Analog Discovery has to be configured for outputting the sequences. The code in Figure \ref{fig:td:pulsing_sequence} shows the \gls{api} calls that are needed when \lstinline|dwf.FDwfDeviceAutoConfigureSet| is disabled. First, \lstinline|laser_channel|, which is the attribute assigned to the laser pulsing waveform generator channel, is enabled. After that, the function of the waveform generator needs to be set. \gls{ttl} pulses use the custom analog function, which is called \lstinline|funcCustom| and it allows for writing patterns to the buffer. What follows is a call to the function for setting the buffer data using a $T_1$ sequence loaded in \lstinline|pattern|, which has the fixed length of 4096. Afterwards, the frequency of the whole pattern needs to be set to the pattern frequency \lstinline|f_pattern|, which is calculated based on the minimum pulse time. Here it should be noted that the buffer contains normalized values, which means that the following setting of the amplitude is required. The \lstinline|amplitude| variable passed to the \gls{api} call is 5 \unit{\volt} and should not be changed, unless the laser and laser driver change. Concluding the waveform generator setup, the program then tells it to run for \lstinline|run_time| which is a set number of seconds. Then the waveform generator can start outputting the current $T_1$ sequence. This whole process is done for every data point. Lastly, it is important to mention that all the functions which are called with \lstinline|AnalogOutNodeCarrier| as a parameter need it, as it tells them to configure the signal and not the channel modulation.
 
-# set function to custom
-dwf.FDwfAnalogOutNodeFunctionSet(self.hdwf, self.laser_channel, AnalogOutNodeCarrier, funcCustom)
 
-# set pattern of custom function
-dwf.FDwfAnalogOutNodeDataSet(self.hdwf, self.laser_channel, AnalogOutNodeCarrier, pattern,
-c_int(self.pattern_size))
-
-# set frequency of the whole pattern
-dwf.FDwfAnalogOutNodeFrequencySet(self.hdwf, self.laser_channel, AnalogOutNodeCarrier, c_double(f_pattern))
-
-# set amplitude of the whole pattern to 5V
-dwf.FDwfAnalogOutNodeAmplitudeSet(self.hdwf, self.laser_channel, AnalogOutNodeCarrier, amplitude)
-
-# set the run and wait time (in seconds)
-dwf.FDwfAnalogOutRunSet(self.hdwf, self.laser_channel, c_double(run_time / f_pattern))
-dwf.FDwfAnalogOutWaitSet(self.hdwf, self.laser_channel, c_double(wait_time / f_pattern))
-
-# start outputting
-dwf.FDwfAnalogOutConfigure(self.hdwf, self.laser_channel, c_int(1))
+\begin{figure}[ht]
+	\begin{lstlisting}[language=pythe]		
+dwf.FDwfAnalogOutNodeEnableSet(self.hdwf, self.laser_channel, AnalogOutNodeCarrier, c_int(1)) # enable
+dwf.FDwfAnalogOutNodeFunctionSet(self.hdwf, self.laser_channel, AnalogOutNodeCarrier, funcCustom) # set function to custom
+dwf.FDwfAnalogOutNodeDataSet(self.hdwf, self.laser_channel, AnalogOutNodeCarrier, pattern, c_int(self.pattern_size)) # set pattern of custom function
+dwf.FDwfAnalogOutNodeFrequencySet(self.hdwf, self.laser_channel, AnalogOutNodeCarrier, c_double(f_pattern)) # set frequency of the whole pattern
+dwf.FDwfAnalogOutNodeAmplitudeSet(self.hdwf, self.laser_channel, AnalogOutNodeCarrier, amplitude) # set amplitude of the whole pattern to 5V
+dwf.FDwfAnalogOutRunSet(self.hdwf, self.laser_channel, c_double(run_time / f_pattern)) # set the run and wait time (in seconds)
+dwf.FDwfAnalogOutConfigure(self.hdwf, self.laser_channel, c_int(1)) # start outputting
 	\end{lstlisting}
 	\caption{Outputting the first sequence from the \lstinline|sequences| attribute of the \gls{gui} object using the WaveForms \gls{api}}
 	\label{fig:td:pulsing_sequence}
 \end{figure}
 
+Configuring the lock-in reference channel to output a square-wave signal is quite similar, which is why the code for it was put in Appendix \ref{chap:appendix:code} (Figure \ref{code:sequence_gen_loop}). The only difference is the waveform generator function type, which is provided to \lstinline|dwf.FDwfAnalogOutNodeFunctionSet|. Instead of a custom analog function, the square wave \lstinline|funcSquare| type is passed. Afterwards there is no pattern to set, so there is no call to \lstinline|FDwfAnalogOutNodeDataSet|.
+
 \subsection{Data acquisition}
+To measure test data in the simplest way possible, it is crucial that whatever lock-in amplifier is used to boost the photodetector signal outputs to the Analog Discovery oscilloscope, as shown in Figure \ref{fig:td:ad2}. Th 
 
 \subsection{Data processing and visualization}

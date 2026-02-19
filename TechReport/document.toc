@@ -68,6 +68,6 @@
 \contentsline {section}{\numberline {6.5}Known limitations}{58}{section.6.5}%
 \contentsline {chapter}{\numberline {7}Conclusion}{60}{chapter.7}%
 \contentsline {chapter}{\numberline {8}Recommendations}{61}{chapter.8}%
-\contentsline {chapter}{Appendices}{64}{section*.86}%
+\contentsline {chapter}{Appendices}{64}{section*.87}%
 \contentsline {chapter}{\numberline {A}Code}{64}{appendix.1.A}%
-\contentsline {chapter}{Glossary}{68}{section*.91}%
+\contentsline {chapter}{Glossary}{69}{section*.93}%

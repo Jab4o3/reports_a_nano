@@ -269,4 +269,21 @@ disp('Sequence period   : ' + T*10^3 + ' ms')
 	\label{code:t1_pulse}
 \end{figure}
 
+\begin{figure}[ht]
+	\begin{lstlisting}[language=pythe]		
+# enable
+dwf.FDwfAnalogOutNodeEnableSet(self.hdwf, self.lia_channel, AnalogOutNodeCarrier, c_int(1))
+# set function to pulse
+dwf.FDwfAnalogOutNodeFunctionSet(self.hdwf, self.lia_channel, AnalogOutNodeCarrier, funcPulse)
+# set pulse frequency
+dwf.FDwfAnalogOutNodeFrequencySet(self.hdwf, self.lia_channel, AnalogOutNodeCarrier, c_double(f_pattern))
+# set pulse amplitude to 5V
+dwf.FDwfAnalogOutNodeAmplitudeSet(self.hdwf, self.lia_channel, AnalogOutNodeCarrier, amplitude)
+# set the run and wait time (in seconds)
+dwf.FDwfAnalogOutRunSet(self.hdwf, self.lia_channel, c_double(run_time / f_pattern))
+	\end{lstlisting}
+	\caption{Loop which generates an array of C-style arrays filled with binary buffer values}
+	\label{code:sequence_gen_loop}
+\end{figure}
+
 \end{appendices}

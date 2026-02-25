@@ -1,7 +1,23 @@
 \chapter{Testing and results}\label{chap:conclusion}
 %This chapter discusses the results of the tests and what conclusions could be gathered from them. All tests were based on real scenarios, but the performance tests push the platform to its limits by replicating rare and improbable edge cases.
 
-Table \ref{tab:test:tasks} shows all the tasks discussed in Chapter \ref{chap:goals} and their current status. While working on the project, the client decided that purchasing a lock-in amplifier is more worthwhile than implementing \gls{olia}, which is why tasks associated with its implementation are marked as canceled. The items with a reassigned status were given over to two students, who are also involved with the quantum sensing setup. The laser driver was reassigned, because a completely new design was needed, the making of which would require too much time. The pulse sequence script was finished and it was passed on to one of the other students for further refinement and possibly for the implementation of different protocols.
+Table \ref{tab:test:tasks} shows all the tasks discussed in Chapter \ref{chap:goals} and their current status. 
+
+% The items with a reassigned status were given over to two students, who are also involved with the quantum sensing setup. The laser driver was reassigned, because a completely new design was needed, the making of which would require too much time. The pulse sequence script was finished and it was passed on to one of the other students for further refinement and possibly for the implementation of different protocols.
+
+Designing a photodetection platform was the main focus of the project and it was successfully completed. The testing chapter mostly discusses how its performance was tested and verified. 
+
+While working on the project, the client decided that purchasing a lock-in amplifier is more worthwhile than implementing \gls{olia}, which is why tasks associated with its implementation are marked as canceled. Furthermore, the lock-in amplifier that was bought only arrived after the completion of the project period, which is why no tests with it were done. 
+
+Laser setup for pulsing sequences was finished, but there was a clear need for a redesign, which clearly falls outside of the project boundaries. Consequently, the task of redesigning the driver was reassigned to another student. 
+
+Despite the successful development of the data acquisition software, extensive testing could not be done, due to the unfinished state of the hardware platform. This chapter still discusses the results of what little testing and verification could be done. 
+
+As a part of the $T_1$ measurements software, the $T_1$ sequence generation is fully functional and integrated with the graphical interface. Furthermore, the code can easily be modified to generate pulsing sequences for other protocols. 
+
+Lastly, the integration and testing of the quantum sensing setup is a very broad and time-consuming task. As of finalizing this report, there is still more work to be done on the different hardware subsystems, which is why only some subsystems have been integrated.
+
+
 
 \begin{table}[!ht]
 	\centering
@@ -15,9 +31,9 @@ Table \ref{tab:test:tasks} shows all the tasks discussed in Chapter \ref{chap:go
 		\hline
 		1.3 	& Set up laser driver					& Partially completed; reassigned	\\
 		\hline
-		2.1 	& Develop data acquisition software 	& Canceled							\\
+		2.1 	& Develop data acquisition software 	& Mostly completed							\\
 		\hline
-		2.2 	& Program pulse sequences 				& Mostly completed; reassigned	 	\\
+		2.2 	& Program pulse sequences 				& Completed	 	\\
 		\hline
 		3.1 	& Compare lock-in amplifiers			& Canceled  						\\
 		\hline
@@ -55,7 +71,7 @@ Table \ref{tab:test:tasks} shows all the tasks discussed in Chapter \ref{chap:go
 
 %\section{Test goals and performance metrics}
 \section{Test goals}
-
+\subsection{Photodetector}
 %\subsection{\glsfmtshort{tia}}
 There are two suitable methods of characterizing the \gls{tia}. As the main point of interest is the linearity of the amplifier, the first characterization method is to simulate photodiode readings at different light intensities by modeling it as a current source. By varying the diode model current, either by sweeps or manually, the performance of the physical device can be compared to the simulations.
 
@@ -67,23 +83,35 @@ The second method supplements the results of the first one. It involves measurin
 
 Neither of these methods uses a real photodiode, which is why an integration test is also necessary. Not only is the integration test needed to evaluate the performance of the diode, but it also gives insight into how the diode interacts with the laser, which will be used to conduct experiments with the sensing setup. Using the laser driver, a square-wave signal is pulsed at different frequencies within the amplifier bandwidth. By comparing the signal output by the photodetector to the signal output by the function generator, the performance of the system can be determined. Although the laser pulsing limits the test to square waves only, the filtering of high-frequency components at near-cutoff frequencies gives a deeper understanding of the behavior of the circuit.
 
-%\begin{table}[ht]
-%	\centering
-%		\begin{tabular}{|c|c|c|c|}
-%			\hline
-%			Metric                      & API  & Unit(s) of measurement                                                 & Explanation                                                                               \\ \hline
-%			Device provisioning latency & HTTP & seconds (s)                                                            & \begin{tabular}[c]{@{}c@{}}Time between creation \\ request and confirmation\end{tabular} \\ \hline
-%			Message loss percentage     & MQTT & percent (\%)                                                           & \begin{tabular}[c]{@{}c@{}}Percent of MQTT \\ messages which are lost\end{tabular}        \\ \hline
-%			Resource usage              & -    & \begin{tabular}[c]{@{}c@{}}percent \\ (CPU \%, RAM \%)\end{tabular} & \begin{tabular}[c]{@{}c@{}}CPU and RAM usage \\ when running tests\end{tabular}           \\ \hline
-%		\end{tabular}
-%	\caption{Metrics of the OpenRemote scalability tests}
-%	\label{tab:metrics}
-%\end{table}
+\subsection{$T_1$ software}
+It is important to mention, before delving into testing details, that as of completing this report, the hardware setup for $T_1$ measurements has still not been completed. This limit on the implementation and testing possibilities made it impossible to complete the software, which is why only certain unit tests could be done. Furthermore, testing was hampered by hardware unavailability and limited lab access.
+
+Aside from proper functioning, the client set no requirements for speed. This is because the application relies on several fixed-length delay in order to operate. Because of this, all subsystems were tested and compared to the expected behavior with no regard for the length of the execution time.
+
+Table \ref{tab:test:metrics} shows the list of subsystems and their status. Aside from data acquisition, there is little to be said about the tests, as they were either trivial pass/fail checks, or they were already discussed in Chapter \ref{chap:td:software}. Data acquisition, however, is the bottleneck of the whole system, which is why its performance needs to be discussed in greater detail.
+
+
+\begin{table}[ht]
+	\centering
+		\begin{tabular}{|c|c|}
+			\hline
+			Subsystem         	& Status 			\\ \hline
+			\glsfmtshort{gui} 	& Functional 		\\ \hline
+			Device connection 	& Functional 		\\ \hline
+			Sequence creation	& Functional 		\\ \hline
+			Waveform generation	& Functional 		\\ \hline
+			Data acquisition	& Functional 		\\ \hline
+			Data visualization	& Functional 		\\ \hline
+			$T_1$ decoder		& Not implemented 	\\ \hline
+		\end{tabular}
+	\caption{Subsystems of the $T_1$ measurements software and their working status}
+	\label{tab:test:metrics}
+\end{table}
 
 
 
 \section{Test setup}
-As different test methods require slightly different physical setups, this section outlines the parts comprising the setups and how they operate. Each setup is dissected separately and the necessary devices and components are shown in diagrams and pictures.
+As different test methods require slightly different physical setups, this section outlines the parts that comprise the setups and how they operate. Each setup is dissected separately and the necessary devices and components are shown in diagrams and pictures.
 
 \subsection{Photodiode-model characterization}
 Characterizing the system well requires fixed currents, due to the big difference in output voltage small currents differences at the input make. As the diode detects ambient light and cannot be set to one current level reliably, a model needs to be used instead. A voltage source can then be used to simulate the nanoampere photovoltaic current $I_f$ generated by the diode. According to Säckinger \cite{sackinger2017analysis}, the resistor $R_d$ and the capacitor $C_d$ in Figure \ref{fig:test:diode_equiv} are enough to characterize a \gls{tia} circuit. By inputting a voltage at the node $V_i$, $R_d$ functions as a current source, similar to a photodiode. This model assumes the parallel shunt resistance is so high that it can be omitted, while the series resistance can be neglected due to its limited impact on the system. However the diode capacitance is central to \gls{tia} analysis and design, which is why $C_d$ is there to mimic it. Additionally, there is the matching resistor $R_i$, which can be replaced by a coaxial terminator, and the capacitor $C_i$ that is used to isolate the input from the rest of the circuit.
@@ -225,9 +253,6 @@ The integration test has a similar test setup to the complete quantum sensing se
 	\label{fig:test:tia_integ:setup}
 \end{figure}
 
-In addition to the diagram, Figure \ref{fig:test:setupinteg} shows what the physical measurement setup looks like. Because of reasons discussed in the section containing the results (see Chapter \ref{chap:test:integ_res}), the between the laser and the detector had to be increased and the alignment manually adjusted.
-
-
 \begin{figure}[ht]
 	\centering
 	\includegraphics[width=0.5\linewidth]{img/setup_integ_alt}
@@ -235,6 +260,32 @@ In addition to the diagram, Figure \ref{fig:test:setupinteg} shows what the phys
 	\label{fig:test:setupinteg}
 \end{figure}
 
+In addition to the diagram, Figure \ref{fig:test:setupinteg} shows what the physical measurement setup looks like. Because of reasons discussed in the section containing the results (see Chapter \ref{chap:test:integ_res}), the between the laser and the detector had to be increased and the alignment manually adjusted.
+
+
+\subsection{\glsfmtshort{daq} test setup}
+The simplest way of testing the \gls{daq} functionality of the application is to connect the waveform generator of the Analog Discovery to its oscilloscope and run $T_1$ sequences. This method is best because of its simplicity, as well as its similarity to real $T_1$ measurements. Because of the shape of the waveforms, testing with the waveform generator and oscilloscope can give insight into how the real tests will be acquired and stored.
+
+\begin{figure}[ht]
+	\centering
+	\begin{tikzpicture}[
+		% define box styles
+		boxg/.style={rectangle, thick, draw=green!50!black, fill=green!5, minimum size=5mm},
+		]
+		% draw MW nodes
+		\node[boxg] (ad2)								{Analog Discovery 2};
+		\node[boxg] (app)		[above=of ad2] 			{Application};
+		
+		
+		% draw app lines
+		\draw[->, thick]			(app.south) 		to node[midway, left]{\glsfmtshort{ttl}}	(ad2.north);
+		\draw[->, thick]			(ad2.north) 		to node[midway, right]{Oscilloscope}		(app.south);
+	\end{tikzpicture}
+	\caption{High-level overview of the $T_1$ measurements quantum sensing setup}
+	\label{fig:test:daq}
+\end{figure}
+
+The most interesting metric for data acquisition is the maximum sampling frequency before data loss occurs, as clear results require it to be much higher than the signal frequency. According to Nyquist's theorem, to sample a sinusoidal signal with a frequency of $f_{sig}$ the sampling frequency $f_s$ needs to be $f_s > 2f_{sig}$. However, square waves are comprised of multiple harmonics, in addition to the fundamental of the signal, which necessitates a drastic increase in $f_s$. In fact, to sample a useful amount of harmonics\footnote{Square waves contain so-called odd harmonics, which are harmonics at frequencies that are multiples of the fundamental and odd integer series. Minimum square-wave definition can be had with only up to the second harmonic ($5f_{sig}$), but adapting sampling for up to the fourth harmonic ($11f_{sig}$) was chosen to improve measurement accuracy}, sampling should be done with a frequency $f_s > 2f_{harm5} = 22f_{sig}$. Lastly, because the measured signal is not periodic, the lowest pulse duration, which is the minimum dark time, needs to be taken to calculate $f_{sig}$. As a result the sampling frequency needs to be set to $f_s > \frac{22}{\tau_{dmin}}$.
 
 
 \section{Results}
@@ -743,14 +794,19 @@ Contrary to what was expected, the tests, shown in Figure \ref{fig:test:vdiode_f
 	\label{fig:test:vdiode_filter}
 \end{figure}
 
-\section{Discussion}
-As a result of the tests, it was concluded that even the first iteration of the photodetector can be used for \gls{cwodmr} measurements. The protocol can be executed with extremely-low-bandwidth photodetectors (e.g. 18 \unit{\hertz} \cite{acharya2025compact}). That being said, pulsed protocols cannot be achieved with the first iteration of the circuit due to their high frequency requirements. Higher frequencies also exacerbate the issue of overexposure of the sensor, which leads to decreased performance. The effect of the laser on the sensor needs to be considered when integrating the complete setup, as it can affect the measurements. There are cancellation techniques to measure only the \gls{nv} luminescence \cite{sewani2020coherent}, but if the photodiode is overexposed or the signal is getting limited by the power rail, the output will not be usable. 
+\subsection{\glsfmtshort{daq} test}
+Data acquisition
 
+\section{Discussion}
+
+\subsection{Photodetector}
+As a result of the tests, it was concluded that even the first iteration of the photodetector can be used for \gls{cwodmr} measurements. The protocol can be executed with extremely-low-bandwidth photodetectors (e.g. 18 \unit{\hertz} \cite{acharya2025compact}). That being said, pulsed protocols cannot be achieved with the first iteration of the circuit due to their high frequency requirements. Higher frequencies also exacerbate the issue of overexposure of the sensor, which leads to decreased performance. The effect of the laser on the sensor needs to be considered when integrating the complete setup, as it can affect the measurements. There are cancellation techniques to measure only the \gls{nv} luminescence \cite{sewani2020coherent}, but if the photodiode is overexposed or the signal is getting limited by the power rail, the output will not be usable. 
 
 Even though the first iteration has passable characteristics, it is worse than the second version in all regards. The improved \gls{tia} design presents a better frequency response. Across all frequencies, the device shows less attenuation of the harmonics of the square wave, as well as more defined rising and falling edges. In addition, there is less noise present in the signal. This can be attributed to the addition of the ground plane, as well as the better layout of the \gls{pcb}. 
 
 The third iteration offers a solution that is more suitable for a compact setup. The frequency response is the same as the second version, but the onboard power supply inverter generates unwanted noise. As seen in Figure \ref{fig:test:v3ripple_both}, there is a large periodic signal, that looks like a supply ripple. It is also possible that the 1 \unit{\micro\farad} filtering capacitors $C_O$, $C_I$ and $C_{fly}$ do not match the design values, because they were found in a capacitor book in the FabLab. Due to the unknown manufacturer and model, the \gls{esr} of $C_O$ might also be too big. Furthermore, there is a possibility that their capacitance is lower than 1 \unit{\micro\farad}, which would also explain the shape of the ripple in Figure \ref{fig:test:v3ripple}. The presence of 50 \unit{\kilo\hertz} noise after increasing the capacitance, in combination with the large noise amplitude, suggests there is interference with the output of the amplifier.
 
+\subsection{$T_1$ software}
 
 
 

@@ -901,7 +901,7 @@ Figure \ref{fig:td:imp:photodetecv5} shows the schematic and the \gls{ecad} mode
 Aside from making the circuit itself less noisy, extra care was taken to reduce external noise susceptibility. Although having connection pins for the power supply is convenient for testing, it also increases noise, which is why a barrel connector was chosen instead. Moreover, additional vias were added to the ground plane as a means of reducing electromagnetic interference.
 
 %\section{OLIA implementation}
-\section{Software application}
+\section{Software application} \label{chap:td:software}
 
 \begin{figure}[ht]
 	\centering
@@ -1072,14 +1072,14 @@ Figure \ref{fig:td:logspace_gen_func} shows the custom \lstinline|logspace| func
 	\begin{subfigure}[1a]{.49\linewidth}
 		\centering
 		\includegraphics[width=\linewidth]{matlab/logspace_large_td}
-		\caption{Plot of all data points}
+		\caption{Plot of all 25 data points}
 		\label{fig:td:logspace_whole}
 	\end{subfigure}
 	\hfill
 	\begin{subfigure}[1b]{.49\linewidth}
 		\centering
 		\includegraphics[width=\linewidth]{matlab/logspace_small_td}
-		\caption{Plot of the first ten data points}
+		\caption{Plot of the first 10 data points}
 		\label{fig:td:logspace_small}
 	\end{subfigure}
 	\caption{Generating buffer dark times $t_{d}$ using \lstinline|numpy.logspace| and a custom function from 1 to 1000 with 25 data points}
@@ -1110,7 +1110,7 @@ for curr_td in all_tds:
 	\label{fig:td:sequence_gen_loop}
 \end{figure}
 
-Following the sequence generation, the Analog Discovery has to be configured for outputting the sequences. The code in Figure \ref{fig:td:pulsing_sequence} shows the \gls{api} calls that are needed when \lstinline|dwf.FDwfDeviceAutoConfigureSet| is disabled. First, \lstinline|laser_channel|, which is the attribute assigned to the laser pulsing waveform generator channel, is enabled. After that, the function of the waveform generator needs to be set. \gls{ttl} pulses use the custom analog function, which is called \lstinline|funcCustom| and it allows for writing patterns to the buffer. What follows is a call to the function for setting the buffer data using a $T_1$ sequence loaded in \lstinline|pattern|, which has the fixed length of 4096. Afterwards, the frequency of the whole pattern needs to be set to the pattern frequency \lstinline|f_pattern|, which is calculated based on the minimum pulse time. Here it should be noted that the buffer contains normalized values, which means that the following setting of the amplitude is required. The \lstinline|amplitude| variable passed to the \gls{api} call is 5 \unit{\volt} and should not be changed, unless the laser and laser driver change. Concluding the waveform generator setup, the program then tells it to run for \lstinline|run_time| which is a set number of seconds. Then the waveform generator can start outputting the current $T_1$ sequence. This whole process is done for every data point. Lastly, it is important to mention that all the functions which are called with \lstinline|AnalogOutNodeCarrier| as a parameter need it, as it tells them to configure the signal and not the channel modulation.
+Following the sequence generation, the Analog Discovery has to be configured for outputting the sequences. The code in Figure \ref{fig:td:pulsing_sequence} shows the \gls{api} calls that are needed when \lstinline|hdwf| attribute is a handle to the same device that was opened during device discovery and the \lstinline|laser_channel| is a waveform generator channel that is a attribute assigned to the class in its constructor. \lstinline|dwf.FDwfDeviceAutoConfigureSet| is disabled. It is important to note that the  First, \lstinline|laser_channel|, which is the attribute assigned to the laser pulsing waveform generator channel, is enabled. After that, the function of the waveform generator needs to be set. \gls{ttl} pulses use the custom analog function, which is called \lstinline|funcCustom| and it allows for writing patterns to the buffer. What follows is a call to the function for setting the buffer data using a $T_1$ sequence loaded in \lstinline|pattern|, which has the fixed length of 4096. Afterwards, the frequency of the whole pattern needs to be set to the pattern frequency \lstinline|f_pattern|, which is calculated based on the minimum pulse time. Here it should be noted that the buffer contains normalized values, which means that the following setting of the amplitude is required. The \lstinline|amplitude| variable passed to the \gls{api} call is 5 \unit{\volt} and should not be changed, unless the laser and laser driver change. Then the waveform generator can start outputting the current $T_1$ sequence until, at the end of the sequence, the output is reset. This whole process is done for every data point. Lastly, it is important to mention that all the functions which are called with \lstinline|AnalogOutNodeCarrier| as a parameter need it, as it tells them to configure the signal and not the channel modulation.
 
 
 \begin{figure}[ht]
@@ -1120,8 +1120,9 @@ dwf.FDwfAnalogOutNodeFunctionSet(self.hdwf, self.laser_channel, AnalogOutNodeCar
 dwf.FDwfAnalogOutNodeDataSet(self.hdwf, self.laser_channel, AnalogOutNodeCarrier, pattern, c_int(self.pattern_size)) # set pattern of custom function
 dwf.FDwfAnalogOutNodeFrequencySet(self.hdwf, self.laser_channel, AnalogOutNodeCarrier, c_double(f_pattern)) # set frequency of the whole pattern
 dwf.FDwfAnalogOutNodeAmplitudeSet(self.hdwf, self.laser_channel, AnalogOutNodeCarrier, amplitude) # set amplitude of the whole pattern to 5V
-dwf.FDwfAnalogOutRunSet(self.hdwf, self.laser_channel, c_double(run_time / f_pattern)) # set the run and wait time (in seconds)
 dwf.FDwfAnalogOutConfigure(self.hdwf, self.laser_channel, c_int(1)) # start outputting
+# execute some other code here
+dwf.FDwfAnalogOutReset(self.hdwf, self.laser_channel)
 	\end{lstlisting}
 	\caption{Outputting the first sequence from the \lstinline|sequences| attribute of the \gls{gui} object using the WaveForms \gls{api}}
 	\label{fig:td:pulsing_sequence}
@@ -1129,7 +1130,61 @@ dwf.FDwfAnalogOutConfigure(self.hdwf, self.laser_channel, c_int(1)) # start outp
 
 Configuring the lock-in reference channel to output a square-wave signal is quite similar, which is why the code for it was put in Appendix \ref{chap:appendix:code} (Figure \ref{code:sequence_gen_loop}). The only difference is the waveform generator function type, which is provided to \lstinline|dwf.FDwfAnalogOutNodeFunctionSet|. Instead of a custom analog function, the square wave \lstinline|funcSquare| type is passed. Afterwards there is no pattern to set, so there is no call to \lstinline|FDwfAnalogOutNodeDataSet|.
 
-\subsection{Data acquisition}
-To measure test data in the simplest way possible, it is crucial that whatever lock-in amplifier is used to boost the photodetector signal outputs to the Analog Discovery oscilloscope, as shown in Figure \ref{fig:td:ad2}. Th 
+\subsection{Data acquisition} \label{chap:td:daq}
+To measure test data in the simplest way possible, it is crucial that whatever lock-in amplifier is used to boost the photodetector signal outputs to the Analog Discovery oscilloscope, as shown in Figure \ref{fig:td:ad2}. This allows for the use of the same Waveforms \gls{api} that handles waveform generation.
+
+The oscilloscope channel setup, which is used for data acquisition, requires setup that is somewhat reminiscent of the waveform generator setup, as is evident from Figure \ref{fig:td:daq_setup}. As before, the oscilloscope first needs to be enabled. Afterwards, its signal range has to be set, which is the maximum value that it can read. Then the mode of operation of the oscilloscope needs to eb configured. \lstinline|acqmodeRecord| tells the Analog Discovery that it needs to stream in data continuously. Alternatively, it is possible to use single acquisition with \lstinline|acqmodeSingle|, however this imposes a limit on the amount of data, as well as its resolution. Following the acquisition mode configuration, the mode-specific settings need to be configured. Firstly, the sampling frequency of the oscilloscope needs to be set. This value cannot exceed the clock. Additionally, if there is missing or corrupted data in the streamed buffer, then the sampling rate needs to be lowered, because it is the only possible culprit. Secondly, the recording length has to be configured by setting it in seconds. After the mode-specific configuration, a call to \lstinline|FDwfAnalogInConfigure| needs to be made in order to reset the trigger. By setting the reconfigure flag to \lstinline|c_int(1)| and the start flag to \lstinline|c_int(0)|, the data acquisition is not started and the device trigger is reset. It is mandatory to wait for a period of time afterwards and the Waveform \gls{sdk} documents usually set that period of time to 2 seconds. To start the data acquisition, a similar call to \lstinline|FDwfAnalogInConfigure| needs to be made, except the values of the reconfigure and start flags are swapped. Just like before, \lstinline|hdwf| is the device handle received on opening the Analog Discovery and \lstinline|scope_channel| is a channel enumeration constant.
+
+\begin{figure}[ht]
+	\begin{lstlisting}[language=pythe]		
+dwf.FDwfAnalogInChannelEnableSet(self.hdwf, self.scope_channel, c_int(1)) # enable oscilloscope (acquisition) channel
+dwf.FDwfAnalogInChannelRangeSet(self.hdwf, self.scope_channel, amplitude) # set the vertical range of the oscilloscope to 5V
+dwf.FDwfAnalogInAcquisitionModeSet(self.hdwf, acqmodeRecord) # set the mode of the oscilloscope to record (continuously streaming data)
+dwf.FDwfAnalogInFrequencySet(self.hdwf, c_double(daq_sf)) # set the sample frequency of the acquisition to 5MHz
+dwf.FDwfAnalogInRecordLengthSet(self.hdwf, c_double(run_time)) # set the length of the recording to equal that of the run time (or -1 for infinite recording length)
+dwf.FDwfAnalogInConfigure(self.hdwf, c_int(1), c_int(0)) # reset trigger timeout
+time.sleep(wait_time) # wait for offset to stabilize
+dwf.FDwfAnalogInConfigure(self.hdwf, c_int(0), c_int(1)) # enable
+	\end{lstlisting}
+	\caption{Configuring an oscilloscope channel using the WaveForms \gls{api}}
+	\label{fig:td:daq_setup}
+\end{figure}
+
+While the loop used to retrieve data from the stream is somewhat complicated, it is essentially made up of the code in Figure \ref{fig:td:daq_read}. The status of data stream needs to be retrieved first. This is done by calling \lstinline|FDwfAnalogInStatusRecord|, which writes the number of available, lost and corrupted samples to the pointers provided to it. After getting the recording status, \lstinline|FDwfAnalogInStatusData| is called to copy all the available samples into the stream output buffer \lstinline|daq_buffer|. After concluding the reading, the whole stream of data is stored to a \gls{csv} file, which can then be used for processing and plotting.
+
+\begin{figure}[ht]
+	\begin{lstlisting}[language=pythe]		
+dwf.FDwfAnalogInStatusRecord(self.hdwf, byref(s_available), byref(s_lost), byref(s_corrupted)) # retrieve information about data loss and corruption
+# code for handling lost/corrupted data goes here
+dwf.FDwfAnalogInStatusData(self.hdwf, self.scope_channel,
+byref(daq_buffer, sizeof(c_double) * daq_samples_read),
+s_available) # get scope channel data and copy it to the buffer
+	\end{lstlisting}
+	\caption{Reading from oscilloscope using the WaveForms \gls{api}}
+	\label{fig:td:daq_read}
+\end{figure}
+
 
 \subsection{Data processing and visualization}
+\begin{figure}[!ht]
+	\centering
+	\begin{subfigure}[1a]{.49\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{matlab/t1_pulse}
+		\caption{Plot of all pulses in one period}
+		\label{fig:td:t1_visualization_whole}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[1b]{.49\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{matlab/t1_pulse_zoom}
+		\caption{Plot of the initialization and readout pulses}
+		\label{fig:td:t1_visualization_zoom}
+	\end{subfigure}
+	\caption{Plots of the pulsing sequence of the first data point when running the test with 10 \unit{\micro\second} pulse width $\tau_{las}$ and 2 \unit{\micro\second} minimum dark time $\tau_{dmin}$ with a sampling rate of 5 \unit{\mega\hertz}}
+	\label{fig:td:t1_visualization}
+\end{figure}
+
+As of finalizing the report, the $T_1$ measurements setup has still not been assembled and, consequently, limited data processing could be done. That being said, data processing and visualization has still been considered and the groundwork has been laid out by using mock data.
+
+To simulate the signal that would be read during a $T_1$ measurement, the oscilloscope can be connected directly to the waveform generator while it is outputting $T_1$ pulsing sequences. Figure \ref{fig:td:t1_visualization} what the plots of a data point of the pulsing sequences. In Chapter \ref{chap:td:daq}, it was shown that the data acquisition is set to a time period in seconds. In that amount of time, many $T_1$ measurements will need to be done. Literature on $T_1$ relaxometry needs to be consulted for a formula to convert the light intensity changes to a single number per measurement, as Formula \eqref{eq:t1}, which was provided in Chapter \ref{chap:fd:t1}, is only theoretical and implementing it in practice is not trivial. Afterwards, the average of all measurements needs to be taken. Combining the averages of all data points in one plot should result in a plot like Figure \ref{fig:t1result}. 

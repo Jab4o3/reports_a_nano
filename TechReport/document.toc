@@ -68,12 +68,12 @@
 \contentsline {subsection}{\numberline {6.3.3}Integration test}{56}{subsection.6.3.3}%
 \contentsline {subsection}{\numberline {6.3.4}Additional integration test}{60}{subsection.6.3.4}%
 \contentsline {subsection}{\numberline {6.3.5}\glsxtrtitleshort {daq} test}{61}{subsection.6.3.5}%
-\contentsline {section}{\numberline {6.4}Discussion}{61}{section.6.4}%
-\contentsline {subsection}{\numberline {6.4.1}Photodetector}{61}{subsection.6.4.1}%
+\contentsline {section}{\numberline {6.4}Discussion}{62}{section.6.4}%
+\contentsline {subsection}{\numberline {6.4.1}Photodetector}{62}{subsection.6.4.1}%
 \contentsline {subsection}{\numberline {6.4.2}$T_1$ software}{62}{subsection.6.4.2}%
 \contentsline {section}{\numberline {6.5}Known limitations}{62}{section.6.5}%
-\contentsline {chapter}{\numberline {7}Conclusion}{63}{chapter.7}%
-\contentsline {chapter}{\numberline {8}Recommendations}{64}{chapter.8}%
-\contentsline {chapter}{Appendices}{67}{section*.92}%
-\contentsline {chapter}{\numberline {A}Code}{67}{appendix.1.A}%
-\contentsline {chapter}{Glossary}{72}{section*.98}%
+\contentsline {chapter}{\numberline {7}Conclusion}{64}{chapter.7}%
+\contentsline {chapter}{\numberline {8}Recommendations}{65}{chapter.8}%
+\contentsline {chapter}{Appendices}{68}{section*.93}%
+\contentsline {chapter}{\numberline {A}Code}{68}{appendix.1.A}%
+\contentsline {chapter}{Glossary}{73}{section*.99}%

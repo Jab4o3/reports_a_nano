@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.24.0 (MiKTeX 26.1) (format=lualatex 2026.2.18)  25 FEB 2026 09:32
+This is LuaHBTeX, Version 1.24.0 (MiKTeX 26.1) (format=lualatex 2026.2.18)  28 FEB 2026 08:40
  restricted system commands enabled.
 **document.tex
 (./document.tex
@@ -2672,59 +2672,70 @@ File: img/v2_diode_2filter.png Graphic file (type png)
 <use img/v2_diode_2filter.png>
 Package luatex.def Info: img/v2_diode_2filter.png  used on input line 789.
 (luatex.def)             Requested size: 209.1301pt x 125.47824pt.
+<matlab/t1_pulse_zoom_cancel.png, id=1839, 462.528pt x 346.896pt>
+File: matlab/t1_pulse_zoom_cancel.png Graphic file (type png)
+<use matlab/t1_pulse_zoom_cancel.png>
+Package luatex.def Info: matlab/t1_pulse_zoom_cancel.png  used on input line 80
+5.
+(luatex.def)             Requested size: 209.1301pt x 156.84808pt.
+File: matlab/t1_pulse_zoom.png Graphic file (type png)
+<use matlab/t1_pulse_zoom.png>
+Package luatex.def Info: matlab/t1_pulse_zoom.png  used on input line 812.
+(luatex.def)             Requested size: 209.1301pt x 156.84808pt.
+ [61<./img/v2_diode_1filter.png><./img/v2_diode_2filter.png><./matlab/t1_pulse_z
+oom_cancel.png>]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 833.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 809.
+(hyperref)                removing `subscript' on input line 833.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 809.
+(hyperref)                removing `math shift' on input line 833.
 
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 809.
-
-[61<./img/v2_diode_1filter.png><./img/v2_diode_2filter.png>] [62]
+[62] [63]
 Chapter 7.
-[63
+[64
 
 ]
 Chapter 8.
-<matlab/opa818_comparison.png, id=1877, 421.575pt x 316.18124pt>
+<matlab/opa818_comparison.png, id=1896, 421.575pt x 316.18124pt>
 File: matlab/opa818_comparison.png Graphic file (type png)
 <use matlab/opa818_comparison.png>
-Package luatex.def Info: matlab/opa818_comparison.png  used on input line 844.
+Package luatex.def Info: matlab/opa818_comparison.png  used on input line 877.
 (luatex.def)             Requested size: 256.07741pt x 192.05975pt.
 File: img/ad4637_noise.png Graphic file (type png)
 <use img/ad4637_noise.png>
-Package luatex.def Info: img/ad4637_noise.png  used on input line 852.
+Package luatex.def Info: img/ad4637_noise.png  used on input line 885.
 (luatex.def)             Requested size: 209.1301pt x 166.10901pt.
-<img/opa818_noise.png, id=1880, 435.87843pt x 310.91156pt>
+<img/opa818_noise.png, id=1899, 435.87843pt x 310.91156pt>
 File: img/opa818_noise.png Graphic file (type png)
 <use img/opa818_noise.png>
-Package luatex.def Info: img/opa818_noise.png  used on input line 858.
+Package luatex.def Info: img/opa818_noise.png  used on input line 891.
 (luatex.def)             Requested size: 209.1301pt x 149.16942pt.
-[64
+[65
 
 <./matlab/opa818_comparison.png>]
-<matlab/diode_comparison.png, id=1901, 421.575pt x 316.18124pt>
+<matlab/diode_comparison.png, id=1920, 421.575pt x 316.18124pt>
 File: matlab/diode_comparison.png Graphic file (type png)
 <use matlab/diode_comparison.png>
-Package luatex.def Info: matlab/diode_comparison.png  used on input line 873.
+Package luatex.def Info: matlab/diode_comparison.png  used on input line 906.
 (luatex.def)             Requested size: 298.75264pt x 224.07051pt.
- [65<./img/opa818_noise.png><./matlab/diode_comparison.png>]) [66]
+ [66<./img/opa818_noise.png><./matlab/diode_comparison.png>]) [67]
 \openout2 = A-Appendices.aux
  (./A-Appendi
 ces.tex
 Appendix A.
-) [67
+) [68
 
 
 
 
 
-] [68] [69] [70] [71] (./document.gls) [72
+] [69] [70] [71] [72] (./document.gls) [73
 
 
 
@@ -2747,14 +2758,14 @@ Overfull \hbox (32.73903pt too wide) in paragraph at lines 307--307
 r/zi_whitepa-per_prin-ci-ples_of_lock-
  []
 
-[73
+[74
 
 ]
 Overfull \hbox (3.01865pt too wide) in paragraph at lines 307--307
 \TU/lmtt/m/n/10 cmosedu . com / jbaker / students / david / myStuff / LinkPages / Projects / ECG720 _ SANTIAGO _
  []
 
-[74] 
+[75] 
 enddocument/afterlastpage (AED): lastpage setting LastPage.
 (./document.aux (./05-Introduction.aux) (./06-Analysis_of_specifications.aux)
 (./07-Functional.aux) (./08-Technical.aux) (./09-Conclusion.aux)
@@ -2764,21 +2775,21 @@ LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
  ***********
 Package rerunfilecheck Info: File `document.out' has not changed.
-(rerunfilecheck)             Checksum: A13D7224FE18EED6D924DDF6E79339CF;10915.
+(rerunfilecheck)             Checksum: 6A20A349B4F54C7F41446DB6F9422A80;10915.
 Package logreq Info: Writing requests to 'document.run.xml'.
 
 \openout1 = document.run.xml
 )
 
 Here is how much of LuaTeX's memory you used:
- 89539 strings out of 476076
+ 89565 strings out of 476076
  1164421,4101490 words of node,token memory allocated
  1874 words of node memory still in use:
    6 hlist, 2 vlist, 2 rule, 37 glue, 4 kern, 1 glyph, 299 attribute, 84 glue_sp
 ec, 150 attribute_list, 2 write, 18 pdf_action nodes
    avail lists: 1:4,2:28503,3:3686,4:7762,5:35380,6:229,7:29821,8:130,9:61155,10
 :40,11:2310
- 109572 multiletter control sequences out of 65536+600000
+ 109590 multiletter control sequences out of 65536+600000
  86 fonts using 6503727 bytes
  99i,14n,131p,2591b,2816s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/users/vladi/appdata/local/programs/miktex/fonts/opentype/public/lm/lmromanca
@@ -2822,9 +2833,9 @@ a/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/vladi
 s/vladi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><
 C:/Users/vladi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols
 /msbm10.pfb>
-Output written on document.pdf (75 pages, 8675516 bytes).
+Output written on document.pdf (76 pages, 8700838 bytes).
 
-PDF statistics: 2431 PDF objects out of 2487 (max. 8388607)
- 610 named destinations out of 1000 (max. 1048576)
+PDF statistics: 2451 PDF objects out of 2487 (max. 8388607)
+ 612 named destinations out of 1000 (max. 1048576)
  640 words of extra memory for PDF output out of 10000 (max. 100000000)
 

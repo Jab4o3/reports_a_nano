@@ -75,7 +75,8 @@
 \contentsline {chapter}{\numberline {7}Conclusion}{64}{chapter.7}%
 \contentsline {chapter}{\numberline {8}Recommendations}{65}{chapter.8}%
 \contentsline {section}{\numberline {8.1}Photodetector}{65}{section.8.1}%
-\contentsline {section}{\numberline {8.2}Software application}{67}{section.8.2}%
-\contentsline {chapter}{Appendices}{69}{section*.93}%
-\contentsline {chapter}{\numberline {A}Code}{69}{appendix.1.A}%
-\contentsline {chapter}{Glossary}{74}{section*.99}%
+\contentsline {subsection}{\numberline {8.1.1}Proposed \glsxtrtitleshort {podmr} photodetector design}{67}{subsection.8.1.1}%
+\contentsline {section}{\numberline {8.2}Software application}{68}{section.8.2}%
+\contentsline {chapter}{Appendices}{70}{section*.96}%
+\contentsline {chapter}{\numberline {A}Code}{70}{appendix.1.A}%
+\contentsline {chapter}{Glossary}{75}{section*.102}%

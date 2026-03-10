@@ -44,7 +44,7 @@ There are a number of different quantum protocols, which differ in what they can
 
 
 \subsection{$T_1$ relaxometry}\label{chap:fd:t1}
-$T_1$, $T_2$ and $T_2^*$ relaxation time measurements are commonly associated with radiometry \cite{ballinger23}, but they have other uses too. $T_1$ measurements, in particular, are useful in the realm of quantum sensing. Knowing the $T_1$ relaxation time, which refers to the time it takes for the spins in an \gls{nv} system to decay back to their original state, makes it possible to adjust the pulse sequences of more complex protocols and thus get better results.  %explain what relaxation is and the protcol
+ $T_1$, $T_2$ and $T_2^*$ relaxation time measurements are commonly associated with radiometry \cite{ballinger23}, but they have other uses too. $T_1$ measurements, in particular, are useful in the realm of quantum sensing. Knowing the $T_1$ relaxation time, which refers to the time it takes for the spins in an \gls{nv} system to decay back to their original state, makes it possible to adjust the pulse sequences of more complex protocols and thus get better results. 
 
 % % alternative to tikz diagram
 %\begin{figure}[ht]
@@ -103,17 +103,81 @@ I(t)=I_\infty+I(0)e^{-\tau_d/T_1}
 
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width=0.7\linewidth]{img/t1_result}
+	\includegraphics[width=0.5\linewidth]{img/t1_result}
 	\caption{Results of a set of $T_1$ measurements with varied dark time $\tau_d$ (image credit to Sewani et al \cite{sewani2020coherent})}
 	\label{fig:t1result}
 \end{figure}
 
 
-
 \subsection{Other pulsed protocols}
 There are several protocols which fall under the \gls{podmr} umbrella. Aside from $T_1$ measurements, Ramsey interferometry, Hahn echo and Rabi oscillations are the most common pulsed protocols. Supporting Rabi oscillations is the ultimate goal of the quantum sensing setup at the Applied Nanotechnology research group. However, $T_1$ measurements need to be supported first, as based on them the quantum sensing setup will be optimized to detect Rabi oscillations.
 
-%todo_podmr: Finish Rabi explanation
+Rabi oscillations are, as the name suggests, oscillations arising from the variations of the quantum state of the system, which in the case of \gls{nv} centers manifest in a sinusoidal light signal. However, only ideal systems can maintain a truly sinusoidal signal. In reality, the oscillations of an \gls{nv} system decay over time due to environmental factors. The oscillation frequency $\Omega_R$ is called Rabi frequency. Figure \ref{fig:fd:rabiresult} shows what Rabi oscillations look like when measured with an optical setup.
+
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.5\linewidth]{img/rabi_result}
+	\caption{Rabi oscillations measurement (image credit to Sewani et al \cite{sewani2020coherent})}
+	\label{fig:fd:rabiresult}
+\end{figure}
+
+
+
+Figure \ref{fig:fd:rabiwaveforms} shows the pulsing sequences needed to achieve Rabi oscillations. Even though they resemble the $T_1$ sequences somewhat, the Rabi oscillations setup is more convoluted. At the very least, to measure Rabi, a microwave signal is needed at least, which adds an additional pulse sequence. The microwave pulse width $\tau_{mw}$ is varied, which provides the data points seen in Figure \ref{fig:fd:rabiresult}. Another major difference is that the two halves of the sequences are repeated a number of times.
+
+\begin{figure}[ht]
+	\centering
+	\begin{tikzpicture}[scale=.3]
+		% TTL signal rectangles
+		\fill [blue!20] 		(4,0) 		rectangle (8,4);
+		\fill [blue!20] 		(20,0) 		rectangle (24,4);
+		\fill [green!20] 		(4,8) 		rectangle (20,12);
+		\fill [red!20]			(12,-8)		rectangle (18,-4);
+		
+		% signal lines
+		\draw [thick] (0,0) -- (4, 0) -- (4,4) --(8,4) -- (8,0) -- (20,0) -- (20,4) -- (24,4) --(24,0) -- (40,0) node[anchor=west]{Laser};
+		\draw [thick] (0,8) -- (4,8) -- (4,12) -- (20,12) -- (20,8) -- (40,8) node[anchor=west]{Lock-in reference}; % ref
+		\draw [thick] (0, -8) -- (12, -8) -- (12, -4) -- (18, -4) -- (18, -8) -- (40, -8) node[anchor=west]{Microwave}; % mw signal
+		
+		% curly brace top
+		\draw [decorate, decoration={brace}] (4,14)  -- (20,14) node[midway, above]{$\tau_{li}$};
+		
+		
+		% curly braces mid
+		\draw [red, decorate, decoration={brace}] (4,6)  -- (20,6) node[midway, above]{Repeat within $\tau_{li}$};
+		\draw [red, decorate, decoration={brace}] (20,6) -- (36,6) node[midway, above]{Repeat within $\tau_{li}$};
+		
+
+		
+		% curly braces bottom
+		\draw [decorate, decoration={brace, mirror}] (12,-12) -- (18,-12) node[midway, below]{$\tau_{mw}$};
+		\draw [decorate, decoration={brace, mirror}] (18,-12) -- (20,-12) node[midway, below]{$\tau_{pad}$};
+		\draw [decorate, decoration={brace, mirror}] (20,-12) -- (24,-12) node[midway, below]{$\tau_{las}$};
+		\draw [decorate, decoration={brace, mirror}] (4,-12)  -- (8,-12) node[midway, below]{$\tau_{las}$};
+		
+		
+		% dash-dotted lines
+		\draw [dash dot] (4,14)  -- (4,-12);
+		\draw [dash dot] (8,6)   -- (8,-12);
+		\draw [dash dot] (12,6)  -- (12,-12);
+		\draw [dash dot] (18,6)  -- (18,-12);
+		\draw [dash dot] (20,14) -- (20,-12);
+		\draw [dash dot] (24,6)  -- (24,-12);
+		
+		% transparent lines
+		\draw [red, opacity=0.5] (4,6)  -- (4,-12);
+		\draw [red, opacity=0.5] (20,6) -- (20,-12);
+		\draw [red, opacity=0.5] (36,6) -- (36,-12);
+
+		
+	\end{tikzpicture}
+	\caption{Laser and reference signals for $T_1$ measurements}
+	\label{fig:fd:rabiwaveforms}
+\end{figure}
+
+
+
 
 \section{Quantum sensing setup}\label{chap:td:quantum_setup}
 Executing all of the aforementioned protocols requires a sensing setup with some specific capabilities. This section discusses the devices that make up the setup and the functionalities require by each protocol.

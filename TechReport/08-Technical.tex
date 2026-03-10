@@ -3,7 +3,7 @@ This chapter discusses the implementation and integration of the various parts o
 % describe specific implementation details
 %\section{Quantum sensing setup}
 \section{Photodetector design}\label{chap:td:tia_design}
-As an integral part of the sensing setup, the photodetector needs a lot of attention. Good amplification is crucial to increasing the \gls{snr} of the quantum setup, however the materials used need to be accessible and cheap. Based on these considerations and the design ideas presented in the functional design (see Chapter \ref{chap:photodetection_design}), the photodetection circuit can be drawn up. The first three versions presented in this section of the report address the basic requirements of a \gls{cwodmr} detector, which can have a bandwidth as low as 18 \unit{\hertz} \cite{acharya2025compact}. In contrast, the fourth iteration of the photodetector design focuses mostly on providing an increase in bandwidth, which is necessary for pulsed protocols.
+As an integral part of the sensing setup, the photodetector needs a lot of attention. Good amplification is crucial to increasing the \gls{snr} of the quantum setup, however the materials used need to be accessible and affordable. Based on these considerations and the design ideas presented in the functional design (see Chapter \ref{chap:photodetection_design}), the photodetection circuit can be drawn up. The first three versions presented in this section of the report address the basic requirements of a \gls{cwodmr} detector, which can have a bandwidth as low as 18 \unit{\hertz} \cite{acharya2025compact}. In contrast, the fourth iteration of the photodetector design focuses mostly on providing an increase in bandwidth, which is necessary for pulsed protocols.
 
 To summarize the circuit requirements, the input signal of the diode can range from \numrange{0}{50} \unit{\milli\ampere}. This current needs to be amplified in the range from \numrange{0}{5} \unit{\volt}. In addition, the circuit should consider the quantum protocols that it will be used to detect. For \gls{cwodmr}, low noise levels at low frequencies is desired and a bandwidth of 20 \unit{\hertz} is sufficient. In terms of pulsed protocols, $T_1$ is the main one that is considered. Based on the pulsing sequences shown in Sewani et al. \cite{sewani2020coherent}, it was decided that the detector should be able to detect pulses of 5 \unit{\micro\second}. Noise is harder to minimize with the broader bandwidth, which is why it was decided to have separate detectors for $T_1$ and \gls{cwodmr}.
 
@@ -140,7 +140,7 @@ Finally, the values in the \gls{kcl} equation (Equation \eqref{eq:td:kcl}) can b
 	\end{aligned}
 \end{equation}
 
-Before moving on to the pole analysis, the impact of the quality factor $Q$ on the system response should be considered (see Equation \eqref{eq:td:f_c_q}). Two system poles present when $Q > 0,5$. For $Q = \frac{\sqrt{3}}{3},$ the system has a Bessel response, which has the flattest group delay, however, if $Q = \frac{\sqrt{2}}{2}$, then the system has a Butterworth response, which means it has the flattest possible amplitude response. Although the group delay is not as important as the amplitude response, a Bessel response also results in smaller amount of overshoot and less jitter, which is why it is preferred. In the end, the choice between a Bessel and a Butterworth response only affects the circuit at high frequencies, which is not a concern when running \gls{cwodmr} measurements. Still, it can be important when investigating photodetection for pulsed protocols.
+Before moving on to the pole analysis, the impact of the quality factor $Q$ on the system response should be considered (see Equation \eqref{eq:td:f_c_q}). Two system poles present when $Q > 0,5$. For $Q = \frac{\sqrt{3}}{3},$ the system has a Bessel response, which has the flattest group delay, however, if $Q = \frac{\sqrt{2}}{2}$, then the system has a Butterworth response, which means it has the flattest possible amplitude curve. Although the group delay is not as important as the amplitude response, a Bessel response also results in smaller amount of overshoot, less jitter and less noise overall, which is why it is preferred. In the end, the choice between a Bessel and a Butterworth response only affects the circuit at high frequencies, which is not a concern when running \gls{cwodmr} measurements. Still, it will be important when investigating photodetection for pulsed protocols.
 
 \begin{equation}\label{eq:td:poles_general}
 	H(s) = H_0\frac{(-s_1)(-s_2)}{(s - s_1)(s - s_2)} = H_0\frac{s_1s_2}{s^2 + s(-s_1 - s_2) + s_1s_2}
@@ -372,7 +372,7 @@ V_{Or} = \frac{I_O}{f_{osc}C_O} + 2I_O(ESR_{CO})
 \end{equation}
 
 \subsection{Fourth iteration}\label{chap:td:v4_design}
-Although the previous iterations provided a cheap and reliable photodetector for \gls{cwodmr}, the narrow bandwidth prevents them from measuring pulsed protocols. This iteration is specifically designed for $T_1$ measurement support. Although it is somewhat more expensive than the previous iteration, version four justifies the price by offering significant sensing performance gains.
+Although the previous iterations provided an inexpensive and reliable photodetector for \gls{cwodmr}, the narrow bandwidth prevents them from measuring pulsed protocols. This iteration is specifically designed for $T_1$ measurement support. Although it is somewhat more expensive than the previous iteration, version four justifies the price by offering significant sensing performance gains.
 
 \begin{figure}[ht]
 	\centering
@@ -609,9 +609,7 @@ Using these values, the system model was calculated and plotted in Figure \ref{f
 	\label{fig:tina2probes1p}
 \end{figure}
 
-Figure \ref{fig:tina2probes1p} confirms the calculations, with some slight differences that can be attributed to the \gls{spice} models. As predicted, the frequency response of the circuit shows an increased cutoff frequency of \num{19,69} \unit{\kilo\hertz}, \num{8,92} \unit{\kilo\hertz} more than the previous iteration. Up to the cutoff frequency, the transimpedance gain is \num{160,83} \unit{\decibel}, which is almost the same as the former gain of \num{160,82} \unit{\decibel}. Furthermore, Figure \ref{fig:tinadc2probes1p} shows that, similarly to the first iteration, the system displays linearity in the range of \numrange{0}{45,86} \unit{\nano \ampere}. This is a reduction of \num{450} \unit{\pico\ampere} compared to the previous version and also \num{4,14} \unit{\nano \ampere} less than the ideal upper limit of the linear region.
-
-\begin{figure}[ht]
+\begin{figure}[!ht]
 	\centering
 	\begin{subfigure}[1a]{.49\linewidth}
 		\includegraphics[width=\linewidth]{matlab/noise_v2}
@@ -627,6 +625,10 @@ Figure \ref{fig:tina2probes1p} confirms the calculations, with some slight diffe
 	\caption{Noise of the \gls{tia} using an AD795, 10 \unit{\mega\ohm} resistor and an ideal compensating capacitor}
 	\label{fig:td:v2_noise_both}
 \end{figure}
+
+Figure \ref{fig:tina2probes1p} confirms the calculations, with some slight differences that can be attributed to the \gls{spice} models. As predicted, the frequency response of the circuit shows an increased cutoff frequency of \num{19,69} \unit{\kilo\hertz}, \num{8,92} \unit{\kilo\hertz} more than the previous iteration. Up to the cutoff frequency, the transimpedance gain is \num{160,83} \unit{\decibel}, which is almost the same as the former gain of \num{160,82} \unit{\decibel}. Furthermore, Figure \ref{fig:tinadc2probes1p} shows that, similarly to the first iteration, the system displays linearity in the range of \numrange{0}{45,86} \unit{\nano \ampere}. This is a reduction of \num{450} \unit{\pico\ampere} compared to the previous version and also \num{4,14} \unit{\nano \ampere} less than the ideal upper limit of the linear region.
+
+
 
 
 Additionally, a MATLAB script was used to calculate the \gls{tia} noise transfer function, the output of which is shown in Figure \ref{fig:td:v2_noise_calc}. As discussed in Chapter \ref{chap:td:calc:v2}, the noise gain spikes at the cutoff of the signal transfer function. The noise density was also plotted and is shown in Figure \ref{fig:td:v2_noise_sim}. At 1 \unit{\hertz}, the noise is 4,63 \unit[power-half-as-sqrt]{\micro\volt\per\hertz\tothe{0.5}} and it only settles at around 1 \unit{\mega\hertz}. The behavior is similar to the first iteration, but the increased bandwidth also results in an increase in noise in the extended bandwidth region.
@@ -722,7 +724,7 @@ After implementing all the changes, the simulation circuit in Figure \ref{fig:td
 
 Figure \ref{fig:td:v5_noise} shows a comparison of the noise of the OPA827-based \gls{tia} with the alternative ADA4627-based \gls{tia}. The results show the OPA827 has marginally better noise performance at higher frequency. However, it also performs marginally worse at lower frequencies. In addition, the two possible implementations of the \gls{cwodmr} photodetector were compared to the simulations of the second iteration. Table \ref{tab:v2_v5_v5_alt} shows both new versions demonstrate major noise improvements over the old one in the frequency range of 1 \unit{\hertz} to 100 \unit{\kilo\hertz}.
 
-\begin{figure}[ht]
+\begin{figure}[!ht]
 	\centering
 	\begin{subfigure}[1a]{.49\linewidth}
 		\includegraphics[width=\linewidth]{img/tina_noise_v5}
@@ -745,7 +747,7 @@ Figure \ref{fig:td:v5_noise} shows a comparison of the noise of the OPA827-based
 	\label{fig:td:v5_noise}
 \end{figure}
 
-\begin{table}[ht]
+\begin{table}[!ht]
 	\centering
 	\begin{tabular}{|c||c|c|c|}
 		\hline
@@ -1036,25 +1038,25 @@ Before doing anything else, the pulse generation function calls the function for
 
 \begin{figure}[ht]
 	\begin{lstlisting}[language=pythe]
-		def gen_log_space(self, td_min, td_max, n):
-		result = [td_min]
-		# return 1 if bad n
-		if n <= 1:
+def gen_log_space(self, td_min, td_max, n):
+	result = [td_min]
+	# return 1 if bad n
+	if n <= 1:
 		return result
 		
-		for i in range(1, n):
+	for i in range(1, n):
 		td_curr = td_min + round(10 ** (i * log10(td_max) / (n - 1)))
 		# exits prematurely if min and max are too close, otherwise replaces last value with td_max
 		if td_curr >= td_max:
-		result.append(td_max)
-		return result
+			result.append(td_max)
+			return result
 		
 		# check if dark time is repeating last value and increment if yes
 		if td_curr - result[-1] >= 1:
-		result.append(td_curr)
+			result.append(td_curr)
 		else:
-		result.append(result[-1] + 1)
-		return result
+			result.append(result[-1] + 1)
+	return result
 	\end{lstlisting}
 	\caption{Custom \lstinline|logspace| function implementation}
 	\label{fig:td:logspace_gen_func}

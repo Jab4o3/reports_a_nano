@@ -1,0 +1,1535 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{none/global//global/global/global}
+    \entry{enwiki:1301369588}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=b6aea1a416c89509a7df1cbb69249cb6}{%
+           family={{Wikipedia contributors}},
+           familyi={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{b6aea1a416c89509a7df1cbb69249cb6}
+      \strng{fullhash}{b6aea1a416c89509a7df1cbb69249cb6}
+      \strng{fullhashraw}{b6aea1a416c89509a7df1cbb69249cb6}
+      \strng{bibnamehash}{b6aea1a416c89509a7df1cbb69249cb6}
+      \strng{authorbibnamehash}{b6aea1a416c89509a7df1cbb69249cb6}
+      \strng{authornamehash}{b6aea1a416c89509a7df1cbb69249cb6}
+      \strng{authorfullhash}{b6aea1a416c89509a7df1cbb69249cb6}
+      \strng{authorfullhashraw}{b6aea1a416c89509a7df1cbb69249cb6}
+      \field{extraname}{1}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{[Online; accessed 3-September-2025]}
+      \field{title}{Nitrogen-vacancy center --- {Wikipedia}{,} The Free Encyclopedia}
+      \field{year}{2025}
+      \verb{urlraw}
+      \verb https://en.wikipedia.org/w/index.php?title=Nitrogen-vacancy_center&oldid=1301369588
+      \endverb
+      \verb{url}
+      \verb https://en.wikipedia.org/w/index.php?title=Nitrogen-vacancy_center&oldid=1301369588
+      \endverb
+    \endentry
+    \entry{enwiki:1309081879}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=b6aea1a416c89509a7df1cbb69249cb6}{%
+           family={{Wikipedia contributors}},
+           familyi={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{b6aea1a416c89509a7df1cbb69249cb6}
+      \strng{fullhash}{b6aea1a416c89509a7df1cbb69249cb6}
+      \strng{fullhashraw}{b6aea1a416c89509a7df1cbb69249cb6}
+      \strng{bibnamehash}{b6aea1a416c89509a7df1cbb69249cb6}
+      \strng{authorbibnamehash}{b6aea1a416c89509a7df1cbb69249cb6}
+      \strng{authornamehash}{b6aea1a416c89509a7df1cbb69249cb6}
+      \strng{authorfullhash}{b6aea1a416c89509a7df1cbb69249cb6}
+      \strng{authorfullhashraw}{b6aea1a416c89509a7df1cbb69249cb6}
+      \field{extraname}{2}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://en.wikipedia.org/w/index.php?title=Photoluminescence&oldid=1309081879}}
+      \field{note}{[Online; accessed 4-September-2025]}
+      \field{title}{Photoluminescence --- {Wikipedia}{,} The Free Encyclopedia}
+      \field{year}{2025}
+    \endentry
+    \entry{enwiki:1301371272}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=b6aea1a416c89509a7df1cbb69249cb6}{%
+           family={{Wikipedia contributors}},
+           familyi={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{b6aea1a416c89509a7df1cbb69249cb6}
+      \strng{fullhash}{b6aea1a416c89509a7df1cbb69249cb6}
+      \strng{fullhashraw}{b6aea1a416c89509a7df1cbb69249cb6}
+      \strng{bibnamehash}{b6aea1a416c89509a7df1cbb69249cb6}
+      \strng{authorbibnamehash}{b6aea1a416c89509a7df1cbb69249cb6}
+      \strng{authornamehash}{b6aea1a416c89509a7df1cbb69249cb6}
+      \strng{authorfullhash}{b6aea1a416c89509a7df1cbb69249cb6}
+      \strng{authorfullhashraw}{b6aea1a416c89509a7df1cbb69249cb6}
+      \field{extraname}{3}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://en.wikipedia.org/w/index.php?title=Optically_detected_magnetic_resonance&oldid=1301371272}}
+      \field{note}{[Online; accessed 6-October-2025]}
+      \field{title}{Optically detected magnetic resonance --- {Wikipedia}{,} The Free Encyclopedia}
+      \field{year}{2025}
+    \endentry
+    \entry{sewani2020coherent}{article}{}{}
+      \name{author}{8}{}{%
+        {{hash=faa7020c1e3f2d74150f20c5b01883bf}{%
+           family={Sewani},
+           familyi={S\bibinitperiod},
+           given={Vikas\bibnamedelima K},
+           giveni={V\bibinitperiod\bibinitdelim K\bibinitperiod}}}%
+        {{hash=d468b79d6155a3653337094f299a58f2}{%
+           family={Vallabhapurapu},
+           familyi={V\bibinitperiod},
+           given={Hyma\bibnamedelima H},
+           giveni={H\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+        {{hash=d9da4a23ca804cbf6aff5760349ec643}{%
+           family={Yang},
+           familyi={Y\bibinitperiod},
+           given={Yang},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=e5e27af328ec46a5958c5993bb3b9ea5}{%
+           family={Firgau},
+           familyi={F\bibinitperiod},
+           given={Hannes\bibnamedelima R},
+           giveni={H\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+        {{hash=60f92abb4e8e2fea528fc199fb7a0ce9}{%
+           family={Adambukulam},
+           familyi={A\bibinitperiod},
+           given={Chris},
+           giveni={C\bibinitperiod}}}%
+        {{hash=051d43afb7c84710de65ca8f7f675b5d}{%
+           family={Johnson},
+           familyi={J\bibinitperiod},
+           given={Brett\bibnamedelima C},
+           giveni={B\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+        {{hash=dcb0e3565a4dd656eef6ac63b343a35e}{%
+           family={Pla},
+           familyi={P\bibinitperiod},
+           given={Jarryd\bibnamedelima J},
+           giveni={J\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+        {{hash=d3bdc1767a73f2f4c50cee9b4672170e}{%
+           family={Laucht},
+           familyi={L\bibinitperiod},
+           given={Arne},
+           giveni={A\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {AIP Publishing}%
+      }
+      \strng{namehash}{1fc97887388aa9bfec315c399423326c}
+      \strng{fullhash}{214d8f967646c508d4b75fcfb3e50441}
+      \strng{fullhashraw}{214d8f967646c508d4b75fcfb3e50441}
+      \strng{bibnamehash}{1fc97887388aa9bfec315c399423326c}
+      \strng{authorbibnamehash}{1fc97887388aa9bfec315c399423326c}
+      \strng{authornamehash}{1fc97887388aa9bfec315c399423326c}
+      \strng{authorfullhash}{214d8f967646c508d4b75fcfb3e50441}
+      \strng{authorfullhashraw}{214d8f967646c508d4b75fcfb3e50441}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{American Journal of Physics}
+      \field{number}{12}
+      \field{title}{Coherent control of NV- centers in diamond in a quantum teaching lab}
+      \field{volume}{88}
+      \field{year}{2020}
+      \field{pages}{1156\bibrangedash 1169}
+      \range{pages}{14}
+    \endentry
+    \entry{haque2017overview}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=cc52ff0feda2ccbb8b91e8415d3a8104}{%
+           family={Haque},
+           familyi={H\bibinitperiod},
+           given={Ariful},
+           giveni={A\bibinitperiod}}}%
+        {{hash=85b5eb3edb92af0bf6ef6b1735f83f32}{%
+           family={Sumaiya},
+           familyi={S\bibinitperiod},
+           given={Sharaf},
+           giveni={S\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {MDPI}%
+      }
+      \strng{namehash}{fbd2c2c7aca4731daf519800886e6d87}
+      \strng{fullhash}{fbd2c2c7aca4731daf519800886e6d87}
+      \strng{fullhashraw}{fbd2c2c7aca4731daf519800886e6d87}
+      \strng{bibnamehash}{fbd2c2c7aca4731daf519800886e6d87}
+      \strng{authorbibnamehash}{fbd2c2c7aca4731daf519800886e6d87}
+      \strng{authornamehash}{fbd2c2c7aca4731daf519800886e6d87}
+      \strng{authorfullhash}{fbd2c2c7aca4731daf519800886e6d87}
+      \strng{authorfullhashraw}{fbd2c2c7aca4731daf519800886e6d87}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Manufacturing and Materials Processing}
+      \field{number}{1}
+      \field{title}{An overview on the formation and processing of nitrogen-vacancy photonic centers in diamond by ion implantation}
+      \field{volume}{1}
+      \field{year}{2017}
+      \field{pages}{6}
+      \range{pages}{1}
+    \endentry
+    \entry{murzakhanov2025mechanism}{article}{}{}
+      \name{author}{7}{}{%
+        {{hash=339ec2de5073e13a760acf2192cff27f}{%
+           family={Murzakhanov},
+           familyi={M\bibinitperiod},
+           given={Fadis\bibnamedelima F},
+           giveni={F\bibinitperiod\bibinitdelim F\bibinitperiod}}}%
+        {{hash=b090bdf8fcdd2d6e356b3d22d8a5cccd}{%
+           family={Dmitrieva},
+           familyi={D\bibinitperiod},
+           given={Ekaterina\bibnamedelima V},
+           giveni={E\bibinitperiod\bibinitdelim V\bibinitperiod}}}%
+        {{hash=d0dc43c89ee012f88814ea5daa0ae988}{%
+           family={Baibekov},
+           familyi={B\bibinitperiod},
+           given={Eduard\bibnamedelima I},
+           giveni={E\bibinitperiod\bibinitdelim I\bibinitperiod}}}%
+        {{hash=b892f467c70241ffdc5d268fe2f04f38}{%
+           family={Sadovnikova},
+           familyi={S\bibinitperiod},
+           given={Margarita\bibnamedelima A},
+           giveni={M\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=799152fd1f6baf0c0049532d87643a7c}{%
+           family={Mamin},
+           familyi={M\bibinitperiod},
+           given={George\bibnamedelima V},
+           giveni={G\bibinitperiod\bibinitdelim V\bibinitperiod}}}%
+        {{hash=95313015bb8b729a22b439bfd0cb8981}{%
+           family={Nagalyuk},
+           familyi={N\bibinitperiod},
+           given={Sergey\bibnamedelima S},
+           giveni={S\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+        {{hash=8f86b2daffdafd62660e434b99393eba}{%
+           family={Gafurov},
+           familyi={G\bibinitperiod},
+           given={Marat\bibnamedelima R},
+           giveni={M\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {APS}%
+      }
+      \strng{namehash}{9576271e8d79a853ff03a1cec5f281f1}
+      \strng{fullhash}{e2c631b69473560f0ab525c45c2316ba}
+      \strng{fullhashraw}{e2c631b69473560f0ab525c45c2316ba}
+      \strng{bibnamehash}{9576271e8d79a853ff03a1cec5f281f1}
+      \strng{authorbibnamehash}{9576271e8d79a853ff03a1cec5f281f1}
+      \strng{authornamehash}{9576271e8d79a853ff03a1cec5f281f1}
+      \strng{authorfullhash}{e2c631b69473560f0ab525c45c2316ba}
+      \strng{authorfullhashraw}{e2c631b69473560f0ab525c45c2316ba}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Physical Review B}
+      \field{number}{21}
+      \field{title}{Mechanism of damping of Rabi oscillations of NV centers in a 6 H-SiC crystal}
+      \field{volume}{111}
+      \field{year}{2025}
+      \field{pages}{214116}
+      \range{pages}{1}
+    \endentry
+    \entry{acharya2025compact}{thesis}{}{}
+      \name{author}{1}{}{%
+        {{hash=935732fb16932f000b365d4f47c667ee}{%
+           family={Acharya},
+           familyi={A\bibinitperiod},
+           given={Bikram},
+           giveni={B\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {Wichita State University}%
+      }
+      \strng{namehash}{935732fb16932f000b365d4f47c667ee}
+      \strng{fullhash}{935732fb16932f000b365d4f47c667ee}
+      \strng{fullhashraw}{935732fb16932f000b365d4f47c667ee}
+      \strng{bibnamehash}{935732fb16932f000b365d4f47c667ee}
+      \strng{authorbibnamehash}{935732fb16932f000b365d4f47c667ee}
+      \strng{authornamehash}{935732fb16932f000b365d4f47c667ee}
+      \strng{authorfullhash}{935732fb16932f000b365d4f47c667ee}
+      \strng{authorfullhashraw}{935732fb16932f000b365d4f47c667ee}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Compact integration of NV-based diamond quantum sensors using a small-size photodiode and on-board transimpedance amplifier}
+      \field{type}{phdthesis}
+      \field{year}{2025}
+    \endentry
+    \entry{hsiao2016fluorescent}{article}{}{}
+      \name{author}{4}{}{%
+        {{hash=7873e4de08aec98fe726014a62467780}{%
+           family={Hsiao},
+           familyi={H\bibinitperiod},
+           given={Wesley\bibnamedelima Wei-Wen},
+           giveni={W\bibinitperiod\bibinitdelim W\bibinithyphendelim W\bibinitperiod}}}%
+        {{hash=cee28ef81380b455bb89b79f491875cf}{%
+           family={Hui},
+           familyi={H\bibinitperiod},
+           given={Yuen\bibnamedelima Yung},
+           giveni={Y\bibinitperiod\bibinitdelim Y\bibinitperiod}}}%
+        {{hash=792b0890ece3793eddcd984a89b0703d}{%
+           family={Tsai},
+           familyi={T\bibinitperiod},
+           given={Pei-Chang},
+           giveni={P\bibinithyphendelim C\bibinitperiod}}}%
+        {{hash=4cbf603c3ac94e59346606acd6fcbe0c}{%
+           family={Chang},
+           familyi={C\bibinitperiod},
+           given={Huan-Cheng},
+           giveni={H\bibinithyphendelim C\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {ACS Publications}%
+      }
+      \strng{namehash}{18b7647109238e627e0d9f3d6b857f56}
+      \strng{fullhash}{cf02d2134afbc8e59c4296e4f4f4540c}
+      \strng{fullhashraw}{cf02d2134afbc8e59c4296e4f4f4540c}
+      \strng{bibnamehash}{cf02d2134afbc8e59c4296e4f4f4540c}
+      \strng{authorbibnamehash}{cf02d2134afbc8e59c4296e4f4f4540c}
+      \strng{authornamehash}{18b7647109238e627e0d9f3d6b857f56}
+      \strng{authorfullhash}{cf02d2134afbc8e59c4296e4f4f4540c}
+      \strng{authorfullhashraw}{cf02d2134afbc8e59c4296e4f4f4540c}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Accounts of chemical research}
+      \field{number}{3}
+      \field{title}{Fluorescent nanodiamond: a versatile tool for long-term cell tracking, super-resolution imaging, and nanoscale temperature sensing}
+      \field{volume}{49}
+      \field{year}{2016}
+      \field{pages}{400\bibrangedash 407}
+      \range{pages}{8}
+    \endentry
+    \entry{chuprina2026impact}{article}{}{}
+      \name{author}{6}{}{%
+        {{hash=56a66d6e95ced70a1f612a29f33f544e}{%
+           family={Chuprina},
+           familyi={C\bibinitperiod},
+           given={Ilia},
+           giveni={I\bibinitperiod}}}%
+        {{hash=4f8058eef05e57d6bac63c9f0b9e104d}{%
+           family={Genov},
+           familyi={G\bibinitperiod},
+           given={Genko},
+           giveni={G\bibinitperiod}}}%
+        {{hash=740c78089c98adb6d3502f7da1b2fd7c}{%
+           family={Findler},
+           familyi={F\bibinitperiod},
+           given={Christoph},
+           giveni={C\bibinitperiod}}}%
+        {{hash=f20b0c06dbe054017dcd715d6ccf5f54}{%
+           family={Lang},
+           familyi={L\bibinitperiod},
+           given={Johannes},
+           giveni={J\bibinitperiod}}}%
+        {{hash=1e77e692e0ec319b7e0ba967098eae69}{%
+           family={Siyushev},
+           familyi={S\bibinitperiod},
+           given={Petr},
+           giveni={P\bibinitperiod}}}%
+        {{hash=176f8a3c6b3820fedfad65dcbb8fb5c5}{%
+           family={Jelezko},
+           familyi={J\bibinitperiod},
+           given={Fedor},
+           giveni={F\bibinitperiod}}}%
+      }
+      \strng{namehash}{5d1c137a2445577d7e89f259542bd73a}
+      \strng{fullhash}{cd92ff495a28d9283a351d8c2e809b93}
+      \strng{fullhashraw}{cd92ff495a28d9283a351d8c2e809b93}
+      \strng{bibnamehash}{cd92ff495a28d9283a351d8c2e809b93}
+      \strng{authorbibnamehash}{cd92ff495a28d9283a351d8c2e809b93}
+      \strng{authornamehash}{5d1c137a2445577d7e89f259542bd73a}
+      \strng{authorfullhash}{cd92ff495a28d9283a351d8c2e809b93}
+      \strng{authorfullhashraw}{cd92ff495a28d9283a351d8c2e809b93}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{arXiv preprint arXiv:2604.20901}
+      \field{title}{Impact of Photoelectric Readout Noise on Magnetic Field Sensitivity of NV Centers in Diamond}
+      \field{year}{2026}
+    \endentry
+    \entry{saijo2018ac}{article}{}{}
+      \name{author}{8}{}{%
+        {{hash=07cab2a3c854dae06cd70dad97615ea9}{%
+           family={Saijo},
+           familyi={S\bibinitperiod},
+           given={Soya},
+           giveni={S\bibinitperiod}}}%
+        {{hash=a014356dfd543fc90d0bb65db27774c3}{%
+           family={Matsuzaki},
+           familyi={M\bibinitperiod},
+           given={Yuichiro},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=6fa0e2ec36767733f5f8c729b03b1144}{%
+           family={Saito},
+           familyi={S\bibinitperiod},
+           given={Shiro},
+           giveni={S\bibinitperiod}}}%
+        {{hash=4439b47d46cc5e949087fedc7afe85aa}{%
+           family={Yamaguchi},
+           familyi={Y\bibinitperiod},
+           given={Tatsuma},
+           giveni={T\bibinitperiod}}}%
+        {{hash=a3fedad5a6256b94e3f8fbbfa8f0b545}{%
+           family={Hanano},
+           familyi={H\bibinitperiod},
+           given={Ikuya},
+           giveni={I\bibinitperiod}}}%
+        {{hash=18be0a4f593e827117fb989973acbb12}{%
+           family={Watanabe},
+           familyi={W\bibinitperiod},
+           given={Hideyuki},
+           giveni={H\bibinitperiod}}}%
+        {{hash=02bef654a5ecd3546d7d2698ef691b85}{%
+           family={Mizuochi},
+           familyi={M\bibinitperiod},
+           given={Norikazu},
+           giveni={N\bibinitperiod}}}%
+        {{hash=11c13a59c3c5d5dd306ae9bf039fc314}{%
+           family={Ishi-Hayase},
+           familyi={I\bibinithyphendelim H\bibinitperiod},
+           given={Junko},
+           giveni={J\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {AIP Publishing}%
+      }
+      \strng{namehash}{6efeb00c03854c29bdac51c2953f16ce}
+      \strng{fullhash}{cec812ec79baaa594db4be7d159c77ee}
+      \strng{fullhashraw}{cec812ec79baaa594db4be7d159c77ee}
+      \strng{bibnamehash}{6efeb00c03854c29bdac51c2953f16ce}
+      \strng{authorbibnamehash}{6efeb00c03854c29bdac51c2953f16ce}
+      \strng{authornamehash}{6efeb00c03854c29bdac51c2953f16ce}
+      \strng{authorfullhash}{cec812ec79baaa594db4be7d159c77ee}
+      \strng{authorfullhashraw}{cec812ec79baaa594db4be7d159c77ee}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Applied Physics Letters}
+      \field{number}{8}
+      \field{title}{AC magnetic field sensing using continuous-wave optically detected magnetic resonance of nitrogen-vacancy centers in diamond}
+      \field{volume}{113}
+      \field{year}{2018}
+    \endentry
+    \entry{zhang2020high}{article}{}{}
+      \name{author}{7}{}{%
+        {{hash=e760d38078aff4a5b24c867aa5178c26}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={Yang},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=30df905719e51e2390e92c8ecf9d093d}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={Zhonghao},
+           giveni={Z\bibinitperiod}}}%
+        {{hash=f73a6dbe9ac15feac06a38e90fc85525}{%
+           family={Feng},
+           familyi={F\bibinitperiod},
+           given={Yuanyao},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=12e5c129575811b74e80a4662971e0b0}{%
+           family={Guo},
+           familyi={G\bibinitperiod},
+           given={Hao},
+           giveni={H\bibinitperiod}}}%
+        {{hash=d99cf2fb1973ff756200c7f7d5e59b7b}{%
+           family={Wen},
+           familyi={W\bibinitperiod},
+           given={Huanfei},
+           giveni={H\bibinitperiod}}}%
+        {{hash=e5d55ceb618761c66de79968a9ed937f}{%
+           family={Tang},
+           familyi={T\bibinitperiod},
+           given={Jun},
+           giveni={J\bibinitperiod}}}%
+        {{hash=f2a0a4f5a03bef37fc5552061319cb71}{%
+           family={Liu},
+           familyi={L\bibinitperiod},
+           given={Jun},
+           giveni={J\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Optical Society of America}%
+      }
+      \strng{namehash}{81bf924c056b61f51145a9b44b1a7631}
+      \strng{fullhash}{acacd386be71d6d84135fd16e172ee59}
+      \strng{fullhashraw}{acacd386be71d6d84135fd16e172ee59}
+      \strng{bibnamehash}{81bf924c056b61f51145a9b44b1a7631}
+      \strng{authorbibnamehash}{81bf924c056b61f51145a9b44b1a7631}
+      \strng{authornamehash}{81bf924c056b61f51145a9b44b1a7631}
+      \strng{authorfullhash}{acacd386be71d6d84135fd16e172ee59}
+      \strng{authorfullhashraw}{acacd386be71d6d84135fd16e172ee59}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Optics Express}
+      \field{number}{11}
+      \field{title}{High-sensitivity DC magnetic field detection with ensemble NV centers by pulsed quantum filtering technology}
+      \field{volume}{28}
+      \field{year}{2020}
+      \field{pages}{16191\bibrangedash 16201}
+      \range{pages}{11}
+    \endentry
+    \entry{ballinger23}{misc}{}{}
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{3}{}{%
+        {{hash=83348e9dade2178e219172d1159861c8}{%
+           family={Jones},
+           familyi={J\bibinitperiod},
+           given={J},
+           giveni={J\bibinitperiod}}}%
+        {{hash=f15c1f3fc8a2f541ded47c5bd7804212}{%
+           family={Howden},
+           familyi={H\bibinitperiod},
+           given={W},
+           giveni={W\bibinitperiod}}}%
+        {{hash=b6587f4d787e8a5faa13ceb9dc5c1da3}{%
+           family={Murphy},
+           familyi={M\bibinitperiod},
+           given={A},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{960b02860c462d753981022155491bc4}
+      \strng{fullhash}{e0ebc895d836becf4334fe9746c38946}
+      \strng{fullhashraw}{e0ebc895d836becf4334fe9746c38946}
+      \strng{bibnamehash}{e0ebc895d836becf4334fe9746c38946}
+      \strng{authorbibnamehash}{e0ebc895d836becf4334fe9746c38946}
+      \strng{authornamehash}{960b02860c462d753981022155491bc4}
+      \strng{authorfullhash}{e0ebc895d836becf4334fe9746c38946}
+      \strng{authorfullhashraw}{e0ebc895d836becf4334fe9746c38946}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Radiopaedia.org}
+      \field{title}{T1 relaxation time}
+      \verb{urlraw}
+      \verb https://doi.org/10.53347/rID-25821
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.53347/rID-25821
+      \endverb
+    \endentry
+    \entry{noh2020frequency}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=c768b29103d43329eb6a4d413a81a206}{%
+           family={Noh},
+           familyi={N\bibinitperiod},
+           given={Jung-Hoon},
+           giveni={J\bibinithyphendelim H\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {IEEE}%
+      }
+      \strng{namehash}{c768b29103d43329eb6a4d413a81a206}
+      \strng{fullhash}{c768b29103d43329eb6a4d413a81a206}
+      \strng{fullhashraw}{c768b29103d43329eb6a4d413a81a206}
+      \strng{bibnamehash}{c768b29103d43329eb6a4d413a81a206}
+      \strng{authorbibnamehash}{c768b29103d43329eb6a4d413a81a206}
+      \strng{authornamehash}{c768b29103d43329eb6a4d413a81a206}
+      \strng{authorfullhash}{c768b29103d43329eb6a4d413a81a206}
+      \strng{authorfullhashraw}{c768b29103d43329eb6a4d413a81a206}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE transactions on instrumentation and measurement}
+      \field{number}{12}
+      \field{title}{Frequency-response analysis and design rules for capacitive feedback transimpedance amplifier}
+      \field{volume}{69}
+      \field{year}{2020}
+      \field{pages}{9408\bibrangedash 9416}
+      \range{pages}{9}
+    \endentry
+    \entry{vishay2011bpw34}{manual}{}{}
+      \list{organization}{1}{%
+        {Vishay}%
+      }
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labeltitlesource}{title}
+      \field{month}{8}
+      \field{note}{Rev. 2}
+      \field{number}{81521}
+      \field{title}{Silicon PIN Photodiode}
+      \field{year}{2011}
+    \endentry
+    \entry{photodiodephotodiode}{misc}{}{}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labeltitlesource}{title}
+      \field{title}{Photodiode Characteristics and Applications}
+      \verb{urlraw}
+      \verb https://osioptoelectronics.com/media/pages/knowledgebase/b954012b64-1675100541/an-photodiode-parameters-and-characteristics.pdf
+      \endverb
+      \verb{url}
+      \verb https://osioptoelectronics.com/media/pages/knowledgebase/b954012b64-1675100541/an-photodiode-parameters-and-characteristics.pdf
+      \endverb
+    \endentry
+    \entry{semig24}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=7faadf5632630d8d3e586eb33c023a9c}{%
+           family={Semig},
+           familyi={S\bibinitperiod},
+           given={Paul},
+           giveni={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{7faadf5632630d8d3e586eb33c023a9c}
+      \strng{fullhash}{7faadf5632630d8d3e586eb33c023a9c}
+      \strng{fullhashraw}{7faadf5632630d8d3e586eb33c023a9c}
+      \strng{bibnamehash}{7faadf5632630d8d3e586eb33c023a9c}
+      \strng{authorbibnamehash}{7faadf5632630d8d3e586eb33c023a9c}
+      \strng{authornamehash}{7faadf5632630d8d3e586eb33c023a9c}
+      \strng{authorfullhash}{7faadf5632630d8d3e586eb33c023a9c}
+      \strng{authorfullhashraw}{7faadf5632630d8d3e586eb33c023a9c}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Texas Instruments Incorporated}
+      \field{title}{Transimpedence Amplifier Circuit}
+      \verb{urlraw}
+      \verb https://www.ti.com/lit/an/sboa268b/sboa268b.pdf
+      \endverb
+      \verb{url}
+      \verb https://www.ti.com/lit/an/sboa268b/sboa268b.pdf
+      \endverb
+    \endentry
+    \entry{instruments2018principles}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=9cebc9843b50f5cad28f73ad8a263c14}{%
+           family={Instruments},
+           familyi={I\bibinitperiod},
+           given={Zurich},
+           giveni={Z\bibinitperiod}}}%
+      }
+      \strng{namehash}{9cebc9843b50f5cad28f73ad8a263c14}
+      \strng{fullhash}{9cebc9843b50f5cad28f73ad8a263c14}
+      \strng{fullhashraw}{9cebc9843b50f5cad28f73ad8a263c14}
+      \strng{bibnamehash}{9cebc9843b50f5cad28f73ad8a263c14}
+      \strng{authorbibnamehash}{9cebc9843b50f5cad28f73ad8a263c14}
+      \strng{authornamehash}{9cebc9843b50f5cad28f73ad8a263c14}
+      \strng{authorfullhash}{9cebc9843b50f5cad28f73ad8a263c14}
+      \strng{authorfullhashraw}{9cebc9843b50f5cad28f73ad8a263c14}
+      \field{extraname}{1}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Internetadresse: https://www. zhinst. com/sites/default/files/li\_primer/zi\_whitepaper\_principles\_of\_lock-in\_detection. pdf. Zuletzt aufgerufen am}
+      \field{title}{Principles of Lock-in Detection and the State of the Art. 2016}
+      \field{volume}{17}
+      \field{year}{2018}
+    \endentry
+    \entry{nandi2024oscilloscope}{article}{}{}
+      \name{author}{6}{}{%
+        {{hash=e50c0ad159c40be3a5d4205e3d1ef090}{%
+           family={Nandi},
+           familyi={N\bibinitperiod},
+           given={Anuvab},
+           giveni={A\bibinitperiod}}}%
+        {{hash=67b1ba666b827e4233e95f275605a396}{%
+           family={Chakraborti},
+           familyi={C\bibinitperiod},
+           given={Samiran},
+           giveni={S\bibinitperiod}}}%
+        {{hash=792daf83fda260e21eb55371f54e0682}{%
+           family={Himani},
+           familyi={H\bibinitperiod},
+           given={Himadri},
+           giveni={H\bibinitperiod}}}%
+        {{hash=da5566c23cfe81ab89496804cf0d5c50}{%
+           family={Mukherjee},
+           familyi={M\bibinitperiod},
+           given={Sumit},
+           giveni={S\bibinitperiod}}}%
+        {{hash=0fc0b342e2f2f6aec5b94cf4a879ffd2}{%
+           family={Chakraborty},
+           familyi={C\bibinitperiod},
+           given={Sayan},
+           giveni={S\bibinitperiod}}}%
+        {{hash=375eb0db769fe3f08a38f4405e91ee6e}{%
+           family={Mitra},
+           familyi={M\bibinitperiod},
+           given={Chiranjib},
+           giveni={C\bibinitperiod}}}%
+      }
+      \strng{namehash}{b97272e8d242b8e1aa5ac5d847dd042e}
+      \strng{fullhash}{fc79e22103256441d1a98bc7c984803e}
+      \strng{fullhashraw}{fc79e22103256441d1a98bc7c984803e}
+      \strng{bibnamehash}{fc79e22103256441d1a98bc7c984803e}
+      \strng{authorbibnamehash}{fc79e22103256441d1a98bc7c984803e}
+      \strng{authornamehash}{b97272e8d242b8e1aa5ac5d847dd042e}
+      \strng{authorfullhash}{fc79e22103256441d1a98bc7c984803e}
+      \strng{authorfullhashraw}{fc79e22103256441d1a98bc7c984803e}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{arXiv preprint arXiv:2404.05629}
+      \field{title}{An oscilloscope based method for pulsed Optically Detected Magnetic Resonance in an ensemble of NV centers in diamond}
+      \field{year}{2024}
+    \endentry
+    \entry{black2021tia}{misc}{}{}
+      \name{author}{2}{}{%
+        {{hash=a97f6422d6ff4f8df70967401d54424c}{%
+           family={Black},
+           familyi={B\bibinitperiod},
+           given={Brian},
+           giveni={B\bibinitperiod}}}%
+        {{hash=79b9f29ffabda5864b1d2490c3355105}{%
+           family={Brisebois},
+           familyi={B\bibinitperiod},
+           given={Glen},
+           giveni={G\bibinitperiod}}}%
+      }
+      \strng{namehash}{5a5e68a99d440e7213f6a767b46224ab}
+      \strng{fullhash}{5a5e68a99d440e7213f6a767b46224ab}
+      \strng{fullhashraw}{5a5e68a99d440e7213f6a767b46224ab}
+      \strng{bibnamehash}{5a5e68a99d440e7213f6a767b46224ab}
+      \strng{authorbibnamehash}{5a5e68a99d440e7213f6a767b46224ab}
+      \strng{authornamehash}{5a5e68a99d440e7213f6a767b46224ab}
+      \strng{authorfullhash}{5a5e68a99d440e7213f6a767b46224ab}
+      \strng{authorfullhashraw}{5a5e68a99d440e7213f6a767b46224ab}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Analog}
+      \field{title}{Transimpedance Amplifiers for Wide Range	Photodiodes	Have Challenging Requirements}
+      \field{year}{2021}
+    \endentry
+    \entry{ad2019ad795}{manual}{}{}
+      \list{organization}{1}{%
+        {Analog Devices}%
+      }
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labeltitlesource}{title}
+      \field{note}{Rev. D}
+      \field{title}{AD795; Low Power, Low Noise Precision FET Op Amp}
+      \field{year}{2019}
+    \endentry
+    \entry{ad2019ad820}{manual}{}{}
+      \list{organization}{1}{%
+        {Analog Devices}%
+      }
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labeltitlesource}{title}
+      \field{note}{Rev. H}
+      \field{title}{AD820; Single-Supply, Rail-to-Rail, Low Power, FET Input Op Amp}
+      \field{year}{2011}
+    \endentry
+    \entry{ti2007noise}{manual}{}{}
+      \list{organization}{1}{%
+        {Texas Instruments}%
+      }
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labeltitlesource}{title}
+      \field{note}{Rev. 2}
+      \field{number}{SLVA043B}
+      \field{title}{Noise Analysis in Operational Amplifier Circuits}
+      \field{year}{2007}
+    \endentry
+    \entry{1490859}{inproceedings}{}{}
+      \name{author}{2}{}{%
+        {{hash=f2a71d2c2a63ba146482c786a7d2856e}{%
+           family={Asparuhova},
+           familyi={A\bibinitperiod},
+           given={K.K.},
+           giveni={K\bibinitperiod}}}%
+        {{hash=07dc0f4d1bdcca51355c8bb8c2639a7f}{%
+           family={Gadjeva},
+           familyi={G\bibinitperiod},
+           given={E.D.},
+           giveni={E\bibinitperiod}}}%
+      }
+      \strng{namehash}{4726ac8d65792adffe1ee7c8153a5ca8}
+      \strng{fullhash}{4726ac8d65792adffe1ee7c8153a5ca8}
+      \strng{fullhashraw}{4726ac8d65792adffe1ee7c8153a5ca8}
+      \strng{bibnamehash}{4726ac8d65792adffe1ee7c8153a5ca8}
+      \strng{authorbibnamehash}{4726ac8d65792adffe1ee7c8153a5ca8}
+      \strng{authornamehash}{4726ac8d65792adffe1ee7c8153a5ca8}
+      \strng{authorfullhash}{4726ac8d65792adffe1ee7c8153a5ca8}
+      \strng{authorfullhashraw}{4726ac8d65792adffe1ee7c8153a5ca8}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{27th International Spring Seminar on Electronics Technology: Meeting the Challenges of Electronics Technology Progress, 2004.}
+      \field{title}{Noise analysis of operational amplifier circuits using MATLAB}
+      \field{volume}{3}
+      \field{year}{2004}
+      \field{pages}{471\bibrangedash 475 vol.3}
+      \range{pages}{-1}
+      \verb{doi}
+      \verb 10.1109/ISSE.2004.1490859
+      \endverb
+      \keyw{Circuit noise;Operational amplifiers;MATLAB;Voltage;1f noise;Radio frequency;Resistors;Radiofrequency amplifiers;Output feedback;Springs}
+    \endentry
+    \entry{margan2012transimpedance}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=57e82070ad977e92f9accaac06b67c9a}{%
+           family={Margan},
+           familyi={M\bibinitperiod},
+           given={Erik},
+           giveni={E\bibinitperiod}}}%
+      }
+      \strng{namehash}{57e82070ad977e92f9accaac06b67c9a}
+      \strng{fullhash}{57e82070ad977e92f9accaac06b67c9a}
+      \strng{fullhashraw}{57e82070ad977e92f9accaac06b67c9a}
+      \strng{bibnamehash}{57e82070ad977e92f9accaac06b67c9a}
+      \strng{authorbibnamehash}{57e82070ad977e92f9accaac06b67c9a}
+      \strng{authornamehash}{57e82070ad977e92f9accaac06b67c9a}
+      \strng{authorfullhash}{57e82070ad977e92f9accaac06b67c9a}
+      \strng{authorfullhashraw}{57e82070ad977e92f9accaac06b67c9a}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{no}
+      \field{title}{Transimpedance amplifier analysis}
+      \field{volume}{1}
+      \field{year}{2012}
+      \field{pages}{1\bibrangedash 19}
+      \range{pages}{19}
+    \endentry
+    \entry{sackinger2017analysis}{book}{}{}
+      \name{author}{1}{}{%
+        {{hash=583a2b7e416b4f05572062faf222e09d}{%
+           family={Säckinger},
+           familyi={S\bibinitperiod},
+           given={Eduard},
+           giveni={E\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {John Wiley \& Sons}%
+      }
+      \strng{namehash}{583a2b7e416b4f05572062faf222e09d}
+      \strng{fullhash}{583a2b7e416b4f05572062faf222e09d}
+      \strng{fullhashraw}{583a2b7e416b4f05572062faf222e09d}
+      \strng{bibnamehash}{583a2b7e416b4f05572062faf222e09d}
+      \strng{authorbibnamehash}{583a2b7e416b4f05572062faf222e09d}
+      \strng{authornamehash}{583a2b7e416b4f05572062faf222e09d}
+      \strng{authorfullhash}{583a2b7e416b4f05572062faf222e09d}
+      \strng{authorfullhashraw}{583a2b7e416b4f05572062faf222e09d}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Analysis and design of transimpedance amplifiers for optical receivers}
+      \field{year}{2017}
+    \endentry
+    \entry{horsthemke2025all}{thesis}{}{}
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{1}{}{%
+        {{hash=824d4b71db5d7defdeb3993458d16b20}{%
+           family={Horsthemke},
+           familyi={H\bibinitperiod},
+           given={Ludwig},
+           giveni={L\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {Universidad de Granada}%
+      }
+      \strng{namehash}{6c5c50cc523c04a66a2c53242df571a2}
+      \strng{fullhash}{6c5c50cc523c04a66a2c53242df571a2}
+      \strng{fullhashraw}{6c5c50cc523c04a66a2c53242df571a2}
+      \strng{bibnamehash}{6c5c50cc523c04a66a2c53242df571a2}
+      \strng{authorbibnamehash}{6c5c50cc523c04a66a2c53242df571a2}
+      \strng{authornamehash}{6c5c50cc523c04a66a2c53242df571a2}
+      \strng{authorfullhash}{6c5c50cc523c04a66a2c53242df571a2}
+      \strng{authorfullhashraw}{6c5c50cc523c04a66a2c53242df571a2}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{All optical magnetometry with nitrogen vacancy centers in diamonds}
+      \field{type}{phdthesis}
+      \field{year}{2025}
+    \endentry
+    \entry{cherian2016you}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=a72afadad0075d5f9935e0957f752a71}{%
+           family={Cherian},
+           familyi={C\bibinitperiod},
+           given={S},
+           giveni={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{a72afadad0075d5f9935e0957f752a71}
+      \strng{fullhash}{a72afadad0075d5f9935e0957f752a71}
+      \strng{fullhashraw}{a72afadad0075d5f9935e0957f752a71}
+      \strng{bibnamehash}{a72afadad0075d5f9935e0957f752a71}
+      \strng{authorbibnamehash}{a72afadad0075d5f9935e0957f752a71}
+      \strng{authornamehash}{a72afadad0075d5f9935e0957f752a71}
+      \strng{authorfullhash}{a72afadad0075d5f9935e0957f752a71}
+      \strng{authorfullhashraw}{a72afadad0075d5f9935e0957f752a71}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Texas Instruments Incorporated}
+      \field{title}{What You Need to Know about Transimpedance Amplifiers--Part 1}
+      \field{year}{2016}
+    \endentry
+    \entry{ti2019simplify}{manual}{}{}
+      \list{organization}{1}{%
+        {Texas Instruments}%
+      }
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labeltitlesource}{title}
+      \field{month}{05}
+      \field{number}{SBOA354}
+      \field{title}{Simplify Transimpedance Applications with High-bandwidth, Precision JFET Op Amps}
+      \field{year}{2019}
+    \endentry
+    \entry{clark2025boost}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=7e86917f7c27a98510b1e5508c0624d0}{%
+           family={Clark},
+           familyi={C\bibinitperiod},
+           given={Liz},
+           giveni={L\bibinitperiod}}}%
+      }
+      \strng{namehash}{7e86917f7c27a98510b1e5508c0624d0}
+      \strng{fullhash}{7e86917f7c27a98510b1e5508c0624d0}
+      \strng{fullhashraw}{7e86917f7c27a98510b1e5508c0624d0}
+      \strng{bibnamehash}{7e86917f7c27a98510b1e5508c0624d0}
+      \strng{authorbibnamehash}{7e86917f7c27a98510b1e5508c0624d0}
+      \strng{authornamehash}{7e86917f7c27a98510b1e5508c0624d0}
+      \strng{authorfullhash}{7e86917f7c27a98510b1e5508c0624d0}
+      \strng{authorfullhashraw}{7e86917f7c27a98510b1e5508c0624d0}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Adafruit}
+      \field{title}{Adafruit TPS65131 Split Power Supply Boost Converter}
+      \field{year}{2025}
+      \verb{urlraw}
+      \verb https://cdn-learn.adafruit.com/downloads/pdf/adafruit-tps65131-split-power-supply-boost-converter.pdf
+      \endverb
+      \verb{url}
+      \verb https://cdn-learn.adafruit.com/downloads/pdf/adafruit-tps65131-split-power-supply-boost-converter.pdf
+      \endverb
+    \endentry
+    \entry{ti2015tps65133}{manual}{}{}
+      \list{organization}{1}{%
+        {Texas Instruments}%
+      }
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labeltitlesource}{title}
+      \field{month}{6}
+      \field{note}{Rev. A}
+      \field{number}{SLVSC01A}
+      \field{title}{TPS65133 ±5-V, 250-mA Dual-Output Power Supply}
+      \field{year}{2013}
+    \endentry
+    \entry{ts2022ground}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=7b381bc7a6069345cead1fade456301d}{%
+           family={TangentSoft},
+           familyi={T\bibinitperiod}}}%
+      }
+      \strng{namehash}{7b381bc7a6069345cead1fade456301d}
+      \strng{fullhash}{7b381bc7a6069345cead1fade456301d}
+      \strng{fullhashraw}{7b381bc7a6069345cead1fade456301d}
+      \strng{bibnamehash}{7b381bc7a6069345cead1fade456301d}
+      \strng{authorbibnamehash}{7b381bc7a6069345cead1fade456301d}
+      \strng{authornamehash}{7b381bc7a6069345cead1fade456301d}
+      \strng{authorfullhash}{7b381bc7a6069345cead1fade456301d}
+      \strng{authorfullhashraw}{7b381bc7a6069345cead1fade456301d}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{12}
+      \field{title}{Virtual Ground Circuits}
+      \field{year}{2022}
+      \verb{urlraw}
+      \verb https://tangentsoft.com/elec/vgrounds.html
+      \endverb
+      \verb{url}
+      \verb https://tangentsoft.com/elec/vgrounds.html
+      \endverb
+    \endentry
+    \entry{instruments2015tps6040x}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=98891ef37ae74f3a00ae9a7c9c316e78}{%
+           family={Instruments},
+           familyi={I\bibinitperiod},
+           given={Texas},
+           giveni={T\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {TPS60402 Datasheet (SLVS324)}%
+      }
+      \strng{namehash}{98891ef37ae74f3a00ae9a7c9c316e78}
+      \strng{fullhash}{98891ef37ae74f3a00ae9a7c9c316e78}
+      \strng{fullhashraw}{98891ef37ae74f3a00ae9a7c9c316e78}
+      \strng{bibnamehash}{98891ef37ae74f3a00ae9a7c9c316e78}
+      \strng{authorbibnamehash}{98891ef37ae74f3a00ae9a7c9c316e78}
+      \strng{authornamehash}{98891ef37ae74f3a00ae9a7c9c316e78}
+      \strng{authorfullhash}{98891ef37ae74f3a00ae9a7c9c316e78}
+      \strng{authorfullhashraw}{98891ef37ae74f3a00ae9a7c9c316e78}
+      \field{extraname}{2}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{TPS6040x Unregulated 60-mA Charge Pump Voltage Inverter}
+      \field{year}{2015}
+    \endentry
+    \entry{hoyle1998bootstrapping}{inproceedings}{}{}
+      \name{author}{2}{}{%
+        {{hash=71be53e8dca6f113c0dcfe3a49c33cf0}{%
+           family={Hoyle},
+           familyi={H\bibinitperiod},
+           given={Chris},
+           giveni={C\bibinitperiod}}}%
+        {{hash=1fdee7c3368f267639d12825448c50d1}{%
+           family={Peyton},
+           familyi={P\bibinitperiod},
+           given={A},
+           giveni={A\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {IET}%
+      }
+      \strng{namehash}{52494ecafb3b9d053e2ee30248533112}
+      \strng{fullhash}{52494ecafb3b9d053e2ee30248533112}
+      \strng{fullhashraw}{52494ecafb3b9d053e2ee30248533112}
+      \strng{bibnamehash}{52494ecafb3b9d053e2ee30248533112}
+      \strng{authorbibnamehash}{52494ecafb3b9d053e2ee30248533112}
+      \strng{authornamehash}{52494ecafb3b9d053e2ee30248533112}
+      \strng{authorfullhash}{52494ecafb3b9d053e2ee30248533112}
+      \strng{authorfullhashraw}{52494ecafb3b9d053e2ee30248533112}
+      \field{extraname}{1}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{IEE Colloquium on Analog Signal Processing (Ref. No. 1998/472)}
+      \field{title}{Bootstrapping techniques to improve the bandwidth of transimpedance amplifiers}
+      \field{year}{1998}
+      \field{pages}{7\bibrangedash 1}
+      \range{pages}{-5}
+    \endentry
+    \entry{hoyle1999shunt}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=6699ce3a944246e181c8162f14f9b7cf}{%
+           family={Hoyle},
+           familyi={H\bibinitperiod},
+           given={C},
+           giveni={C\bibinitperiod}}}%
+        {{hash=1fdee7c3368f267639d12825448c50d1}{%
+           family={Peyton},
+           familyi={P\bibinitperiod},
+           given={A},
+           giveni={A\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {IET}%
+      }
+      \strng{namehash}{4c960fcf27a7f98297221e5f976ef373}
+      \strng{fullhash}{4c960fcf27a7f98297221e5f976ef373}
+      \strng{fullhashraw}{4c960fcf27a7f98297221e5f976ef373}
+      \strng{bibnamehash}{4c960fcf27a7f98297221e5f976ef373}
+      \strng{authorbibnamehash}{4c960fcf27a7f98297221e5f976ef373}
+      \strng{authornamehash}{4c960fcf27a7f98297221e5f976ef373}
+      \strng{authorfullhash}{4c960fcf27a7f98297221e5f976ef373}
+      \strng{authorfullhashraw}{4c960fcf27a7f98297221e5f976ef373}
+      \field{extraname}{2}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Electronics Letters}
+      \field{number}{5}
+      \field{title}{Shunt bootstrapping technique to improve bandwidth of transimpedance amplifiers}
+      \field{volume}{35}
+      \field{year}{1999}
+      \field{pages}{369\bibrangedash 370}
+      \range{pages}{2}
+    \endentry
+    \entry{idrus2006performance}{inproceedings}{}{}
+      \name{author}{4}{}{%
+        {{hash=daeefe6263c2a7658c7a26728ed6f55e}{%
+           family={Idrus},
+           familyi={I\bibinitperiod},
+           given={SM},
+           giveni={S\bibinitperiod}}}%
+        {{hash=167367af69cd14b48a01dd64e119f5c7}{%
+           family={Ngajikin},
+           familyi={N\bibinitperiod},
+           given={N},
+           giveni={N\bibinitperiod}}}%
+        {{hash=5073ff78c9758e2f79bba92ed4f4defa}{%
+           family={Malik},
+           familyi={M\bibinitperiod},
+           given={NNNA},
+           giveni={N\bibinitperiod}}}%
+        {{hash=364b2087695d05bcaf778a39c4990726}{%
+           family={Aziz},
+           familyi={A\bibinitperiod},
+           given={SIA},
+           giveni={S\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {IEEE}%
+      }
+      \strng{namehash}{55d30a2d9ac39501801e7c9c98043429}
+      \strng{fullhash}{7624f31663ea6a4dec49f1578f5ea5b9}
+      \strng{fullhashraw}{7624f31663ea6a4dec49f1578f5ea5b9}
+      \strng{bibnamehash}{7624f31663ea6a4dec49f1578f5ea5b9}
+      \strng{authorbibnamehash}{7624f31663ea6a4dec49f1578f5ea5b9}
+      \strng{authornamehash}{55d30a2d9ac39501801e7c9c98043429}
+      \strng{authorfullhash}{7624f31663ea6a4dec49f1578f5ea5b9}
+      \strng{authorfullhashraw}{7624f31663ea6a4dec49f1578f5ea5b9}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{2006 International RF and Microwave Conference}
+      \field{title}{Performance analysis of bootstrap transimpedance amplifier for large windows optical wireless receiver}
+      \field{year}{2006}
+      \field{pages}{416\bibrangedash 420}
+      \range{pages}{5}
+    \endentry
+    \entry{ti2020cascading}{manual}{}{}
+      \list{organization}{1}{%
+        {Texas Instruments}%
+      }
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labeltitlesource}{title}
+      \field{month}{8}
+      \field{number}{SBOA356}
+      \field{title}{Cascading Precision Op Amp Stages for Optimal AC and DC Performance}
+      \field{year}{2020}
+    \endentry
+    \entry{ad2019ada4637}{manual}{}{}
+      \list{organization}{1}{%
+        {Analog Devices}%
+      }
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labeltitlesource}{title}
+      \field{note}{Rev. F}
+      \field{title}{ADA4627-1/ADA4637-1; 30 V, High Speed, Low Noise, Low Bias Current, JFET Operational Amplifier}
+      \field{year}{2015}
+    \endentry
+    \entry{sitnic2023}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=05a7e888e6303f9f614344c3ea48f59c}{%
+           family={Sitnic},
+           familyi={S\bibinitperiod},
+           given={Demetra},
+           giveni={D\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {Saxion Applied Nanotechnology research group}%
+      }
+      \strng{namehash}{05a7e888e6303f9f614344c3ea48f59c}
+      \strng{fullhash}{05a7e888e6303f9f614344c3ea48f59c}
+      \strng{fullhashraw}{05a7e888e6303f9f614344c3ea48f59c}
+      \strng{bibnamehash}{05a7e888e6303f9f614344c3ea48f59c}
+      \strng{authorbibnamehash}{05a7e888e6303f9f614344c3ea48f59c}
+      \strng{authornamehash}{05a7e888e6303f9f614344c3ea48f59c}
+      \strng{authorfullhash}{05a7e888e6303f9f614344c3ea48f59c}
+      \strng{authorfullhashraw}{05a7e888e6303f9f614344c3ea48f59c}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Internship Technical Report: Nitrogen-vacancy center setup}
+      \field{year}{2024}
+    \endentry
+    \entry{razavi2019transimpedance}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=c7a8cbdc611fb566c84f257674d0a44f}{%
+           family={Razavi},
+           familyi={R\bibinitperiod},
+           given={Behzad},
+           giveni={B\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {IEEE}%
+      }
+      \strng{namehash}{c7a8cbdc611fb566c84f257674d0a44f}
+      \strng{fullhash}{c7a8cbdc611fb566c84f257674d0a44f}
+      \strng{fullhashraw}{c7a8cbdc611fb566c84f257674d0a44f}
+      \strng{bibnamehash}{c7a8cbdc611fb566c84f257674d0a44f}
+      \strng{authorbibnamehash}{c7a8cbdc611fb566c84f257674d0a44f}
+      \strng{authornamehash}{c7a8cbdc611fb566c84f257674d0a44f}
+      \strng{authorfullhash}{c7a8cbdc611fb566c84f257674d0a44f}
+      \strng{authorfullhashraw}{c7a8cbdc611fb566c84f257674d0a44f}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Solid-State Circuits Magazine}
+      \field{number}{1}
+      \field{title}{The transimpedance amplifier [a circuit for all seasons]}
+      \field{volume}{11}
+      \field{year}{2019}
+      \field{pages}{10\bibrangedash 97}
+      \range{pages}{88}
+    \endentry
+    \entry{ti2019opa818}{manual}{}{}
+      \list{organization}{1}{%
+        {Texas Instruments}%
+      }
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{labeltitlesource}{title}
+      \field{note}{Rev. B}
+      \field{number}{SBOS940B}
+      \field{title}{OPA818 2.7GHz, High-Voltage, FET-Input, Low-Noise, Operational Amplifier}
+      \field{year}{2019}
+    \endentry
+    \entry{santiago2021a}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=58d78f2ca3116234c6db3df106edb415}{%
+           family={Santiago},
+           familyi={S\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod}}}%
+      }
+      \strng{namehash}{58d78f2ca3116234c6db3df106edb415}
+      \strng{fullhash}{58d78f2ca3116234c6db3df106edb415}
+      \strng{fullhashraw}{58d78f2ca3116234c6db3df106edb415}
+      \strng{bibnamehash}{58d78f2ca3116234c6db3df106edb415}
+      \strng{authorbibnamehash}{58d78f2ca3116234c6db3df106edb415}
+      \strng{authornamehash}{58d78f2ca3116234c6db3df106edb415}
+      \strng{authorfullhash}{58d78f2ca3116234c6db3df106edb415}
+      \strng{authorfullhashraw}{58d78f2ca3116234c6db3df106edb415}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{A High-Speed Transimpedance Amplifier}
+      \field{year}{2021}
+      \verb{urlraw}
+      \verb https://cmosedu.com/jbaker/students/david/myStuff/LinkPages/Projects/ECG720_SANTIAGO_PROJECT_S21.pdf
+      \endverb
+      \verb{url}
+      \verb https://cmosedu.com/jbaker/students/david/myStuff/LinkPages/Projects/ECG720_SANTIAGO_PROJECT_S21.pdf
+      \endverb
+    \endentry
+    \entry{karimi2017silicon}{article}{}{}
+      \name{author}{4}{}{%
+        {{hash=4e484b0145e2f60fcf33f1d535c2d873}{%
+           family={Karimi-Bidhendi},
+           familyi={K\bibinithyphendelim B\bibinitperiod},
+           given={Alireza},
+           giveni={A\bibinitperiod}}}%
+        {{hash=9c4c1f37cc885494e1417d1203fc145c}{%
+           family={Mohammadnezhad},
+           familyi={M\bibinitperiod},
+           given={Hossein},
+           giveni={H\bibinitperiod}}}%
+        {{hash=6a08e747f0376523c6062260e9e09fd8}{%
+           family={Green},
+           familyi={G\bibinitperiod},
+           given={Michael\bibnamedelima M},
+           giveni={M\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=95e780749e0a41ac055f6dce65c33753}{%
+           family={Heydari},
+           familyi={H\bibinitperiod},
+           given={Payam},
+           giveni={P\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {IEEE}%
+      }
+      \strng{namehash}{451b86186722e0b00fb5cdc6d6f57c0f}
+      \strng{fullhash}{98331b1e044bd6272960fec1f535b707}
+      \strng{fullhashraw}{98331b1e044bd6272960fec1f535b707}
+      \strng{bibnamehash}{98331b1e044bd6272960fec1f535b707}
+      \strng{authorbibnamehash}{98331b1e044bd6272960fec1f535b707}
+      \strng{authornamehash}{451b86186722e0b00fb5cdc6d6f57c0f}
+      \strng{authorfullhash}{98331b1e044bd6272960fec1f535b707}
+      \strng{authorfullhashraw}{98331b1e044bd6272960fec1f535b707}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Transactions on Circuits and Systems I: Regular Papers}
+      \field{number}{2}
+      \field{title}{A silicon-based low-power broadband transimpedance amplifier}
+      \field{volume}{65}
+      \field{year}{2017}
+      \field{pages}{498\bibrangedash 509}
+      \range{pages}{12}
+    \endentry
+    \entry{analui2004bandwidth}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=5c1501e3640a780916f74342440e502b}{%
+           family={Analui},
+           familyi={A\bibinitperiod},
+           given={Behnam},
+           giveni={B\bibinitperiod}}}%
+        {{hash=e60eec9e126fbb0dd2a98b7a22cf3a4d}{%
+           family={Hajimiri},
+           familyi={H\bibinitperiod},
+           given={Ali},
+           giveni={A\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {IEEE}%
+      }
+      \strng{namehash}{c3639bce9592cfd17180da596b42eedb}
+      \strng{fullhash}{c3639bce9592cfd17180da596b42eedb}
+      \strng{fullhashraw}{c3639bce9592cfd17180da596b42eedb}
+      \strng{bibnamehash}{c3639bce9592cfd17180da596b42eedb}
+      \strng{authorbibnamehash}{c3639bce9592cfd17180da596b42eedb}
+      \strng{authornamehash}{c3639bce9592cfd17180da596b42eedb}
+      \strng{authorfullhash}{c3639bce9592cfd17180da596b42eedb}
+      \strng{authorfullhashraw}{c3639bce9592cfd17180da596b42eedb}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Journal of Solid-State Circuits}
+      \field{number}{8}
+      \field{title}{Bandwidth enhancement for transimpedance amplifiers}
+      \field{volume}{39}
+      \field{year}{2004}
+      \field{pages}{1263\bibrangedash 1270}
+      \range{pages}{8}
+    \endentry
+    \entry{hm2025si}{manual}{}{}
+      \list{organization}{1}{%
+        {Hammamatsu}%
+      }
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{labeltitlesource}{title}
+      \field{month}{12}
+      \field{note}{Rev. B}
+      \field{number}{KSPD9001EO4}
+      \field{title}{Si photodiodes}
+      \field{year}{2025}
+    \endentry
+    \entry{lt2006area}{manual}{}{}
+      \list{organization}{1}{%
+        {Linear Technology}%
+      }
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{labeltitlesource}{title}
+      \field{number}{Design Note 399}
+      \field{title}{Low Noise Amplifiers for Small and Large Area Photodiodes}
+      \field{year}{2006}
+    \endentry
+    \entry{Paschotta_2019_balanced_photodetection}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=51ccb53576714f9e2c9bdd7ad4d061d3}{%
+           family={Paschotta},
+           familyi={P\bibinitperiod},
+           given={R.},
+           giveni={R\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {RP Photonics AG}%
+      }
+      \strng{namehash}{51ccb53576714f9e2c9bdd7ad4d061d3}
+      \strng{fullhash}{51ccb53576714f9e2c9bdd7ad4d061d3}
+      \strng{fullhashraw}{51ccb53576714f9e2c9bdd7ad4d061d3}
+      \strng{bibnamehash}{51ccb53576714f9e2c9bdd7ad4d061d3}
+      \strng{authorbibnamehash}{51ccb53576714f9e2c9bdd7ad4d061d3}
+      \strng{authornamehash}{51ccb53576714f9e2c9bdd7ad4d061d3}
+      \strng{authorfullhash}{51ccb53576714f9e2c9bdd7ad4d061d3}
+      \strng{authorfullhashraw}{51ccb53576714f9e2c9bdd7ad4d061d3}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Balanced photodetection measures differences in optical power between two beams. It is useful in spectroscopy, homodyne detection and interferometry.}
+      \field{howpublished}{RP Photonics Encyclopedia}
+      \field{note}{Available online at \url{https://www.rp-photonics.com/balanced_photodetection.html}}
+      \field{title}{Balanced Photodetection}
+      \field{urlday}{28}
+      \field{urlmonth}{5}
+      \field{urlyear}{2026}
+      \field{year}{2019}
+      \field{urldateera}{ce}
+      \verb{doi}
+      \verb 10.61835/3f2
+      \endverb
+      \verb{urlraw}
+      \verb https://www.rp-photonics.com/balanced_photodetection.html
+      \endverb
+      \verb{url}
+      \verb https://www.rp-photonics.com/balanced_photodetection.html
+      \endverb
+      \keyw{balanced photodetection}
+    \endentry
+    \entry{li2023noise}{article}{}{}
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{10}{}{%
+        {{hash=2af761d9bef859ea29248418adce0dd7}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={Yang},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=96ed098893d2a8283bc9197b93bbd76f}{%
+           family={Zheng},
+           familyi={Z\bibinitperiod},
+           given={Doudou},
+           giveni={D\bibinitperiod}}}%
+        {{hash=01cf436ccce6dd5fe19a2c98c9aa4d44}{%
+           family={Liu},
+           familyi={L\bibinitperiod},
+           given={Zhenhua},
+           giveni={Z\bibinitperiod}}}%
+        {{hash=a753993c6afc6bfea114ea4114b2e619}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={Hui},
+           giveni={H\bibinitperiod}}}%
+        {{hash=700b0df1b202acf9a4fb4db49481da56}{%
+           family={Liu},
+           familyi={L\bibinitperiod},
+           given={Yankang},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=6bf8e64bab8317b35fb43d6ab01a2853}{%
+           family={Hou},
+           familyi={H\bibinitperiod},
+           given={Chenyu},
+           giveni={C\bibinitperiod}}}%
+        {{hash=12e5c129575811b74e80a4662971e0b0}{%
+           family={Guo},
+           familyi={G\bibinitperiod},
+           given={Hao},
+           giveni={H\bibinitperiod}}}%
+        {{hash=30df905719e51e2390e92c8ecf9d093d}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={Zhonghao},
+           giveni={Z\bibinitperiod}}}%
+        {{hash=3891e90a1fdba1afcd51c5a3afb84178}{%
+           family={Sugawara},
+           familyi={S\bibinitperiod},
+           given={Yashuhiro},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=e5d55ceb618761c66de79968a9ed937f}{%
+           family={Tang},
+           familyi={T\bibinitperiod},
+           given={Jun},
+           giveni={J\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {MDPI}%
+      }
+      \strng{namehash}{6f58cd95635bdfcb3ebf0091d0da045f}
+      \strng{fullhash}{158952d3292685aff3e130cea3440ddd}
+      \strng{fullhashraw}{158952d3292685aff3e130cea3440ddd}
+      \strng{bibnamehash}{6f58cd95635bdfcb3ebf0091d0da045f}
+      \strng{authorbibnamehash}{6f58cd95635bdfcb3ebf0091d0da045f}
+      \strng{authornamehash}{6f58cd95635bdfcb3ebf0091d0da045f}
+      \strng{authorfullhash}{158952d3292685aff3e130cea3440ddd}
+      \strng{authorfullhashraw}{158952d3292685aff3e130cea3440ddd}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Micromachines}
+      \field{number}{10}
+      \field{title}{Noise suppression of nitrogen-vacancy magnetometer in lock-in detection method by using common mode rejection}
+      \field{volume}{14}
+      \field{year}{2023}
+      \field{pages}{1823}
+      \range{pages}{1}
+    \endentry
+    \entry{ti2021tnetwork}{manual}{}{}
+      \list{organization}{1}{%
+        {Texas Instruments}%
+      }
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{labeltitlesource}{title}
+      \field{month}{03}
+      \field{number}{SBOA284}
+      \field{title}{Transimpedance amplifier with T-network circuit}
+      \field{year}{2021}
+    \endentry
+    \entry{zh_docs_node_tree}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=9cebc9843b50f5cad28f73ad8a263c14}{%
+           family={Instruments},
+           familyi={I\bibinitperiod},
+           given={Zurich},
+           giveni={Z\bibinitperiod}}}%
+      }
+      \strng{namehash}{9cebc9843b50f5cad28f73ad8a263c14}
+      \strng{fullhash}{9cebc9843b50f5cad28f73ad8a263c14}
+      \strng{fullhashraw}{9cebc9843b50f5cad28f73ad8a263c14}
+      \strng{bibnamehash}{9cebc9843b50f5cad28f73ad8a263c14}
+      \strng{authorbibnamehash}{9cebc9843b50f5cad28f73ad8a263c14}
+      \strng{authornamehash}{9cebc9843b50f5cad28f73ad8a263c14}
+      \strng{authorfullhash}{9cebc9843b50f5cad28f73ad8a263c14}
+      \strng{authorfullhashraw}{9cebc9843b50f5cad28f73ad8a263c14}
+      \field{extraname}{3}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{4}
+      \field{title}{zhinst-toolkit: Node tree}
+      \field{year}{2026}
+      \verb{urlraw}
+      \verb https://docs.zhinst.com/zhinst-toolkit/en/latest/first_steps/nodetree.html
+      \endverb
+      \verb{url}
+      \verb https://docs.zhinst.com/zhinst-toolkit/en/latest/first_steps/nodetree.html
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

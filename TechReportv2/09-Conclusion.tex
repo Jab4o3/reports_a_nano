@@ -1,0 +1,1014 @@
+\chapter{Testing and results}\label{chap:conclusion}
+%This chapter discusses the results of the tests and what conclusions could be gathered from them. All tests were based on real scenarios, but the performance tests push the platform to its limits by replicating rare and improbable edge cases.
+
+Table \ref{tab:test:tasks} shows all the tasks discussed in Chapter \ref{chap:goals} and their current status. 
+
+% The items with a reassigned status were given over to two students, who are also involved with the quantum sensing setup. The laser driver was reassigned, because a completely new design was needed, the making of which would require too much time. The pulse sequence script was finished and it was passed on to one of the other students for further refinement and possibly for the implementation of different protocols.
+
+Designing two photodetection platforms for quantum sensing was the main focus of the project and the tasks relating to it were almost completely done. The final \gls{cwodmr}[] photodetector was implemented, but not built and tested, and the final \gls{podmr}[] design was created, but not implemented fully. All intermediate iterations, except for the fourth, function according to specification. Furthermore, all versions cost approximately 30 \texteuro, which is a bit over half the budget, and adhere to the Thorlabs photonics mounting standard. The testing chapter mostly discusses how the performance of the photodetectors was tested and verified. 
+
+Despite the successful development of the data acquisition software, extensive testing could not be done, due to the unfinished state of the hardware platform. This chapter still discusses the results of the limited testing and verification that were carried out.
+
+As a part of the $T_1$ measurements software, the $T_1$ sequence generation is fully functional and integrated with the graphical interface, so that an end user can generate $T_1$ pulsing sequences by entering only 3 values. Furthermore, the code can easily be modified to generate pulsing sequences for other protocols.
+
+Lastly, the integration and testing of the quantum sensing setup is a very broad and time-consuming task. As of finalizing this report, there is still more work to be done on the different hardware and software subsystems, which is why only some subsystems have been integrated. Additionally, because the hardware setup has not been fully integrated, the \gls{gui} could not be finalized, as real data is required in order to implement the script that calculates the $T_1$ value based on the acquired data.
+
+
+\begin{table}[!ht]
+	\centering
+	\begin{tabular}{|c||c|c|}
+		\hline
+		Number 	& Task 									& Status 							\\
+		\hline
+		1.1 	& Design a photodetector \gls{pcb} for \gls{cwodmr}			& Completed							\\
+		\hline
+		1.2 	& Design a photodetector \gls{pcb} for \gls{podmr}			& Mostly completed	 						\\
+		\hline
+		2.1		& Program quantum protocol pulse sequences for \gls{podmr}	& Completed	\\
+		\hline
+		2.2 	& Develop software that acquires the system output 			& Completed	 	\\
+		\hline
+		3.1 	& Test photodetector with laser			& Mostly completed  						\\
+		\hline
+		3.2 	&  \begin{tabular}{@{}c@{}} Create a \gls{gui} that encapsulates data \\  acquisition and sequence generation for \gls{podmr}  \end{tabular}  			& Mostly completed  						\\
+		\hline
+	\end{tabular}
+	\caption{List of tasks and their completion status}
+	\label{tab:test:tasks}
+\end{table}
+
+%\begin{table}[ht]
+%\centering
+%\begin{adjustbox}{angle=0}
+%\begin{tabular}{|l|l|l|}
+%	\hline
+%	Number &Task                                                                                                                                                                                     & Status  
+
+%                            \\ \hline
+%	1.1    & \begin{tabular}[c]{@{}l@{}}Deploy and configure at least \\ one OpenRemote instance\end{tabular}                                                                                         & \cellcolor[HTML]{34FF34}Completed   \\ \hline
+%	1.2    & \begin{tabular}[c]{@{}l@{}}Establish communication to \\ the OpenRemote instance \\ using the HTTP and \\ MQTT protocols\end{tabular}                                                    & \cellcolor[HTML]{34FF34}Completed   \\ \hline
+%	2.1    & \begin{tabular}[c]{@{}l@{}}Simulate IoT devices (smart homes)\\ that send and receive concurrent MQTT \\ data to OpenRemote and measure the \\ latency of the transmissions\end{tabular} & \cellcolor[HTML]{34FF34}Completed   \\ \hline
+%	2.2    & \begin{tabular}[c]{@{}l@{}}Create a physical IoT device \\ setup using a platform like ESP32 \\ or Arduino and recreate the \\ tests from Goal 1.2\end{tabular}                          & \cellcolor[HTML]{34FF34}Completed   \\ \hline
+%	2.3    & Integrate and test OpenRemote's Prophet project                                                                                                                                          & \cellcolor[HTML]{FE0000}Not started \\ \hline
+%	2.4    & Test performance and create visualizations                                                                                                                                               & \cellcolor[HTML]{34FF34}Completed   \\ \hline
+%	3.1    & Document technical progress                                                                                                                                                              & \cellcolor[HTML]{34FF34}Completed   \\ \hline
+%	3.2    & Reflect on personal and professional development                                                                                                                                         & \cellcolor[HTML]{34FF34}Completed   \\ \hline
+%	3.3    & Communicate project results                                                                                                                                                              & \cellcolor[HTML]{F8FF00}Ongoing     \\ \hline
+%\end{tabular}
+%\end{adjustbox}
+%\caption{Goal completion}
+%\label{tab:goal_com}
+%\end{table}
+
+
+
+%\section{Test goals and performance metrics}
+\section{Test goals}
+This section lays out the basic objectives of the tests and a simple overview of how they can be achieved.
+
+\subsection{Photodetector}
+%\subsection{\glsfmtshort{tia}}
+There are two suitable methods of characterizing the \gls{tia}. As the main point of interest is the linearity of the amplifier, the first characterization method is to simulate photodiode readings at different light intensities by modeling it as a current source. By varying the diode model current, either by sweeps or manually, the performance of the physical device can be compared to the simulations.
+
+The second method supplements the results of the first one. It involves measuring the scattering parameters $S_{11}$ and $S_{21}$ and calculating the frequency response of the system. Equation \eqref{eq:test:s11s22} shows the formula used to approximate the transimpedance $Z_t$ for a load resistor $R_l$ \cite{sackinger2017analysis}. This method provides a better overview of the transimpedance over the whole bandwidth of the photodetector.
+
+\begin{equation}\label{eq:test:s11s22}
+	Z_t(f) \approx \frac{S_{21}(f)R_l}{1 - S_{11}(f)}
+\end{equation}
+
+Neither of these methods uses a real photodiode, which is why an integration test is also necessary. Not only is the integration test needed to evaluate the performance of the diode, but it also gives insight into how the diode interacts with the laser, which will be used to conduct experiments with the sensing setup. Using the laser driver, a square-wave signal is pulsed at different frequencies within the amplifier bandwidth. By comparing the signal output by the photodetector to the signal output by the function generator, the performance of the system can be determined. Although the laser pulsing limits the test to square waves only, the filtering of high-frequency components at near-cutoff frequencies gives a deeper understanding of the behavior of the circuit.
+
+\subsection{$T_1$ software}
+It is important to reiterate, before delving into testing details, that as of completing this report, the hardware setup for $T_1$ measurements has still not been completed. This limit on the implementation and testing possibilities made it impossible to complete the software development and integration, which is why only certain unit tests could be done. Furthermore, testing was hampered by hardware unavailability and limited lab access.
+
+Aside from proper functioning, the client set no requirements for speed. This is because the application relies on several fixed-length delay in order to operate. In addition, a longer runtime allows for more precise measurements. Because of this, all subsystems were tested and compared to the expected behavior with no regard for the length of the execution time.
+
+Table \ref{tab:test:metrics} shows the list of subsystems and their status. Aside from data acquisition, there is little to be said about the tests, as they were either trivial pass/fail checks, or they were already discussed in Chapter \ref{chap:td:software}. Data acquisition, however, is the bottleneck of the whole system, which is why its performance needs to be discussed in greater detail.
+
+
+\begin{table}[ht]
+	\centering
+		\begin{tabular}{|c|c|}
+			\hline
+			Subsystem         	& Status 			\\ \hline
+			\glsfmtshort{gui} 	& Functional 		\\ \hline
+			Device connection 	& Functional 		\\ \hline
+			Sequence creation	& Functional 		\\ \hline
+			Waveform generation	& Functional 		\\ \hline
+			Data acquisition	& Functional 		\\ \hline
+			Data visualization	& Functional 		\\ \hline
+			$T_1$ decoder		& Not implemented 	\\ \hline
+		\end{tabular}
+	\caption{Subsystems of the $T_1$ measurements software and their working status}
+	\label{tab:test:metrics}
+\end{table}
+
+
+
+\section{Test setup}
+Because different test methods require slightly different physical setups, this section outlines the parts that comprise the setups and how they operate. Each setup is dissected separately and the necessary devices and components are shown in diagrams and pictures.
+
+\subsection{Photodiode-model characterization}
+Characterizing the system well requires fixed currents, due to the big difference in output voltage small currents differences at the input make. As the diode detects ambient light and cannot be set to one current level reliably, a model needs to be used instead. A voltage source can then be used to simulate the nanoampere photovoltaic current $I_f$ generated by the diode. According to Säckinger \cite{sackinger2017analysis}, the resistor $R_d$ and the capacitor $C_d$ in Figure \ref{fig:test:diode_equiv} are enough to characterize a \gls{tia} circuit. By inputting a voltage at the node $V_i$, $R_d$ functions as a current source, similar to a photodiode. This model assumes the parallel shunt resistance is so high that it can be omitted, while the series resistance can be neglected due to its limited impact on the system. However the diode capacitance is central to \gls{tia} analysis and design, which is why $C_d$ is there to mimic it. Additionally, there is the matching resistor $R_i$, which can be replaced by a coaxial terminator, and the capacitor $C_i$ that is used to isolate the input from the rest of the circuit.
+
+\begin{figure}[ht]
+	\centering
+	\resizebox{.5\textwidth}{!}{%
+		\begin{circuitikz}
+			\tikzstyle{every node}=[font=\normalsize]
+			\draw[line width=0.5pt] (1,0) 
+			to [european resistor, l={$R_i$}] (1,-2)
+			(1, 0) node[circ]{}
+			(1,-2) node[ground]{};
+			
+			\draw [line width=0.5pt] (0,0) 
+			to [short, o-] (1, 0)
+			to [capacitor, l={$C_i$}] (3,0)
+			to [european resistor, l={$R_d$}] (5,0)
+			to [capacitor, l={$C_d$}] (5,-2)
+			(5, 0) node[circ]{}
+			(5, -2) node[ground]{};
+			
+			\draw [line width=0.5pt] (5, 0)
+			to [short] (6,0)
+			(6,0) node[currarrow]{};
+			
+			\node at (-0.5, 0) {$V_i$};
+			\node at (6.5, 0) {$I_f$};
+
+		\end{circuitikz}
+	}%
+	\caption{Photodiode model}
+	\label{fig:test:diode_equiv}
+\end{figure}
+
+Using this model, the diode current $I_f$ can be approximated using Equation \eqref{eq:test:i_f}. The approximation is true only if the input impedance $Z_i$ (see Equation \eqref{eq:test:z_i}) of the \gls{tia} is significantly lower than $R_d$ \cite{razavi2019transimpedance}. Keeping this in mind, a resistor six to seven orders of magnitude bigger was selected for the physical circuit.
+
+\begin{equation}\label{eq:test:i_f}
+	I_f = \frac{V_i}{R_d}
+\end{equation}
+
+\begin{equation}\label{eq:test:z_i}
+	Z_i = \frac{R_1}{A_o + 1}
+\end{equation}
+
+Finally, the full setup diagram can be seen in Figure \ref{fig:test:tia_dc:setup}. Using the function generator feature of the \gls{ad2}, a voltage can be generated and, using the current through $R_d$, the oscilloscope output can be used to characterize the system.
+
+\begin{figure}[ht]
+	\centering
+	\begin{tikzpicture}[
+		% define box styles
+		boxr/.style={rectangle, thick, draw=red!50!black, fill=red!5, minimum size=5mm},
+		boxg/.style={rectangle, thick, draw=green!50!black, fill=green!5, minimum size=5mm},
+		boxb/.style={rectangle, thick, draw=blue!50!black, fill=blue!5, minimum size=5mm},
+		]
+		% draw source/scope nodes
+		\node[boxg] (fgen)								{Function generator};
+		\node[boxg] (scope)		[right=15 mm of fgen] 	{Oscilloscope};
+		% draw main system nodes
+		\node[boxb] (phm) 	[below=of fgen]			{Photodiode model};
+		\node[boxb] (amps) 	[below=of scope]		{Amplifiers};
+		
+		
+		% draw lines
+		\draw[->, thick]			(fgen.south)		to node[midway, left]{Signal} 	(phm.north);
+		\draw[->, thick] 			(phm.east) 			to node[midway, above]{Current} 			(amps.west);
+		\draw[->, thick]			(amps.north) 		to node[midway, right]{Signal} 				(scope.south);
+	\end{tikzpicture}
+	\caption{\gls{tia} characterization with photodiode model test setup diagram}
+	\label{fig:test:tia_dc:setup}
+\end{figure}
+
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=0.6\linewidth]{img/setup_model_alt}
+	\caption{Photodiode model test setup}
+	\label{fig:test:setupmodel}
+\end{figure}
+
+For the tests, it was decided to test the \gls{dc} characteristics of the amplifier separately from the frequency response. Because of $C_i$, a \gls{dc} voltage will not generate a current. Instead, to verify that the \gls{dc} amplification matches the simulations, a low-frequency sine wave is used and its amplitude is varied, all while the output voltage is measured. The frequency response test measures the response of the system at near-cutoff frequencies, similar to the integration test. The difference is that instead of pulsing the laser, sine waves generate current using the photodiode model, which is then amplified. The change of waveforms is necessary because of the distorting effect of $C_i$ on square waves, especially at lower frequencies.
+
+Figure \ref{fig:test:setupmodel} shows the assembled setup. A 1 \unit{\mega\ohm} resistor was used for $R_d$. Although the diode capacitance $C_d$ is very important for the frequency response, a 27 \unit{\pico\farad} capacitor was used instead of a 25 \unit{\pico\farad} one. This small of a difference should not affect the results much.
+
+\subsection{S-parameter characterization}
+Scattering parameters, also known S-parameters, are often used to characterize \gls{rf} circuits and antennas by using a \gls{vna}. For this particular test, the $S_{11}$ and $S_{21}$ parameters are needed to calculate the transimpedance using Equation \eqref{eq:test:s11s22}. In order to measure both, the \gls{vna} needs to be configured as shown in Figure \ref{fig:test:s_params:setup}. $S_{11}$ can be measured with only port 1 of the \gls{vna} being connected to the photodetector. However, port 2 is needed to measure $S_{21}$ at the output of the photodetector.
+
+\begin{figure}[ht]
+	\centering
+	\begin{tikzpicture}[
+		% define box styles
+		boxr/.style={rectangle, thick, draw=red!50!black, fill=red!5, minimum size=5mm},
+		boxg/.style={rectangle, thick, draw=green!50!black, fill=green!5, minimum size=5mm},
+		boxvna/.style={rectangle, thick, draw=green!50!black, fill=green!5, minimum size=10mm},
+		boxb/.style={rectangle, thick, draw=blue!50!black, fill=blue!5, minimum size=5mm},
+		]
+		% draw source/scope nodes
+		\node[boxg, minimum width=30mm] (vna) at (0, 0)							{\glsfmtshort{vna}};
+		\node[boxg, minimum width=15mm]	(vna-in)[below left=0mm and -15.25mm of vna]	{Port 1};
+		\node[boxg, minimum width=15mm] (vna-out)[below right=0mm and -15.25mm of vna]	{Port 2};
+		\node[boxb] (detec) 	[below=10mm of vna]		{Photodetector};
+		
+		% draw lines
+		\draw[thick] (vna-in.west) |- (-20mm, -5mm) |- (detec.west);
+		\draw[thick] (vna-out.east) |- (20mm, -5mm) |- (detec.east);
+		
+		
+	\end{tikzpicture}
+	\caption{S-parameter characterization of a \gls{tia} using a two-port \gls{vna}}
+	\label{fig:test:s_params:setup}
+\end{figure}
+
+\subsection{Integration test}
+The integration test has a similar test setup to the complete quantum sensing setup. However, the light from the laser directly illuminates the photodiode instead of a diamond sample \gls{nv}. This was done on purpose, because this test layout provides realistic information on the functioning of the photodetector when used in the quantum sensing setup without the added difficulty of processing the \gls{nv} signal. This test is particularly interesting for pulsed protocols, as a photodetector for them needs to be able to have a well-defined rising edge. A filter was placed in front of the photodetector to remove the green component of the laser and reduce the overall light intensity. However, some of the tests were done without filtering, as with manual adjustment the light intensity at the sensor can be set to an ideal level. When the tests were done, the new version of the laser driver was available and its \gls{pcb} included a laser, which is also shown in the diagram in Figure \ref{fig:test:tia_integ:setup}. For the \gls{ttl} pulses, a 5 \unit{\volt} signal is sent to the driver when in an on state.  
+
+\begin{figure}[ht]
+	\centering
+	\begin{tikzpicture}[
+		% define box styles
+		boxr/.style={rectangle, thick, draw=red!50!black, fill=red!5, minimum size=5mm},
+		boxg/.style={rectangle, thick, draw=green!50!black, fill=green!5, minimum size=5mm},
+		boxb/.style={rectangle, thick, draw=blue!50!black, fill=blue!5, minimum size=5mm},
+		]
+		% draw source/scope nodes
+		\node[boxg] (fgen)								{Function generator};
+		\node[boxg] (scope)		[right=10 mm of fgen] 	{Oscilloscope};
+		% draw main system nodes
+		\node[boxb] (driver) 	[below=of fgen]			{Driver and laser};
+		\node[boxb] (detec) 	[below=of scope]		{Photodetector};
+		
+		
+		% draw lines
+		\draw[->, thick, dashed] 	(fgen.east) 		to node[midway, above]{\glsfmtshort{ttl}} 	(scope.west);
+		\draw[->, thick]			(fgen.south)		to node[midway, left]{\glsfmtshort{ttl}} 	(driver.north);
+		\draw[->, thick] 			(driver.east) 		to node[midway, above]{Light} 			(detec.west);
+		\draw[->, thick]			(detec.north) 		to node[midway, right]{Signal} 				(scope.south);
+	\end{tikzpicture}
+	\caption{Integration test setup diagram}
+	\label{fig:test:tia_integ:setup}
+\end{figure}
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.5\linewidth]{img/setup_integ_alt}
+	\caption{Integration test setup}
+	\label{fig:test:setupinteg}
+\end{figure}
+
+In addition to the diagram, Figure \ref{fig:test:setupinteg} shows what the physical measurement setup looks like. Because of reasons discussed in the section containing the results (see Chapter \ref{chap:test:integ_res}), the distance between the laser and the detector had to be increased and the alignment manually adjusted.
+
+
+\subsection{\glsfmtshort{daq} test setup} \label{chap:test:daq_setup}
+The simplest way of testing the \gls{daq} functionality of the application is to connect the waveform generator of the Analog Discovery to its oscilloscope and run $T_1$ sequences. This method is best because of its simplicity, as well as its similarity to real $T_1$ measurements. Because of the shape of the waveforms, testing with the waveform generator and oscilloscope can give insight into how the real tests will be acquired and stored. However, it is missing the signal distortion and extra noise that a real sensing experiment with the complete setup would exhibit. Even then,  this test is sufficient for the current level of hardware integration.
+
+\begin{figure}[ht]
+	\centering
+	\begin{tikzpicture}[
+		% define box styles
+		boxg/.style={rectangle, thick, draw=green!50!black, fill=green!5, minimum size=5mm},
+		]
+		% draw MW nodes
+		\node[boxg] (ad2)								{Analog Discovery 2};
+		\node[boxg] (app)		[above=of ad2] 			{Application};
+		
+		
+		% draw app lines
+		\draw[->, thick]			(app.south) 		to node[midway, left]{\glsfmtshort{ttl}}	(ad2.north);
+		\draw[->, thick]			(ad2.north) 		to node[midway, right]{Oscilloscope}		(app.south);
+	\end{tikzpicture}
+	\caption{High-level overview of the $T_1$ measurements quantum sensing setup}
+	\label{fig:test:daq}
+\end{figure}
+
+The most interesting metric for data acquisition is the maximum sampling frequency before data loss occurs, as clear results require it to be much higher than the signal frequency. According to Nyquist's theorem, to sample a sinusoidal signal with a frequency of $f_{sig}$ the sampling frequency $f_s$ needs to be $f_s > 2f_{sig}$. However, square waves are comprised of multiple harmonics, in addition to the fundamental of the signal and this complex composition necessitates a drastic increase in $f_s$. In fact, to sample a usable amount of harmonics\footnote{Square waves contain so-called odd harmonics, which are harmonics at frequencies that are multiples of the fundamental and odd integer series. Minimum square-wave definition can be had with only up to the second harmonic, which has a frequency of $5f_{sig}$}, sampling should be done with a frequency $f_s > 2f_{harm2} = 10f_{sig}$. Lastly, because the measured signal is not periodic, the lowest pulse duration, which is the minimum dark time, needs to be taken to calculate $f_{sig}$. As a result the sampling frequency needs to be set to $f_s > \frac{10}{\tau_{dmin}}$.
+
+
+%\section{Results}
+%This section of the report covers the previously discussed tests and provides images of the measurements. Furthermore, the simulation results are also used for comparison.
+
+\section{Photodiode model characterization results}\label{chap:test:pdmodel}
+This section presents the characterization results, carried out with the use of the photodiode model. When the final \gls{cwodmr} detector was finalized, the parts took too long to ship and, even if they had arrived on time, there would not be enough lab hours to test it, which is also the reason why the \gls{podmr} photodetector could not be implemented fully. Consequently, no testing results are shown for the last two iterations.
+
+\subsection{First iteration}
+\begin{figure}[!ht]
+	\centering
+	\begin{subfigure}[1a]{.49\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{img/v1_model_5nA}
+		\caption{Model test with the input at 5 \unit{\milli\volt} and a 5 \unit{\nano\ampere} current through $R_d$ resulting in 0,62 \unit{\volt} output voltage (\num{551,89}\unit{\milli\volt} in simulation)}
+		\label{fig:test:v1_model_5nA}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[1b]{.49\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{img/v1_model_15nA}
+		\caption{Model test with the input at 15 \unit{\milli\volt} and a 15 \unit{\nano\ampere} current through $R_d$ resulting in 1,62 \unit{\volt} output voltage (\num{1,65}\unit{\volt} in simulation)}
+		\label{fig:test:v1_model_15nA}
+	\end{subfigure}
+	
+	\begin{subfigure}[2a]{.49\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{img/v1_model_25nA}
+		\caption{Model test with the input at 25 \unit{\milli\volt} and a 25 \unit{\nano\ampere} current through $R_d$ resulting in 2,7 \unit{\volt} output voltage (\num{2,75}\unit{\volt} in simulation)}
+		\label{fig:test:v1_model_25nA}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[2b]{.49\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{img/v1_model_40nA}
+		\caption{Model test with the input at 40 \unit{\milli\volt} and a 40 \unit{\nano\ampere} current through $R_d$ resulting in 4,24 \unit{\volt} output voltage (\num{4,4}\unit{\volt} in simulation)}
+		\label{fig:test:v1_model_40nA}
+	\end{subfigure}
+	
+	\caption{\Gls{dc} characteristics test with a photodiode model ($R_d$ = 1 \unit{\mega\ohm}, $C_d$ = 27 \unit{\pico\farad}) of the first iteration of the photodetector with a 50 \unit{\hertz} input signal}
+	\label{fig:test:v1_model}
+\end{figure}
+
+Figure \ref{fig:test:v1_model} shows how the first iteration of the photodetector performed under the photodiode model test. In the plots, the amplitude or half of the peak-to-peak voltage, corresponds to the output signal magnitude that needs to be compared to the simulations. Knowing this, it is clear that the system displays the expected linear behavior\footnote{It should be noted that the $V_{pp}$ values shown in the oscilloscope measurements are approximate. During the tests, it was determined that they can deviate as much as 15\% from the signal value}.
+
+To gain a better understanding of the noise, it was measured with the diode model connected, but turned off. The results are shown in Figure \ref{fig:test:v1modelnoise} and show sporadic changes in voltage with no discernible periodic component, which means the noise is most likely caused by the diode model and significantly amplified by the amplifiers.
+
+
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=0.5\linewidth]{img/v1_model_noise}
+	\caption{Noise of the first iteration when connected to the diode model}
+	\label{fig:test:v1modelnoise}
+\end{figure}
+
+Figure \ref{fig:test:v1_model_freq} shows that the first version of the photodetector exhibits slightly more attenuation at near-cutoff frequencies than expected. Simulations were conducted and they verified that the main cause was not the slightly larger $C_d$. Its increase only accounts for around 100 \unit{\hertz} of difference in the bandwidth. It is possible that parasitic capacitance, which were not accounted for, are present, which would explain the slight bandwidth reduction.
+
+\begin{figure}[!ht]
+	\centering
+	\begin{subfigure}[1a]{.49\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{img/v1_model_5k}
+		\caption{Model test with the input at 5 \unit{\kilo\hertz} resulting in 2,46 \unit{\volt} output voltage (\num{2,5} \unit{\volt} in simulation)}
+		\label{fig:test:v1_model_5k}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[1b]{.49\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{img/v1_model_10k}
+		\caption{Model test with the input at 10 \unit{\kilo\hertz} resulting in 1,38 \unit{\volt} output voltage (\num{2,02} \unit{\volt} in simulation)}
+		\label{fig:test:v1_model_10k}
+	\end{subfigure}
+	
+	\begin{subfigure}[2a]{.49\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{img/v1_model_20k}
+		\caption{Model test with the input at 20 \unit{\kilo\hertz} resulting in 0,75 \unit{\volt} output voltage (\num{1,29} \unit{\volt} in simulation)}
+		\label{fig:test:v1_model_20k}
+	\end{subfigure}
+	
+	\caption{Near-cutoff characteristics test with a photodiode model ($R_d$ = 1 \unit{\mega\ohm}, $C_d$ = 27 \unit{\pico\farad}) of the first iteration of the photodetector with a 25 \unit{\nano\ampere} input signal}
+	\label{fig:test:v1_model_freq}
+\end{figure}
+
+\subsection{Second iteration}
+
+
+Figure \ref{fig:test:v2_model} shows the results of the \gls{dc} characteristics tests of the second version of the photodetector. Despite the measurements showing results similar to the simulations, the output signal contains significant amounts of noise, which exceed the expected levels. Furthermore, the noise of the system is more pronounced than the first iteration, which was also unexpected.
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.5\linewidth]{img/v2_model_noisе}
+	\caption{Noise of the second iteration when connected to the diode model}
+	\label{fig:test:v2modelnoise}
+\end{figure}
+
+\begin{figure}[!ht]
+	\centering
+	\begin{subfigure}[1a]{.49\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{img/v2_model_5nА}
+		\caption{Model test with the input at 5 \unit{\milli\volt} and a 5 \unit{\nano\ampere} current through $R_d$ resulting in 0,64 \unit{\volt} output voltage (\num{551,89}\unit{\milli\volt} in simulation)}
+		\label{fig:test:v2_model_5nA}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[1b]{.49\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{img/v2_model_15nA}
+		\caption{Model test with the input at 15 \unit{\milli\volt} and a 15 \unit{\nano\ampere} current through $R_d$ resulting in 1,8 \unit{\volt} output voltage (\num{1,65}\unit{\volt} in simulation)}
+		\label{fig:test:v2_model_15nA}
+	\end{subfigure}
+	
+	\begin{subfigure}[2a]{.49\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{img/v2_model_25nА}
+		\caption{Model test with the input at 25 \unit{\milli\volt} and a 25 \unit{\nano\ampere} current through $R_d$ resulting in 2,78 \unit{\volt} output voltage (\num{2,75}\unit{\volt} in simulation)}
+		\label{fig:test:v2_model_25nA}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[2b]{.49\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{img/v2_model_40nA}
+		\caption{Model test with the input at 40 \unit{\milli\volt} and a 40 \unit{\nano\ampere} current through $R_d$ resulting in 4,36 \unit{\volt} output voltage (\num{4,4}\unit{\volt} in simulation)}
+		\label{fig:test:v2_model_40nA}
+	\end{subfigure}
+	
+	\caption{\Gls{dc} characteristics test with a photodiode model ($R_d$ = 1 \unit{\mega\ohm}, $C_d$ = 27 \unit{\pico\farad}) of the second iteration of the photodetector with a 50 \unit{\hertz} input signal}
+	\label{fig:test:v2_model}
+\end{figure}
+
+
+The noise, seen in Figure \ref{fig:test:v2modelnoise}, is not dominated by a periodic signal, which means it is generated by environmental sources. Interestingly, the noise floor of the second iteration is higher than the first one. With the improved layout and added ground plane, the second iteration was expected to have better noise characteristics. It is possible that the increased bandwidth contributes to the noise, but its effect should be minimal. While testing, it was also determined that there were issues with the power connection, which contributed significant noise to the signal, as well.
+
+
+Similar to the first version, this one exhibits more attenuation at near-cutoff frequencies. That being said, there increase in bandwidth can be seen clearly, in spite of the the excessive attenuation. 
+
+\begin{figure}[!ht]
+	\centering
+	\begin{subfigure}[1a]{.49\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{img/v2_model_5k}
+		\caption{Model test with the input at 5 \unit{\kilo\hertz} resulting in 4,2 \unit{\volt} output voltage (\num{4.28} \unit{\volt} in simulation)}
+		\label{fig:test:v2_model_5k}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[1b]{.49\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{img/v2_model_10k}
+		\caption{Model test with the input at 10 \unit{\kilo\hertz} resulting in 3,72 \unit{\volt} output voltage (\num{3,96} \unit{\volt} in simulation)}
+		\label{fig:test:v2_model_10k}
+	\end{subfigure}
+	
+	\begin{subfigure}[2a]{.49\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{img/v2_model_20k}
+		\caption{Model test with the input at 20 \unit{\kilo\hertz} resulting in 2,48 \unit{\volt} output voltage (\num{3,09} \unit{\volt} in simulation)}
+		\label{fig:test:v2_model_20k}
+	\end{subfigure}
+	
+	\caption{Near-cutoff characteristics test with a photodiode model ($R_d$ = 1 \unit{\mega\ohm}, $C_d$ = 27 \unit{\pico\farad}) of the second iteration of the photodetector with a 40 \unit{\nano\ampere} input signal}
+	\label{fig:test:v2_model_freq}
+\end{figure}
+
+
+\subsection{Third iteration}
+The tests of the third iteration of the photodetector, seen in Figure \ref{fig:test:v3_model}, show that the amplifier has a similar performance to the previous iteration. It does have more noise, but with the addition of the charge pump, the increase in noise was expected. Otherwise, both the second and the third version demonstrate the same amplification at all current levels.
+
+\begin{figure}[ht]
+	\centering
+	\begin{subfigure}[1a]{.49\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{img/v3_model_5nA}
+		\caption{Model test with the input at 5 \unit{\milli\volt} and a 5 \unit{\nano\ampere} current through $R_d$ resulting in 0,78 \unit{\volt} output voltage (\num{551,89}\unit{\milli\volt} in simulation)}
+		\label{fig:test:v3_model_5nA}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[1b]{.49\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{img/v3_model_15nA}
+		\caption{Model test with the input at 15 \unit{\milli\volt} and a 15 \unit{\nano\ampere} current through $R_d$ resulting in 1,8 \unit{\volt} output voltage (\num{1,65}\unit{\volt} in simulation)}
+		\label{fig:test:v3_model_15nA}
+	\end{subfigure}
+	
+	\begin{subfigure}[2a]{.49\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{img/v3_model_25nA}
+		\caption{Model test with the input at 25 \unit{\milli\volt} and a 25 \unit{\nano\ampere} current through $R_d$ resulting in 2,84 \unit{\volt} output voltage (\num{2,75}\unit{\volt} in simulation)}
+		\label{fig:test:v3_model_25nA}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[2b]{.49\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{img/v3_model_40nA}
+		\caption{Model test with the input at 40 \unit{\milli\volt} and a 40 \unit{\nano\ampere} current through $R_d$ resulting in 4,4 \unit{\volt} output voltage (4,4 \unit{\volt} in simulation)}
+		\label{fig:test:v3_model_40nA}
+	\end{subfigure}
+	
+	\caption{\Gls{dc} characteristics test with a photodiode model ($R_d$ = 1 \unit{\mega\ohm}, $C_d$ = 27 \unit{\pico\farad}) of the third iteration of the photodetector with a 50 \unit{\hertz} input signal}
+	\label{fig:test:v3_model}
+\end{figure}
+
+What is more interesting about the tests of the third version of the photodetector is the noise. Figure \ref{fig:test:v3modelnoise} shows that compared to the previous version, which lacks a charge pump, this iteration has a barely-noticeable periodic signal present even when there is no input voltage from the Analog Discovery. Because the integration tests in Chapter \ref{chap:test:integ_res} demonstrate the noise more clearly, detailed examination of charge pump noise is left for later.
+
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=0.5\linewidth]{img/v3_model_noise}
+	\caption{Noise of the second iteration when connected to the diode model}
+	\label{fig:test:v3modelnoise}
+\end{figure}
+
+As expected the near-cutoff behavior of the third version of the system is almost identical to the second one, as seen in Figure \ref{fig:test:v3_model_freq}. What is more interesting about the plots is that there is a clear periodic signal in addition to the noise, especially in Figures \ref{fig:test:v3_model_5k} and \ref{fig:test:v3_model_10k}.
+
+\begin{figure}[!ht]
+	\centering
+	\begin{subfigure}[1a]{.49\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{img/v3_model_5k}
+		\caption{Model test with the input at 5 \unit{\kilo\hertz} resulting in 4,26 \unit{\volt} output voltage (\num{4.28} \unit{\volt} in simulation)}
+		\label{fig:test:v3_model_5k}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[1b]{.49\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{img/v3_model_10k}
+		\caption{Model test with the input at 10 \unit{\kilo\hertz} resulting in 3,52 \unit{\volt} output voltage (\num{3,96} \unit{\volt} in simulation)}
+		\label{fig:test:v3_model_10k}
+	\end{subfigure}
+	
+	\begin{subfigure}[2a]{.49\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{img/v3_model_20k}
+		\caption{Model test with the input at 20 \unit{\kilo\hertz} resulting in 2,42 \unit{\volt} output voltage (\num{3,09} \unit{\volt} in simulation)}
+		\label{fig:test:v3_model_20k}
+	\end{subfigure}
+	
+	\caption{Near-cutoff characteristics test with a photodiode model ($R_d$ = 1 \unit{\mega\ohm}, $C_d$ = 27 \unit{\pico\farad}) of the third iteration of the photodetector with a 40 \unit{\nano\ampere} input signal}
+	\label{fig:test:v3_model_freq}
+\end{figure}
+
+\subsection{Fourth iteration}
+Because of a biasing issue, testing the fourth iteration with the photodiode model is impossible. For further discussion of how the biasing issue was found and tackled unsuccessfully, see Chapter \ref{chap:test:v4_results}.
+
+\section{S-parameter characterization results}
+Unfortunately, the system could not be characterized by means of S-parameters. This is due to the lack of suitable equipment. The laboratory had a \gls{vna} that could only be used to measure S-parameters in the \gls{rf} range, which is significantly higher than the cutoff frequency of the photodetector. There was another method which was tried, which involves using the waveform and oscilloscope channels of an \gls{ad2} as a \gls{vna}. While this method can cover the operating frequencies of the device, it can only measure the $S_{11}$ parameter of the device, because it functions as a network analyzer with a single port. %Lastly, attempts at contacting researchers from the University of Twente for their equipment were made, but they did not respond.
+
+\section{Integration test results}\label{chap:test:integ_res}
+Tests were originally done with the laser placed less than 1 \unit{cm} away from the photodiode. However, better measurements can be achieved by moving the laser further away and not aligning the center of the beam with the diode. Doing both reduces the light intensity at the photodiode, which in turn prevents the sensor from being overexposed. In photovoltaic mode, overexposure severely lengthens the rise and fall time of the photodiode, and this effect is further exacerbated by the extremely high sensitivity of the circuit. Figure \ref{fig:test:v1_test} shows how the photodetector performs under close to ideal conditions. In these tests, the laser intensity should be barely enough for the signal to exhibit supply clipping. Lastly, the final \gls{cwodmr} and \gls{podmr} detectors were not tested for the reasons mentioned in Chapter \ref{chap:test:pdmodel}. 
+
+\subsection{First iteration}
+
+\begin{figure}[!ht]
+	\centering
+	\begin{subfigure}[1a]{.49\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{img/v1_test_50}
+		\caption{Integration test with the laser pulsing at 50 \unit{\hertz}}
+		\label{fig:test:v1_test_50}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[1b]{.49\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{img/v1_test_5k}
+		\caption{Integration test with the laser pulsing at 5 \unit{\kilo\hertz}}
+		\label{fig:test:v1_test_5k}
+	\end{subfigure}
+	
+	\begin{subfigure}[2a]{.49\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{img/v1_test_10k}
+		\caption{Integration test with the laser pulsing at 10 \unit{\kilo\hertz}}
+		\label{fig:test:v1_test_10k}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[2b]{.49\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{img/v1_test_20k}
+		\caption{Integration test with the laser pulsing at 20 \unit{\kilo\hertz}}
+		\label{fig:test:v1_test_20k}
+	\end{subfigure}
+	
+	\caption{Integration test of the first iteration of the photodetector (cutoff frequency $f_c$ = \num{10,77} \unit{\kilo\hertz}) with an off-axis laser at a medium-distance}
+	\label{fig:test:v1_test}
+\end{figure}
+
+The measurements of the first iteration of the photodetector present a cleaner response at higher frequency, but the low-frequency measurement in Figure \ref{fig:test:v1_test_50} demonstrates the effect of ambient light, as well as electrical interference, on the circuit. When there is no direct laser light present, the photocurrent still generated over 200 \unit{\milli\volt} of voltage. This effect is not noticeable in the higher-frequency measurements, however, they demonstrate a significant increase in signal rise and fall time.
+
+\subsection{Second iteration}
+The same test was ran on the second version of the photodetector and the results are shown in Figure \ref{fig:test:v2_test}. In comparison to the first iteration, there is noticeable reduction in low-frequency noise at 50 \unit{\hertz} (Figure \ref{fig:test:v2_test_50}). Furthermore, the high-frequency performance has also improved in the second version. The 5 \unit{\kilo\hertz} measurements in Figure \ref{fig:test:v2_test_5k} show significantly better waveform definition. What is more, at 10 \unit{\kilo\hertz} there is less high-frequency noise, in comparison to before, as can be seen in Figure \ref{fig:test:v2_test_10k}. Similarly, the 20 \unit{\kilo\hertz} signal in Figure \ref{fig:test:v2_test_20k} demonstrates a decrease in noise, but it also shows off the increase in bandwidth. Whereas the first iteration amplifies the signal to 2,1 \unit{\volt} peak-to-peak, the second iteration outputs a 4 \unit{\volt} signal.
+
+\begin{figure}[!ht]
+	\centering
+	\begin{subfigure}[1a]{.49\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{img/v2_diode_50}
+		\caption{Integration test with the laser pulsing at 50 \unit{\hertz} (5 \unit{\volt} in simulation)}
+		\label{fig:test:v2_test_50}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[1b]{.49\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{img/v2_diode_5k}
+		\caption{Integration test with the laser pulsing at 5 \unit{\kilo\hertz} (5 \unit{\volt} in simulation)}
+		\label{fig:test:v2_test_5k}
+	\end{subfigure}
+	
+	\begin{subfigure}[2a]{.49\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{img/v2_diode_10k}
+		\caption{Integration test with the laser pulsing at 10 \unit{\kilo\hertz}}
+		\label{fig:test:v2_test_10k}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[2b]{.49\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{img/v2_diode_20k}
+		\caption{Integration test with the laser pulsing at 20 \unit{\kilo\hertz}}
+		\label{fig:test:v2_test_20k}
+	\end{subfigure}
+	
+	\caption{Integration test of the second iteration of the photodetector (cutoff frequency $f_c$ = \num{21,167} \unit{\kilo\hertz}) with an off-axis laser at a medium-distance}
+	\label{fig:test:v2_test}
+\end{figure}
+
+\subsection{Third iteration}
+\begin{figure}[!ht]
+	\centering
+	\begin{subfigure}[1a]{.49\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{img/v3_diode_50}
+		\caption{Integration test with the laser pulsing at 50 \unit{\hertz}}
+		\label{fig:test:v3_test_50}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[1b]{.49\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{img/v3_diode_5k}
+		\caption{Integration test with the laser pulsing at 5 \unit{\kilo\hertz}}
+		\label{fig:test:v3_test_5k}
+	\end{subfigure}
+	
+	\begin{subfigure}[2a]{.49\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{img/v3_diode_10k}
+		\caption{Integration test with the laser pulsing at 10 \unit{\kilo\hertz}}
+		\label{fig:test:v3_test_10k}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[2b]{.49\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{img/v3_diode_20k}
+		\caption{Integration test with the laser pulsing at 20 \unit{\kilo\hertz}}
+		\label{fig:test:v3_test_20k}
+	\end{subfigure}
+	
+	\caption{Integration test of the third iteration of the photodetector (cutoff frequency $f_c$ = \num{21,167} \unit{\kilo\hertz}) with an off-axis laser at a medium-distance}
+	\label{fig:test:v3_test}
+\end{figure}
+
+In Figure \ref{fig:test:v3_test}, the third version of the photodetector demonstrates better high-frequency performance and slightly better low-frequency noise attenuation than the first version, but it still performs worse than the second one. Figure \ref{fig:test:v3_test_50} shows marginally less noise at 50 \unit{\hertz}, in comparison with the first iteration, but there is significantly more high-frequency noise than the second iteration. This can be seen when the laser is off. Figures \ref{fig:test:v3_test_5k} and \ref{fig:test:v3_test_10k} show well-defined pulse edges at 5 \unit[]{\kilo\hertz} and 10 \unit[]{\kilo\hertz} respectively, but, when compared to the 4,8 \unit{\volt} signal of the second iteration, it is clear that the peak-to-peak voltage of 3,7 \unit{\volt} is much smaller than it should be. Lastly, the signal in Figure \ref{fig:test:v3_test_20k} demonstrates similar edge definition to the second iteration. However, the magnitude of the signal is significantly lower at 2,6 \unit[]{\volt} peak-to-peak, in comparison to 4 \unit{\volt}. Lastly, at all test frequencies, there is a significant amount of noise present and its shape, as well as its frequency, suggest the noise originates from the charge pump.
+
+
+\begin{figure}[!ht]
+	\centering
+	\begin{subfigure}[1a]{.49\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{img/v3_ripple}
+		\caption{Supply noise with 1 \unit{\micro\farad} filtering capacitors}
+		\label{fig:test:v3ripple}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[1b]{.49\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{img/v3_ripple_new}
+		\caption{Supply noise with 10 \unit{\micro\farad} filtering capacitors}
+		\label{fig:test:v3ripplenew}
+	\end{subfigure}
+	\caption{Noise measurements in minimal-lighting conditions of the third iteration of the photodetector}
+	\label{fig:test:v3ripple_both}
+\end{figure}
+
+Figure \ref{fig:test:v3ripple} shows the supply noise seen at the output, which reaches up to 400 \unit[]{\milli\volt} and has a frequency of 50 \unit {\kilo\hertz}. Because the signal containing the noise suggests insufficient supply filtering, the capacitances $C_O$, $C_{fly}$ and $C_I$ (see Figure \ref{fig:td:des:chrgpump}) were increased to 10 \unit{\micro\farad}, which is 10 times bigger than what the manufacturer recommends and what was used previously. This resulted in a significant improvement, as can be seen in Figure \ref{fig:test:v3ripplenew}, with the new peak-to-peak maximum being 80 \unit{\milli\volt}.
+
+After changing the filtering capacitors, the laser pulsing tests were done again and the results are shown in Figure \ref{fig:test:v3_test_new}. 
+
+\begin{figure}[!ht]
+	\centering
+	\begin{subfigure}[1a]{.49\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{img/v3_diode_50_new}
+		\caption{Integration test with the laser pulsing at 50 \unit{\hertz}}
+		\label{fig:test:v3_test_50_new}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[1b]{.49\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{img/v3_diode_5k_new}
+		\caption{Integration test with the laser pulsing at 5 \unit{\kilo\hertz}}
+		\label{fig:test:v3_test_5k_new}
+	\end{subfigure}
+	
+	\begin{subfigure}[2a]{.49\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{img/v3_diode_10k_new}
+		\caption{Integration test with the laser pulsing at 10 \unit{\kilo\hertz}}
+		\label{fig:test:v3_test_10k_new}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[2b]{.49\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{img/v3_diode_20k_new}
+		\caption{Integration test with the laser pulsing at 20 \unit{\kilo\hertz}}
+		\label{fig:test:v3_test_20k_new}
+	\end{subfigure}
+	
+	\caption{Integration test of the modified (increased power filtering capacitors) third iteration of the photodetector (cutoff frequency $f_c$ = \num{21,167} \unit{\kilo\hertz}) with an off-axis laser at a medium-distance}
+	\label{fig:test:v3_test_new}
+\end{figure}
+
+The results in Figure \ref{fig:test:v3_test_new} show the expected noise improvement. At 50 \unit{\hertz} (see Figure \ref{fig:test:v3_test_50_new}), the low-frequency noise is much more evident than supply noise in the signal when the laser is off. However, the high-frequency noise is still apparent at 5 \unit{\kilo\hertz}. Curiously, at 10 \unit{\kilo\hertz}, the peak-to-peak voltage increased from 3,3 to 4,5 \unit{\volt}. Similarly, at 20 \unit{\kilo\hertz} increased from 2,7 to 3,8 \unit{\volt}, which is still slightly less than the output of the second iteration (4 \unit{\volt}).
+
+\subsection{Fourth iteration}\label{chap:test:v4_results}
+Lastly, Figure \ref{fig:test:v4_test_new} shows the results of the integration test of the fourth version of the photodetector. They clearly demonstrate a much lower gain than expected, even when the diode is illuminated directly. Additionally, the output signals are much more distorted than the previous versions and the cutoff frequency is much lower than expected. That being said, the noise levels are still within the expected range.
+
+
+
+\begin{figure}[!ht]
+	\centering
+	\begin{subfigure}[1a]{.49\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{img/v4_diode_50}
+		\caption{Integration test with the laser pulsing at 50 \unit{\hertz}}
+		\label{fig:test:v4_test_50_new}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[2a]{.49\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{img/v4_diode_10k}
+		\caption{Integration test with the laser pulsing at 10 \unit{\kilo\hertz}}
+		\label{fig:test:v4_test_10k_new}
+	\end{subfigure}	
+	\caption{Integration test of the fourth iteration of the photodetector (cutoff frequency $f_c$ = \num{724,69} \unit{\kilo\hertz}) with an off-axis laser at a medium-distance}
+	\label{fig:test:v4_test_new}
+\end{figure}
+
+The most likely explanation for the bad results is the photodiode biasing. While in theory there is no voltage drop over a photodiode when in photovoltaic mode, in practice there are several millivolts of voltage across the diode, which still set the bias of the photodiode. According to Säckinger \cite{sackinger2017analysis}, this voltage greatly diminishes when a bootstrap is implemented and as a result the output current diminishes. This would explain the decrease in amplitude and the distorted shapes of the waveforms. 
+
+To remedy the bias issue of the photodiode, a biasing circuit was implemented using an \gls{ac} coupling capacitor between the buffer output and the photodiode. When this did not work, one end of a resistor was connected to the anode of the diode and the other end was connected to a variable voltage source in order to test different bias voltages. The values that were tried ranged between -5 \unit{\milli\volt} and -5 \unit{\volt}, but none of them could bias the diode so that it would detect light. Instead, the signals shown in Figure \ref{fig:td:imp:v4biased} were output, no matter if the diode was illuminated or not. Changing the voltage of the source did affect the signal amplitude somewhat, but it remained mostly the same in shape. The low-frequency view of the noise, shown in Figure \ref{fig:td:v4biasedlowf}, exhibits an almost square-wave shape, but the high-frequency view in Figure \ref{fig:td:v4biasedhighf} shows a periodic pulse with a frequency of around 750 \unit{\kilo\hertz}.
+
+\begin{figure}[!ht]
+	\centering
+	\begin{subfigure}[1a]{.49\linewidth}
+		\includegraphics[width=\linewidth]{img/v4_diode_biased_noise_lowf}
+		\caption{Low-frequency view}
+		\label{fig:td:v4biasedlowf}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[1b]{.49\linewidth}
+		\includegraphics[width=\linewidth]{img/v4_diode_biased_noise_highf}
+		\caption{High-frequency view}
+		\label{fig:td:v4biasedhighf}
+	\end{subfigure}
+	\caption{Output signal demonstrating photodiode biasing issues when the fourth iteration of the photodetector uses a biasing circuit}
+	\label{fig:td:imp:v4biased}
+\end{figure}
+
+
+
+\section{Additional integration test}
+During the integration test it was observed that the green laser diode has such high intensity, that it easily lead to overexposure. Experiments continued to show high intensity, even after putting an optical filter before the detector. Ideally, no light from the laser should be present at the output when conducting quantum protocols, but real-world setups have small amounts of laser light present in the output signal. Because of this, it was decided that measurements of the laser levels with optical filters were needed for future reference when integrating the setup. 
+
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=0.5\linewidth]{img/setup_integ_filter_alt}
+	\caption{Additional integration test setup}
+	\label{fig:test:setupintegfilteralt}
+\end{figure}
+
+To simulate a compact integration of the setup, the laser was placed as shown in Figure \ref{fig:test:setupintegfilteralt}. However, as discussed previously, close proximity from the laser and direct illumination of the sensor result in overexposure. In a functional setup, the laser light will be filtered, as a result of which the intensity of the green light will be decreased. 
+
+\begin{figure}[!ht]
+	\centering
+	\begin{subfigure}[1a]{.49\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{img/filter_spec}
+		\caption{Transmission rate of the low-pass optical filter (in red)}
+		\label{fig:test:filterspec}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[1b]{.49\linewidth}
+		\centering
+		\includegraphics[width=0.7\linewidth]{img/laser_spectral}
+		\caption{Spectral emission of the PLT5 520 laser}
+		\label{fig:test:laserspectral}
+	\end{subfigure}
+	\caption{Spectral characteristics of the BPW34 photodiode and PLT5 520 laser}
+	\label{fig:test:laser_filter}
+\end{figure}
+
+Figure \ref{fig:test:laser_filter} shows the specifications of the laser used in the integration tests, as well as the optical filter. Because the laser emits light with an intensity of approximately 520 \unit{\nano\meter}, the filter should block the light from it almost completely. To best test the filters, it was decided that the most suitable frequency for the tests is 5 \unit{\kilo\hertz}. It is high enough for the unfiltered sensor to be so overexposed that it only outputs a \gls{dc} voltage, but it is not high enough for near-cutoff behavior to affect the results.
+
+
+Contrary to what was expected, the tests, shown in Figure \ref{fig:test:vdiode_filter} demonstrate poor filtering. When testing with a single filter, there is not only clipping, but also overexposure of the sensor. This is apparent from the signal in Figure \ref{fig:test:v2_diode_1filter}, as it resembles a \gls{pwm} signal with a duty cycle of over 60 \%. As a result, there is also a large overshoot after the falling edge. The results of the test with two stacked filters are better, but not enough for quantum sensing protocols. As can be seen in Figure \ref{fig:test:v2_diode_2filter}, the signal still clips. This makes it impossible to execute any quantum protocol, as no fluorescence can be measured when the amplifier output has hit the maximum. Even worse than the clipping is the fact the photodiode is still slightly overexposed. Despite the reasonable shape of the signal, the width of the pulses is still slightly wider than the ideal. Furthermore, there is a slight overshoot, which can be seen after the falling edge. Ultimately, both setups show suboptimal filtering, which causes signal clipping and overexposure of the sensor.
+
+\begin{figure}[!ht]
+	\centering
+	\begin{subfigure}[1a]{.49\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{img/v2_diode_1filter}
+		\caption{Test with one filter}
+		\label{fig:test:v2_diode_1filter}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[1b]{.49\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{img/v2_diode_2filter}
+		\caption{Test with two filters}
+		\label{fig:test:v2_diode_2filter}
+	\end{subfigure}
+	\caption{Laser transmission tests with the second iteration of the photodetector and laser pulsed at 5 \unit{\kilo\hertz}}
+	\label{fig:test:vdiode_filter}
+\end{figure}
+
+\section{\glsfmtshort{daq} test results}\label{chap:test:daq}
+The \gls{daq} test uses the maximum possible value for the minimum dark time $\tau_{dmin}$, which is 2 \unit{\micro\second}. Using the formula $f_s > \frac{10}{\tau_{dmin}}$, derived in Chapter \ref{chap:test:daq_setup}, the minimum sampling frequency $f_{smin}$ was determined to be 5 \unit{\mega\hertz}. Running the waveform generator and oscilloscope with $\tau_{dmin}$ and $f_{smin}$ results in the signal plotted in Figure \ref{fig:test:t1_test}.
+
+
+\begin{figure}[!ht]
+	\centering
+	\begin{subfigure}[1a]{.49\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{matlab/t1_pulse_zoom_cancel}
+		\caption{Plot of the cancellation pulse}
+		\label{fig:test:t1_visualization_whole}
+	\end{subfigure}
+\hfill
+	\begin{subfigure}[1b]{.49\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{matlab/t1_pulse_zoom}
+		\caption{Plot of the initialization and readout pulses}
+		\label{fig:test:t1_visualization_zoom}
+	\end{subfigure}
+	\caption{Plots of the pulsing sequence of the first data point when running the test with 10 \unit{\micro\second} pulse width $\tau_{las}$ and 2 \unit{\micro\second} minimum dark time $\tau_{dmin}$ with a sampling rate of 5 \unit{\mega\hertz}}
+	\label{fig:test:t1_test}
+\end{figure}
+
+The plotted signal exhibits some distortion due to the high waveform generation frequency, but more importantly, the oscilloscope is shown to have a good resolution for the specific pulse sequence. However, there is some detail left to be desired in the rising and falling edges.
+
+\gls{daq} testing also demonstrated significant data loss. Typically, during an acquisition at 5 \unit{\mega\hertz}, the signal is recorded for a length of time, until eventually all data after a certain point is lost. Additionally, the length of time before data loss occurs is inconsistent, but in all tests it was always enough to acquire several periods of the \gls{ttl} signal. In 10 repetitions of the same test, only 1 completed the whole acquisition with no data loss. In addition, the same test sequence was tried with much lower sampling frequencies, in order to determine at what frequency data loss starts occurring. It was discovered that about 10\% of tests fail at 500 \unit{\kilo\hertz} and under 200 \unit{\kilo\hertz} there is no data loss.
+
+\section{Discussion}
+After presenting the results in the previous section, this section interprets the data and their meaning in a quantum sensing context.
+
+\subsection{Photodetectors}
+As a result of the tests, it was concluded that even the first iteration of the photodetector can be used for \gls{cwodmr} measurements. The protocol can be executed with extremely-low-bandwidth photodetectors (e.g. 18 \unit{\hertz} \cite{acharya2025compact}). Of course, later version present a better overall solution with less output noise. That being said, pulsed protocols cannot be achieved with the first iterations of the circuit due to their high frequency requirements. Higher frequencies also exacerbate the issue of overexposure of the sensor, which leads to decreased performance. The effect of the laser on the sensor needs to be considered when integrating the complete setup, as it can affect the measurements. There are cancellation techniques to measure only the \gls{nv} luminescence \cite{sewani2020coherent}, but if the photodiode is overexposed or the signal is getting limited by the power rail, the output will not be usable. 
+
+Even though the first iteration has passable characteristics, it is worse than the second version in all regards. The improved \gls{tia} design presents a better frequency response. Across all frequencies, the device shows less attenuation of the harmonics of the square wave, as well as more defined rising and falling edges. In addition, there is less noise present in the signal. This can be attributed to the addition of the ground plane, as well as the better layout of the \gls{pcb}. 
+
+The third iteration offers a solution that is more suitable for a compact setup. The frequency response is the same as the second version, but the onboard power supply inverter generates unwanted noise. As seen in Figure \ref{fig:test:v3ripple_both}, there is a large periodic signal, that looks like a supply ripple. It is also possible that the 1 \unit{\micro\farad} filtering capacitors $C_O$, $C_I$ and $C_{fly}$ do not match the design values, because they were found in a capacitor book in the FabLab. Due to the unknown manufacturer and model, the \gls{esr} of $C_O$ might also be too big. Furthermore, there is a possibility that their capacitance is lower than 1 \unit{\micro\farad}, which would also explain the shape of the ripple in Figure \ref{fig:test:v3ripple}. The presence of 50 \unit{\kilo\hertz} noise after increasing the capacitance, in combination with the large noise amplitude, suggests there is interference with the output of the amplifier.
+
+The fourth iteration was shown to not function, even after modifying the system by adding a biasing circuit. While it is possible the issue was caused by faulty components, the op amps were changed with no effect, suggesting the biasing was indeed the culprit. However, this cannot be confirmed, as even after the addition of the biasing circuit, the \gls{tia} still does not work.
+
+\subsection{$T_1$ software}
+The software for generating pulsing sequences and doing $T_1$ measurements, or at least the subsystems that could be completed and integrated, works as intended. 
+
+Generating pulsing sequences can be achieved with dark times in the required range of 200 \unit{\nano\second} to 2 \unit{\micro\second} with some slight signal distortion as the dark time decreases. Additionally, the part-linear, part-logarithmic function that is used for spacing the dark times, so that there are more data points at lower values of $\tau_{d}$, functions as expected, which was clearly demonstrated in Figure \ref{fig:td:logspace}.
+
+However, the software is limited in what it can do in terms of data acquisition by hardware restrictions. There is data loss that can occur at the sampling frequencies required to measure $T_1$, as was shown in Chapter \ref{chap:test:daq}. The loss of data is entirely because the \gls{ad2}, which was used in the experiments, has problems keeping up with the high frequency demands of the $T_1$ protocol. What is more, the tests were done with the highest minimum dark time $\tau_{dmin}$ possible and lower $\tau_{dmin}$ values need to be achieved for the hardware setup to be viable.
+
+
+\section{Known limitations}
+The most obvious limitation is the lack of equipment for some tests, which lead to using less appropriate alternatives or having to cancel tests. For example, due to the lack of a suitable \gls{vna}, the only method for circuit characterization was using a diode model. The latter would also benefit from a real nanoampere current source instead of the makeshift source that had to be used. The diode model using the 1 \unit{\mega\ohm} resistor also contributed significant, which was amplified by the \gls{tia}.
+
+There are many factors that affect the measurements, but perhaps most prominent are the environmental lighting sources, at least when it comes to the integration tests. This includes ambient sunlight, which gets through the blinds of the lab, and reflections from the laser. Both significantly affect the photodetector, especially when there is no focused light present. Reflections, in particular, majorly contributed to signal distortion at higher frequencies.
+
+Furthermore, the light source in the medium-distance integration tests had to be manually adjusted, meaning that the output signals do not represent the ideal performance. In fact, the measurements present results with slight power rail clipping, which is unavoidable with the testing setup. To achieve ideal readings, the laser would have to be affixed and the orientation adjusted, while the intensity at the given distance is measured.
+
+Lastly, the software testing was hindered severely by hardware availability. At the time of testing, the \gls{ad2}, as well as the external oscilloscope that was used for verification, had to be shared with other students and employees of the research group. Additionally, the lab access was restricted, as there was a holiday, during which the lab was locked. Lab access was limited even further by an administrative misunderstanding. Both of these circumstances led to testing that was not extensive as originally planned. Most subsystems were tested and verified to work, but edge cases might have been missed, owing to the aforementioned external circumstances. The \gls{daq} tests could have also been more detailed, if the \gls{ad2} was available more often.
+
+
+\chapter{Conclusion}
+In conclusion, the main goal of the project, to enable detection of light signals for quantum sensing, was achieved. While the feasibility of an inexpensive photodetector for pulsed protocols has yet to be verified in practice, the proposed design presented in this paper can be used as a reference for future implementation. All designs adhere to the size requirements and cost significantly less than the 50 \texteuro budget per board (around 30 \texteuro). The second most important goal of creating a software for signal processing and visualization was also mostly completed. It can do all of the steps that are required for measuring $T_1$, except for decoding the acquired signals. All future work that is needed to make the software fully-functional is outlined in Chapter \ref{chap:recs}.
+
+According to the introduction in Chapter \ref{chap:intro}, the main purpose of the project was create a photodetector, but integration of the sensing setup was also important. Both were tackled during this project, with the focus being on photodetection. While setup integration also holds importance for the research group, most of the tasks related to it were redistributed among other students. Further refinements to the photodetector and the setup as a whole are possible. Some of the most promising ones are discussed in the recommendations in Chapter \ref{chap:recs}. Complete integration of the whole setup necessitates more work, but is achievable in the near future.
+
+The first iteration of the photodetector is suitable for \gls{cwodmr} measurements with the quantum sensing setup. Despite its functionality, it also presents some minor integration problems, such the need for a dual-rail power supply. 
+
+Perhaps most suitable of all for low-noise \gls{cwodmr} measurements, the second version showed promising results and is most suited for a lab setup. Out of all improvements, the noise reduction is the most significant. However, the need for a dual-rail power supply limits the usability in more compact and self-contained future implementations.
+
+Version three of the device addresses the major integration concern of having a simple and small power supply solution. At the same time, it also incorporates the improved system response of the second iteration. Although the \gls{ac} characteristics of the circuit are irrelevant for \gls{cwodmr}, they become the most important aspect of the circuit when discussing pulsed protocols. However, the third version of the photodetector suffers a significant noise problem, caused by the inverting charge pump. Although this is a significant problem, increasing the filtering capacitors showed a major improvement. Even if this version is not recommended for a desktop setup, microcontroller-based portable solutions will benefit from the simplified power supply and will not need an external module to supply -5 \unit{\volt} to the detector.
+
+The fourth photodetector iteration was an attempt at a pulsed protocol solution. At the very least, the version was supposed to handle the $T_1$ measurements protocol, as it has the most attainable specifications of all pulsed protocols. Unfortunately, due to a biasing issue, the photodetector did not amplify the signal nearly enough. Two separate biasing circuits were also tried, but both resulted in only noise being output. Furthermore, there is a significant amount of noise present in the output signal, an issue which might prevent the sensor from measuring $T_1$ even if there was no biasing issue.
+
+Lastly, the software application for doing $T_1$ measurements is mostly completed, with only the signal decoder missing, due to the absence of a finished physical setup to test and verify with. The rest of the code can be used in its current state, but there are some improvements, discussed in Chapter \ref{chap:recs}, that can improve the efficiency and stability of the measurements.
+
+
+\chapter{Recommendations}\label{chap:recs}
+Following the test result discussion and conclusion, this chapter discusses what improvements can be made to the products of the project. It is separated in two sections, which cover the photodetection platform and the application for $T_1$ measurements. The photodetector section provides an overview of what bandwidth improvements could be made in order to build a photodetector for $T_1$ measurements. The section on the $T_1$ application discusses the functionality that needs to be implemented to finalize the data processing. In addition, the section goes over possible improvements that, if implemented, could improve the performance and stability of the application. At the end of the section, some notes on hardware are also included, as it limits what the application can do.
+
+\section{Photodetector}\label{chap:recs:photodetector}
+There are several recommendations that are important for future implementations, as they may contribute to the precision, noise-suppression and stability of the photodetector and the quantum sensing setup as a whole. 
+
+
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=0.6\linewidth]{matlab/opa818_comparison}
+	\caption{Comparison of the Ad795, ADA4637 and OPA818 when configured for 140 \unit{\decibel} of transimpedance gain ($R_1$ = 10 \unit{\mega\ohm}) and a Bessel frequency response}
+	\label{fig:recs:opa818comparison}
+\end{figure}
+
+Firstly, increasing the photodetector bandwidth should be the main priority in the future, as no version of the detector can measure pulsed protocols. By implementing the last \gls{podmr} iteration, even Rabi oscillations detection will be possible. The previous photodetector versions are bottlenecked by the low photocurrent generated by the photovolaic-mode diode. However, biasing a BPW34 in photoconductive mode will result in an increase in dark current, usually around \num{2} \unit{\nano\ampere}, but it can rise up to 30 \unit{\nano\ampere}, rendering the actual signal unreadable. Alternatively, the bandwidth can be increased by finding an op-amp with bigger \gls{gbp}. Out of all op-amps that were explored, the OPA818 shows the most promise, which is why its mathematical model was used to compare it to the AD795 and ADA4637. Figure \ref{fig:recs:opa818comparison} showcases the significant bandwidth increase from the ADA4637 to the OPA818. Using the former results in a \num{138,87} \unit{\kilo\hertz} bandwidth, while the latter results in a \num{982,44} \unit{\kilo\hertz} bandwidth. As is usually the case with bigger-\gls{gbp} op-amps, the OPA818 has worse noise parameters (25 \unit[power-half-as-sqrt]{\nano\volt\per\hertz\tothe{0.5}} at 100 \unit{\hertz} as compared to 7 \unit[power-half-as-sqrt]{\nano\volt\per\hertz\tothe{0.5}} at 100 \unit{\hertz}).
+
+
+\begin{figure}[!ht]
+	\centering
+	\begin{subfigure}[1a]{.49\linewidth}
+		\includegraphics[width=\linewidth]{img/ad4637_noise}
+		\caption{Noise spectral density of the ADA4637 (image credit to the ADA4637 documentation \cite{ad2019ada4637})}
+		\label{fig:recs:ada4637noise}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[1b]{.49\linewidth}
+		\includegraphics[width=\linewidth]{img/opa818_noise}
+		\caption{Noise spectral density of the OPA818 (image credit to the OPA818 documentation \cite{ti2019opa818})}
+		\label{fig:recs:opa818noise}
+	\end{subfigure}
+	\caption{Noise spectral density of the amplifiers used in the \gls{tia} circuit of the photodetector}
+	\label{fig:recs:opampnoisev4}
+\end{figure}
+
+
+In the future, if even greater bandwidth is desired, transistor \glspl{tia} should be investigated. Transistors offer finer control over the parameters of the amplifier they constitute. This is, in part, due to the control over the technology of each transistor, but also because they are lower-level components than op-amps, which allows for more intricate layouts. Several sources on the matter were consulted \cite{sackinger2017analysis, santiago2021a, karimi2017silicon, analui2004bandwidth}, but because of time constraints and hardware availability, an op-amp-based solution was chosen instead.
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.7\linewidth]{matlab/diode_comparison}
+	\caption{Affordable Si diode comparison with an AD795, equal transimpedance gain and ideal (for getting a Bessel response) compensation capacitor}
+	\label{fig:recs:diodecomparison}
+\end{figure}
+
+Secondly, exploring avalanche photodiodes as an alternative to the Si diode (BPW34) currently in use, might contribute to better measurements. Although they are widely used in low-intensity applications, avalanche diodes are quite expensive (upwards of 100 \texteuro). The client wanted to keep the cost low for this project, but in the future more precise pulsed protocol measurements might benefit from the internal amplification and increased precision that are offered by avalanche photodiodes. There are also p-i-n alternatives that might provide better performance than the BPW34. InGaAs diodes are often used in telecommunication due to their stable, low-noise performance even at high frequencies. Their peak sensitivity is also usually in the red and infrared area of the light spectrum, which means the noise resulting from the green laser will be proportionally smaller than with the BPW34. Similar to avalanche photodiodes, the major drawback of InGaAs diodes is their price, which is much bigger than that of the BPW34 and similar to that of avalanche photodiodes. Some of the more expensive diode alternatives (InGaAs and avalanche) that were explored as possible replacements for the BPW34 were the Hamamatsu G6854-01, Hamamatsu G17190-003K, Luna PDU-V104, OSI FCI-InGaAs-1000 and Marktech MTAPD-06-009. Some of the better affordable Si alternatives are the OSRAM SFH 203 FA and Vishay TEMD1000, which detect less green light, have a lower dark current and have better, more narrow, directional characteristics, possibly leading to less ambient light noise. However, they also have smaller photosensitive areas, which result in less photocurrent, but also in smaller junction capacitances \cite{hm2025si, lt2006area}. This drastic reduction in input capacitance, leads to significant increase in bandwidth (see Figure \ref{fig:recs:diodecomparison}) as it necessitates smaller compensation capacitors for the same frequency response. Ultimately, there is no single best option for the setup, as all have their advantages and downsides. However, for the current price requirements, the TEMD1000 is the best photodiode and because of its characteristics it was used in the proposed \gls{podmr}[] detector design. 
+
+
+Thirdly, its possible to increase the \gls{snr} of the \gls{cwodmr} sensor by implementing a balanced photodetector \cite{Paschotta_2019_balanced_photodetection}. The difference between the basic \gls{tia}[] circuit shown in Figure \ref{fig:tia} and a balanced photodetector \gls{tia} is that the latter has a second photodiode connected in series with the first one, so that what is amplified by the \gls{tia} is the difference between their signals. By sending a signal containing the fluorescence and a reference laser signal, the fluorescent signal can be isolated for the most part. This addition reduces the optical noise contributed by the fluctuations of the green laser significantly and can increase the magnetic sensitivity of the sensing setup by several orders of magnitude \cite{li2023noise}. For these reasons, such an implementation was considered, however the added complexity to the optical data path dissuaded the client from pursuing the idea further, as building towards the Rabi oscillations protocol is more important than refining \gls{cwodmr} for the time being.
+
+
+Fourthly, the noise coming from the resistor $R_1$, can be reduced by replacing it with a T-network, in cases when its resistance is very large, like in the final \gls{cwodmr} photodetector. Figure \ref{fig:recs:tv5schematic} shows how such a modification can be applied to the \gls{cwodmr}[] \gls{tia} and Equation \eqref{eq:recs:t-network} expresses $R_{tot}$ (formerly $R_1$) using smaller resistor values \cite{ti2021tnetwork}.
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.7\linewidth]{img/Tv5_schematic}
+	\caption{Example T-network implementation of a \gls{cwodmr}[] photodetector}
+	\label{fig:recs:tv5schematic}
+\end{figure}
+
+Because the equation has three unknown values, estimations need to be made for $R_1$ and $R_2$. Afterwards, the equation can be solved for $R_3$ and $C_1$ can be calculated. It should be noted that the capacitance of $C_1$ is derived from the resistance of $R_1$ and not $R_{tot}$.
+
+\begin{equation}\label{eq:recs:t-network}
+	R_{tot} = \frac{R_1R_2}{R_3} + R_1 + R_2
+\end{equation}
+
+Unfortunately, according to the simulation results in Figure \ref{fig:recs:tv5}, no positive improvement in the noise can be seen. The new layout does cause the bandwidth to increase to 19,43 \unit{\kilo\hertz} while maintaining the same gain, but the total noise also rises to 4,08 \unit{\micro\volt\per\hertz\tothe{0.5}}. Different resistor values might decrease the noise, however due to a lack of freely-accessible literature, a more thorough investigation could not conducted.
+
+\begin{figure}[ht]
+	\centering
+	\begin{subfigure}[1a]{.49\linewidth}
+		\includegraphics[width=\linewidth]{img/tina_AC_2probes_1p}
+		\caption{Frequency response}
+		\label{fig:recs:tv5_signal}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[1b]{.49\linewidth}
+		\includegraphics[width=\linewidth]{img/tina_DC_2probes_1p}
+		\caption{Noise}
+		\label{fig:recs:tv5_noise}
+	\end{subfigure}
+	\caption{Simulation of a \gls{cwodmr} photodetector with a T-network}
+	\label{fig:recs:tv5}
+\end{figure}
+
+
+%todo: show figure
+
+Additionally, there are ways to improve performance without modifying the circuit. The simplest way to increase the \gls{snr} is to move the setup to the dark room in the laboratory. Doing this will result in less ambient light being picked up by the photodiode. Furthermore, cooling the setup will result in less photodetector thermal noise. For future implementations that are interested in decreasing the size of the setup, an enclosure should be designed. This way, the main noise source will be the dark current. It is also important to isolate the diode from external noise sources as much as possible, because the tests demonstrate it is the component that is most susceptible to outside noise.
+
+
+
+
+\section{Software application}
+To fully complete the $T_1$ measurement application, a data decoder needs to be implemented, which is possible only after the physical sensing platform has been finished and $T_1$ measurements have been decoded manually. Given a file of unknown length, containing a number of $T_1$ measurements, the algorithm needs to start by detecting the edges of the pulses, based on which the discrete time duration of the measurements data needs to be turned back to continuous time. The most simple way of implementing this is by relating the continuous-time laser pulse duration entered by the user $\tau_{las}$ to the detected pulse. Afterwards, the different pulses have to be enumerated or made distinguishable in a different way so that every readout pulse can be used for the measurements, while the initialization and cancellation pulses are skipped. When a readout pulse is processed, the $T_1$ signal will be superimposed on the laser pulse. It is difficult to say how the extraction of the signal will be done with no setup to measure and experiment with, but there should be a transient with an exponential decay shape present in the signal and determining the time it takes for the transient to reach the laser signal level should give the time for the data point. Doing this for all measurements in the file and then returning the average should provide the time value for the given data point. Collecting and compiling the processed data from all data points should result in a plot, similar to Figure \ref{fig:t1result}, which was presented when first introducing the $T_1$ protocol.
+
+Finalizing the application only requires signal decoding, but there are some functionalities that can be improved to make the measurements more stable. Firstly, implementing adaptive sampling frequency will reduce the size of the measurement files, which currently take up around 250 \unit{\mega\byte} of memory per data point. The latest version of the code at the time of finalizing the report has a fixed sampling frequency $f_s$ of 5 \unit{\mega\hertz}. In Chapter \ref{chap:test:daq}, the minimum value of $f_s$ was determined to be 5 \unit{\mega\hertz}, but because of the limit imposed on it by the 10 \unit{\mega\hertz} clock, it was decided that the sampling frequency should not be kept fixed. However, as $f_s$ based on the minimum dark time, data points with lower frequency requirements will be oversampled. Adapting $f_s$ for each data point, by decreasing it whenever necessary, will result in smaller file sizes and less data loss. It will, however, also contribute to a somewhat more complex decoding process and can only be implemented when, through manual measurements, the $f_s$ required for $T_1$ has been established. Secondly, the method of data acquisition can be changed from data stream acquisition to a number of consecutive single buffer acquisitions. Implementing this method of acquisition will be much more complicated, but it might entirely eliminate the data loss problem. The complexity comes from the triggering that will need to be done for the multi-buffer acquisition to be timed correctly. \lstinline|AnalogIn_Buffers.py|, which is an example file that comes with the \gls{sdk} download, provides an overview of how such an acquisition can be set up. Thirdly, a more complex device management system can be implemented to handle disconnection during tests. The Waveforms \gls{api} provides device enumeration functions, that all start with \lstinline|FDwfEnum|, capable of indexing all connected devices and returning their status. Monitoring disconnections will be helpful for informing the user, but it will also require another threaded function to call all necessary \gls{api} functions.
+
+Perhaps most important of all considerations, pertaining to the $T_1$ measurements application, is what hardware is used for sequence generation and data acquisition. It has already been shown that the \gls{ad2} is the biggest bottleneck of the system, specifically when it comes to data acquisition. With the current $T_1$ protocol timings, the frequency demands cannot be met by the oscilloscope of the device. An alternative that has been thoroughly discussed with the client is the Analog Discovery 3. Its specifications are somewhat better than its predecessor, but the \gls{ad2} is also supposed to perform much better than it actually does. That being said, the oscilloscope of the newer device should support triple the sampling frequency and, as a consequence, signals with a dark time of as little as \num{666,67} \unit{\nano\second} should be measurable. Alternatively, the lab oscilloscope, a Rigol MSO1074Z, can be used for data acquisition. The device has much better specifications and should support a tenfold increase (dark time of \num{66,67} \unit{\nano\second}) in sampling frequency, at the very minimum. It is possible the increase is even greater, as the Analog Discovery setup uses the device to read data while simultaneously generating signals, thus using more resources and likely increasing the amount of data loss. That being said, the Rigol oscilloscope will require the use of an additional \gls{api}. Unfortunately, this Rigol series does not have a proprietary \gls{api} and, based on internet forum research, third-party libraries can be used with varying degrees of success. Another possible alternative to the \gls{ad2} is a \gls{fpga} board like the Red Pitaya STEMlab 125-14, which the research group already owns. It can measure signals 5 times faster the \gls{ad2}, but, just like the \gls{ad2}, it has the downside of only having 2 output ports, making Rabi oscillation support impossible without using two units of the same device.
+
+
+
+\section{Lock-in amplification}
+Data acquisition, or at least the hardware needed for it, is the main photodetector bottleneck. While previous sections discussed the \gls{ad2} as the main platform for data acquisition, \glspl{lia} are more commonly used in quantum sensing. Using a \gls{lia} was considered as an option, but the client wanted to explore the possibility of handling all inputs and outputs with the \gls{ad2}. Originally, a \gls{lia} was supposed to be used in tandem with the \gls{ad2}, as shown in Figure \ref{fig:td:ad2}, but the limited sampling frequency of the \gls{ad2} will result in data loss. An alternative solution is to remove the \gls{ad2} from the output data path. Instead of the \gls{ad2} mediating the hardware/software connection, the \gls{lia} can interface directly with the application. The HF2LI amplifier, which is the main \gls{lia}[] that has been explored during this project, has a 50 \unit[]{\mega\hertz} central frequency range, which should be more than sufficient for implementing $T_1$ measurements and Rabi oscillations. 
+
+
+
+\begin{figure}[!ht]
+	\begin{lstlisting}[language=pythe]
+		from zhinst.toolkit import Session
+		
+		session = Session("localhost", hf2=True) # create an hf2 session
+		device = session.connect_device("DEVXXXX") # connect to DEVXXXX
+	\end{lstlisting}
+	\caption{Establishing a session and connecting to the HF2LI}
+	\label{fig:rec:server}
+\end{figure}
+
+\begin{figure}[!ht]
+	\begin{lstlisting}[language=pythe]
+		import time
+		
+		device.demods[0].sample.subscribe() # subscribe to the output
+		time.sleep(1) # sleep for an arbitrary number of seconds
+		device.demods[0].sample.unsubscribe() # unsubscribe after communication is over
+		poll_result = session.poll() # poll the buffered data, returns dictionary with all nodes that were subbed to in the session
+		demod_sample = poll_result[device.demods[0].sample] # filter device.demods[0] node data 
+	\end{lstlisting}
+	\caption{HF2LI data acquisition}
+	\label{fig:rec:demods}
+\end{figure}
+
+As previously mentioned, using the \gls{lia} as an output device necessitates the replacement of the \gls{ad2} data acquisition program module. The software used by the HF2LI is called LabOne and offers \gls{api} support for multiple languages, including Python. A Python package by the name of \lstinline|zhinst-core| can be used to implement \gls{daq} functionalities, although a newer, more high-level version called \lstinline|zhinst-toolkit| exists. The latter encapsulates the low-level functions of the former, which is why implementing the \gls{daq} module using \lstinline|zhinst-toolkit| is recommended, unless some of the more specific functions of \lstinline|zhinst-core| are required.
+
+Zurich Instrument devices need data servers to operate, which are programs that facilitate communication between software and hardware. All devices, except for the HF2LI use a generic server, but because the \gls{lia} is old, it requires a specific instance of what is called an \lstinline|hf2| server. To connect to the HF2LI, a session object needs to be created and provided with the host address (usually \lstinline|localhost|). If not provided with any other arguments, the session instance will get assigned a generic or an \lstinline|hf2| server depending on the connected device. However, specifying the server type when known is preferred. Figure \ref{fig:rec:server} shows how the \gls{lia} with ID \lstinline|DEVXXXX| can be connected.
+
+
+Reading and writing using the LabOne \gls{api} happens using a structure called a node tree. It dynamically provides nodes that correspond to device subsystems, thus facilitating a quick and simple connection to a device. Reading data from the \gls{lia} should be done with a subscription to \lstinline|demods|, because it is the node containing the processed signal samples. Figure \ref{fig:rec:demods} demonstrates how, after data is extracted from the node, the data buffer containing all node information is polled, returning a dictionary with data from all active nodes. For more information about extracting data and writing to the \gls{lia}, consult the documentation \cite{zh_docs_node_tree}.

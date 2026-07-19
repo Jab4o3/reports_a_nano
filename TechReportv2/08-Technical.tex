@@ -1,0 +1,944 @@
+\chapter{Photodetector design}
+As an integral part of the sensing setup, the photodetector needs a lot of attention. Good amplification is crucial for increasing the \gls{snr} of the quantum setup, however the materials and components used need to be accessible and affordable. Based on these considerations and the design ideas presented in the functional design (see Chapter \ref{chap:photodetection_design}), the photodetection circuit can be drawn up. This chapter covers concepts relevant for both \gls{cwodmr} and \gls{podmr}[] photodetection. 
+
+To summarize the circuit requirements, the input signal of the diode can range from \numrange{0}{50} \unit{\milli\ampere}. This current needs to be amplified in the range from \numrange{0}{5} \unit{\volt}. In addition, the circuit should consider the quantum protocols that it will be used to detect. For \gls{cwodmr}, low noise levels at low frequencies are desired and a bandwidth of 18 \unit{\hertz} is sufficient. In terms of pulsed protocols, Rabi oscillations is the one that has the most bearing on the requirements. As previously mentioned the \gls{podmr}[] detector bandwidth of at least 5 \unit{\mega\hertz} was determined based on protocol specifications, as well as research \cite{sewani2020coherent, nandi2024oscilloscope, murzakhanov2025mechanism}. Noise is harder to minimize with the broader bandwidth, which is why it was decided to have separate detectors for \gls{podmr} and \gls{cwodmr}.
+
+\section{Proposed design}\label{chap:td:prop_design}
+As previously mentioned, the first implementation of the photodetection \gls{pcb}, also referred to as "v1", is based on a proposed design, provided by a collaborator of the research group. Although its main purpose is to enable the setup to do \gls{cwodmr} measurements, it also provides a reference for the following designs, which optimize the detector for the sensing setup and explore pulsing protocol support. In addition, the design was implemented so that its price is as low as possible, at the request of the client.
+
+The collaborator only provided a simulation with no specific information for the design process, aside from noting the photodetector was made for input currents in the range of \numrange{0}{50} \unit{\nano\ampere}. Such low inputs require high gain-setting resistor $R_1$ values, however increasing the resistor value results in more biasing current going to the amplifier and a more limited dynamic range \cite{black2021tia}. Furthermore, it is entirely possible that the original design did not thoroughly consider the bandwidth and noise levels needed for \gls{cwodmr} setups. 
+
+As some of the components used in the provided circuit can be used in later redesigns, it is important to discuss their most impactful parameters, which were used to determine if a certain component needed replacing.
+
+Out of all of the components, the performance of the circuit is affected the most by the \gls{tia}-stage amplifier. This version of the photodetector uses an AD795 op-amp, which is suitable for low-frequency, low-noise applications like this one, due to its low bias current and noise. Figure \ref{fig:td:ad795noise} shows the noise spectral density of the op-amp, which is low at low frequencies, but does not drop off much at higher frequencies. Another important consideration for the \gls{tia} op-amp is the supply current. At 5 \unit{\volt}, the supply current is 1,5 \unit{\milli\ampere}. Lastly, the \gls{gbp} of the AD795 is 1,6 \unit{\mega\hertz} and the open-loop gain is 100 \unit{\decibel}. These last two specifications are the most important for the frequency response of the whole circuit.
+
+After the \gls{tia} op-amp, the post amplifier op-amp is the second most important component. In the photodetector, the non-inverting post-amplification stage is based on an AD820. Its noise density is shown in Figure \ref{fig:td:ad820noise}. While it is significantly higher than the AD795, the AD820 has a much lower supply current of 0,8 \unit{\milli\ampere}.
+
+
+\begin{figure}[ht]
+	\centering
+	\begin{subfigure}[1a]{.49\linewidth}
+		\includegraphics[width=\linewidth]{img/ad795_noise}
+		\caption{Noise spectral density of the AD795 (image credit to the AD795 documentation \cite{ad2019ad795})}
+		\label{fig:td:ad795noise}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[1b]{.49\linewidth}
+		\includegraphics[width=\linewidth]{img/ad820_noise}
+		\caption{Noise spectral density of the AD820 (image credit to the AD820 documentation \cite{ad2019ad820})}
+		\label{fig:td:ad820noise}
+	\end{subfigure}
+	\caption{Noise spectral density of the amplifiers used in the pre and post-amplification stages of the photodetector}
+	\label{fig:td:opampnoise}
+\end{figure}
+
+
+Lastly, the resistor values of the non-inverting amplifier feedback loop were also considered, although their impact on the signal is minimal. In the post-amplifier in Figure \ref{fig:tia_nia}, the resistor $R_3$ affects the output noise the most \cite{ti2007noise, 1490859} and by reducing its value, the noise can be marginally decreased.
+
+
+\section{Frequency and noise analysis}\label{chap:td:calc:v2}
+%This photodetector iteration aims at redesigning the frequency response of the system for better stability. Due to time constraints, it uses the same topology as the first photodetector version. 
+
+This section uses the mathematical principles presented in \cite{margan2012transimpedance, sackinger2017analysis, horsthemke2025all} to optimize the proposed \gls{tia} design. It presents an analytical approach to designing a \gls{tia}, taking into account the general practices, but also considering more subtle factors that might hinder the performance of the system and increase the noise.
+
+\begin{figure}[!ht]
+	\centering
+	\resizebox{.7\textwidth}{!}{%
+		\begin{circuitikz}
+			\tikzstyle{every node}=[font=\normalsize]
+			\draw [ line width=0.5pt](1.5,9) to[empty photodiode,l={ \normalsize $D_1$}] (1.5,10.75);
+			\draw [ line width=0.5pt](6.5,10.25) node[op amp,scale=1] (opamp2) {};
+			\draw [ line width=0.5pt](opamp2.+) to[short] (5,9.75);
+			\draw [ line width=0.5pt] (opamp2.-) to[short] (5,10.75);
+			\draw [ line width=0.5pt](7.7,10.25) to[short](8,10.25);
+			\draw [line width=0.5pt](5,9) to (5,8.25) node[ground]{};
+			\draw [ line width=0.5pt](5,8.5) to[short] (5,9.75);
+			\draw [ line width=0.5pt](1.5,10.5) to[short] (1.5,10.75);
+			\draw [ line width=0.5pt](1.5,10.75) to[short] (2.75,10.75);
+			\node at (4.5,10.75) [circ] {};
+			\draw [ line width=0.5pt](4.5,10.75) to[short] (4.5,13.5);
+			\draw [ line width=0.5pt](4.5,12.25) to[short] (5,12.25);
+			\draw [ line width=0.5pt](4.5,13.5) to[short] (5,13.5);
+			\draw [ line width=0.5pt](5,12.25) to[european resistor,l={ \normalsize $R_1$}] (7,12.25);
+			\node at (4.5,12.25) [circ] {};
+			\draw [ line width=0.5pt](7,12.25) to[short] (7.5,12.25);
+			\draw [ line width=0.5pt](7.5,12.25) to[short] (7.5,11);
+			\draw [ line width=0.5pt](7.5,12.25) to[short] (7.5,13.5);
+			\draw [line width=0.5pt](5,13.5) to[C,l={ \normalsize $C_1$}] (7,13.5);
+			\node at (7.5,12.25) [circ] {};
+			\draw [ line width=0.5pt](7,13.5) to[short] (7.5,13.5);
+			\draw [ line width=0.5pt](1.5,10.75) to[short] (1.5,10.5);
+			\draw [line width=0.5pt](1.5,9) to (1.5,8.25) node[ground]{};
+			\draw [line width=0.5pt, ->, >=Stealth] (2,9.25) -- (2,10.25);
+			\node [font=\normalsize] at (2.4,9.75) {$I_f$};
+			\draw [ line width=0.5pt](6.5,10.25) node[op amp,scale=1] (opamp2) {};
+			\draw [ line width=0.5pt](opamp2.+) to[short] (5,9.75);
+			\draw [ line width=0.5pt] (opamp2.-) to[short] (5,10.75);
+			\draw [ line width=0.5pt](7.7,10.25) to[short](8,10.25);
+			\draw (8,10.25) to[short, -o] (8.25,10.25) node[] {$\ \ \ \ \ \ \ \ \ V_{out}$};
+			\draw (7.5,11) to[short] (7.5,10.25);
+			\draw [line width=1pt](5,9.75) to[C,l={ \normalsize $C_{df}$}] (5,10.75);
+			\draw [line width=1pt](-0.25,9) to[C,l={ \normalsize $C_{d}$}](-0.25,10.5);
+			\draw (0.25,10.5) to[short] (1.5,10.5);
+			\draw (0.25,9) to[short] (1.5,9);
+			\draw (3.75,10.75) to[short] (5,10.75);
+			\draw [line width=1pt](3.75,8) to[C,l={ \normalsize $C_{cm}$}](3.75,10.75);
+			\draw (3.75,8.5) to (3.75,8.25) node[ground]{};
+			\draw [ line width=0.5pt](6.5,10.25) node[op amp,scale=1](opamp2) {};
+			\draw [ line width=0.5pt](opamp2.+) to[short] (5,9.75);
+			\draw [ line width=0.5pt] (opamp2.-) to[short] (5,10.75);
+			\draw [ line width=0.5pt](7.7,10.25) to[short](8,10.25);
+			\node at (3.75,10.75) [circ] {};
+			\node at (5,10.75) [circ] {};
+			\node at (5,9.75) [circ] {};
+			\node at (1.5,9) [circ] {};
+			\node at (1.5,10.5) [circ] {};
+			\node at (7.5,10.25) [circ] {};
+			\draw (-0.25,10.5) to[short] (0.25,10.5);
+			\draw (-0.25,9) to[short] (0.25,9);
+			\draw (2.75,10.75) to[short] (3.75,10.75);
+		\end{circuitikz}
+	}%
+	\caption{Parasitic capacitances in a \gls{tia} circuit}
+	\label{fig:td:tia_circuit_parasitic_v1}
+\end{figure}
+
+Introducing the real-world parasitic capacitances to the ideal \gls{tia} shown in Figure \ref{fig:tia} results in the circuit in Figure \ref{fig:td:tia_circuit_parasitic_v1}. The diode capacitance $C_d$, combined with the differential and common-mode capacitances of the amplifier ($C_{df}$ and $C_{cm}$), contributes a significant amount of capacitance to the circuit and can result in instability if not addressed \cite{cherian2016you}.
+
+\begin{equation}\label{eq:td:ci}
+	C_i = C_{d} + C_{df} + C_{cm}
+\end{equation}
+
+To verify that a design is stable a formula derived from the rate of closure of the system can be used \cite{ti2019simplify} (see Equation \eqref{eq:td:tia_stability}).
+
+\begin{equation}\label{eq:td:tia_stability}
+	GBW > \frac{C_i + C_1}{2\pi R_1C_1^2}
+\end{equation}
+
+The combined input capacitance (Equation \eqref{eq:td:ci}) is needed when solving the equation arising from \gls{kcl} at the inverting input of the amplifier. $Z_1$ (Equation \eqref{eq:td:z1}), or the combined impedance of $R_1$ and $C_1$, is another prerequisite for deriving the transimpedance $Z_t$ using \gls{kcl}. Additionally, the open-loop gain $A_{ol}$ is needed for the derivation of the transimpedance. Equation \eqref{eq:td:aol} shows the open-loop gain, expressed with the \gls{dc} open-loop gain $A_o$ and the open-loop cutoff frequency $\omega_o$, which is equivalent to $\frac{v_{out}}{v_{in}}$.
+
+\begin{equation}\label{eq:td:z1}
+	Z_1(s) = \frac{1}{\frac{1}{R_1} + sC_1}
+\end{equation}
+
+\begin{equation}\label{eq:td:aol}
+	A_{ol}(s) = A_o\frac{\omega_0}{s + \omega_0} = \frac{v_{out}}{v_{in}}
+\end{equation}
+
+Finally, the values in the \gls{kcl} equation (Equation \eqref{eq:td:kcl}) can be substituted, from which $Z_t$ can be derived, as seen in Equation \eqref{eq:td:zt}. 
+
+\begin{equation}\label{eq:td:kcl}
+	i_f = \frac{v_in}{\frac{1}{sC_i}} + \frac{v_{in} - v_{out}}{Z_1(s)}
+\end{equation}
+
+\begin{equation}\label{eq:td:zt}
+	\begin{aligned}
+		&Z_t(s) = \frac{v_{out}}{i_f} = (R_1\frac{A_o}{1 + A_o})\frac{\frac{\omega_o(1 + A_o)}{(C_i + C_1)R_1}}{s^2 + s\frac{1 + \omega_o(C_i + (1 + A_o)C_1)R_1}{(C_i + C_1)R_1} + \frac{\omega_o(1 + A_o)}{(C_i + C_1)R_1}}
+	\end{aligned}
+\end{equation}
+
+Before moving on to the pole analysis, the impact of the quality factor $Q$\footnote{The quality factor of a system describes how dampened a system is. If $Q = 0,5$, the system is critically damped. If $Q > 0,5$ the system is underdamped and can present unwanted effects like ringing and peaking. If $Q < 0,5$ the system is overdamped, which results in a reduced bandwidth.} on the system response should be considered (see Equation \eqref{eq:td:f_c_q}). Two system poles present when $Q > 0,5$. For $Q = \frac{\sqrt{3}}{3},$ the system has a Bessel response, which has the flattest group delay, however, if $Q = \frac{\sqrt{2}}{2}$, then the system has a Butterworth response, which means it has the flattest possible amplitude curve. Although the group delay is not as important as the amplitude response, a Bessel response also results in smaller amount of overshoot, less jitter and less noise overall, which is why it is preferred. In the end, the choice between a Bessel and a Butterworth response only affects the circuit at high frequencies, which is not a concern when running \gls{cwodmr} measurements. Still, it is important when investigating photodetection for pulsed protocols (see Chapter \ref{chap:td:podmr}). The broad bandwidth of such a photodetector causes the effects of the system response to manifest much more clearly than in low-frequency \glspl{tia}. An overdamped system loses a significant amount of bandwidth and an underdamped system exhibits significantly more high-frequency noise. For this reason, a Bessel response is generally preferred, but the system can be tuned by increasing the value of $C_1$ slightly, causing a decrease in noise, but also a shrinking of the signal bandwidth.
+
+\begin{equation}\label{eq:td:poles_general}
+	H(s) = H_0\frac{(-s_1)(-s_2)}{(s - s_1)(s - s_2)} = H_0\frac{s_1s_2}{s^2 + s(-s_1 - s_2) + s_1s_2}
+\end{equation}
+
+Based on this consideration, the poles can be found using the general form of a second order transfer function, shown in Equation \eqref{eq:td:poles_general}. The general form also makes it obvious that the \gls{dc} gain $H_0 \approx R_1$, assuming that $\frac{A_0}{A_0 + 1} \approx 1$.
+
+
+\begin{equation}\label{eq:td:poles}
+	\begin{cases}
+		-s_1 - s_2 = \frac{1 + \omega_o(C_i + (1 + A_o)C_1)R_1}{(C_i + C_1)R_1} \\
+		s_1s_2 = \frac{\omega_o(1 + A_o)}{(C_i + C_1)R_1}
+	\end{cases}
+\end{equation}
+
+Taking the general-equation poles and their counterparts from the $Z_t$ expression yields the system of equations shown in Equation \eqref{eq:td:poles}. Solving it results in a quadratic equation with roots shown in Equation \eqref{eq:td:pole_roots}.
+
+\begin{equation}\label{eq:td:pole_roots}
+	s_{1, 2} = -\frac{1 + \omega_o(C_i(1+A_o)C_1)R_1}{2(C_i + C_1)R_1}\left(1 \pm j\sqrt{\frac{4\omega_o(1 + A_o)(C_i + C_1)R_1}{(1 + \omega_o(C_i + (1 + A_o)C_1)R_1)^2} - 1}\right)
+\end{equation}
+
+\begin{equation}\label{eq:td:pole_roots_general}
+	s_{1, 2} = -\frac{3}{2}(1 \pm j\frac{\sqrt{3}}{3})
+\end{equation}
+
+Achieving the desired system, can be done by getting the roots of the general form of a Bessel filter (as seen in Equation \eqref{eq:td:pole_roots_general}) and using the imaginary parts to get Equation \eqref{eq:td:cap_solve}. From it, a the quadratic equation in Equation \eqref{eq:td:cap_quad} can be derived. This expression can be solved with the quadratic formula again, finally resulting in an answer for the compensating capacitor $C_1$. 
+
+\begin{equation}\label{eq:td:cap_solve}
+	\frac{4\omega_o(1 + A_o)(C_i + C_1)R_1}{(1 + \omega_o(C_i + (1 + A_o)C_1)R_1)^2} = \frac{4}{3}
+\end{equation}
+
+\begin{equation}\label{eq:td:cap_quad}
+	C_1^2(R_1(1 + A_o))^2 + C_1\omega_o(1 - C_i)((1 + A_o)R_1) - 3\omega_o(1 + A_o)C_iR_1 + C_i^2 + 2C_i + 1 = 0
+\end{equation}
+
+\begin{equation}\label{eq:td:cap_roots}
+	C_1 = \frac{-2\omega_oR_1C_i \pm \sqrt{12A_oC_iR_1\omega_o - 3}}{2\omega_oR_1(1 + A_o)}
+\end{equation}
+
+Although the quadratic formula in Equation \eqref{eq:td:cap_roots} says there are two solutions for the capacitor, the term under the square root will always be much bigger than the rest of the numerator\footnote{Assuming real-world amplifier and diode specifications, and realistic transimpedance gain requirements}, effectively determining the sign of the roots. Simply put, this leaves only one root possible, as capacitors cannot have negative capacitance values.
+
+To further characterize the system, the cutoff frequency $\omega_c$ and quality factor $Q$ can be calculated, because the system adheres to the general form, shown in Equation \eqref{eq:td:f_c_q}. Substituting in the pole expressions from Equations \eqref{eq:td:poles_general} and \eqref{eq:td:poles}.
+
+\begin{equation}\label{eq:td:f_c_q}
+	H(s) = H_o\frac{\omega_c^2}{s^2 + s\frac{\omega_c}{Q} + \omega_c^2}
+\end{equation}
+
+\begin{equation}
+	\begin{cases}
+		\omega_c = \sqrt{\frac{\omega_o(1 + A_o)}{(C_i + C_1)R_1}}\\
+		Q = \omega_c\frac{(C_i + C_1)R_1}{1 + \omega_o(C_i + (1 + A_o)C_1)R_1}
+	\end{cases}
+\end{equation}
+
+
+In the process of designing the \gls{tia} circuit, the noise should also be considered. Figure \ref{fig:td:design:tia_noise} shows the thermal noise generated by the resistor (modeled as the current source $i_{nR}$) and the differential noise of the amplifier (modeled as the current source $i_{nA}$)\footnote{Other noise generators, like the gate shot noise, channel noise and induced gate noise can also be calculated, but because they largely depend on the underlying technology of the \gls{fet} op amp, they have not been investigated}.
+
+\begin{figure}[!ht]
+	\centering
+	\resizebox{.7\textwidth}{!}{%
+		\begin{circuitikz}
+			\tikzstyle{every node}=[font=\normalsize]
+			\draw [ line width=0.5pt](1.5,9) to[empty photodiode,l={ \normalsize $D_1$}] (1.5,10.75);
+			\draw [ line width=0.5pt](6.5,10.25) node[op amp,scale=1] (opamp2) {};
+			\draw [ line width=0.5pt](opamp2.+) to[short] (5,9.75);
+			\draw [ line width=0.5pt] (opamp2.-) to[short] (5,10.75);
+			\draw [ line width=0.5pt](7.7,10.25) to[short](8,10.25);
+			\draw [line width=0.5pt](5,9) to (5,8.25) node[ground]{};
+			\draw [ line width=0.5pt](5,8.5) to[short] (5,9.75);
+			\draw [ line width=0.5pt](1.5,10.5) to[short] (1.5,10.75);
+			\draw [ line width=0.5pt](1.5,10.75) to[short] (2.75,10.75);
+			\node at (4.5,10.75) [circ] {};
+			\draw [ line width=0.5pt](4.5,10.75) to[short] (4.5,13.5);
+			\draw [ line width=0.5pt](4.5,12.25) to[short] (5,12.25);
+			\draw [ line width=0.5pt](4.5,13.5) to[short] (5,13.5);
+			\draw [ line width=0.5pt](5,12.25) to[european resistor,l={ \normalsize $R_1$}] (7,12.25);
+			\node at (4.5,12.25) [circ] {};
+			\draw [ line width=0.5pt](7,12.25) to[short] (7.5,12.25);
+			\draw [ line width=0.5pt](7.5,12.25) to[short] (7.5,11);
+			\draw [ line width=0.5pt](7.5,12.25) to[short] (7.5,13.5);
+			\draw [line width=0.5pt](5,13.5) to[C,l={ \normalsize $C_1$}] (7,13.5);
+			\node at (7.5,12.25) [circ] {};
+			\draw [ line width=0.5pt](7,13.5) to[short] (7.5,13.5);
+			\draw [ line width=0.5pt](1.5,10.75) to[short] (1.5,10.5);
+			\draw [line width=0.5pt](1.5,9) to (1.5,8.25) node[ground]{};
+			\draw [line width=0.5pt, ->, >=Stealth] (2,10.25) -- (2,9.25);
+			\node [font=\normalsize] at (2.25,9.75) {$I_f$};
+			\draw [ line width=0.5pt](6.5,10.25) node[op amp,scale=1] (opamp2) {};
+			\draw [ line width=0.5pt](opamp2.+) to[short] (5,9.75);
+			\draw [ line width=0.5pt] (opamp2.-) to[short] (5,10.75);
+			\draw [ line width=0.5pt](7.7,10.25) to[short](8,10.25);
+			\draw (8,10.25) to[short, -o] (8.25,10.25) node[] {$\ \ \ \ \ \ \ \ \ V_{out}$};
+			\draw (7.5,11) to[short] (7.5,10.25);
+			\draw (3.75,10.75) to[short] (5,10.75);
+			\draw [ line width=0.5pt](6.5,10.25) node[op amp,scale=1] (opamp2) {};
+			\draw [ line width=0.5pt](opamp2.+) to[short] (5,9.75);
+			\draw [ line width=0.5pt] (opamp2.-) to[short] (5,10.75);
+			\draw [ line width=0.5pt](7.7,10.25) to[short](8,10.25);
+			\node at (7.5,10.25) [circ] {};
+			\draw (2.75,10.75) to[short] (3.75,10.75);
+			\draw [ line width=0.7pt](4.5,15) to[american current source,l={ \normalsize $i_{nR}$}] (7.5,15);
+			\draw (4.5,13.5) to[short] (4.5,15);
+			\draw (7.5,15) to[short] (7.5,13.5);
+			\node at (4.5,13.5) [circ] {};
+			\node at (7.5,13.5) [circ] {};
+			\draw [ line width=0.7pt](3.75,10.75) to[american current source,l={ \normalsize $i_{nA}$}] (3.75,8.75);
+			\draw (3.75,8.75) to (3.75,8.25) node[ground]{};
+		\end{circuitikz}
+	}%
+	\caption{Noise current sources in a \gls{tia} circuit}
+	\label{fig:td:design:tia_noise}
+\end{figure}
+
+Calculating $i_{nR}$ can be done using the Johnson-Nyquist formula, as shown in Equation \eqref{eq:td:noise_res}. Given the fact that the temperature $T$ and noise cutoff frequency $\Delta{f}$ cannot be modified in this case, $R_1$ is  the only variable that can be used to lower the thermal noise current.
+
+\begin{equation}\label{eq:td:noise_res}
+	i_{nR} = \sqrt{\frac{4kT\Delta{f}}{R_1}}
+\end{equation}
+
+Combining the noise sources leads to Equation \eqref{eq:td:noise_sources}, which also shows that the noise can be modeled as voltage sources.  
+
+\begin{equation}\label{eq:td:noise_sources}
+	i_n(f) = \sqrt{i_{nR}^2 + i_{nA}^2} \Leftrightarrow
+	v_n(f) = \sqrt{v_{nR}^2 + v_{nA}^2}
+\end{equation}
+
+The noise gain is the ratio of the output voltage $v_{out}$ and the total internal noise at the input $v_n$. This ratio gives a better understanding of what frequencies of noise are the most problematic if they appear at the input of the \gls{tia}. In order to get a better understanding of the noise gain, its transfer function can be calculated in much the same way as the transimpedance (Equations \ref{eq:td:aol} - \ref{eq:td:zt}). Equation \eqref{eq:td:noise_vin} shows how the input voltage $v_{in}$ can be expressed with the inverting input voltage of the amplifier $v_{ia}$ and the equivalent noise source $v_n$. The equation also shows the difference between the signal and noise transfer functions. The latter is an abstraction, which treats the system noise without accounting for the photodiode current $i_{f}$, thus providing an alternative way of viewing the system.
+
+\begin{equation}\label{eq:td:noise_vin}
+	v_{in}  = v_{ia} + v_n = \frac{v_{out}}{A_o\frac{\omega_o}{s + \omega_o}} + v_n
+\end{equation}
+
+\begin{equation}\label{eq:td:noise_kcl}
+	\frac{v_{in}}{\frac{1}{sC_i}} = \frac{v_{out} - v_{in}}{Z_1(s)}
+\end{equation}
+
+Summing the currents at $v_{in}$ (see Equation \eqref{eq:td:noise_kcl}) leads to Equation \eqref{eq:td:noise_tf}. The transfer function shown in it can be broken down into two components: a low-pass and a band-pass component. In the numerator, expression $sA_o\omega_o$ contributes the band-pass component and the expression $\frac{A_o\omega_o}{(C_i + C_1)R_1}$ is responsible for the low-pass component. Figure \ref{fig:td:noiseexample} shows an example of the frequency response of the noise transfer function.
+
+\begin{equation}\label{eq:td:noise_tf}
+	H_n(s) = \frac{v_{out}}{v_n} = \frac{A_o\omega_o(s + \frac{1}{(C_i + C_1)R_1})}{s^2 + s(\frac{1}{(C_i + C_1)R_1} + \omega_o(1 + A_o\frac{C_1}{C_i + C_1})) + \frac{\omega_o(1 + A_o)}{(C_i + C_1)R_1}}
+\end{equation}
+
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.8\linewidth]{matlab/noise_example}
+	\caption{Plot of the components of the noise transfer function (using the AD795 op-amp; $R_1$ = 10 \unit{\mega\ohm} and $C_1$ = 1,6 \unit{\pico\farad})}
+	\label{fig:td:noiseexample}
+\end{figure}
+
+
+While it might not be immediately obvious from the mathematical expression, the noise gain is \num{0} \unit{\decibel} at low frequencies, but it peaks when $f \approx f_c$. 
+
+Firstly, the low-frequency response of the system can most easily be demonstrated by calculating it at a frequency $\omega$ = 0 \unit{\radian\per\second}. This gives us the \gls{dc} gain shown in Equation \eqref{eq:td:noise_dc}, which is close to 1 for real amplifiers, in which the gain is finite.
+
+\begin{equation}\label{eq:td:noise_dc}
+	H_n(0) = \frac{\frac{A_o\omega_o}{(C_i + C_1)R_1}}{\frac{\omega_o(1 + A_o)}{(C_i + C_1)R_1}} = \frac{A_o}{A_o + 1}
+\end{equation}
+
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.8\linewidth]{matlab/noise_example_vs_signal}
+	\caption{Comparison between the noise frequency response and the normalized signal frequency response}
+	\label{fig:td:noiseexamplevssignal}
+\end{figure}
+
+Secondly, the peak is caused by the combination of both components. The center frequency of the band-pass component corresponds to the cutoff frequency of the low-pass, which makes the gain at that frequency the highest. What is more, the peak-gain frequency of the noise matches the signal transfer function cutoff, which can be seen in Figure \ref{fig:td:noiseexamplevssignal}. 
+
+Lastly, it should be mentioned that the peak in the noise transfer function is reflected in the spectral noise density when the system has a Bessel response. To attenuate the noise peak, the capacitance of $C_1$ can be increased, which also leads to a decrease in signal bandwidth. This adjustment of $C_1$ serves as one of the key differences between the two photodetectors, because the \gls{cwodmr}[] circuit can work even with an overdamped response, so the compensation capacitor is less important and can be chosen based on what standard values are on offer. On the contrary, the \gls{podmr} photodetector requires a much broader bandwidth, so the adjustment from a perfect Bessel response should be minimal.
+
+
+\section{Power supply and conversion}\label{chap:td:power}
+The most important considerations for the setup are function and size. Form factor constraints arise from the fact that the setup needs to be as small and adhere to the Thorlabs photonics mounting standard. Photodetection also needs to not require many external connections or ideally be standalone. This is feasible for the data flow, as the photodetection \gls{pcb} only needs light and an output to work. Unlike the data connections, version two of the design has a suboptimal power delivery system, as it uses three pins for the supply of power. 
+
+Three alternatives methods for power delivery were considered, all of which only need power and ground to work. The first one is an onboard split-rail power supply, which would take the power input and would output a fixed positive and negative voltage. Figure \ref{fig:td:des:adafruitsplitrailboost} shows an example of what a split-rail supply implementation might look like. There are also external option \cite{clark2025boost}, which might be necessary in the future, if the setup size needs to be reduced even more.  
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.4\linewidth]{img/adafruit_split_rail_boost}
+	\caption{Example of a split-rail power supply implementation using the TPS65133 \glsfmtshort{ic} (image credit to \cite{ti2015tps65133})}
+	\label{fig:td:des:adafruitsplitrailboost}
+\end{figure}
+
+
+A simpler solution would be to use a virtual ground driver \gls{ic}, as it would provide a reference point at half of the supply voltage. Such a supply would also be good for decreasing the size, as the \gls{pcb} needs minimal additions to satisfy the power needs of the photodetector. Additionally, a virtual ground circuit, which behaves similarly, can be made using two voltage regulators. The example in Figure \ref{fig:td:des:virtground} is a slightly more stable implementation
+
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.3\linewidth]{img/virt_ground}
+	\caption{Example of a virtual ground driver using the TLE2426 \glsfmtshort{ic} (image credit to \cite{ts2022ground})}
+	\label{fig:td:des:virtground}
+\end{figure}
+
+
+Another possibility is to implement a charge pump (see Figure \ref{fig:td:des:chrgpump}), which inverts the input voltage. This setup would only need half of the input voltage required for the virtual ground solution, effectively enabling it to be powered via a standard \gls{usb} connector.
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.5\linewidth]{img/chrg_pump}
+	\caption{Example of a charge pump inverter using a TPS6040x family \glsfmtshort{ic} (image credit to \cite{instruments2015tps6040x})}
+	\label{fig:td:des:chrgpump}
+\end{figure}
+
+
+
+\begin{table}[ht]
+	\centering
+	\begin{tabular}{|c||c|c|c|}
+		\hline
+		& Split-rail power supply 	& Virtual ground & Charge pump  \\
+		\hline
+		\glsfmtshort{ic}					& TPS65133		 			& TLE2426 	     & TPS60400 	\\
+		\hline
+		$V_{in}$ (\unit{\volt}) 			& 5  			 			& 10 	   		 & 5  			\\
+		\hline
+		$V_{out}$ (\unit{\volt})			& \textpm 5 				& \textpm 5 	 & -5 			\\
+		\hline
+		$I_{out}$ (\unit{\milli\A})			& 250  						& 40 			 & 60 			\\
+		\hline
+		Current draw (\unit{\mu\A})			& 15						& 300 	 		 & 210  \\
+		\hline
+	\end{tabular}
+	\caption{Comparison of power supply options}
+	\label{tab:power_supply}
+\end{table}
+
+The specifications of the different power supply solutions are shown in Table \ref{tab:power_supply}, from which can be deduced that there is a correlation between complexity and performance. The split-rail power supply, as the most complex solution, has the biggest current output range and lowest current consumption, but as illustrated in Figure \ref{fig:td:des:adafruitsplitrailboost}, there are a number of other components that are required for proper implementation. In contrast, the virtual ground supply concept has relatively poor specifications compared to the other options, but it is the only solution that does not employ a switching mechanism, thus avoiding any possible noise. Lastly, the charge pump inverter offers reasonable performance, while not needing as many extra components as the split-rail supply. Furthermore, it addresses the stability concerns that might arise when using a virtual ground \gls{ic}. 
+
+Ultimately, the charge pump is the most fit for this project, because it is relatively simple, while also offering excellent stability. The decision was reached only after taking into account the power calculations from Chapter \ref{chap:fd:power_req}, according to which all devices can handle the power requirements of the circuit. Another important factor when making the decision was the efficiency of the switching solutions. Based on slight fluctuations in the amount of current drawn, the charge pump can have as much as twice the efficiency of the split-rail power supply \cite{instruments2015tps6040x, ti2015tps65133}, due to its high efficiency at low currents.
+
+The design in Figure \ref{fig:td:des:chrgpump} is recommended by the manufacturer. Unlike the flying capacitor $C_{fly}$, which does not affect the behavior of the \gls{ic}, both the input $C_I$ and output $C_O$ capacitors have to be chosen carefully. Too low of an input or output capacitance can cause an unwanted ripple. What is more, the \gls{esr} of $C_O$ also has a significant effect on the output ripple, as is evident from Equation \eqref{eq:td:v3:ripple} \cite{instruments2015tps6040x}. In it, $I_O$ is the output current and $f_{osc}$ is the switching frequency of the pump.
+
+\begin{equation}\label{eq:td:v3:ripple}
+	V_{Or} = \frac{I_O}{f_{osc}C_O} + 2I_O(ESR_{CO})
+\end{equation}
+
+
+\section{Bandwidth expansion}\label{chap:td:v4_design}
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.6\linewidth]{matlab/bode_v4_v3_10Mohm_1Mohm}
+	\caption{Bandwidth comparison of the third iteration of the \gls{tia} (based on AD795) and one based on an ADA4637 op-amp with a 10 \unit{\mega\ohm} and a 1 \unit{\mega\ohm} $R_1$}
+	\label{fig:td:bodev410mohm1mohm}
+\end{figure}
+
+The simplest way to increase the bandwidth of the \gls{tia} is to decrease its transimpedance gain. Additionally, an op-amp with a higher \gls{gbp} will also contribute to a substantial increase in gain. Figure \ref{fig:td:bodev410mohm1mohm} shows the ideal version of the \gls{tia}, used in the second and third iteration of the system (in blue). It uses an AD795 amplifier, which has a 1,6 \unit{\mega\hertz} \gls{gbp}. The resulting cutoff frequency is \num{19,69} \unit{\kilo\hertz}. Only swapping the AD795 for an ADA4637, which has a 79 \unit{\mega\hertz} \gls{gbp}, results in the system response in orange. Its cutoff frequency is \num{138,87} \unit{\kilo\hertz}. Both lines show a system with the same transimpedance gain and consequently $R_1$ value. On the other hand, the yellow line shows the increase in bandwidth with a 10 times smaller gain\footnote{The plot shows normalized gain of each system, which is why the first two systems (140 \unit{\decibel}) have the same gain as the last system (120 \unit{\decibel})}. The ADA4637 system with 1 \unit{\mega\ohm} $R_1$ has a cutoff frequency of \num{437,32} \unit{\kilo\hertz}.
+
+
+While these changes contribute to an improved bandwidth, they are limited by the compensation capacitor $C_1$. Its purpose is to counteract the negative effects of the diode capacitance $C_d$ and stabilize the frequency response of the system. In doing so, however, it also reduces the bandwidth of the system. Decreasing the capacitance of $C_1$ outright can lead to unwanted resonance, but it is possible to stabilize $C_d$ and consequently reduce the value of $C_1$ by using bootstrapping. This reduction in $C_1$ leads to a direct increase in frequency. The design discussed in this section is based on \cite{sackinger2017analysis, hoyle1998bootstrapping, hoyle1999shunt, idrus2006performance}.
+
+
+
+\begin{figure}[ht]
+	\centering
+	\resizebox{.5\textwidth}{!}{%
+		\begin{circuitikz}
+			\tikzstyle{every node}=[font=\normalsize]
+			\draw [ line width=0.5pt](3.75,9) to[empty photodiode,l={ \normalsize $D_1$}] (3.75,10.75);
+			\draw [ line width=0.5pt](6.5,10.25) node[op amp,scale=1] (opamp2) {};
+			\draw [ line width=0.5pt](opamp2.+) to[short] (5,9.75);
+			\draw [ line width=0.5pt] (opamp2.-) to[short] (5,10.75);
+			\draw [ line width=0.5pt](7.7,10.25) to[short](8,10.25);
+			\draw [line width=0.5pt](5,9) to (5,8.25) node[ground]{};
+			\draw [ line width=0.5pt](5,8.5) to[short] (5,9.75);
+			\draw [ line width=0.5pt](3.75,10.5) to[short] (3.75,10.75);
+			\draw [ line width=0.5pt](3.75,10.75) to[short] (5,10.75);
+			\node at (4.5,10.75) [circ] {};
+			\draw [ line width=0.5pt](4.5,10.75) to[short] (4.5,13.5);
+			\draw [ line width=0.5pt](4.5,12.25) to[short] (5,12.25);
+			\draw [ line width=0.5pt](4.5,13.5) to[short] (5,13.5);
+			\draw [ line width=0.5pt](7.5,10.25) to[short] (7.5,11);
+			\draw [ line width=0.5pt](5,12.25) to[european resistor,l={ \normalsize $R_1$}] (7,12.25);
+			\node at (4.5,12.25) [circ] {};
+			\draw [ line width=0.5pt](7,12.25) to[short] (7.5,12.25);
+			\draw [ line width=0.5pt](7.5,12.25) to[short] (7.5,11);
+			\draw [ line width=0.5pt](7.5,12.25) to[short] (7.5,13.5);
+			\draw [line width=0.5pt](5,13.5) to[C,l={ \normalsize $C_1$}] (7,13.5);
+			\node at (7.5,12.25) [circ] {};
+			\draw [ line width=0.5pt](7,13.5) to[short] (7.5,13.5);
+			\draw [ line width=0.5pt](8,10.25) to[short, -o] (8.25,10.25) node {$\ \ \ \ \ \ \ \ \ V_{out}$};
+			\draw [ line width=0.5pt](3.75,10.75) to[short] (3.75,10.5);
+			%			\draw [line width=0.5pt](3.75,9) to (3.75,8.25) node[ground]{};
+			\draw [line width=0.5pt, ->, >=Stealth] (4.25,9.25) -- (4.25,10.25);
+			\node [font=\normalsize] at (4.60,9.75) {$I_f$};
+			\draw (1.25,12) node[op amp,scale=1, xscale=-1 , yscale=-1] (opamp2) {};
+			
+			% second amp and feedback
+			\draw [line width=0.5pt] (opamp2.+) to [short] (4.5, 12.5)
+			(opamp2.-) to [short] (2.5, 11.5)
+			to [short] (2.5, 10.5)
+			to [short] (0.25, 10.5)
+			to [short] (0.25, 12);
+			\node at (0.25, 12) [circ] {};
+			% connection to diode
+			\draw [line width=0.5pt] (0.5, 12) to [short] (0,12)
+			to [short] (0, 9)
+			to [short] (3.75, 9);
+		\end{circuitikz}
+	}%
+	\caption{Shunt bootstrap \gls{tia} circuit}
+	\label{fig:td:tia_bootstrap}
+\end{figure}
+
+Figure \ref{fig:td:tia_bootstrap} shows the bootstrapped \gls{tia}. The same analysis as in Chapter \ref{chap:td:calc:v2} can be applied to the circuit, which leads to the transimpedance $Z_t$ in Equation \eqref{eq:td:v4:trans}. The additional op-amp buffer creates an extra pole and zero. In the expression, $C_i$ is the sum of the common-mode and differential capacitance of the amplifier, $C_d$ is the photodiode capacitance, $A_o$ is the intrinsic open-loop gain of the amplifier, $\omega_o$ is the open-loop cutoff frequency and all other parameters correspond to the ones in Figure \ref{fig:td:tia_bootstrap}.
+
+\begin{equation}\label{eq:td:v4:trans}
+	Z_t(s) = \frac{v_{out}}{i_f} = \frac{R_1}{s^2\frac{\left(C_i + C_1 + C_d\right)R_1}{\omega_oA_o} + s\left(\frac{\left(C_i + C_1 + C_d\right)R_1}{A_o} + C_1R_1 + \frac{1}{\omega_oA_o}\right) - \frac{s\left(s + \omega_o\right)C_dR_1}{s + \omega_o(1 + A_o)} + \frac{A_o + 1}{A_o}}
+\end{equation}
+
+Determining the ideal $C_1$ by solving the characteristic equation of the system analytically is even harder than in the previous designs, which is why the system equation was solved by trial and error, and with the use of MATLAB to plot the system response with different capacitor values. The solution is discussed in more detail in Chapter \ref{chap:td:v4_sim}.
+
+While the improvements to the \gls{tia} are crucial for broadening its bandwidth, the changes also affect the post-amplification stage. It needs to compensate for the gain reduction that was previously discussed. Despite, a simple gain increase being a viable solution, this will also reduce the bandwidth. Similarly to the \gls{tia}, the non-inverting amplifier is also affected by the gain-bandwidth relationship, as dictated by the \gls{gbp}, shown in Equation \eqref{eq:td:v4:gbp+gain}, where $A_v$ is the gain of the stage.
+
+\begin{equation}\label{eq:td:v4:gbp+gain}
+	f_c = \frac{GBP}{A_v}
+\end{equation}
+
+An alternative to increasing the gain is to add a second non-inverting stage with the same gain. By doing this, the bandwidth does not decrease as a result of the gain-bandwidth relationship, but the cutoff frequency $f_{c\alpha}$ of single-stage non-inverting amplifier even increases as shown in Equation \eqref{eq:td:v4:nia_cascading}\footnote{The formula assumes the non-inverting stages have the same parameters and use the same components as in the actual design} \cite{ti2020cascading}. In the equation, $A_{df}$ is the bandwidth increase due to the single-stage gain reduction.
+
+\begin{equation}\label{eq:td:v4:nia_cascading}
+	f_c \approx A_{df}\left(\frac{1}{f_{c\alpha}^2} + \frac{1}{f_{c\alpha}^2}\right)^{-\frac{1}{2}} = \frac{A_{df}}{\sqrt{2}}f_{c\alpha}
+\end{equation}
+
+It should also be noted that the equivalent resistance of the gain-setting resistors, combined with the parasitic capacitances of the op-amp, create a zero, the impact of which can be reduced by decreasing the value of the resistors. This can be observed from the relationship of the resistance to the phase margin, as seen in Equation \eqref{eq:td:v4:nia_cascading:r3r2}. In it, resistors $R_2$ and $R_3$ correspond to the ones in Figure \ref{fig:tia_nia}. $C_{cm}$ and $C_{df}$ denote the common-mode and differential capacitance of the op-amp.
+
+\begin{equation}\label{eq:td:v4:nia_cascading:r3r2}
+	\frac{1}{2\pi\left(C_{cm} + C_{df}\right)\frac{R_2R_3}{R_2 + R_3}} > \frac{GBP}{1 + \frac{R_3}{R_2}}
+\end{equation}
+
+It is possible to simplify the formula, because when designing the amplifier, the ratio of the resistors is fixed ($R_3 = A_rR_2$, where $A_r$ is the resistor ratio). Solving for $R_2$ then gives Equation \eqref{eq:td:v4:nia_cascading:r2_simplified}.
+
+\begin{equation}\label{eq:td:v4:nia_cascading:r2_simplified}
+	R_2 < \frac{(1 + A_r)^2}{2\pi A_r\left(C_{cm} + C_{df}\right)GBP} 
+\end{equation}
+
+%\begin{equation}\label{eq:td:v4:trans_re}
+%	\begin{split}
+	%	Z_t(s) = \frac{sR_1 + R_1\omega_o(1 + A_o)}{s ^3(\frac{(C_i + C_1 + C_d)R_1}{A_o}) + s^2(\frac{2 + A_o}{A_o}(C_i + C_1 + C_d)R_1 + (C_1 - C_d)R_1 + \frac{1}{\omega_oA_o})} + \\ 
+	%	\frac{sR_1 + R_1\omega_o(1 + A_o)}{s(\omega_o\frac{1 + A_o}{A_o}(C_i + C_1 + C_d)R_1  + \omega_o(1 + A_o)C_1R_1 - \omega_oC_dR_1 + 2\frac{1 + A_o}{A_o}) + \omega_o(A_o + 1)\frac{A_o + 1}{A_o}}
+	%	\end{split}
+%\end{equation}
+
+%\begin{equation}\label{eq:td:v4:trans}
+%	Z_t(s) = \frac{v_{out}}{i_f} = \frac{R_1}{s^2\frac{(C_i + C_1 + C_d)R_1}{\omega_o} + s(\frac{(C_i + C_1 + C_d)R_1\omega_a}{\omega_o} + C_1R_1 + \frac{1}{\omega_o}) - \frac{s(s + \omega_a)C_dR_1}{s + \omega_o + \omega_a} + \frac{\omega_a}{\omega_o} + 1}
+%\end{equation}
+
+Finally, Figure \ref{fig:td:v4schematic} shows the schematic of the system after all the modifications. Because of noise concerns, the resistor values were reduced significantly, which, as previously mentioned, contributes to lower noise in the post-amplification stage.
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.7\linewidth]{img/v4_schematic}
+	\caption{Schematic of the fourth iteration of the \gls{tia}}
+	\label{fig:td:v4schematic}
+\end{figure}
+
+\chapter{Photodetector simulation}
+While the previous sections covered design choices based on general \gls{tia}[] development techniques, this section explicitly covers the simulation and implementation of \glspl{pcb}.
+
+\section{First iteration}
+This version of the photodetector (v1) is a direct implementation of the proposed design discussed in Chapter \ref{chap:td:prop_design}, with only slight modifications and additions where the collaborator did not explicitly define design specifications.
+
+\begin{figure} [!ht]
+	\centering
+	\includegraphics[width=0.8\linewidth]{img/TIA_TINA_SIM_1P6}
+	\caption{First iteration of the photodetector circuit}
+	\label{fig:photodetecog}
+\end{figure}
+
+
+Figure \ref{fig:photodetecog} shows the design schematic. The capacitor $C_4$, as well as the current source $I_1$ are used to simulate the behavior of a photodiode.
+
+\begin{figure}[!ht]
+	\centering
+	\begin{subfigure}[1a]{.49\linewidth}
+		\includegraphics[width=\linewidth]{img/tina_AC_2probes}
+		\caption{Frequency response}
+		\label{fig:tinaac2probes}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[1b]{.49\linewidth}
+		\includegraphics[width=\linewidth]{img/tina_DC_2probes}
+		\caption{DC gain}
+		\label{fig:tinadc2probes}
+	\end{subfigure}
+	\caption{Simulation of the first iteration of the photodetector}
+	\label{fig:tina2probes}
+\end{figure}
+
+Tina-TI was used to simulate and visualize the DC gain and frequency response of the system, as seen in Figure \ref{fig:tina2probes}. The signals $V_{ot}$ and $V_{out}$ correspond to the output of the transimpedance and non-inverting amplification stage respectively. The AC plot (Figure \ref{fig:tinaac2probes}) shows the cutoff, at \num{10,77} \unit{\kilo \hertz}, and the gain inside the gain bandwidth, which is \num{160,82} \unit{\decibel}. The DC plot (Figure \ref{fig:tinadc2probes}) shows the voltage with respect to the current and demonstrates the linearity of the system in the range of \numrange{0}{46,31} \unit{\nano \ampere}. After $V_{out}$ reaches \num{5} \unit{V}, the output remains fixed, because it cannot exceed the voltage provided to the amplifier. 
+
+
+In addition to simulating the signal parameters of the amplifier, the noise was also checked. Simulations of the photodetection systems show the noise density of the system, which is the square root of the power spectral density. In turn, power spectral density is describes the distribution of power over frequency. Figure \ref{fig:td:tinanoisev1}, shows that at 1 \unit{\hertz} the noise is 4,63 \unit[power-half-as-sqrt]{\micro\volt\per\hertz\tothe{0.5}} and remains about the same in the whole bandwidth of the amplifier. At around 1 \unit{\mega\hertz}, the minimum noise of \num{240,92} \unit[power-half-as-sqrt]{\nano\volt\per\hertz\tothe{0.5}} is achieved. 
+
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.6\linewidth]{img/tina_noise_v1}
+	\caption{Spectral noise density of the \gls{tia}}
+	\label{fig:td:tinanoisev1}
+\end{figure}
+
+
+
+
+\section{Second iteration}\label{chap:td:v2}
+The second iteration (v2) of the photodetector design is based on the system analysis in Chapter \ref{chap:td:calc:v2}. It is designed to have a Bessel response, the compensation capacitor for which was calculated by a MATLAB script.
+
+
+MATLAB calculates the component values with high precision and sourcing real components that precisely match the values is not possible, which is why components with standard values will be used in the setup. Simulations with standardized components were also done to compare the mathematically-ideal setup to the one in practice. 
+
+\begin{table}[!ht]
+	\centering
+	\begin{tabular}{|c||c|c|c|}
+		\hline
+		\glsfmtshort{tia} version & v2 (Ideal) & v2 (Real.)	    & v1 		\\
+		\hline
+		$C_1$ (\unit{\pico \farad}) & \num{0,96904} & \num{1}	    & \num{1,6} 		\\
+		\hline
+		$f_c$ (\unit{\kilo \hertz}) & \num{22,0768} & \num{21,167}  &  \num{11,2422}	\\
+		\hline
+		
+		$Q$  					    & \num{0,57735} & \num{0,55996} &  \num{0,35487}   \\
+		\hline
+	\end{tabular}
+	\caption{\gls{tia} parameters with a \num{10} \unit{\mega \ohm} feedback resistor $R_1$}
+	\label{tab:td:params}
+\end{table}
+
+Table \ref{tab:td:params} contains the MATLAB calculation results and shows the values of $f_c$ and $Q$ when only $C_1$ changes. $R_1$ is kept the same, as it is equivalent the \gls{dc} transimpedance $Z_{tDC}$\footnote{For realistic op-amps, $\frac{A_o}{A_o + 1} \to 1$, which means $Z_{tDC} \equiv R_1$ can be assumed to simplify explanations}. Importantly, the results show that the previous iteration had an overdamped response. Although the quality factor with realistic component values is also lower than the ideal $Q = \frac{\sqrt{3}}{3}$, the system sill behaves approximately like a Bessel filter.
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.6\linewidth]{matlab/bode_v1_v2_comparison}
+	\caption{Bode plot of the system with different capacitors}
+	\label{fig:td:bodev1v2comparison}
+\end{figure}
+
+Using these values, the system model was calculated and plotted in Figure \ref{fig:td:bodev1v2comparison}. Certain differences can be seen between the two iterations. Most notably, the cutoff frequency $f_c$ of the first iteration is somewhat smaller than that of the second iteration. Furthermore, it can be observed that both the ideal and realistic versions of the system behave similarly. 
+
+
+\begin{figure}[ht]
+	\centering
+	\begin{subfigure}[1a]{.49\linewidth}
+		\includegraphics[width=\linewidth]{img/tina_AC_2probes_1p}
+		\caption{Frequency response}
+		\label{fig:tinaac2probes1p}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[1b]{.49\linewidth}
+		\includegraphics[width=\linewidth]{img/tina_DC_2probes_1p}
+		\caption{DC gain}
+		\label{fig:tinadc2probes1p}
+	\end{subfigure}
+	\caption{Simulation of the second iteration of the photodetector}
+	\label{fig:tina2probes1p}
+\end{figure}
+
+\begin{figure}[!ht]
+	\centering
+	\begin{subfigure}[1a]{.49\linewidth}
+		\includegraphics[width=\linewidth]{matlab/noise_v2}
+		\caption{Calculated voltage noise gain}
+		\label{fig:td:v2_noise_calc}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[1b]{.49\linewidth}
+		\includegraphics[width=\linewidth]{img/tina_noise_v2}
+		\caption{Simulated spectral noise density}
+		\label{fig:td:v2_noise_sim}
+	\end{subfigure}
+	\caption{Noise of the \gls{tia} using an AD795, 10 \unit{\mega\ohm} resistor and an ideal compensating capacitor}
+	\label{fig:td:v2_noise_both}
+\end{figure}
+
+Figure \ref{fig:tina2probes1p} confirms the calculations, with some slight differences that can be attributed to the \gls{spice} models. As predicted, the frequency response of the circuit shows an increased cutoff frequency of \num{19,69} \unit{\kilo\hertz}, \num{8,92} \unit{\kilo\hertz} more than the previous iteration. Up to the cutoff frequency, the transimpedance gain is \num{160,83} \unit{\decibel}, which is almost the same as the former gain of \num{160,82} \unit{\decibel}. Furthermore, Figure \ref{fig:tinadc2probes1p} shows that, similarly to the first iteration, the system displays linearity in the range of \numrange{0}{45,86} \unit{\nano \ampere}. This is a reduction of \num{450} \unit{\pico\ampere} compared to the previous version and also \num{4,14} \unit{\nano \ampere} less than the ideal upper limit of the linear region.
+
+Additionally, a MATLAB script was used to calculate the \gls{tia} noise transfer function, the output of which is shown in Figure \ref{fig:td:v2_noise_calc}. As discussed in Chapter \ref{chap:td:calc:v2}, the noise gain spikes at the cutoff of the signal transfer function. The noise density was also plotted and is shown in Figure \ref{fig:td:v2_noise_sim}. At 1 \unit{\hertz}, the noise is 4,63 \unit[power-half-as-sqrt]{\micro\volt\per\hertz\tothe{0.5}} and it only settles at around 1 \unit{\mega\hertz}. The behavior is similar to the first iteration, but the increased bandwidth also results in an increase in noise in the extended bandwidth region.
+
+\section{Third iteration}
+While the second version of the photodetector focuses on improving the TIA performance, the third iteration (v3) is more about adapting the design for the specifics of the setup. In particular, this iteration tries to simplify the power delivery and optimize the size of the design, while keeping the amplifying circuit unchanged. In spite of the added power management, this version of the system is made so that it still costs around the same as the previous ones.
+
+Before deciding on a power supply system, the power requirements needed to be compared to the specifications listed in Table \ref{tab:power_supply}. A MATLAB script, which can be found in Appendix \ref{chap:appendix:code}, was written and used to calculate that, given a \textpm 5 \unit{\volt} supply, the system requires \num{2,3021} \unit{\milli\ampere} of current.  All solutions can provide that amount of current with reasonable overhead, which is why the choice was based on size, complexity and stability.
+
+\section{Fourth iteration}\label{chap:td:v4_sim}
+Although the previous iterations provided an inexpensive and reliable photodetector for \gls{cwodmr}, the narrow bandwidth prevents them from measuring pulsed protocols. This iteration (v4) is specifically designed for $T_1$ measurement support. Although it is somewhat more expensive than the previous iteration, version four justifies the price by offering better sensing capabilities. Although the design can only handle low-frequency $T_1$ measurements, it serves as proof of concept for the making of a device that can handle Rabi oscillations, as well.
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.6\linewidth]{matlab/bode_bootstrap_vs_nostrap}
+	\caption{Comparison of a bootstrapped \gls{tia} and a \gls{tia} with only a compensating capacitor, both with the same transimpedance gain}
+	\label{fig:td:bodebootstrapvsnostrap}
+\end{figure}
+
+As previously discussed, the value of the capacitor could not be determined analytically, however an approximate value was calculated using MATLAB simulations of the mathematical system model. Figure \ref{fig:td:bodebootstrapvsnostrap} shows that the bootstrapped system demonstrates a significantly increased bandwidth. According to Table \ref{tab:td:v4_params}, the bootstrapped amplifier still has a quality factor $Q$ close to the ideal \num{0,57735}, which is even better than the previous iterations of the system. Furthermore, the capacitor value is standard, meaning that the value can be used in the physical system without further approximations.
+
+\begin{table}[!ht]
+	\centering
+	\begin{tabular}{|c||c|c|c|}
+		\hline
+		\glsfmtshort{tia} version 	& v4 (Bootstrapped) & v4 (No bootstrap) & v2/v3 			\\
+		\hline
+		$C_1$ (\unit{\pico \farad}) & \num{0,3} 		& \num{0,49265}    	& \num{1}			\\
+		\hline
+		$R_1$ (\unit{\mega\ohm}) 	& \num{1} 			& \num{1}	    	& \num{10}			\\
+		\hline
+		$f_c$ (\unit{\kilo \hertz}) & \num{724,69}	 	& \num{437,32} 		&  \num{21,167}		\\
+		\hline
+		$Q$  					    & \num{0,57814} 	& \num{0,57735} 	&  \num{0,55996}   \\
+		\hline
+	\end{tabular}
+	\caption{Comparison of \gls{tia} parameters of the fourth and second/third iteration of the system}
+	\label{tab:td:v4_params}
+\end{table}
+
+
+
+\begin{figure}[!ht]
+	\centering
+	\begin{subfigure}[1a]{.9\linewidth}
+		\includegraphics[width=\linewidth]{img/LTSpice_sim_v4_1stage}
+		\caption{Bootstrapped \gls{tia} with a single output stage (40 \unit{\decibel} gain)}
+		\label{fig:td:v4_nia:one}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[2a]{.9\linewidth}
+		\includegraphics[width=\linewidth]{img/LTSpice_sim_v4_2stage}
+		\caption{Bootstrapped \gls{tia} with two cascaded output stages (20 \unit{\decibel} gain each)}
+		\label{fig:td:v4_nia:cascaded}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[3a]{.9\linewidth}
+		\includegraphics[width=\linewidth]{img/LTSpice_sim_v4_no_post}
+		\caption{Bootstrapped \gls{tia} without post-amplification}
+		\label{fig:td:v4_nia:none}
+	\end{subfigure}
+	\caption{Simulation of the effect of cascading on the bandwidth of the fourth iteration of the photodetector}
+	\label{fig:td:v4_nia}
+\end{figure}
+
+Additionally, the post-amplification part of the system was simulated with and without the cascaded stages. Shown in Figure \ref{fig:td:v4_nia}, the results demonstrate a significant increase in bandwidth. The plot of the bootstrapped \gls{tia} discussed in the design section (Chapter \ref{chap:td:v4_design}) with a single 40 \unit{\decibel} non-inverting stage shows a flat response with a cutoff frequency of approximately \num{194,45} \unit{\kilo\hertz}. This is significantly lower than \num{716,67} \unit{\kilo\hertz}, which is the bandwidth of the \gls{tia} without any post-amplification (Figure \ref{fig:td:v4_nia:none}). Figure \ref{fig:td:v4_nia:cascaded} shows the increased bandwidth of \num{638,08} \unit{\mega\hertz} when two stages are used instead of one. In spite of the significantly bigger cutoff frequency, the response is not maximally flat, which means the linearity at high frequencies is subpar.
+
+Here it is important to mention that while cascading increases the bandwidth of the system, it also results in more noise. Figure \ref{fig:td:v4_noise} shows the effect of cascading. Aside from the obvious increase around the cutoff frequency, the noise at 1 \unit{\hertz} also increases from 14,5 \unit[power-half-as-sqrt]{\nano\volt\per\hertz\tothe{0.5}} to 18 \unit[power-half-as-sqrt]{\nano\volt\per\hertz\tothe{0.5}}.
+
+\begin{figure}[!ht]
+	\centering
+	\begin{subfigure}[1a]{.8\linewidth}
+		\includegraphics[width=\linewidth]{img/LTSpice_sim_v4_1stage_noise}
+		\caption{Noise simulation of a bootstrapped \gls{tia} with a single output stage}
+		\label{fig:td:noise_1stage}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[2a]{.8\linewidth}
+		\includegraphics[width=\linewidth]{img/LTSpice_sim_v4_2stage_noise}
+		\caption{Noise simulation of a bootstrapped \gls{tia} with two cascaded output stage}
+		\label{fig:td:noise_2stage}
+	\end{subfigure}
+	\caption{Simulation of the effect of cascading on the noise of the fourth iteration of the photodetector}
+	\label{fig:td:v4_noise}
+\end{figure}
+
+
+\section{Final \glsfmtshort{cwodmr} version}\label{chap:td:v5_design}
+At the beginning of the project, the client wanted an all-encompassing solution for the detection of all protocols. Although this is possible, as is clear from the photodetectors on the market, such a solution can cost in the range of hundreds to thousands of euros. Bringing costs down is important for the client, which is why it was eventually decided that separate photodetectors for \gls{cwodmr} and \gls{podmr} were needed, as is stated in the requirements. 
+
+Detecting \gls{cwodmr} is possible with a much lower bandwidth than pulsed protocols, which removes the need for post amplification and thus brings down the overall noise of the system, as well as its noise susceptibility. This is good, because the client is interested in having a portable \gls{cwodmr} demonstrator and reducing noise susceptibility in such a noisy environment is crucial. In the end, the design of this system seeks to minimize noise as much as possible, without necessarily considering the bandwidth.
+
+As the second iteration of the photodetector has a serviceable design, the final version of the photodetector is based on it. The first and most important change for reducing the overall noise of the system is the removal of the non-inverting stage, which necessarily results in an increase of the transimpedance gain. Removing the post amplifier contributes most of the noise reduction, but the transimpedance gain increase, which is equivalent to the value of the gain-setting resistor of the \gls{tia}, also reduces its thermal noise, according to Formula \eqref{eq:td:noise_res}.
+
+Furthermore, significant noise reduction can be brought about by making changes to the \gls{tia}. The op-amp choice is the most impactful of all. The OPA827 was chosen, due to its excellent noise characteristics. Other alternatives, like the OPA1656, AD743 and ADA4627 were considered as well, because of their good noise characteristics, but their low-frequency spectral noise density is higher than the OPA827. \footnote{ADA4627: 4,8 \unit[power-half-as-sqrt]{\nano\volt\per\hertz\tothe{0.5}} at 10 \unit{\kilo\hertz}, but 16,5 \unit[power-half-as-sqrt]{\nano\volt\per\hertz\tothe{0.5}} at 10 \unit{\hertz}; OPA1656: 2,9 \unit[power-half-as-sqrt]{\nano\volt\per\hertz\tothe{0.5}} at 10 \unit{\kilo\hertz}, but 37 \unit[power-half-as-sqrt]{\nano\volt\per\hertz\tothe{0.5}} at 10 \unit{\hertz}; AD743: 2,9 \unit[power-half-as-sqrt]{\nano\volt\per\hertz\tothe{0.5}} at 10 \unit{\kilo\hertz}, but 22 \unit[power-half-as-sqrt]{\nano\volt\per\hertz\tothe{0.5}} at 1 \unit{\hertz}; OPA827: 3,8 \unit[power-half-as-sqrt]{\nano\volt\per\hertz\tothe{0.5}} at 10 \unit{\kilo\hertz} and 7,1 \unit[power-half-as-sqrt]{\nano\volt\per\hertz\tothe{0.5}} at 10 \unit{\hertz}}.
+In addition, the LT1128 was also explored as a possible alternative, as its noise performance is even better than the OPA827. However, it has a significantly higher input bias current\footnote{25 \unit{\nano\ampere} compared to the 10 \unit{\pico\ampere} of the OPA827}, which will affect the photoconductive-mode diode and thus substantially increase its noise. Lower input bias current is the reason why the ADA4627 is the best alternative to the OPA827, despite its somewhat worse noise characteristics.
+
+Finally, the compensation capacitor of the \gls{tia} can also be adjusted to reduce unwanted noise. Figure \ref{fig:noisev5} shows the model of the voltage gain of the noise. The large spike created by the band-pass component can be filtered out by increasing the capacitance, thus substantially reducing the high-frequency noise of the system. For the final design, various standardized values of increasing capacitance were tested with simulation software, until a fitting value was found.
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.7\linewidth]{matlab/noise_v5}
+	\caption{Theoretical noise model of the OPA827-based \gls{tia}}
+	\label{fig:noisev5}
+\end{figure}
+
+After implementing all the changes, the simulation circuit in Figure \ref{fig:td:photodetecv5sim} was used to verify the noise improvements. Additionally, the same circuit was tested with the ADA4627, because in the initial design stage it was seen as the second most promising op-amp.
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.7\linewidth]{img/photodetec_v5_sim}
+	\caption{Circuit used for the simulation of the \gls{cwodmr} photodetector}
+	\label{fig:td:photodetecv5sim}
+\end{figure}
+
+\begin{figure}[!ht]
+	\centering
+	\begin{subfigure}[1a]{.49\linewidth}
+		\includegraphics[width=\linewidth]{img/tina_noise_v5}
+		\caption{Main (OPA827) version}
+		\label{fig:td:v5_main_noise}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[1b]{.49\linewidth}
+		\includegraphics[width=\linewidth]{img/LTSpice_sim_v5_noise_alt}
+		\caption{Alternative (ADA4627) version}
+		\label{fig:td:v5_alt_noise}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[1b]{.49\linewidth}
+		\includegraphics[width=\linewidth]{img/tina_noise_v2}
+		\caption{Old (second iteration; AD795) version}
+		\label{fig:td:v2_noise}
+	\end{subfigure}
+	\caption{Simulation of the noise of the photodetector with different op-amps}
+	\label{fig:td:v5_noise}
+\end{figure}
+
+\begin{table}[!ht]
+	\centering
+	\begin{tabular}{|c||c|c|c|}
+		\hline
+		& v2 	& v5 & Alternative v5  \\
+		\hline
+		\glsfmtshort{ic}					& AD795		 			& OPA827 	     & ADA4627 	\\
+		\hline
+		Bandwidth (\unit{\kilo\hertz}) 		& 21,167		 			& 3,2 	   		 & 3,2  			\\
+		\hline
+		Noise at 1 \unit{\hertz} (\unit[power-half-as-sqrt]{\micro\volt\per\hertz\tothe{0.5}})	& 4,63 				& 1,31 	 & 1,30 			\\
+		\hline
+		Noise at 100 \unit{\kilo\hertz} (\unit[power-half-as-sqrt]{\nano\volt\per\hertz\tothe{0.5}})	& 1830 				& \num{230,41} 	 & \num{347,87} 			\\
+		\hline
+	\end{tabular}
+	\caption{Comparison of the final \gls{cwodmr} photodetector with its alternatives}
+	\label{tab:v2_v5_v5_alt}
+\end{table}
+
+Figure \ref{fig:td:v5_noise} shows a comparison of the noise of the OPA827-based \gls{tia} with the alternative ADA4627-based \gls{tia}. The results show the OPA827 has marginally better noise performance at higher frequency. However, it also performs marginally worse at lower frequencies. In addition, the two possible implementations of the \gls{cwodmr} photodetector were compared to the simulations of the second iteration. Table \ref{tab:v2_v5_v5_alt} shows both new versions demonstrate major noise improvements over the old one in the frequency range of 1 \unit{\hertz} to 100 \unit{\kilo\hertz}.
+
+
+
+\section{Final \glsfmtshort{podmr} version}\label{chap:td:podmr}
+Based on the previously discussed possible bandwidth improvements, a new design was drawn up. Unfortunately, the fourth iteration with the bootstrapped photodetector had biasing issues that could not be resolved, which was found out when doing the tests in Chapter \ref{chap:test:v4_results}. Consequently, the final \gls{podmr}[] design does have a bootstrapped photodetector. The new iteration was made with Rabi oscillations in mind, which occur at over 3,2 \unit{\mega\hertz}. Increasing the bandwidth to 5 \unit[]{\mega\hertz} to support the Rabi oscillations protocol was the primary consideration when designing the \gls{pcb}. This photodetector is based on the TEMD1000 photodiode, because of its low capacitance, which contributes to a much broader bandwidth. Additionally, the \gls{tia} uses the OPA858 op-amp, because of its high \gls{gbp} and low parasitic capacitance. As this design has not been fully implemented, the recommendations chapter (Chapter \ref{chap:recs:photodetector}) discusses some of the underlying design choices that might be subject to change in the future.
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.7\linewidth]{img/photodetec_v6_sim}
+	\caption{Circuit used for the simulation of the Rabi oscillations photodetector}
+	\label{fig:recs:photodetecv6sim}
+\end{figure}
+
+
+\begin{figure}[!ht]
+	\centering
+	\begin{subfigure}[1a]{.49\linewidth}
+		\includegraphics[width=\linewidth]{img/tina_bode_v6}
+		\caption{Frequency response}
+		\label{fig:recs:v6_bode}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[1b]{.49\linewidth}
+		\includegraphics[width=\linewidth]{img/tina_noise_v6}
+		\caption{Spectral noise density}
+		\label{fig:recs:v6_noise}
+	\end{subfigure}
+	\caption{Simulation of the proposed Rabi oscillations photodetector design}
+	\label{fig:recs:v6_sim}
+\end{figure}
+
+The design retains some features of the fourth iteration, most notably the transimpedance gain. It is 120 \unit{\decibel}, which translates to a gain-setting resistor $R_1$ with a value of approximately 1 \unit{\mega\ohm}. Running the design script returns a value of \num{14,626} \unit{\femto\farad} for the compensation capacitor $C_1$ and a \num{14,305} \unit{\mega\hertz} cutoff frequency $f_c$. While the ideal value of $C_1$ provides the most optimal Bessel response, in reality no capacitor with that value could be found. Because of this, a 20 \unit{\femto\farad} capacitor was selected for the simulations, which also has the benefit of reducing the high-frequency noise. As for post-amplification, a single non-inverting stage was picked, due to the small amount of noise, relative to cascading non-inverting stages. Shown in Figure \ref{fig:recs:photodetecv6sim} is the circuit model of the Rabi oscillations photodetector.
+
+
+It should be noted that cascading two post-amplification stages is a viable alternative, as it would result in a 30\% bandwidth increase with the previously mentioned specifications. This layout also results only 20\% more noise. Figure \ref{fig:recs:v6_sim} shows the frequency response of the system, as well as the noise plot. The cutoff frequency of the detector is 9,3 \unit{\mega\hertz}, around which the noise spikes to 31,72 \unit{\micro\volt\per\hertz\tothe{0.5}}. For most of the bandwidth, though, the noise is \qty{12,87}{\micro\volt\per\hertz\tothe{0.5}}. Increasing the capacitance to 30 \unit[]{\femto\farad} results in a bandwidth of \num{5,76} \unit[]{\mega\hertz}, which is just above the minimum of 5 \unit[]{\mega\hertz}. This decreases the noise spike to \num{21,44} \unit{\micro\volt\per\hertz\tothe{0.5}}.
+
+\chapter{Photodetector implementation}
+This chapter deals with the photodetection \glspl{pcb}, which are based on the designs and simulations discussed in the previous chapters.
+
+\section{First iteration}
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=0.6\linewidth]{img/photodetec_og_pcb}
+	\caption{First iteration of the photodetection \gls{pcb}}
+	\label{fig:photodetecogpcb}
+\end{figure}
+
+
+Figure \ref{fig:photodetecogpcb} shows the back side of the \gls{pcb}. It hosts all components, except for the photodiode, which sits unobstructed on the front side. Requirements for the physical dimensions were also set by the client. The \gls{pcb} needs to fit the Thorlabs mount standard, since the rest of the setup also uses it. For photodetection, the system uses a BPW34 through-hole diode. Additionally, the \gls{tia} uses an AD795 op-amp and the post-amplifier uses an AD820.
+
+\section{Second iteration}
+\begin{figure}[!ht]
+	\centering
+	\begin{subfigure}[1a]{.49\linewidth}
+		\includegraphics[width=\linewidth]{img/photodetec_v2_gp_pcb2}
+		\caption{\gls{ecad} model}
+		\label{fig:td:imp:photodetecv2gppcb2}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[1b]{.49\linewidth}
+		\includegraphics[width=\linewidth]{img/photodetec_v2_gp_sch}
+		\caption{Schematic}
+		\label{fig:td:imp:photodetecv2gppcb2sch}
+	\end{subfigure}
+	\caption{Second iteration of the photodetection \gls{pcb}}
+	\label{fig:td:imp:photodetecv2}
+\end{figure}
+
+
+
+
+Due to the fact that the topology of the first iteration was kept, the \gls{pcb} does not need any modifications in order to work with the circuit parameters. However a ground plane was added. Usually such an addition would be needed in high-speed and/or high-power use cases, but the circuit only deals with low-speed, very-low-power signals. The reason for the ground plane in the updated design is broader quantum protocol support. While \gls{cwodmr} operates at low frequencies, future expansion of the sensing setup might require support for different high-speed pulsing sequences. In that case, the component values can be modified again, without the need for making a new board. Figure \ref{fig:td:imp:photodetecv2gppcb2} shows the new board design. The updated board also has better routing than the previous version, which was done to optimize the noise performance.
+
+\section{Third iteration}
+\begin{figure}[ht]
+	\centering
+	\begin{subfigure}[1a]{.49\linewidth}
+		\includegraphics[width=\linewidth]{img/photodetec_v3}
+		\caption{\gls{ecad} model}
+		\label{fig:td:imp:photodetecv3pcb}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[1b]{.49\linewidth}
+		\includegraphics[width=\linewidth]{img/photodetec_v3sch}
+		\caption{Schematic}
+		\label{fig:td:imp:photodetecv3sch}
+	\end{subfigure}
+	\caption{Second iteration of the photodetection \gls{pcb}}
+	\label{fig:td:imp:photodetecv3}
+\end{figure}
+
+
+The TPS60400 charge pump was selected for use in the photodetector in order to invert the 5 \unit{\volt} power supplied to the board by an external supply. The charge pump, combined with the fixed board dimensions, made it more difficult to do the placing and routing. Additionally, the clearance of the power and ground nets was increased. Figure \ref{fig:td:imp:photodetecv3} shows the \gls{ecad} view of the third iteration of the photodetector. 
+
+
+\section{Fourth iteration}
+\begin{figure}[!ht]
+	\centering
+	\begin{subfigure}[1a]{.49\linewidth}
+		\includegraphics[width=\linewidth]{img/photodetec_v4}
+		\caption{\gls{ecad} model}
+		\label{fig:td:imp:photodetecv4pcb}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[1b]{.49\linewidth}
+		\includegraphics[width=\linewidth]{img/photodetec_v4sch}
+		\caption{Schematic}
+		\label{fig:td:imp:photodetecv4sch}
+	\end{subfigure}
+	\caption{Second iteration of the photodetection \gls{pcb}}
+	\label{fig:td:imp:photodetecv4}
+\end{figure}
+
+
+
+\begin{figure}[!ht]
+	\centering
+	\begin{subfigure}[1a]{.49\linewidth}
+		\includegraphics[width=\linewidth]{img/ad795_noise}
+		\caption{Noise spectral density of the AD795 (image credit to the AD795 documentation \cite{ad2019ad795})}
+		\label{fig:td:ad795noisesecond}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[1b]{.49\linewidth}
+		\includegraphics[width=\linewidth]{img/ad4637_noise}
+		\caption{Noise spectral density of the ADA4637 (image credit to the ADA4637 documentation \cite{ad2019ada4637})}
+		\label{fig:td:ada4637noise}
+	\end{subfigure}
+	\caption{Noise spectral density of the amplifiers used in the \gls{tia} circuit of the photodetector}
+	\label{fig:td:opampnoisev4}
+\end{figure}
+
+Unlike the previous photodetector iterations, this one is less concerned with \gls{cwodmr} improvements. In fact, the differences are so significant that the fourth photodetector version requires mostly new components. Instead of an AD795-based \gls{tia} and an AD820-based post-amplifier, the fourth iteration uses ADA4637 and ADA4627 op-amps. The ADA4637 offers significantly higher \gls{gbp} (79 \unit{\mega\hertz} in comparison to 1,6 \unit{\mega\hertz}), however there is an increase in the noise levels (see Figure \ref{fig:td:opampnoisev4}) and this is why it was used for the \gls{tia}. The bootstrap buffer was also matched to use the same op-amp. An amplifier of the same family, namely the ADA4627, is employed by the output stages, because of its much better noise performance\footnote{The ADA4627 has 16 \unit[power-half-as-sqrt]{\nano\volt\per\hertz\tothe{0.5}} at 1 \unit{\hertz}, which steadily decreases to 5 \unit[power-half-as-sqrt]{\nano\volt\per\hertz\tothe{0.5}} at 10 \unit{\kilo\hertz}. The AD820 has 100 \unit[power-half-as-sqrt]{\nano\volt\per\hertz\tothe{0.5}} at 1 \unit{\hertz}, which, similar to the ADA4627, decreases to 15 \unit[power-half-as-sqrt]{\nano\volt\per\hertz\tothe{0.5}} at 10 \unit{\kilo\hertz}. The ADA4637 was also considered as an option for the non-inverting stages, but its noise is higher than the ADA4627}. Decreasing noise later in the signal chain is crucial to maintaining readable output. With all these considerations in mind, the circuit was designed in a similar manner to the previous iterations (see Figure \ref{fig:td:imp:photodetecv4}).
+
+\section{Final \glsfmtshort{cwodmr} version}
+
+\begin{figure}[!ht]
+	\centering
+	\begin{subfigure}[1a]{.49\linewidth}
+		\includegraphics[width=\linewidth]{img/photodetec_v5}
+		\caption{\gls{ecad} model}
+		\label{fig:td:imp:photodetecv5pcb}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[1b]{.49\linewidth}
+		\includegraphics[width=\linewidth]{img/photodetec_v5sch}
+		\caption{Schematic}
+		\label{fig:td:imp:photodetecv5sch}
+	\end{subfigure}
+	\caption{Final \gls{cwodmr} iteration of the photodetection \gls{pcb}}
+	\label{fig:td:imp:photodetecv5}
+\end{figure}
+
+Figure \ref{fig:td:imp:photodetecv5} shows the schematic and the \gls{ecad} model of the final \gls{cwodmr} detector. An additional version that did not have an inverting charge pump was developed as well. For the \gls{cwodmr} demonstrator, having an external split-rail power supply will greatly increase its size and decrease its portability, which is why having a charge pump, with the trade-off of increased noise, is preferred. This way, a microcontroller can power the photodetector. However, when using the lab setup, as little noise as possible is desired. What is more, supplying the circuit with \textpm 5 \unit{\volt} power is not a problem. Consequently, a version without a charge pump is preferred in this scenario.
+
+Aside from making the circuit itself less noisy, extra care was taken to reduce external noise susceptibility. Although having connection pins for the power supply is convenient for testing, it also increases noise, which is why a barrel connector was chosen instead. Moreover, additional vias were added to the ground plane as a means of reducing electromagnetic interference.
+
+\section{Final \glsfmtshort{podmr} version}
+
+After simulating the circuit, a Kicad implementation was made, which can be seen in Figure \ref{fig:recs:v6_sch}. This circuit contains something none of the previous versions do: the voltage divider at the amplifier input. Its addition is needed because the photovoltaic-mode diode might not provide enough current, thus necessitating a redesign. To avoid this issue, $R_2$ and $R_5$ were added to bias the circuit as needed. Three different ways of biasing are possible. Configuring the photodetector to operate in photovoltaic mode can be done by disconnecting $R_5$ and setting $R_2$ to \qty{0}{\ohm}. To bias the diode in photoconductive mode, $R_2$ can be disconnected and $R_5$ can be set to \qty{0}{\ohm} or, alternatively, both $R_2$ and $R_5$ can be connected and set to different values, which will provide a lower amount of voltage to the photodiode. Out of the two photoconductive-mode biasing methods, the latter will result in less dark current, but also less photocurrent. 
+
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=0.7\linewidth]{img/photodetec_v6sch}
+	\caption{Schematic of the proposed Rabi oscillations photodetector}
+	\label{fig:recs:v6_sch}
+\end{figure}
+
+Due to the long shipping times and limited lab access near the end of the project, this design has not been fully implemented and is only a proposal for future reference. A physical implementation of the Kicad design has not been realized and tested, so the board might need modifications in order to work. In addition, the behavior of the photodiode has only been estimated, as the current generation of the device could not be tested when exposed to the green laser. The long shipping times were the main reason why the characterization of the TEMD1000 diode could not be done.
+

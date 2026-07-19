@@ -1,0 +1,324 @@
+\documentclass{report}
+
+% Language setting
+% Replace `english' with e.g. `spanish' to change the document language
+\usepackage[english]{babel}
+\usepackage{blindtext}
+\usepackage{titlesec}
+
+% Useful packages
+\usepackage{amsmath} % math alignment
+\usepackage{siunitx} % SI units
+\sisetup{output-decimal-marker={,}} % make it so that \num uses commas for decimals
+\sisetup{per-mode=symbol} % by default \per is set to power, fraction also works
+\sisetup{power-half-as-sqrt} % literally what it says, sqrt instead of ^(0,5)
+\usepackage{float}
+\usepackage{caption}
+\usepackage[skip=0.5ex]{subcaption} % using both subfigure and subcaption causes conflicts
+%\usepackage{subfigure}
+\usepackage{graphicx}
+
+% float images to top with no whitespace 
+\makeatletter
+\setlength{\@fptop}{0pt}
+\makeatother
+
+
+\usepackage{xcolor}
+\usepackage[
+colorlinks=true,
+urlcolor=blue,
+linkcolor=., % red for drafts, set to . (same as surrounding text) otherwise
+citecolor=., 
+pdftitle={V. Serafimov Bachelor Thesis EEE}
+]{hyperref}
+%\usepackage{cleveref} % better refs, always load after hyperref
+\usepackage[toc]{appendix}
+\usepackage{markdown}
+\usepackage[table,xcdraw]{xcolor}
+\usepackage{adjustbox}
+\usepackage{braket} % package for ket (quantum) brackets
+\usepackage{csquotes} % quotes using \say{}
+\usepackage{matlab-prettifier}
+\usepackage{wrapfig} % use for wrapping figures/tables
+%\usepackage[all]{nowidow} % remove widows/orhans
+
+% floats will not be placed in different subsections (control sequence is used for setting the float limit to subsections instead of sections)
+\usepackage{placeins} 
+\makeatletter
+\AtBeginDocument{%
+	\expandafter\renewcommand\expandafter\subsection\expandafter
+	{\expandafter\@fb@secFB\subsection}%
+	\newcommand\@fb@secFB{\FloatBarrier
+		\gdef\@fb@afterHHook{\@fb@topbarrier \gdef\@fb@afterHHook{}}}%
+	\g@addto@macro\@afterheading{\@fb@afterHHook}%
+	\gdef\@fb@afterHHook{}%
+}
+\makeatother
+
+% Set page size and margins
+% Replace `letterpaper' with `a4paper' for UK/EU standard size
+\usepackage[a4paper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+
+\usepackage{circuitikz} % drawing circuits
+\usepackage{tikz, pgfplots} % drawing diagrams
+\usetikzlibrary{positioning} % for positioning tikz elements (e.g. right=of, left=of)
+\usetikzlibrary{backgrounds} % for drawing in the background (using scope environment)
+\usetikzlibrary{decorations.pathreplacing} % for drawing curly braces with tikz
+
+% Code listings
+\usepackage{listings}
+\colorlet{punct}{red!60!black}
+\definecolor{background}{HTML}{EEEEEE}
+\definecolor{delim}{RGB}{20,105,176}
+\colorlet{numb}{magenta!60!black}
+
+\usepackage{listings}
+\lstset{basicstyle=\ttfamily}
+\lstset{breaklines=true}
+
+\lstdefinelanguage{json}{
+	basicstyle=\normalfont\ttfamily,
+	numbers=left,
+	numberstyle=\scriptsize,
+	stepnumber=1,
+	numbersep=8pt,
+	showstringspaces=false,
+	breaklines=true,
+	frame=lines,
+	backgroundcolor=\color{background},
+	literate=
+	*{0}{{{\color{numb}0}}}{1}
+	{1}{{{\color{numb}1}}}{1}
+	{2}{{{\color{numb}2}}}{1}
+	{3}{{{\color{numb}3}}}{1}
+	{4}{{{\color{numb}4}}}{1}
+	{5}{{{\color{numb}5}}}{1}
+	{6}{{{\color{numb}6}}}{1}
+	{7}{{{\color{numb}7}}}{1}
+	{8}{{{\color{numb}8}}}{1}
+	{9}{{{\color{numb}9}}}{1}
+	{:}{{{\color{punct}{:}}}}{1}
+	{,}{{{\color{punct}{,}}}}{1}
+	{\{}{{{\color{delim}{\{}}}}{1}
+	{\}}{{{\color{delim}{\}}}}}{1}
+	{[}{{{\color{delim}{[}}}}{1}
+	{]}{{{\color{delim}{]}}}}{1},
+	morestring=[b]",
+}
+
+\lstdefinelanguage{curl}{
+	basicstyle=\normalfont\ttfamily,
+	numbers=left,
+	numberstyle=\scriptsize,
+	stepnumber=1,
+	numbersep=8pt,
+	showstringspaces=false,
+	breaklines=true,
+	frame=lines,
+	backgroundcolor=\color{background},
+	literate=
+	*{0}{{{\color{numb}0}}}{1}
+	{1}{{{\color{numb}1}}}{1}
+	{2}{{{\color{numb}2}}}{1}
+	{3}{{{\color{numb}3}}}{1}
+	{4}{{{\color{numb}4}}}{1}
+	{5}{{{\color{numb}5}}}{1}
+	{6}{{{\color{numb}6}}}{1}
+	{7}{{{\color{numb}7}}}{1}
+	{8}{{{\color{numb}8}}}{1}
+	{9}{{{\color{numb}9}}}{1}
+	{:}{{{\color{punct}{:}}}}{1}
+	{,}{{{\color{punct}{,}}}}{1}
+	{\{}{{{\color{delim}{\{}}}}{1}
+	{\}}{{{\color{delim}{\}}}}}{1}
+	{[}{{{\color{delim}{[}}}}{1}
+	{]}{{{\color{delim}{]}}}}{1},
+	morestring=[b]",
+}
+
+
+\lstdefinelanguage{ino}{
+	basicstyle=\normalfont\ttfamily,
+	numbers=left,
+	numberstyle=\scriptsize,
+	stepnumber=1,
+	numbersep=8pt,
+	showstringspaces=false,
+	breaklines=true,
+	frame=lines,
+	backgroundcolor=\color{background},
+	literate=
+	*{0}{{{\color{numb}0}}}{1}
+	{1}{{{\color{numb}1}}}{1}
+	{2}{{{\color{numb}2}}}{1}
+	{3}{{{\color{numb}3}}}{1}
+	{4}{{{\color{numb}4}}}{1}
+	{5}{{{\color{numb}5}}}{1}
+	{6}{{{\color{numb}6}}}{1}
+	{7}{{{\color{numb}7}}}{1}
+	{8}{{{\color{numb}8}}}{1}
+	{9}{{{\color{numb}9}}}{1}
+	{:}{{{\color{punct}{:}}}}{1}
+	{,}{{{\color{punct}{,}}}}{1}
+	{\{}{{{\color{delim}{\{}}}}{1}
+	{\}}{{{\color{delim}{\}}}}}{1}
+	{[}{{{\color{delim}{[}}}}{1}
+	{]}{{{\color{delim}{]}}}}{1},
+	morecomment=[l][\color{gray}]{//},
+	morestring=[b][\color{violet}]",
+	morekeywords={const, void, char, int, float}, keywordstyle=\color{red},
+}
+
+\lstdefinelanguage{pythe}{
+	basicstyle=\normalfont\ttfamily,
+	numbers=left,
+	numberstyle=\scriptsize,
+	stepnumber=1,
+	numbersep=8pt,
+	showstringspaces=false,
+	breaklines=true,
+	frame=lines,
+	backgroundcolor=\color{background},
+	literate=
+	*{0}{{{\color{numb}0}}}{1}
+	{1}{{{\color{numb}1}}}{1}
+	{2}{{{\color{numb}2}}}{1}
+	{3}{{{\color{numb}3}}}{1}
+	{4}{{{\color{numb}4}}}{1}
+	{5}{{{\color{numb}5}}}{1}
+	{6}{{{\color{numb}6}}}{1}
+	{7}{{{\color{numb}7}}}{1}
+	{8}{{{\color{numb}8}}}{1}
+	{9}{{{\color{numb}9}}}{1}
+	{:}{{{\color{punct}{:}}}}{1}
+	{,}{{{\color{punct}{,}}}}{1}
+	{\{}{{{\color{delim}{\{}}}}{1}
+	{\}}{{{\color{delim}{\}}}}}{1}
+	{[}{{{\color{delim}{[}}}}{1}
+	{]}{{{\color{delim}{]}}}}{1},
+	morecomment=[l][\color{gray}]{\#},
+	morestring=[b][\color{violet}]",
+	morekeywords={const, byte, void, char, int, float, c_int, c_string, c_double, c_char, c_byte, def, for, while, in, is, None, True, False, not, if, else, elif, return, pass, continue, print, self, from, import, using}, keywordstyle=\color{red},
+}
+
+
+% bibliography
+\usepackage[
+backend=biber,
+style=ieee,
+citestyle=numeric-comp, % combine severa comma-separated entries
+]{biblatex}
+\addbibresource{sources.bib}
+
+% custom headers and footers
+\usepackage{fancyhdr, lastpage}
+\pagestyle{fancy}
+\lhead{Saxion Applied Nanotechnology}
+\rhead{Enabling photodetection for quantum sensing}
+\cfoot{Page \thepage\ of \pageref{LastPage}}
+
+% force chapter pages to use custom headers
+\usepackage{etoolbox}
+\patchcmd{\chapter}{\thispagestyle{plain}}{\thispagestyle{fancy}}{}{}
+
+% glossary
+\usepackage[automake, style=tree]{glossaries-extra} % autocompile and make nested abbreviations appear on separate lines
+\setabbreviationstyle[acronym]{long-short} % first occurence shows long and short form
+\newacronym{odmr}{ODMR}{Optically Detected Magnetic Resonance}
+\newacronym[parent=odmr]{cwodmr}{CW-ODMR}{Constant-Wave \glstext{odmr}}
+\newacronym[parent=odmr]{podmr}{P-ODMR}{Pulsed \glstext{odmr}}
+\newacronym{ecad}{ECAD}{Electronic Computer-Aided Design}
+\newacronym{gui}{GUI}{Graphical User Interface}
+\newacronym{mri}{MRI}{Magnetic Resonance Imaging}
+\newacronym{mw}{MW}{Microwave}
+\newacronym{nv}{NV}{Nitrogen Vacancy}
+\newacronym{lia}{LIA}{Lock-In Amplifier}
+\newacronym{olia}{OLIA}{Open Lock-In Amplifier}
+\newacronym{pcb}{PCB}{Printed Circuit Board}
+\newacronym[plural=TIAs]{tia}{TIA}{Transimpedance Amplifier}
+\newacronym{ttl}{TTL}{Transistor-Transistor Logic}
+\newacronym{snr}{SNR}{Signal-to-Noise Ratio}
+\newacronym{kcl}{KCL}{Kirchhoff's Current Law}
+\newacronym{dc}{DC}{Direct Current}
+\newacronym{fet}{FET}{Field-Effect Transistor}
+\newacronym[parent=fet]{mosfet}{MOSFET}{Metal-Oxide-Semiconductor \glstext{fet}}
+\newacronym{ti}{TI}{Texas Instruments}
+\newacronym{ic}{IC}{Integrated Circuit}
+\newacronym{usb}{USB}{Universal Serial Bus}
+\newacronym{spice}{SPICE}{Simulation Program with Integrated Circuit Emphasis}
+\newacronym{ac}{AC}{Alternating Current}
+\newacronym{gbp}{GBP}{Gain-Bandwidth Product}
+\newacronym{vna}{VNA}{Vector Network Analyzer}
+\newacronym{rf}{RF}{Radio-Frequency}
+\newacronym{esr}{ESR}{Equivalent Series Resistance}
+\newacronym{pwm}{PWM}{Pulse-Width Modulated}
+\newacronym{daq}{DAQ}{Data Acquisition}
+\newacronym{cli}{CLI}{Command-Line Interface}
+\newacronym{api}{API}{Application Programming Interface}
+\newacronym{sdk}{SDK}{Software Development Kit}
+\newacronym{csv}{CSV}{Comma-Separated Value}
+\newacronym{ad2}{AD2}{Analog Discovery 2}
+\newacronym{fpga}{FPGA}{Field-Programmable Gate Array}
+\newacronym{qdnl}{QDNL}{Quantum Delta NL}
+\newacronym{cmrr}{CMRR}{Common-Mode Rejection Ratio}
+
+\makeglossaries
+
+\title{Enabling photodetection electronics for 
+	fluorescent diamond-based quantum sensing}
+\author{Vladislav Serafimov}
+
+\begin{document}
+	\maketitle
+	
+	
+	
+	\tableofcontents
+	\chapter{Foreword}
+	This is one of the projects, which, backed by \gls{qdnl}, collectively aim to create a quantum sensing setup for the Applied Nanotechnology research group's quantum lab. This bachelor thesis was facilitated by Applied Nanotechnology and my main point of contact with the research group was Ari Ortiz-Moreno, whose guidance I am immensely grateful for. I would also like to thank Mehmet Can for fulfilling his role as my Saxion coach. Special thanks go to the lab manager and the other researchers in the lab, who helped me get accustomed to working in a lab. Last but not least, I want to thank the Smart Solutions Semester students, who worked on the setup in parallel with me, for their contribution and for always being open to my questions about their tasks and assignments.
+	%This project was done as a graduation thesis for the Ambient Intelligence (AmI) research group at Saxion. I had a pleasant time working on this assignment and collaborating with the members of AmI. The professional environment was very productive and the facilities provided by AmI helped greatly with the project work.
+	
+	%I would like to thank the people who supported me throughout this project: my internship coach, Eyuel Ayele, and my Saxion coach, Yanin Kasemsinsup. The completion of the assignment is due in no small part to their constant guidance and advice. 
+	
+	\chapter{Summary}
+	Quantum sensing is a developing technology with numerous applications in the real world. At present, there is a need for smaller and more inexpensive quantum sensors. The Applied Nanotechnology research group is one of the many organizations working on a setup with these criteria in mind. However, quantum sensing protocols, generally known as \gls{odmr}[], do not use conventional electrical circuits for measurements, but instead use and manipulate light signals. This creates the need for opto-elctronic interfacing in order to output the experiment results as electrical signals. For this project, the student was tasked with solving the challenge of detecting low-intensity light by creating compact and affordable photodetectors, while prioritizing the needs of the quantum protocols that need implementing. Additionally, the implementation of a software application for handling $T_1$ measurements experiments was desired. Furthermore, the integration of the different subsystems of the quantum sensing setup needed to be worked on. Using a methodological approach, in the form of the V-Model, the project was tackled and completed successfully. A working photodetector was built to be used for magnetic field measurements using one of the fundamental quantum sensing protocols, \gls{cwodmr}. A design for a \gls{podmr} was also proposed, but due to time constraints it was not implemented fully. The $T_1$ measurements software was almost completed fully, with only the data decoding module missing. Partial integration tests were done, but complete setup integration has been established as a goal for future projects. For high-frequency protocols, modifications to the biasing of the diode might need to be made. Additionally, higher sensitivity can be achieved by changing the p-i-n photodiode for one with a lower junction capacitance. Alternatively, opting for an avalanche or an InGaAs diode instead can also increase sensitivity, although both options will increase the overall cost of the sensing setup significantly.
+	% be more specific
+	% change question
+	% specify stages of the question answering process
+	% address 
+	
+	%An important part of the report is a summary. A summary is used to make clear to other possible interested parties, e.g., 
+	%the management, the major purpose / problem / question to be solved / answered, how this has been tackled and the 
+	%result of the assignment. 
+	%Requirements on a summary:
+	%• It must be readable independent from the report, it is not allowed to refer to chapters, figures.
+	%• It does not contain figures or tables.
+	%• It must summarise:
+	%Why the project has been carried out (problem and goal)
+	%The used methodology
+	%The result (verification with the goal)
+	%Major conclusions
+	%Major recommendations
+	%• It must be written in English, maximum 1 A4
+	
+	
+	\include{05-Introduction}
+	\include{06-Analysis_of_specifications}
+	\include{07-Functional}
+	\include{08-Technical}
+	\include{09-Software_application}
+	
+	%\chapter{Testing} \label{testing}
+	%\section{Data modeling and visualization}
+	
+	\include{09-Conclusion}
+	
+	
+	\include{A-Appendices}
+	
+	
+	\printglossary[type=\acronymtype]
+	\printbibliography
+	
+\end{document}

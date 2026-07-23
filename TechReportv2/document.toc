@@ -5,78 +5,78 @@
 \contentsline {section}{\numberline {3.1}Background}{5}{section.3.1}%
 \contentsline {section}{\numberline {3.2}Purpose of the assignment}{6}{section.3.2}%
 \contentsline {section}{\numberline {3.3}Assignment specifications}{7}{section.3.3}%
-\contentsline {section}{\numberline {3.4}Scope of work}{7}{section.3.4}%
+\contentsline {section}{\numberline {3.4}Scope of work}{8}{section.3.4}%
 \contentsline {subsection}{\numberline {3.4.1}Project boundaries}{8}{subsection.3.4.1}%
 \contentsline {subsection}{\numberline {3.4.2}Goals}{8}{subsection.3.4.2}%
-\contentsline {subsection}{\numberline {3.4.3}Deliverables}{9}{subsection.3.4.3}%
+\contentsline {subsection}{\numberline {3.4.3}Deliverables}{10}{subsection.3.4.3}%
 \contentsline {section}{\numberline {3.5}Methodology}{10}{section.3.5}%
-\contentsline {section}{\numberline {3.6}Report outline}{10}{section.3.6}%
-\contentsline {chapter}{\numberline {4}Functional design}{11}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Quantum magnetometry protocols}{11}{section.4.1}%
-\contentsline {subsection}{\numberline {4.1.1}\glsxtrtitleshort {cwodmr}}{11}{subsection.4.1.1}%
-\contentsline {subsection}{\numberline {4.1.2}$T_1$ relaxometry}{12}{subsection.4.1.2}%
-\contentsline {subsection}{\numberline {4.1.3}Rabi oscillations}{14}{subsection.4.1.3}%
-\contentsline {section}{\numberline {4.2}Photodetection}{15}{section.4.2}%
-\contentsline {subsection}{\numberline {4.2.1}Photodiodes}{17}{subsection.4.2.1}%
-\contentsline {subsection}{\numberline {4.2.2}\glsxtrtitleshort {tia} design overview}{18}{subsection.4.2.2}%
-\contentsline {subsection}{\numberline {4.2.3}Power requirements}{19}{subsection.4.2.3}%
-\contentsline {section}{\numberline {4.3}Lock-in amplification}{20}{section.4.3}%
-\contentsline {chapter}{\numberline {5}Photodetector design}{22}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Proposed design}{22}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Frequency and noise analysis}{23}{section.5.2}%
-\contentsline {section}{\numberline {5.3}Power supply and conversion}{27}{section.5.3}%
-\contentsline {section}{\numberline {5.4}Bandwidth expansion}{29}{section.5.4}%
-\contentsline {chapter}{\numberline {6}Photodetector simulation}{32}{chapter.6}%
-\contentsline {section}{\numberline {6.1}First iteration}{32}{section.6.1}%
-\contentsline {section}{\numberline {6.2}Second iteration}{33}{section.6.2}%
-\contentsline {section}{\numberline {6.3}Third iteration}{35}{section.6.3}%
-\contentsline {section}{\numberline {6.4}Fourth iteration}{35}{section.6.4}%
-\contentsline {section}{\numberline {6.5}Final \glsxtrtitleshort {cwodmr} version}{37}{section.6.5}%
-\contentsline {section}{\numberline {6.6}Final \glsxtrtitleshort {podmr} version}{39}{section.6.6}%
-\contentsline {chapter}{\numberline {7}Photodetector implementation}{41}{chapter.7}%
-\contentsline {section}{\numberline {7.1}First iteration}{41}{section.7.1}%
-\contentsline {section}{\numberline {7.2}Second iteration}{41}{section.7.2}%
-\contentsline {section}{\numberline {7.3}Third iteration}{42}{section.7.3}%
-\contentsline {section}{\numberline {7.4}Fourth iteration}{42}{section.7.4}%
-\contentsline {section}{\numberline {7.5}Final \glsxtrtitleshort {cwodmr} version}{43}{section.7.5}%
-\contentsline {section}{\numberline {7.6}Final \glsxtrtitleshort {podmr} version}{44}{section.7.6}%
-\contentsline {chapter}{\numberline {8}Software application}{45}{chapter.8}%
-\contentsline {section}{\numberline {8.1}Driving the laser}{45}{section.8.1}%
-\contentsline {section}{\numberline {8.2}\glsxtrtitleshort {gui}}{46}{section.8.2}%
-\contentsline {section}{\numberline {8.3}Pulse generation}{47}{section.8.3}%
-\contentsline {section}{\numberline {8.4}Data acquisition}{49}{section.8.4}%
-\contentsline {section}{\numberline {8.5}Data processing and visualization}{49}{section.8.5}%
-\contentsline {chapter}{\numberline {9}Testing and results}{51}{chapter.9}%
-\contentsline {section}{\numberline {9.1}Test goals}{51}{section.9.1}%
-\contentsline {subsection}{\numberline {9.1.1}Photodetector}{51}{subsection.9.1.1}%
-\contentsline {subsection}{\numberline {9.1.2}$T_1$ software}{52}{subsection.9.1.2}%
-\contentsline {section}{\numberline {9.2}Test setup}{52}{section.9.2}%
-\contentsline {subsection}{\numberline {9.2.1}Photodiode-model characterization}{52}{subsection.9.2.1}%
-\contentsline {subsection}{\numberline {9.2.2}S-parameter characterization}{54}{subsection.9.2.2}%
-\contentsline {subsection}{\numberline {9.2.3}Integration test}{54}{subsection.9.2.3}%
-\contentsline {subsection}{\numberline {9.2.4}\glsxtrtitleshort {daq} test setup}{55}{subsection.9.2.4}%
-\contentsline {section}{\numberline {9.3}Photodiode model characterization results}{55}{section.9.3}%
-\contentsline {subsection}{\numberline {9.3.1}First iteration}{55}{subsection.9.3.1}%
-\contentsline {subsection}{\numberline {9.3.2}Second iteration}{57}{subsection.9.3.2}%
-\contentsline {subsection}{\numberline {9.3.3}Third iteration}{59}{subsection.9.3.3}%
-\contentsline {subsection}{\numberline {9.3.4}Fourth iteration}{60}{subsection.9.3.4}%
-\contentsline {section}{\numberline {9.4}S-parameter characterization results}{60}{section.9.4}%
-\contentsline {section}{\numberline {9.5}Integration test results}{60}{section.9.5}%
-\contentsline {subsection}{\numberline {9.5.1}First iteration}{61}{subsection.9.5.1}%
-\contentsline {subsection}{\numberline {9.5.2}Second iteration}{61}{subsection.9.5.2}%
-\contentsline {subsection}{\numberline {9.5.3}Third iteration}{62}{subsection.9.5.3}%
-\contentsline {subsection}{\numberline {9.5.4}Fourth iteration}{64}{subsection.9.5.4}%
-\contentsline {section}{\numberline {9.6}Additional integration test}{65}{section.9.6}%
-\contentsline {section}{\numberline {9.7}\glsxtrtitleshort {daq} test results}{66}{section.9.7}%
-\contentsline {section}{\numberline {9.8}Discussion}{67}{section.9.8}%
-\contentsline {subsection}{\numberline {9.8.1}Photodetectors}{67}{subsection.9.8.1}%
-\contentsline {subsection}{\numberline {9.8.2}$T_1$ software}{67}{subsection.9.8.2}%
-\contentsline {section}{\numberline {9.9}Known limitations}{67}{section.9.9}%
-\contentsline {chapter}{\numberline {10}Conclusion}{69}{chapter.10}%
-\contentsline {chapter}{\numberline {11}Recommendations}{70}{chapter.11}%
-\contentsline {section}{\numberline {11.1}Photodetector}{70}{section.11.1}%
-\contentsline {section}{\numberline {11.2}Software application}{73}{section.11.2}%
-\contentsline {section}{\numberline {11.3}Lock-in amplification}{74}{section.11.3}%
-\contentsline {chapter}{Appendices}{76}{section*.101}%
-\contentsline {chapter}{\numberline {A}Code}{76}{appendix.1.A}%
-\contentsline {chapter}{Glossary}{81}{section*.108}%
+\contentsline {section}{\numberline {3.6}Report outline}{11}{section.3.6}%
+\contentsline {chapter}{\numberline {4}Functional design}{12}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Quantum magnetometry protocols}{12}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}\glsxtrtitleshort {cwodmr}}{12}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}$T_1$ relaxometry}{13}{subsection.4.1.2}%
+\contentsline {subsection}{\numberline {4.1.3}Rabi oscillations}{15}{subsection.4.1.3}%
+\contentsline {section}{\numberline {4.2}Photodetection}{16}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Photodiodes}{18}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}\glsxtrtitleshort {tia} design overview}{19}{subsection.4.2.2}%
+\contentsline {subsection}{\numberline {4.2.3}Power requirements}{20}{subsection.4.2.3}%
+\contentsline {section}{\numberline {4.3}Lock-in amplification}{21}{section.4.3}%
+\contentsline {chapter}{\numberline {5}Photodetector design}{23}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Proposed design}{23}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Frequency and noise analysis}{24}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Power supply and conversion}{28}{section.5.3}%
+\contentsline {section}{\numberline {5.4}Bandwidth expansion}{30}{section.5.4}%
+\contentsline {chapter}{\numberline {6}Photodetector simulation}{33}{chapter.6}%
+\contentsline {section}{\numberline {6.1}First iteration}{33}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Second iteration}{34}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Third iteration}{36}{section.6.3}%
+\contentsline {section}{\numberline {6.4}Fourth iteration}{36}{section.6.4}%
+\contentsline {section}{\numberline {6.5}Final \glsxtrtitleshort {cwodmr} version}{38}{section.6.5}%
+\contentsline {section}{\numberline {6.6}Final \glsxtrtitleshort {podmr} version}{40}{section.6.6}%
+\contentsline {chapter}{\numberline {7}Photodetector implementation}{42}{chapter.7}%
+\contentsline {section}{\numberline {7.1}First iteration}{42}{section.7.1}%
+\contentsline {section}{\numberline {7.2}Second iteration}{42}{section.7.2}%
+\contentsline {section}{\numberline {7.3}Third iteration}{43}{section.7.3}%
+\contentsline {section}{\numberline {7.4}Fourth iteration}{43}{section.7.4}%
+\contentsline {section}{\numberline {7.5}Final \glsxtrtitleshort {cwodmr} version}{44}{section.7.5}%
+\contentsline {section}{\numberline {7.6}Final \glsxtrtitleshort {podmr} version}{45}{section.7.6}%
+\contentsline {chapter}{\numberline {8}Software application}{46}{chapter.8}%
+\contentsline {section}{\numberline {8.1}Driving the laser}{46}{section.8.1}%
+\contentsline {section}{\numberline {8.2}\glsxtrtitleshort {gui}}{47}{section.8.2}%
+\contentsline {section}{\numberline {8.3}Pulse generation}{48}{section.8.3}%
+\contentsline {section}{\numberline {8.4}Data acquisition}{50}{section.8.4}%
+\contentsline {section}{\numberline {8.5}Data processing and visualization}{50}{section.8.5}%
+\contentsline {chapter}{\numberline {9}Testing and results}{52}{chapter.9}%
+\contentsline {section}{\numberline {9.1}Test goals}{52}{section.9.1}%
+\contentsline {subsection}{\numberline {9.1.1}Photodetector}{52}{subsection.9.1.1}%
+\contentsline {subsection}{\numberline {9.1.2}$T_1$ software}{53}{subsection.9.1.2}%
+\contentsline {section}{\numberline {9.2}Test setup}{53}{section.9.2}%
+\contentsline {subsection}{\numberline {9.2.1}Photodiode-model characterization}{53}{subsection.9.2.1}%
+\contentsline {subsection}{\numberline {9.2.2}S-parameter characterization}{55}{subsection.9.2.2}%
+\contentsline {subsection}{\numberline {9.2.3}Integration test}{55}{subsection.9.2.3}%
+\contentsline {subsection}{\numberline {9.2.4}\glsxtrtitleshort {daq} test setup}{56}{subsection.9.2.4}%
+\contentsline {section}{\numberline {9.3}Photodiode model characterization results}{56}{section.9.3}%
+\contentsline {subsection}{\numberline {9.3.1}First iteration}{56}{subsection.9.3.1}%
+\contentsline {subsection}{\numberline {9.3.2}Second iteration}{58}{subsection.9.3.2}%
+\contentsline {subsection}{\numberline {9.3.3}Third iteration}{60}{subsection.9.3.3}%
+\contentsline {subsection}{\numberline {9.3.4}Fourth iteration}{61}{subsection.9.3.4}%
+\contentsline {section}{\numberline {9.4}S-parameter characterization results}{61}{section.9.4}%
+\contentsline {section}{\numberline {9.5}Integration test results}{61}{section.9.5}%
+\contentsline {subsection}{\numberline {9.5.1}First iteration}{62}{subsection.9.5.1}%
+\contentsline {subsection}{\numberline {9.5.2}Second iteration}{62}{subsection.9.5.2}%
+\contentsline {subsection}{\numberline {9.5.3}Third iteration}{63}{subsection.9.5.3}%
+\contentsline {subsection}{\numberline {9.5.4}Fourth iteration}{65}{subsection.9.5.4}%
+\contentsline {section}{\numberline {9.6}Additional integration test}{66}{section.9.6}%
+\contentsline {section}{\numberline {9.7}\glsxtrtitleshort {daq} test results}{67}{section.9.7}%
+\contentsline {section}{\numberline {9.8}Discussion}{68}{section.9.8}%
+\contentsline {subsection}{\numberline {9.8.1}Photodetectors}{68}{subsection.9.8.1}%
+\contentsline {subsection}{\numberline {9.8.2}$T_1$ software}{68}{subsection.9.8.2}%
+\contentsline {section}{\numberline {9.9}Known limitations}{69}{section.9.9}%
+\contentsline {chapter}{\numberline {10}Conclusion}{70}{chapter.10}%
+\contentsline {chapter}{\numberline {11}Recommendations}{72}{chapter.11}%
+\contentsline {section}{\numberline {11.1}Photodetector}{72}{section.11.1}%
+\contentsline {section}{\numberline {11.2}Software application}{75}{section.11.2}%
+\contentsline {section}{\numberline {11.3}Lock-in amplification}{76}{section.11.3}%
+\contentsline {chapter}{Appendices}{78}{section*.101}%
+\contentsline {chapter}{\numberline {A}Code}{78}{appendix.1.A}%
+\contentsline {chapter}{Glossary}{83}{section*.108}%
